@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sparkfly_client"
-version = "1.0.0"
+version = "1.0.1"
 description = "Sparkfly Platform API"
 authors = ["OpenAPI Generator Community <team@openapitools.org>"]
 license = "NoLicense"
