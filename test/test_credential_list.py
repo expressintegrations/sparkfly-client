@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.credential_list import CredentialList  # noqa: E501
+from sparkfly_client.models.credential_list import CredentialList  # noqa: E501
 
 class TestCredentialList(unittest.TestCase):
     """CredentialList unit test stubs"""
@@ -41,8 +41,8 @@ class TestCredentialList(unittest.TestCase):
                 total_entries = 56,
                 total_pages = 56,
                 credentials = [
-                    openapi_client.models.credential_response.credential_response(
-                        credential = openapi_client.models.credential.credential(
+                    sparkfly_client.models.credential_response.credential_response(
+                        credential = sparkfly_client.models.credential.credential(
                             id = 56, 
                             account_id = 56, 
                             created_at = '', 

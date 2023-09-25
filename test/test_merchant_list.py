@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.merchant_list import MerchantList  # noqa: E501
+from sparkfly_client.models.merchant_list import MerchantList  # noqa: E501
 
 class TestMerchantList(unittest.TestCase):
     """MerchantList unit test stubs"""
@@ -41,8 +41,8 @@ class TestMerchantList(unittest.TestCase):
                 total_entries = 56,
                 total_pages = 56,
                 merchants = [
-                    openapi_client.models.merchant_response.merchant_response(
-                        merchant = openapi_client.models.merchant.merchant(
+                    sparkfly_client.models.merchant_response.merchant_response(
+                        merchant = sparkfly_client.models.merchant.merchant(
                             id = 56, 
                             created_at = '', 
                             updated_at = '', 
@@ -53,7 +53,7 @@ class TestMerchantList(unittest.TestCase):
                             billing_arrangement = '', 
                             supports_barcode = True, 
                             redemption_identifier_type = 56, 
-                            location = openapi_client.models.location.location(
+                            location = sparkfly_client.models.location.location(
                                 address = '', 
                                 address2 = '', 
                                 city = '', 
@@ -63,19 +63,19 @@ class TestMerchantList(unittest.TestCase):
                                 lat = 56, 
                                 long = 56, ), 
                             channels = [
-                                openapi_client.models.channel.channel(
+                                sparkfly_client.models.channel.channel(
                                     id = 56, 
                                     name = '', 
                                     allow_sms_keyword = True, 
                                     allow_hmac = True, 
                                     conversion_callback_url = '', )
                                 ], 
-                            contacts = openapi_client.models.contacts.contacts(
-                                primary = openapi_client.models.contact.contact(
+                            contacts = sparkfly_client.models.contacts.contacts(
+                                primary = sparkfly_client.models.contact.contact(
                                     name = '', 
                                     phone = '', 
                                     email = '', ), 
-                                secondary = openapi_client.models.contact.contact(
+                                secondary = sparkfly_client.models.contact.contact(
                                     name = '', 
                                     phone = '', 
                                     email = '', ), ), 

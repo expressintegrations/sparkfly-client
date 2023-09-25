@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.eligible_channel_response import EligibleChannelResponse  # noqa: E501
+from sparkfly_client.models.eligible_channel_response import EligibleChannelResponse  # noqa: E501
 
 class TestEligibleChannelResponse(unittest.TestCase):
     """EligibleChannelResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestEligibleChannelResponse(unittest.TestCase):
         model = EligibleChannelResponse()  # noqa: E501
         if include_optional:
             return EligibleChannelResponse(
-                eligible_channel = openapi_client.models.eligible_channel.eligible_channel(
+                eligible_channel = sparkfly_client.models.eligible_channel.eligible_channel(
                     id = 56, 
                     channel_id = 56, 
                     xid = '', 

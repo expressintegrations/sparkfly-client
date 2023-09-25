@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.offers_passbook_configuration_api import OffersPassbookConfigurationApi  # noqa: E501
+from sparkfly_client.api.offers_passbook_configuration_api import OffersPassbookConfigurationApi  # noqa: E501
 
 
 class TestOffersPassbookConfigurationApi(unittest.TestCase):
@@ -26,31 +26,31 @@ class TestOffersPassbookConfigurationApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_offers_offer_id_passbook_configuration_delete(self) -> None:
-        """Test case for v10_offers_offer_id_passbook_configuration_delete
-
-        Passbook Configuration Delete for Offer  # noqa: E501
-        """
-        pass
-
-    def test_v10_offers_offer_id_passbook_configuration_get(self) -> None:
-        """Test case for v10_offers_offer_id_passbook_configuration_get
+    def test_offer_passbook_configuration(self) -> None:
+        """Test case for offer_passbook_configuration
 
         Get Passbook Configuration for Offer  # noqa: E501
         """
         pass
 
-    def test_v10_offers_offer_id_passbook_configuration_post(self) -> None:
-        """Test case for v10_offers_offer_id_passbook_configuration_post
+    def test_offer_passbook_configuration_0(self) -> None:
+        """Test case for offer_passbook_configuration_0
+
+        Update Passbook Configuration for Offer  # noqa: E501
+        """
+        pass
+
+    def test_offer_passbook_configuration_1(self) -> None:
+        """Test case for offer_passbook_configuration_1
 
         Passbook Configuration Create  # noqa: E501
         """
         pass
 
-    def test_v10_offers_offer_id_passbook_configuration_put(self) -> None:
-        """Test case for v10_offers_offer_id_passbook_configuration_put
+    def test_offer_passbook_configuration_2(self) -> None:
+        """Test case for offer_passbook_configuration_2
 
-        Update Passbook Configuration for Offer  # noqa: E501
+        Passbook Configuration Delete for Offer  # noqa: E501
         """
         pass
 

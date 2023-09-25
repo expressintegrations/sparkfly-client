@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.counter_input import CounterInput  # noqa: E501
+from sparkfly_client.models.counter_input import CounterInput  # noqa: E501
 
 class TestCounterInput(unittest.TestCase):
     """CounterInput unit test stubs"""

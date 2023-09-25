@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.event_list import EventList  # noqa: E501
+from sparkfly_client.models.event_list import EventList  # noqa: E501
 
 class TestEventList(unittest.TestCase):
     """EventList unit test stubs"""
@@ -41,8 +41,8 @@ class TestEventList(unittest.TestCase):
                 total_entries = 56,
                 total_pages = 56,
                 events = [
-                    openapi_client.models.event_response.event_response(
-                        event = openapi_client.models.event.event(
+                    sparkfly_client.models.event_response.event_response(
+                        event = sparkfly_client.models.event.event(
                             id = 56, 
                             name = '', ), 
                         errors = {

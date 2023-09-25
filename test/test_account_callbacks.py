@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.account_callbacks import AccountCallbacks  # noqa: E501
+from sparkfly_client.models.account_callbacks import AccountCallbacks  # noqa: E501
 
 class TestAccountCallbacks(unittest.TestCase):
     """AccountCallbacks unit test stubs"""

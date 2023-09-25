@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.member_lists_api import MemberListsApi  # noqa: E501
+from sparkfly_client.api.member_lists_api import MemberListsApi  # noqa: E501
 
 
 class TestMemberListsApi(unittest.TestCase):
@@ -26,38 +26,38 @@ class TestMemberListsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_member_lists_get(self) -> None:
-        """Test case for v10_member_lists_get
+    def test_member_list(self) -> None:
+        """Test case for member_list
 
-        Get all member lists  # noqa: E501
+        Create a member list  # noqa: E501
         """
         pass
 
-    def test_v10_member_lists_member_list_id_delete(self) -> None:
-        """Test case for v10_member_lists_member_list_id_delete
-
-        Delete Member List by ID  # noqa: E501
-        """
-        pass
-
-    def test_v10_member_lists_member_list_id_get(self) -> None:
-        """Test case for v10_member_lists_member_list_id_get
+    def test_member_list_0(self) -> None:
+        """Test case for member_list_0
 
         Get member list by ID  # noqa: E501
         """
         pass
 
-    def test_v10_member_lists_member_list_id_put(self) -> None:
-        """Test case for v10_member_lists_member_list_id_put
+    def test_member_list_1(self) -> None:
+        """Test case for member_list_1
 
         Update Member List by ID  # noqa: E501
         """
         pass
 
-    def test_v10_member_lists_post(self) -> None:
-        """Test case for v10_member_lists_post
+    def test_member_list_2(self) -> None:
+        """Test case for member_list_2
 
-        Create a member list  # noqa: E501
+        Delete Member List by ID  # noqa: E501
+        """
+        pass
+
+    def test_member_lists(self) -> None:
+        """Test case for member_lists
+
+        Get all member lists  # noqa: E501
         """
         pass
 

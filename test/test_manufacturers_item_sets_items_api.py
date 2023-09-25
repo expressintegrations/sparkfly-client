@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.manufacturers_item_sets_items_api import ManufacturersItemSetsItemsApi  # noqa: E501
+from sparkfly_client.api.manufacturers_item_sets_items_api import ManufacturersItemSetsItemsApi  # noqa: E501
 
 
 class TestManufacturersItemSetsItemsApi(unittest.TestCase):
@@ -26,8 +26,8 @@ class TestManufacturersItemSetsItemsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_manufacturers_manufacturer_id_item_sets_item_set_id_items_get(self) -> None:
-        """Test case for v10_manufacturers_manufacturer_id_item_sets_item_set_id_items_get
+    def test_manufacturer_item_set_items(self) -> None:
+        """Test case for manufacturer_item_set_items
 
         Get items for item set for manufacturer  # noqa: E501
         """

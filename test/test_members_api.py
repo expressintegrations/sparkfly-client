@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.members_api import MembersApi  # noqa: E501
+from sparkfly_client.api.members_api import MembersApi  # noqa: E501
 
 
 class TestMembersApi(unittest.TestCase):
@@ -26,43 +26,43 @@ class TestMembersApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_members_get(self) -> None:
-        """Test case for v10_members_get
-
-        List members  # noqa: E501
-        """
-        pass
-
-    def test_v10_members_member_id_delete(self) -> None:
-        """Test case for v10_members_member_id_delete
-
-        Delete the member  # noqa: E501
-        """
-        pass
-
-    def test_v10_members_member_id_get(self) -> None:
-        """Test case for v10_members_member_id_get
-
-        Retrieve Member  # noqa: E501
-        """
-        pass
-
-    def test_v10_members_member_id_put(self) -> None:
-        """Test case for v10_members_member_id_put
-
-        Update Member  # noqa: E501
-        """
-        pass
-
-    def test_v10_members_post(self) -> None:
-        """Test case for v10_members_post
+    def test_member(self) -> None:
+        """Test case for member
 
         Creates a member  # noqa: E501
         """
         pass
 
-    def test_v10_members_search_get(self) -> None:
-        """Test case for v10_members_search_get
+    def test_member_0(self) -> None:
+        """Test case for member_0
+
+        Retrieve Member  # noqa: E501
+        """
+        pass
+
+    def test_member_1(self) -> None:
+        """Test case for member_1
+
+        Update Member  # noqa: E501
+        """
+        pass
+
+    def test_member_2(self) -> None:
+        """Test case for member_2
+
+        Delete the member  # noqa: E501
+        """
+        pass
+
+    def test_members(self) -> None:
+        """Test case for members
+
+        List members  # noqa: E501
+        """
+        pass
+
+    def test_members_by_identifier(self) -> None:
+        """Test case for members_by_identifier
 
         Search for Member by Identifier  # noqa: E501
         """

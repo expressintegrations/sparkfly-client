@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.store_input_request import StoreInputRequest  # noqa: E501
+from sparkfly_client.models.store_input_request import StoreInputRequest  # noqa: E501
 
 class TestStoreInputRequest(unittest.TestCase):
     """StoreInputRequest unit test stubs"""
@@ -36,17 +36,17 @@ class TestStoreInputRequest(unittest.TestCase):
         model = StoreInputRequest()  # noqa: E501
         if include_optional:
             return StoreInputRequest(
-                store = openapi_client.models.store_input.store_input(
+                store = sparkfly_client.models.store_input.store_input(
                     name = '', 
                     description = '', 
                     is_active = True, 
                     number = '', 
                     phone = '', 
-                    primary = openapi_client.models.contact.contact(
+                    primary = sparkfly_client.models.contact.contact(
                         name = '', 
                         phone = '', 
                         email = '', ), 
-                    secondary = openapi_client.models.contact.contact(
+                    secondary = sparkfly_client.models.contact.contact(
                         name = '', 
                         phone = '', 
                         email = '', ), )

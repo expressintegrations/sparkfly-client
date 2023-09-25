@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.campaign import Campaign  # noqa: E501
+from sparkfly_client.models.campaign import Campaign  # noqa: E501
 
 class TestCampaign(unittest.TestCase):
     """Campaign unit test stubs"""
@@ -71,7 +71,7 @@ class TestCampaign(unittest.TestCase):
                 terms_and_conditions_template_id = '',
                 terms_and_conditions = '',
                 security = '',
-                landing_page_urls = openapi_client.models.campaign_landing_page_urls.campaign_landing_page_urls(
+                landing_page_urls = sparkfly_client.models.campaign_landing_page_urls.campaign_landing_page_urls(
                     store = {
                         'key' : ''
                         }, 

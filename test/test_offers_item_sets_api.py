@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.offers_item_sets_api import OffersItemSetsApi  # noqa: E501
+from sparkfly_client.api.offers_item_sets_api import OffersItemSetsApi  # noqa: E501
 
 
 class TestOffersItemSetsApi(unittest.TestCase):
@@ -26,29 +26,29 @@ class TestOffersItemSetsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_offers_offer_id_eligible_item_sets_eligible_item_set_id_delete(self) -> None:
-        """Test case for v10_offers_offer_id_eligible_item_sets_eligible_item_set_id_delete
-
-        Remove eligible Item Set from offer  # noqa: E501
-        """
-        pass
-
-    def test_v10_offers_offer_id_eligible_item_sets_eligible_item_set_id_get(self) -> None:
-        """Test case for v10_offers_offer_id_eligible_item_sets_eligible_item_set_id_get
+    def test_offer_eligible_item_set(self) -> None:
+        """Test case for offer_eligible_item_set
 
         Retrieve eligible Item Set for offer  # noqa: E501
         """
         pass
 
-    def test_v10_offers_offer_id_eligible_item_sets_eligible_item_set_id_put(self) -> None:
-        """Test case for v10_offers_offer_id_eligible_item_sets_eligible_item_set_id_put
+    def test_offer_eligible_item_set_0(self) -> None:
+        """Test case for offer_eligible_item_set_0
 
         Update eligible Item Set for offer  # noqa: E501
         """
         pass
 
-    def test_v10_offers_offer_id_eligible_item_sets_post(self) -> None:
-        """Test case for v10_offers_offer_id_eligible_item_sets_post
+    def test_offer_eligible_item_set_1(self) -> None:
+        """Test case for offer_eligible_item_set_1
+
+        Remove eligible Item Set from offer  # noqa: E501
+        """
+        pass
+
+    def test_offer_eligible_item_sets(self) -> None:
+        """Test case for offer_eligible_item_sets
 
         Eligible Item Set for Offer - Create  # noqa: E501
         """

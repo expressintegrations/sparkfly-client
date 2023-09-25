@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.campaign_response import CampaignResponse  # noqa: E501
+from sparkfly_client.models.campaign_response import CampaignResponse  # noqa: E501
 
 class TestCampaignResponse(unittest.TestCase):
     """CampaignResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestCampaignResponse(unittest.TestCase):
         model = CampaignResponse()  # noqa: E501
         if include_optional:
             return CampaignResponse(
-                campaign = openapi_client.models.campaign.campaign(
+                campaign = sparkfly_client.models.campaign.campaign(
                     id = 56, 
                     xid = '', 
                     name = '', 
@@ -72,7 +72,7 @@ class TestCampaignResponse(unittest.TestCase):
                     terms_and_conditions_template_id = '', 
                     terms_and_conditions = '', 
                     security = '', 
-                    landing_page_urls = openapi_client.models.campaign_landing_page_urls.campaign_landing_page_urls(
+                    landing_page_urls = sparkfly_client.models.campaign_landing_page_urls.campaign_landing_page_urls(
                         store = {
                             'key' : ''
                             }, 

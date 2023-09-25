@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.campaigns_api import CampaignsApi  # noqa: E501
+from sparkfly_client.api.campaigns_api import CampaignsApi  # noqa: E501
 
 
 class TestCampaignsApi(unittest.TestCase):
@@ -26,45 +26,45 @@ class TestCampaignsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_campaigns_campaign_id_delete(self) -> None:
-        """Test case for v10_campaigns_campaign_id_delete
+    def test_active_reward_program_campaigns(self) -> None:
+        """Test case for active_reward_program_campaigns
 
-        Delete the campaign  # noqa: E501
+        Get active reward program campaigns  # noqa: E501
         """
         pass
 
-    def test_v10_campaigns_campaign_id_get(self) -> None:
-        """Test case for v10_campaigns_campaign_id_get
-
-        Retrieve Campaign  # noqa: E501
-        """
-        pass
-
-    def test_v10_campaigns_campaign_id_put(self) -> None:
-        """Test case for v10_campaigns_campaign_id_put
-
-        Update Campaign  # noqa: E501
-        """
-        pass
-
-    def test_v10_campaigns_get(self) -> None:
-        """Test case for v10_campaigns_get
-
-        Get campaign by external ID  # noqa: E501
-        """
-        pass
-
-    def test_v10_campaigns_post(self) -> None:
-        """Test case for v10_campaigns_post
+    def test_campaign(self) -> None:
+        """Test case for campaign
 
         Create a new campaign  # noqa: E501
         """
         pass
 
-    def test_v10_campaigns_search_get(self) -> None:
-        """Test case for v10_campaigns_search_get
+    def test_campaign_0(self) -> None:
+        """Test case for campaign_0
 
-        Get active reward program campaigns  # noqa: E501
+        Retrieve Campaign  # noqa: E501
+        """
+        pass
+
+    def test_campaign_1(self) -> None:
+        """Test case for campaign_1
+
+        Update Campaign  # noqa: E501
+        """
+        pass
+
+    def test_campaign_2(self) -> None:
+        """Test case for campaign_2
+
+        Delete the campaign  # noqa: E501
+        """
+        pass
+
+    def test_campaign_by_external_id(self) -> None:
+        """Test case for campaign_by_external_id
+
+        Get campaign by external ID  # noqa: E501
         """
         pass
 

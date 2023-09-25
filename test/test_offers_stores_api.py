@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.offers_stores_api import OffersStoresApi  # noqa: E501
+from sparkfly_client.api.offers_stores_api import OffersStoresApi  # noqa: E501
 
 
 class TestOffersStoresApi(unittest.TestCase):
@@ -26,8 +26,8 @@ class TestOffersStoresApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_offers_offer_id_stores_get(self) -> None:
-        """Test case for v10_offers_offer_id_stores_get
+    def test_nearby_offer_stores(self) -> None:
+        """Test case for nearby_offer_stores
 
         Get nearby Stores for Offer  # noqa: E501
         """

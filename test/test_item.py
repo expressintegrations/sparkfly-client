@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.item import Item  # noqa: E501
+from sparkfly_client.models.item import Item  # noqa: E501
 
 class TestItem(unittest.TestCase):
     """Item unit test stubs"""

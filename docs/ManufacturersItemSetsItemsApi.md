@@ -4,11 +4,11 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v10_manufacturers_manufacturer_id_item_sets_item_set_id_items_get**](ManufacturersItemSetsItemsApi.md#v10_manufacturers_manufacturer_id_item_sets_item_set_id_items_get) | **GET** /v1.0/manufacturers/:manufacturer_id/item_sets/:item_set_id/items | Get items for item set for manufacturer
+[**get_manufacturer_item_set_items**](ManufacturersItemSetsItemsApi.md#get_manufacturer_item_set_items) | **GET** /v1.0/manufacturers/:manufacturer_id/item_sets/:item_set_id/items | Get items for item set for manufacturer
 
 
-# **v10_manufacturers_manufacturer_id_item_sets_item_set_id_items_get**
-> ItemListResponse v10_manufacturers_manufacturer_id_item_sets_item_set_id_items_get(manufacturer_id, item_set_id)
+# **get_manufacturer_item_set_items**
+> ItemListResponse get_manufacturer_item_set_items(manufacturer_id, item_set_id)
 
 Get items for item set for manufacturer
 
@@ -49,11 +49,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Get items for item set for manufacturer
-        api_response = api_instance.v10_manufacturers_manufacturer_id_item_sets_item_set_id_items_get(manufacturer_id, item_set_id)
-        print("The response of ManufacturersItemSetsItemsApi->v10_manufacturers_manufacturer_id_item_sets_item_set_id_items_get:\n")
+        api_response = api_instance.get_manufacturer_item_set_items(manufacturer_id, item_set_id)
+        print("The response of ManufacturersItemSetsItemsApi->get_manufacturer_item_set_items:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ManufacturersItemSetsItemsApi->v10_manufacturers_manufacturer_id_item_sets_item_set_id_items_get: %s\n" % e)
+        print("Exception when calling ManufacturersItemSetsItemsApi->get_manufacturer_item_set_items: %s\n" % e)
 ```
 
 

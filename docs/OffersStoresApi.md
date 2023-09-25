@@ -4,11 +4,11 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v10_offers_offer_id_stores_get**](OffersStoresApi.md#v10_offers_offer_id_stores_get) | **GET** /v1.0/offers/:offer_id/stores | Get nearby Stores for Offer
+[**get_nearby_offer_stores**](OffersStoresApi.md#get_nearby_offer_stores) | **GET** /v1.0/offers/:offer_id/stores | Get nearby Stores for Offer
 
 
-# **v10_offers_offer_id_stores_get**
-> StoreListResponse v10_offers_offer_id_stores_get(offer_id, lat, lng, x_channel_id, by_tag_ids=by_tag_ids, sort_by=sort_by)
+# **get_nearby_offer_stores**
+> StoreListResponse get_nearby_offer_stores(offer_id, lat, lng, x_channel_id, by_tag_ids=by_tag_ids, sort_by=sort_by)
 
 Get nearby Stores for Offer
 
@@ -53,11 +53,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Get nearby Stores for Offer
-        api_response = api_instance.v10_offers_offer_id_stores_get(offer_id, lat, lng, x_channel_id, by_tag_ids=by_tag_ids, sort_by=sort_by)
-        print("The response of OffersStoresApi->v10_offers_offer_id_stores_get:\n")
+        api_response = api_instance.get_nearby_offer_stores(offer_id, lat, lng, x_channel_id, by_tag_ids=by_tag_ids, sort_by=sort_by)
+        print("The response of OffersStoresApi->get_nearby_offer_stores:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling OffersStoresApi->v10_offers_offer_id_stores_get: %s\n" % e)
+        print("Exception when calling OffersStoresApi->get_nearby_offer_stores: %s\n" % e)
 ```
 
 

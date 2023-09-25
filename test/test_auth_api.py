@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.auth_api import AuthApi  # noqa: E501
+from sparkfly_client.api.auth_api import AuthApi  # noqa: E501
 
 
 class TestAuthApi(unittest.TestCase):
@@ -26,8 +26,8 @@ class TestAuthApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_auth_get(self) -> None:
-        """Test case for auth_get
+    def test_authenticate(self) -> None:
+        """Test case for authenticate
 
         authenticate and receive auth token  # noqa: E501
         """

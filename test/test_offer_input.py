@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.offer_input import OfferInput  # noqa: E501
+from sparkfly_client.models.offer_input import OfferInput  # noqa: E501
 
 class TestOfferInput(unittest.TestCase):
     """OfferInput unit test stubs"""
@@ -62,7 +62,7 @@ class TestOfferInput(unittest.TestCase):
                 max_redemptions_per_member_per_day = 56,
                 redeem_until_depleted = True,
                 initial_remaining_value = 56,
-                formatting = openapi_client.models.offer_formatting.offer_formatting(
+                formatting = sparkfly_client.models.offer_formatting.offer_formatting(
                     bg_color = '', 
                     bg_image = '', 
                     custom_credential_content = '', 

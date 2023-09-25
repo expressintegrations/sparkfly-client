@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.event_input_request import EventInputRequest  # noqa: E501
+from sparkfly_client.models.event_input_request import EventInputRequest  # noqa: E501
 
 class TestEventInputRequest(unittest.TestCase):
     """EventInputRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestEventInputRequest(unittest.TestCase):
         model = EventInputRequest()  # noqa: E501
         if include_optional:
             return EventInputRequest(
-                event = openapi_client.models.event_input.event_input(
+                event = sparkfly_client.models.event_input.event_input(
                     name = '', )
             )
         else:

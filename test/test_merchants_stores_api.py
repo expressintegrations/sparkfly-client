@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.merchants_stores_api import MerchantsStoresApi  # noqa: E501
+from sparkfly_client.api.merchants_stores_api import MerchantsStoresApi  # noqa: E501
 
 
 class TestMerchantsStoresApi(unittest.TestCase):
@@ -26,73 +26,73 @@ class TestMerchantsStoresApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_merchants_merchant_id_stores_get(self) -> None:
-        """Test case for v10_merchants_merchant_id_stores_get
-
-        Get all Stores for merchant  # noqa: E501
-        """
-        pass
-
-    def test_v10_merchants_merchant_id_stores_post(self) -> None:
-        """Test case for v10_merchants_merchant_id_stores_post
-
-        Create an Store for merchant  # noqa: E501
-        """
-        pass
-
-    def test_v10_merchants_merchant_id_stores_store_id_delete(self) -> None:
-        """Test case for v10_merchants_merchant_id_stores_store_id_delete
-
-        Delete Store by ID for merchant  # noqa: E501
-        """
-        pass
-
-    def test_v10_merchants_merchant_id_stores_store_id_get(self) -> None:
-        """Test case for v10_merchants_merchant_id_stores_store_id_get
-
-        Get Store by ID for merchant  # noqa: E501
-        """
-        pass
-
-    def test_v10_merchants_merchant_id_stores_store_id_offers_get(self) -> None:
-        """Test case for v10_merchants_merchant_id_stores_store_id_offers_get
-
-        List Offer IDs for Merchant and Store  # noqa: E501
-        """
-        pass
-
-    def test_v10_merchants_merchant_id_stores_store_id_put(self) -> None:
-        """Test case for v10_merchants_merchant_id_stores_store_id_put
-
-        Update Store by ID for merchant  # noqa: E501
-        """
-        pass
-
-    def test_v10_merchants_stores_index_get(self) -> None:
-        """Test case for v10_merchants_stores_index_get
+    def test_filtered_merchant_stores(self) -> None:
+        """Test case for filtered_merchant_stores
 
         Get and Filter Stores WITH Active Offers (stores/index)  # noqa: E501
         """
         pass
 
-    def test_v10_merchants_stores_nearby_index_get(self) -> None:
-        """Test case for v10_merchants_stores_nearby_index_get
+    def test_merchant_store(self) -> None:
+        """Test case for merchant_store
+
+        Create an Store for merchant  # noqa: E501
+        """
+        pass
+
+    def test_merchant_store_0(self) -> None:
+        """Test case for merchant_store_0
+
+        Get Store by ID for merchant  # noqa: E501
+        """
+        pass
+
+    def test_merchant_store_1(self) -> None:
+        """Test case for merchant_store_1
+
+        Update Store by ID for merchant  # noqa: E501
+        """
+        pass
+
+    def test_merchant_store_2(self) -> None:
+        """Test case for merchant_store_2
+
+        Delete Store by ID for merchant  # noqa: E501
+        """
+        pass
+
+    def test_merchant_store_offer_ids(self) -> None:
+        """Test case for merchant_store_offer_ids
+
+        List Offer IDs for Merchant and Store  # noqa: E501
+        """
+        pass
+
+    def test_merchant_store_without_merchant(self) -> None:
+        """Test case for merchant_store_without_merchant
+
+        Get Store by ID (without merchant)  # noqa: E501
+        """
+        pass
+
+    def test_merchant_stores(self) -> None:
+        """Test case for merchant_stores
+
+        Get all Stores for merchant  # noqa: E501
+        """
+        pass
+
+    def test_nearby_filtered_merchant_stores(self) -> None:
+        """Test case for nearby_filtered_merchant_stores
 
         Get and Filter Stores WITH Active Offers (stores/nearby/index)  # noqa: E501
         """
         pass
 
-    def test_v10_merchants_stores_nearby_lat_lng_index_get(self) -> None:
-        """Test case for v10_merchants_stores_nearby_lat_lng_index_get
+    def test_nearby_merchant_stores(self) -> None:
+        """Test case for nearby_merchant_stores
 
         Get and Filter Stores WITH Active Offers (stores/nearby/:lat/:lng/index)  # noqa: E501
-        """
-        pass
-
-    def test_v10_merchants_stores_store_id_get(self) -> None:
-        """Test case for v10_merchants_stores_store_id_get
-
-        Get Store by ID (without merchant)  # noqa: E501
         """
         pass
 

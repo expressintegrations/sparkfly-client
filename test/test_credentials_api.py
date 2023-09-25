@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.credentials_api import CredentialsApi  # noqa: E501
+from sparkfly_client.api.credentials_api import CredentialsApi  # noqa: E501
 
 
 class TestCredentialsApi(unittest.TestCase):
@@ -26,59 +26,59 @@ class TestCredentialsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_credentials_credential_id_delete(self) -> None:
-        """Test case for v10_credentials_credential_id_delete
+    def test_credential(self) -> None:
+        """Test case for credential
 
-        Delete Credential  # noqa: E501
+        Creates a credential  # noqa: E501
         """
         pass
 
-    def test_v10_credentials_credential_id_get(self) -> None:
-        """Test case for v10_credentials_credential_id_get
+    def test_credential_0(self) -> None:
+        """Test case for credential_0
 
         Get Credential  # noqa: E501
         """
         pass
 
-    def test_v10_credentials_credential_id_put(self) -> None:
-        """Test case for v10_credentials_credential_id_put
+    def test_credential_1(self) -> None:
+        """Test case for credential_1
 
         Updates a credential  # noqa: E501
         """
         pass
 
-    def test_v10_credentials_credential_id_redeem_put(self) -> None:
-        """Test case for v10_credentials_credential_id_redeem_put
+    def test_credential_2(self) -> None:
+        """Test case for credential_2
+
+        Delete Credential  # noqa: E501
+        """
+        pass
+
+    def test_credential_3(self) -> None:
+        """Test case for credential_3
 
         Redeem a credential  # noqa: E501
         """
         pass
 
-    def test_v10_credentials_credential_id_void_put(self) -> None:
-        """Test case for v10_credentials_credential_id_void_put
+    def test_credential_4(self) -> None:
+        """Test case for credential_4
 
         Void a credential  # noqa: E501
         """
         pass
 
-    def test_v10_credentials_eligible_get(self) -> None:
-        """Test case for v10_credentials_eligible_get
-
-        Determine if a member is eligible for an offer  # noqa: E501
-        """
-        pass
-
-    def test_v10_credentials_get(self) -> None:
-        """Test case for v10_credentials_get
+    def test_credentials(self) -> None:
+        """Test case for credentials
 
         List Credentials  # noqa: E501
         """
         pass
 
-    def test_v10_credentials_post(self) -> None:
-        """Test case for v10_credentials_post
+    def test_offer_eligibility_for_member(self) -> None:
+        """Test case for offer_eligibility_for_member
 
-        Creates a credential  # noqa: E501
+        Determine if a member is eligible for an offer  # noqa: E501
         """
         pass
 

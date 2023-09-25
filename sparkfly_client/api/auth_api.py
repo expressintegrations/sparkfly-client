@@ -43,13 +43,13 @@ class AuthApi:
         self.api_client = api_client
 
     @validate_arguments
-    def auth_get(self, x_auth_identity : Annotated[StrictStr, Field(..., description="the identity of the account")], x_auth_key : Annotated[StrictStr, Field(..., description="the key of the account")], **kwargs) -> None:  # noqa: E501
+    def authenticate(self, x_auth_identity : Annotated[StrictStr, Field(..., description="the identity of the account")], x_auth_key : Annotated[StrictStr, Field(..., description="the key of the account")], **kwargs) -> None:  # noqa: E501
         """authenticate and receive auth token  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.auth_get(x_auth_identity, x_auth_key, async_req=True)
+        >>> thread = api.authenticate(x_auth_identity, x_auth_key, async_req=True)
         >>> result = thread.get()
 
         :param x_auth_identity: the identity of the account (required)
@@ -69,18 +69,18 @@ class AuthApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the auth_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the authenticate_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.auth_get_with_http_info(x_auth_identity, x_auth_key, **kwargs)  # noqa: E501
+        return self.authenticate_with_http_info(x_auth_identity, x_auth_key, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def auth_get_with_http_info(self, x_auth_identity : Annotated[StrictStr, Field(..., description="the identity of the account")], x_auth_key : Annotated[StrictStr, Field(..., description="the key of the account")], **kwargs) -> ApiResponse:  # noqa: E501
+    def authenticate_with_http_info(self, x_auth_identity : Annotated[StrictStr, Field(..., description="the identity of the account")], x_auth_key : Annotated[StrictStr, Field(..., description="the key of the account")], **kwargs) -> ApiResponse:  # noqa: E501
         """authenticate and receive auth token  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.auth_get_with_http_info(x_auth_identity, x_auth_key, async_req=True)
+        >>> thread = api.authenticate_with_http_info(x_auth_identity, x_auth_key, async_req=True)
         >>> result = thread.get()
 
         :param x_auth_identity: the identity of the account (required)
@@ -135,7 +135,7 @@ class AuthApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method auth_get" % _key
+                    " to method authenticate" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']

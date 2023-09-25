@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.credential_eligibility_response import CredentialEligibilityResponse  # noqa: E501
+from sparkfly_client.models.credential_eligibility_response import CredentialEligibilityResponse  # noqa: E501
 
 class TestCredentialEligibilityResponse(unittest.TestCase):
     """CredentialEligibilityResponse unit test stubs"""

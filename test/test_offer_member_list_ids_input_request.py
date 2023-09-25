@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.offer_member_list_ids_input_request import OfferMemberListIdsInputRequest  # noqa: E501
+from sparkfly_client.models.offer_member_list_ids_input_request import OfferMemberListIdsInputRequest  # noqa: E501
 
 class TestOfferMemberListIdsInputRequest(unittest.TestCase):
     """OfferMemberListIdsInputRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestOfferMemberListIdsInputRequest(unittest.TestCase):
         model = OfferMemberListIdsInputRequest()  # noqa: E501
         if include_optional:
             return OfferMemberListIdsInputRequest(
-                offer = openapi_client.models.offer_member_list_ids_input.offer_member_list_ids_input(
+                offer = sparkfly_client.models.offer_member_list_ids_input.offer_member_list_ids_input(
                     member_list_ids = [
                         56
                         ], )

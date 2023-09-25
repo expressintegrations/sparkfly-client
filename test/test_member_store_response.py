@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.member_store_response import MemberStoreResponse  # noqa: E501
+from sparkfly_client.models.member_store_response import MemberStoreResponse  # noqa: E501
 
 class TestMemberStoreResponse(unittest.TestCase):
     """MemberStoreResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestMemberStoreResponse(unittest.TestCase):
         model = MemberStoreResponse()  # noqa: E501
         if include_optional:
             return MemberStoreResponse(
-                store = openapi_client.models.member_store.member_store(
+                store = sparkfly_client.models.member_store.member_store(
                     id = 56, 
                     name = '', 
                     total_check_ins = 56, 

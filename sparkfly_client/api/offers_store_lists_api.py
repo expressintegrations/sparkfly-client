@@ -47,13 +47,13 @@ class OffersStoreListsApi:
         self.api_client = api_client
 
     @validate_arguments
-    def v10_offers_offer_id_store_lists_delete(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], offer_store_list_ids_input_request : Annotated[Optional[OfferStoreListIdsInputRequest], Field(description="Store List IDs to remove from Offer")] = None, **kwargs) -> OfferStoreListsResponse:  # noqa: E501
+    def delete_offer_store_lists(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], offer_store_list_ids_input_request : Annotated[Optional[OfferStoreListIdsInputRequest], Field(description="Store List IDs to remove from Offer")] = None, **kwargs) -> OfferStoreListsResponse:  # noqa: E501
         """Remove eligible Store Lists from offer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_offers_offer_id_store_lists_delete(offer_id, offer_store_list_ids_input_request, async_req=True)
+        >>> thread = api.delete_offer_store_lists(offer_id, offer_store_list_ids_input_request, async_req=True)
         >>> result = thread.get()
 
         :param offer_id: The id of the offer (required)
@@ -73,18 +73,18 @@ class OffersStoreListsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_offers_offer_id_store_lists_delete_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the delete_offer_store_lists_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_offers_offer_id_store_lists_delete_with_http_info(offer_id, offer_store_list_ids_input_request, **kwargs)  # noqa: E501
+        return self.delete_offer_store_lists_with_http_info(offer_id, offer_store_list_ids_input_request, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_offers_offer_id_store_lists_delete_with_http_info(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], offer_store_list_ids_input_request : Annotated[Optional[OfferStoreListIdsInputRequest], Field(description="Store List IDs to remove from Offer")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def delete_offer_store_lists_with_http_info(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], offer_store_list_ids_input_request : Annotated[Optional[OfferStoreListIdsInputRequest], Field(description="Store List IDs to remove from Offer")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Remove eligible Store Lists from offer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_offers_offer_id_store_lists_delete_with_http_info(offer_id, offer_store_list_ids_input_request, async_req=True)
+        >>> thread = api.delete_offer_store_lists_with_http_info(offer_id, offer_store_list_ids_input_request, async_req=True)
         >>> result = thread.get()
 
         :param offer_id: The id of the offer (required)
@@ -139,7 +139,7 @@ class OffersStoreListsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_offers_offer_id_store_lists_delete" % _key
+                    " to method delete_offer_store_lists" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -202,13 +202,13 @@ class OffersStoreListsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_offers_offer_id_store_lists_get(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], **kwargs) -> OfferStoreListsResponse:  # noqa: E501
+    def get_offer_store_lists(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], **kwargs) -> OfferStoreListsResponse:  # noqa: E501
         """Eligible Store Lists List  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_offers_offer_id_store_lists_get(offer_id, async_req=True)
+        >>> thread = api.get_offer_store_lists(offer_id, async_req=True)
         >>> result = thread.get()
 
         :param offer_id: The id of the offer (required)
@@ -226,18 +226,18 @@ class OffersStoreListsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_offers_offer_id_store_lists_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_offer_store_lists_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_offers_offer_id_store_lists_get_with_http_info(offer_id, **kwargs)  # noqa: E501
+        return self.get_offer_store_lists_with_http_info(offer_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_offers_offer_id_store_lists_get_with_http_info(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_offer_store_lists_with_http_info(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], **kwargs) -> ApiResponse:  # noqa: E501
         """Eligible Store Lists List  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_offers_offer_id_store_lists_get_with_http_info(offer_id, async_req=True)
+        >>> thread = api.get_offer_store_lists_with_http_info(offer_id, async_req=True)
         >>> result = thread.get()
 
         :param offer_id: The id of the offer (required)
@@ -289,7 +289,7 @@ class OffersStoreListsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_offers_offer_id_store_lists_get" % _key
+                    " to method get_offer_store_lists" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -341,13 +341,13 @@ class OffersStoreListsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_offers_offer_id_store_lists_post(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], offer_store_list_ids_input_request : Annotated[Optional[OfferStoreListIdsInputRequest], Field(description="Store List IDs to set to Offer")] = None, **kwargs) -> OfferStoreListsResponse:  # noqa: E501
+    def set_offer_store_lists(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], offer_store_list_ids_input_request : Annotated[Optional[OfferStoreListIdsInputRequest], Field(description="Store List IDs to set to Offer")] = None, **kwargs) -> OfferStoreListsResponse:  # noqa: E501
         """Set eligible Store Lists for offer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_offers_offer_id_store_lists_post(offer_id, offer_store_list_ids_input_request, async_req=True)
+        >>> thread = api.set_offer_store_lists(offer_id, offer_store_list_ids_input_request, async_req=True)
         >>> result = thread.get()
 
         :param offer_id: The id of the offer (required)
@@ -367,18 +367,18 @@ class OffersStoreListsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_offers_offer_id_store_lists_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the set_offer_store_lists_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_offers_offer_id_store_lists_post_with_http_info(offer_id, offer_store_list_ids_input_request, **kwargs)  # noqa: E501
+        return self.set_offer_store_lists_with_http_info(offer_id, offer_store_list_ids_input_request, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_offers_offer_id_store_lists_post_with_http_info(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], offer_store_list_ids_input_request : Annotated[Optional[OfferStoreListIdsInputRequest], Field(description="Store List IDs to set to Offer")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def set_offer_store_lists_with_http_info(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], offer_store_list_ids_input_request : Annotated[Optional[OfferStoreListIdsInputRequest], Field(description="Store List IDs to set to Offer")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Set eligible Store Lists for offer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_offers_offer_id_store_lists_post_with_http_info(offer_id, offer_store_list_ids_input_request, async_req=True)
+        >>> thread = api.set_offer_store_lists_with_http_info(offer_id, offer_store_list_ids_input_request, async_req=True)
         >>> result = thread.get()
 
         :param offer_id: The id of the offer (required)
@@ -433,7 +433,7 @@ class OffersStoreListsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_offers_offer_id_store_lists_post" % _key
+                    " to method set_offer_store_lists" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -496,13 +496,13 @@ class OffersStoreListsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_offers_offer_id_store_lists_put(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], offer_store_list_ids_input_request : Annotated[Optional[OfferStoreListIdsInputRequest], Field(description="Store List IDs to Add to Offer")] = None, **kwargs) -> OfferStoreListsResponse:  # noqa: E501
+    def update_offer_store_lists(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], offer_store_list_ids_input_request : Annotated[Optional[OfferStoreListIdsInputRequest], Field(description="Store List IDs to Add to Offer")] = None, **kwargs) -> OfferStoreListsResponse:  # noqa: E501
         """Add eligible Store Lists for offer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_offers_offer_id_store_lists_put(offer_id, offer_store_list_ids_input_request, async_req=True)
+        >>> thread = api.update_offer_store_lists(offer_id, offer_store_list_ids_input_request, async_req=True)
         >>> result = thread.get()
 
         :param offer_id: The id of the offer (required)
@@ -522,18 +522,18 @@ class OffersStoreListsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_offers_offer_id_store_lists_put_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the update_offer_store_lists_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_offers_offer_id_store_lists_put_with_http_info(offer_id, offer_store_list_ids_input_request, **kwargs)  # noqa: E501
+        return self.update_offer_store_lists_with_http_info(offer_id, offer_store_list_ids_input_request, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_offers_offer_id_store_lists_put_with_http_info(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], offer_store_list_ids_input_request : Annotated[Optional[OfferStoreListIdsInputRequest], Field(description="Store List IDs to Add to Offer")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def update_offer_store_lists_with_http_info(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], offer_store_list_ids_input_request : Annotated[Optional[OfferStoreListIdsInputRequest], Field(description="Store List IDs to Add to Offer")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Add eligible Store Lists for offer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_offers_offer_id_store_lists_put_with_http_info(offer_id, offer_store_list_ids_input_request, async_req=True)
+        >>> thread = api.update_offer_store_lists_with_http_info(offer_id, offer_store_list_ids_input_request, async_req=True)
         >>> result = thread.get()
 
         :param offer_id: The id of the offer (required)
@@ -588,7 +588,7 @@ class OffersStoreListsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_offers_offer_id_store_lists_put" % _key
+                    " to method update_offer_store_lists" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']

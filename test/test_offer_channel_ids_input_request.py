@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.offer_channel_ids_input_request import OfferChannelIdsInputRequest  # noqa: E501
+from sparkfly_client.models.offer_channel_ids_input_request import OfferChannelIdsInputRequest  # noqa: E501
 
 class TestOfferChannelIdsInputRequest(unittest.TestCase):
     """OfferChannelIdsInputRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestOfferChannelIdsInputRequest(unittest.TestCase):
         model = OfferChannelIdsInputRequest()  # noqa: E501
         if include_optional:
             return OfferChannelIdsInputRequest(
-                offer = openapi_client.models.offer_channel_ids_input.offer_channel_ids_input(
+                offer = sparkfly_client.models.offer_channel_ids_input.offer_channel_ids_input(
                     channel_ids = [
                         56
                         ], )

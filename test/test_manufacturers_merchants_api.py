@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.manufacturers_merchants_api import ManufacturersMerchantsApi  # noqa: E501
+from sparkfly_client.api.manufacturers_merchants_api import ManufacturersMerchantsApi  # noqa: E501
 
 
 class TestManufacturersMerchantsApi(unittest.TestCase):
@@ -26,31 +26,31 @@ class TestManufacturersMerchantsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_manufacturers_manufacturer_id_merchants_delete(self) -> None:
-        """Test case for v10_manufacturers_manufacturer_id_merchants_delete
-
-        Remove an eligible merchant for manufacturer  # noqa: E501
-        """
-        pass
-
-    def test_v10_manufacturers_manufacturer_id_merchants_get(self) -> None:
-        """Test case for v10_manufacturers_manufacturer_id_merchants_get
+    def test_manufacturer_merchants(self) -> None:
+        """Test case for manufacturer_merchants
 
         Get all merchants for manufacturer  # noqa: E501
         """
         pass
 
-    def test_v10_manufacturers_manufacturer_id_merchants_post(self) -> None:
-        """Test case for v10_manufacturers_manufacturer_id_merchants_post
+    def test_manufacturer_merchants_0(self) -> None:
+        """Test case for manufacturer_merchants_0
 
         Add an eligible merchant for manufacturer  # noqa: E501
         """
         pass
 
-    def test_v10_manufacturers_manufacturer_id_merchants_put(self) -> None:
-        """Test case for v10_manufacturers_manufacturer_id_merchants_put
+    def test_manufacturer_merchants_1(self) -> None:
+        """Test case for manufacturer_merchants_1
 
-        Add an eligible merchant for manufacturer  # noqa: E501
+        Set eligible merchants for manufacturer  # noqa: E501
+        """
+        pass
+
+    def test_manufacturer_merchants_2(self) -> None:
+        """Test case for manufacturer_merchants_2
+
+        Remove an eligible merchant for manufacturer  # noqa: E501
         """
         pass
 

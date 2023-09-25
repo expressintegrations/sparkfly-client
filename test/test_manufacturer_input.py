@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.manufacturer_input import ManufacturerInput  # noqa: E501
+from sparkfly_client.models.manufacturer_input import ManufacturerInput  # noqa: E501
 
 class TestManufacturerInput(unittest.TestCase):
     """ManufacturerInput unit test stubs"""
@@ -41,11 +41,11 @@ class TestManufacturerInput(unittest.TestCase):
                 is_active = True,
                 billing_arrangement = '',
                 redemption_identifier_type = '',
-                primary = openapi_client.models.contact.contact(
+                primary = sparkfly_client.models.contact.contact(
                     name = '', 
                     phone = '', 
                     email = '', ),
-                secondary = openapi_client.models.contact.contact(
+                secondary = sparkfly_client.models.contact.contact(
                     name = '', 
                     phone = '', 
                     email = '', )

@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.item_set_response import ItemSetResponse  # noqa: E501
+from sparkfly_client.models.item_set_response import ItemSetResponse  # noqa: E501
 
 class TestItemSetResponse(unittest.TestCase):
     """ItemSetResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestItemSetResponse(unittest.TestCase):
         model = ItemSetResponse()  # noqa: E501
         if include_optional:
             return ItemSetResponse(
-                item_set = openapi_client.models.item_set.item_set(
+                item_set = sparkfly_client.models.item_set.item_set(
                     id = 56, 
                     name = '', 
                     merchant_id = 56, 

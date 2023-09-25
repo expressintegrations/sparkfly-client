@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.campaign_landing_page_urls import CampaignLandingPageUrls  # noqa: E501
+from sparkfly_client.models.campaign_landing_page_urls import CampaignLandingPageUrls  # noqa: E501
 
 class TestCampaignLandingPageUrls(unittest.TestCase):
     """CampaignLandingPageUrls unit test stubs"""

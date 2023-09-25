@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.channels_api import ChannelsApi  # noqa: E501
+from sparkfly_client.api.channels_api import ChannelsApi  # noqa: E501
 
 
 class TestChannelsApi(unittest.TestCase):
@@ -26,38 +26,38 @@ class TestChannelsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_channels_channel_id_delete(self) -> None:
-        """Test case for v10_channels_channel_id_delete
+    def test_channel(self) -> None:
+        """Test case for channel
 
-        Delete channel by ID  # noqa: E501
+        Create a channel  # noqa: E501
         """
         pass
 
-    def test_v10_channels_channel_id_get(self) -> None:
-        """Test case for v10_channels_channel_id_get
+    def test_channel_0(self) -> None:
+        """Test case for channel_0
 
         Get channel by ID  # noqa: E501
         """
         pass
 
-    def test_v10_channels_channel_id_put(self) -> None:
-        """Test case for v10_channels_channel_id_put
+    def test_channel_1(self) -> None:
+        """Test case for channel_1
 
         Update channel by ID  # noqa: E501
         """
         pass
 
-    def test_v10_channels_get(self) -> None:
-        """Test case for v10_channels_get
+    def test_channel_2(self) -> None:
+        """Test case for channel_2
 
-        Get channels  # noqa: E501
+        Delete channel by ID  # noqa: E501
         """
         pass
 
-    def test_v10_channels_post(self) -> None:
-        """Test case for v10_channels_post
+    def test_channels(self) -> None:
+        """Test case for channels
 
-        Create a channel  # noqa: E501
+        Get channels  # noqa: E501
         """
         pass
 

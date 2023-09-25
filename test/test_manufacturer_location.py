@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.manufacturer_location import ManufacturerLocation  # noqa: E501
+from sparkfly_client.models.manufacturer_location import ManufacturerLocation  # noqa: E501
 
 class TestManufacturerLocation(unittest.TestCase):
     """ManufacturerLocation unit test stubs"""

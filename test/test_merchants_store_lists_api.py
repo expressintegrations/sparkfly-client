@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.merchants_store_lists_api import MerchantsStoreListsApi  # noqa: E501
+from sparkfly_client.api.merchants_store_lists_api import MerchantsStoreListsApi  # noqa: E501
 
 
 class TestMerchantsStoreListsApi(unittest.TestCase):
@@ -26,73 +26,73 @@ class TestMerchantsStoreListsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_merchants_merchant_id_store_lists_get(self) -> None:
-        """Test case for v10_merchants_merchant_id_store_lists_get
-
-        Get all Store Lists for merchant  # noqa: E501
-        """
-        pass
-
-    def test_v10_merchants_merchant_id_store_lists_post(self) -> None:
-        """Test case for v10_merchants_merchant_id_store_lists_post
+    def test_merchant_store_list(self) -> None:
+        """Test case for merchant_store_list
 
         Create an Store List for merchant  # noqa: E501
         """
         pass
 
-    def test_v10_merchants_merchant_id_store_lists_store_list_id_delete(self) -> None:
-        """Test case for v10_merchants_merchant_id_store_lists_store_list_id_delete
-
-        Delete Store List by ID for merchant  # noqa: E501
-        """
-        pass
-
-    def test_v10_merchants_merchant_id_store_lists_store_list_id_get(self) -> None:
-        """Test case for v10_merchants_merchant_id_store_lists_store_list_id_get
+    def test_merchant_store_list_0(self) -> None:
+        """Test case for merchant_store_list_0
 
         Get Store List by ID for merchant  # noqa: E501
         """
         pass
 
-    def test_v10_merchants_merchant_id_store_lists_store_list_id_put(self) -> None:
-        """Test case for v10_merchants_merchant_id_store_lists_store_list_id_put
+    def test_merchant_store_list_1(self) -> None:
+        """Test case for merchant_store_list_1
 
         Update Store List by ID for merchant  # noqa: E501
         """
         pass
 
-    def test_v10_merchants_merchant_id_store_lists_store_list_id_stores_get(self) -> None:
-        """Test case for v10_merchants_merchant_id_store_lists_store_list_id_stores_get
+    def test_merchant_store_list_2(self) -> None:
+        """Test case for merchant_store_list_2
 
-        Get all Stores for Store List (detailed)  # noqa: E501
+        Delete Store List by ID for merchant  # noqa: E501
         """
         pass
 
-    def test_v10_merchants_store_lists_store_list_id_stores_delete(self) -> None:
-        """Test case for v10_merchants_store_lists_store_list_id_stores_delete
-
-        Remove an eligible Store for store_list  # noqa: E501
-        """
-        pass
-
-    def test_v10_merchants_store_lists_store_list_id_stores_get(self) -> None:
-        """Test case for v10_merchants_store_lists_store_list_id_stores_get
+    def test_merchant_store_list_stores(self) -> None:
+        """Test case for merchant_store_list_stores
 
         Get all Stores for Store List  # noqa: E501
         """
         pass
 
-    def test_v10_merchants_store_lists_store_list_id_stores_post(self) -> None:
-        """Test case for v10_merchants_store_lists_store_list_id_stores_post
+    def test_merchant_store_list_stores_0(self) -> None:
+        """Test case for merchant_store_list_stores_0
+
+        Add eligible Stores for Store List  # noqa: E501
+        """
+        pass
+
+    def test_merchant_store_list_stores_1(self) -> None:
+        """Test case for merchant_store_list_stores_1
 
         Set eligible Stores for Store List  # noqa: E501
         """
         pass
 
-    def test_v10_merchants_store_lists_store_list_id_stores_put(self) -> None:
-        """Test case for v10_merchants_store_lists_store_list_id_stores_put
+    def test_merchant_store_list_stores_2(self) -> None:
+        """Test case for merchant_store_list_stores_2
 
-        Add eligible Stores for Store List  # noqa: E501
+        Remove an eligible Store for store_list  # noqa: E501
+        """
+        pass
+
+    def test_merchant_store_list_stores_detailed(self) -> None:
+        """Test case for merchant_store_list_stores_detailed
+
+        Get all Stores for Store List (detailed)  # noqa: E501
+        """
+        pass
+
+    def test_merchant_store_lists(self) -> None:
+        """Test case for merchant_store_lists
+
+        Get all Store Lists for merchant  # noqa: E501
         """
         pass
 

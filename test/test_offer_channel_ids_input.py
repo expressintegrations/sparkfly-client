@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.offer_channel_ids_input import OfferChannelIdsInput  # noqa: E501
+from sparkfly_client.models.offer_channel_ids_input import OfferChannelIdsInput  # noqa: E501
 
 class TestOfferChannelIdsInput(unittest.TestCase):
     """OfferChannelIdsInput unit test stubs"""

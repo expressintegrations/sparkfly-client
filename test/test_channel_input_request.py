@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.channel_input_request import ChannelInputRequest  # noqa: E501
+from sparkfly_client.models.channel_input_request import ChannelInputRequest  # noqa: E501
 
 class TestChannelInputRequest(unittest.TestCase):
     """ChannelInputRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestChannelInputRequest(unittest.TestCase):
         model = ChannelInputRequest()  # noqa: E501
         if include_optional:
             return ChannelInputRequest(
-                channel = openapi_client.models.channel_input.channel_input(
+                channel = sparkfly_client.models.channel_input.channel_input(
                     name = '', 
                     allow_sms_keyword = True, 
                     allow_hmac = True, 

@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.impressions_report_data import ImpressionsReportData  # noqa: E501
+from sparkfly_client.models.impressions_report_data import ImpressionsReportData  # noqa: E501
 
 class TestImpressionsReportData(unittest.TestCase):
     """ImpressionsReportData unit test stubs"""
@@ -37,9 +37,9 @@ class TestImpressionsReportData(unittest.TestCase):
         if include_optional:
             return ImpressionsReportData(
                 data = [
-                    openapi_client.models.impressions_report.impressions_report(
-                        report = openapi_client.models.impressions_report_data.impressions_report_data(
-                            impressions = openapi_client.models.impressions_data_items.impressions_data_items(
+                    sparkfly_client.models.impressions_report.impressions_report(
+                        report = sparkfly_client.models.impressions_report_data.impressions_report_data(
+                            impressions = sparkfly_client.models.impressions_data_items.impressions_data_items(
                                 data_items = [
                                     [
                                         [
@@ -48,7 +48,7 @@ class TestImpressionsReportData(unittest.TestCase):
                                         ]
                                     ], 
                                 series = [
-                                    openapi_client.models.impressions_series_items.impressions_series_items(
+                                    sparkfly_client.models.impressions_series_items.impressions_series_items(
                                         name = '', 
                                         value = '', )
                                     ], ), ), )

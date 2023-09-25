@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.channel_response import ChannelResponse  # noqa: E501
+from sparkfly_client.models.channel_response import ChannelResponse  # noqa: E501
 
 class TestChannelResponse(unittest.TestCase):
     """ChannelResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestChannelResponse(unittest.TestCase):
         model = ChannelResponse()  # noqa: E501
         if include_optional:
             return ChannelResponse(
-                channel = openapi_client.models.channel.channel(
+                channel = sparkfly_client.models.channel.channel(
                     id = 56, 
                     name = '', 
                     allow_sms_keyword = True, 

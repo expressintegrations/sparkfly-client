@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.merchants_api import MerchantsApi  # noqa: E501
+from sparkfly_client.api.merchants_api import MerchantsApi  # noqa: E501
 
 
 class TestMerchantsApi(unittest.TestCase):
@@ -26,38 +26,38 @@ class TestMerchantsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_merchants_get(self) -> None:
-        """Test case for v10_merchants_get
+    def test_merchant(self) -> None:
+        """Test case for merchant
 
-        Get all merchants  # noqa: E501
+        Create a merchant  # noqa: E501
         """
         pass
 
-    def test_v10_merchants_merchant_id_delete(self) -> None:
-        """Test case for v10_merchants_merchant_id_delete
-
-        Delete merchant by ID  # noqa: E501
-        """
-        pass
-
-    def test_v10_merchants_merchant_id_get(self) -> None:
-        """Test case for v10_merchants_merchant_id_get
+    def test_merchant_0(self) -> None:
+        """Test case for merchant_0
 
         Get merchant by ID  # noqa: E501
         """
         pass
 
-    def test_v10_merchants_merchant_id_put(self) -> None:
-        """Test case for v10_merchants_merchant_id_put
+    def test_merchant_1(self) -> None:
+        """Test case for merchant_1
 
         Update merchant by ID  # noqa: E501
         """
         pass
 
-    def test_v10_merchants_post(self) -> None:
-        """Test case for v10_merchants_post
+    def test_merchant_2(self) -> None:
+        """Test case for merchant_2
 
-        Create a merchant  # noqa: E501
+        Delete merchant by ID  # noqa: E501
+        """
+        pass
+
+    def test_merchants(self) -> None:
+        """Test case for merchants
+
+        Get all merchants  # noqa: E501
         """
         pass
 

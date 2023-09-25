@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.impression_input_request import ImpressionInputRequest  # noqa: E501
+from sparkfly_client.models.impression_input_request import ImpressionInputRequest  # noqa: E501
 
 class TestImpressionInputRequest(unittest.TestCase):
     """ImpressionInputRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestImpressionInputRequest(unittest.TestCase):
         model = ImpressionInputRequest()  # noqa: E501
         if include_optional:
             return ImpressionInputRequest(
-                impression = openapi_client.models.impression_input.impression_input(
+                impression = sparkfly_client.models.impression_input.impression_input(
                     cookie_id = '', 
                     offer_xid = '', 
                     annotations = {

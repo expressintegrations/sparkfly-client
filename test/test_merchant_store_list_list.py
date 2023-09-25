@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.merchant_store_list_list import MerchantStoreListList  # noqa: E501
+from sparkfly_client.models.merchant_store_list_list import MerchantStoreListList  # noqa: E501
 
 class TestMerchantStoreListList(unittest.TestCase):
     """MerchantStoreListList unit test stubs"""
@@ -41,8 +41,8 @@ class TestMerchantStoreListList(unittest.TestCase):
                 total_entries = 56,
                 total_pages = 56,
                 store_lists = [
-                    openapi_client.models.store_list_object_response.store_list_object_response(
-                        store_list = openapi_client.models.store_list_object.store_list_object(
+                    sparkfly_client.models.store_list_object_response.store_list_object_response(
+                        store_list = sparkfly_client.models.store_list_object.store_list_object(
                             id = 56, 
                             name = '', 
                             merchant_id = 56, 

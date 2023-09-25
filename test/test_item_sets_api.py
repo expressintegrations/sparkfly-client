@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.item_sets_api import ItemSetsApi  # noqa: E501
+from sparkfly_client.api.item_sets_api import ItemSetsApi  # noqa: E501
 
 
 class TestItemSetsApi(unittest.TestCase):
@@ -26,43 +26,43 @@ class TestItemSetsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_item_sets_get(self) -> None:
-        """Test case for v10_item_sets_get
-
-        Get all item sets  # noqa: E501
-        """
-        pass
-
-    def test_v10_item_sets_item_set_id_delete(self) -> None:
-        """Test case for v10_item_sets_item_set_id_delete
-
-        Delete item set by ID  # noqa: E501
-        """
-        pass
-
-    def test_v10_item_sets_item_set_id_get(self) -> None:
-        """Test case for v10_item_sets_item_set_id_get
+    def test_item_set(self) -> None:
+        """Test case for item_set
 
         Get item set by ID  # noqa: E501
         """
         pass
 
-    def test_v10_item_sets_item_set_id_items_get(self) -> None:
-        """Test case for v10_item_sets_item_set_id_items_get
-
-        Get items for item set  # noqa: E501
-        """
-        pass
-
-    def test_v10_item_sets_item_set_id_put(self) -> None:
-        """Test case for v10_item_sets_item_set_id_put
+    def test_item_set_0(self) -> None:
+        """Test case for item_set_0
 
         Update item set by ID  # noqa: E501
         """
         pass
 
-    def test_v10_item_sets_post(self) -> None:
-        """Test case for v10_item_sets_post
+    def test_item_set_1(self) -> None:
+        """Test case for item_set_1
+
+        Delete item set by ID  # noqa: E501
+        """
+        pass
+
+    def test_item_set_items(self) -> None:
+        """Test case for item_set_items
+
+        Get items for item set  # noqa: E501
+        """
+        pass
+
+    def test_item_sets(self) -> None:
+        """Test case for item_sets
+
+        Get all item sets  # noqa: E501
+        """
+        pass
+
+    def test_item_sets_0(self) -> None:
+        """Test case for item_sets_0
 
         Create an item set  # noqa: E501
         """

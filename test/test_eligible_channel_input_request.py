@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.eligible_channel_input_request import EligibleChannelInputRequest  # noqa: E501
+from sparkfly_client.models.eligible_channel_input_request import EligibleChannelInputRequest  # noqa: E501
 
 class TestEligibleChannelInputRequest(unittest.TestCase):
     """EligibleChannelInputRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestEligibleChannelInputRequest(unittest.TestCase):
         model = EligibleChannelInputRequest()  # noqa: E501
         if include_optional:
             return EligibleChannelInputRequest(
-                eligible_channel = openapi_client.models.eligible_channel_input.eligible_channel_input(
+                eligible_channel = sparkfly_client.models.eligible_channel_input.eligible_channel_input(
                     security = '', 
                     sms_keyword = '', 
                     allow_return_later = True, )

@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.store_response import StoreResponse  # noqa: E501
+from sparkfly_client.models.store_response import StoreResponse  # noqa: E501
 
 class TestStoreResponse(unittest.TestCase):
     """StoreResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestStoreResponse(unittest.TestCase):
         model = StoreResponse()  # noqa: E501
         if include_optional:
             return StoreResponse(
-                store = openapi_client.models.store.store(
+                store = sparkfly_client.models.store.store(
                     id = 56, 
                     name = '', 
                     site_id = '', 
@@ -44,7 +44,7 @@ class TestStoreResponse(unittest.TestCase):
                     description = '', 
                     is_active = True, 
                     phone = '', 
-                    location = openapi_client.models.store_location.store_location(
+                    location = sparkfly_client.models.store_location.store_location(
                         address = '', 
                         address2 = '', 
                         city = '', 
@@ -53,17 +53,17 @@ class TestStoreResponse(unittest.TestCase):
                         country = '', 
                         lat = '', 
                         lng = '', ), 
-                    contacts = openapi_client.models.contacts.contacts(
-                        primary = openapi_client.models.contact.contact(
+                    contacts = sparkfly_client.models.contacts.contacts(
+                        primary = sparkfly_client.models.contact.contact(
                             name = '', 
                             phone = '', 
                             email = '', ), 
-                        secondary = openapi_client.models.contact.contact(
+                        secondary = sparkfly_client.models.contact.contact(
                             name = '', 
                             phone = '', 
                             email = '', ), ), 
                     merchant_id = 56, 
-                    nearby = openapi_client.models.store_nearby.store_nearby(
+                    nearby = sparkfly_client.models.store_nearby.store_nearby(
                         lat = '', 
                         lng = '', 
                         distance = 56, ), 

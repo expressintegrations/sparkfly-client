@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.eligible_channel import EligibleChannel  # noqa: E501
+from sparkfly_client.models.eligible_channel import EligibleChannel  # noqa: E501
 
 class TestEligibleChannel(unittest.TestCase):
     """EligibleChannel unit test stubs"""

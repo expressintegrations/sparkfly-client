@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.bad_request_object import BadRequestObject  # noqa: E501
+from sparkfly_client.models.bad_request_object import BadRequestObject  # noqa: E501
 
 class TestBadRequestObject(unittest.TestCase):
     """BadRequestObject unit test stubs"""

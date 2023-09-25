@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.manufacturer_response import ManufacturerResponse  # noqa: E501
+from sparkfly_client.models.manufacturer_response import ManufacturerResponse  # noqa: E501
 
 class TestManufacturerResponse(unittest.TestCase):
     """ManufacturerResponse unit test stubs"""
@@ -36,12 +36,12 @@ class TestManufacturerResponse(unittest.TestCase):
         model = ManufacturerResponse()  # noqa: E501
         if include_optional:
             return ManufacturerResponse(
-                manufacturer = openapi_client.models.manufacturer.manufacturer(
+                manufacturer = sparkfly_client.models.manufacturer.manufacturer(
                     id = 56, 
                     name = '', 
                     description = '', 
                     is_active = True, 
-                    location = openapi_client.models.manufacturer_location.manufacturer_location(
+                    location = sparkfly_client.models.manufacturer_location.manufacturer_location(
                         address = '', 
                         address2 = '', 
                         city = '', 
@@ -50,12 +50,12 @@ class TestManufacturerResponse(unittest.TestCase):
                         country = '', 
                         lat = '', 
                         lng = '', ), 
-                    contacts = openapi_client.models.contacts.contacts(
-                        primary = openapi_client.models.contact.contact(
+                    contacts = sparkfly_client.models.contacts.contacts(
+                        primary = sparkfly_client.models.contact.contact(
                             name = '', 
                             phone = '', 
                             email = '', ), 
-                        secondary = openapi_client.models.contact.contact(
+                        secondary = sparkfly_client.models.contact.contact(
                             name = '', 
                             phone = '', 
                             email = '', ), ), 
@@ -63,8 +63,8 @@ class TestManufacturerResponse(unittest.TestCase):
                         56
                         ], 
                     merchants = [
-                        openapi_client.models.merchant_response.merchant_response(
-                            merchant = openapi_client.models.merchant.merchant(
+                        sparkfly_client.models.merchant_response.merchant_response(
+                            merchant = sparkfly_client.models.merchant.merchant(
                                 id = 56, 
                                 created_at = '', 
                                 updated_at = '', 
@@ -76,7 +76,7 @@ class TestManufacturerResponse(unittest.TestCase):
                                 supports_barcode = True, 
                                 redemption_identifier_type = 56, 
                                 channels = [
-                                    openapi_client.models.channel.channel(
+                                    sparkfly_client.models.channel.channel(
                                         id = 56, 
                                         name = '', 
                                         allow_sms_keyword = True, 

@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.z_identifier import ZIdentifier  # noqa: E501
+from sparkfly_client.models.z_identifier import ZIdentifier  # noqa: E501
 
 class TestZIdentifier(unittest.TestCase):
     """ZIdentifier unit test stubs"""

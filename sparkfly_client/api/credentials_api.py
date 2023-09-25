@@ -49,13 +49,160 @@ class CredentialsApi:
         self.api_client = api_client
 
     @validate_arguments
-    def v10_credentials_credential_id_delete(self, credential_id : Annotated[StrictInt, Field(..., description="The id of the credential")], **kwargs) -> CredentialResponse:  # noqa: E501
+    def create_credential(self, credential_input_request : Annotated[Optional[CredentialInputRequest], Field(description="Fields of credential to create in system")] = None, **kwargs) -> CredentialResponse:  # noqa: E501
+        """Creates a credential  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_credential(credential_input_request, async_req=True)
+        >>> result = thread.get()
+
+        :param credential_input_request: Fields of credential to create in system
+        :type credential_input_request: CredentialInputRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: CredentialResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the create_credential_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.create_credential_with_http_info(credential_input_request, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def create_credential_with_http_info(self, credential_input_request : Annotated[Optional[CredentialInputRequest], Field(description="Fields of credential to create in system")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+        """Creates a credential  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_credential_with_http_info(credential_input_request, async_req=True)
+        >>> result = thread.get()
+
+        :param credential_input_request: Fields of credential to create in system
+        :type credential_input_request: CredentialInputRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(CredentialResponse, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'credential_input_request'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_credential" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        if _params['credential_input_request'] is not None:
+            _body_params = _params['credential_input_request']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '201': "CredentialResponse",
+            '400': "BadRequestObject",
+            '401': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/credentials', 'POST',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def delete_credential(self, credential_id : Annotated[StrictInt, Field(..., description="The id of the credential")], **kwargs) -> CredentialResponse:  # noqa: E501
         """Delete Credential  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_credentials_credential_id_delete(credential_id, async_req=True)
+        >>> thread = api.delete_credential(credential_id, async_req=True)
         >>> result = thread.get()
 
         :param credential_id: The id of the credential (required)
@@ -73,18 +220,18 @@ class CredentialsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_credentials_credential_id_delete_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the delete_credential_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_credentials_credential_id_delete_with_http_info(credential_id, **kwargs)  # noqa: E501
+        return self.delete_credential_with_http_info(credential_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_credentials_credential_id_delete_with_http_info(self, credential_id : Annotated[StrictInt, Field(..., description="The id of the credential")], **kwargs) -> ApiResponse:  # noqa: E501
+    def delete_credential_with_http_info(self, credential_id : Annotated[StrictInt, Field(..., description="The id of the credential")], **kwargs) -> ApiResponse:  # noqa: E501
         """Delete Credential  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_credentials_credential_id_delete_with_http_info(credential_id, async_req=True)
+        >>> thread = api.delete_credential_with_http_info(credential_id, async_req=True)
         >>> result = thread.get()
 
         :param credential_id: The id of the credential (required)
@@ -136,7 +283,7 @@ class CredentialsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_credentials_credential_id_delete" % _key
+                    " to method delete_credential" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -189,13 +336,13 @@ class CredentialsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_credentials_credential_id_get(self, credential_id : Annotated[StrictInt, Field(..., description="The id of the credential")], **kwargs) -> CredentialResponse:  # noqa: E501
+    def get_credential(self, credential_id : Annotated[StrictInt, Field(..., description="The id of the credential")], **kwargs) -> CredentialResponse:  # noqa: E501
         """Get Credential  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_credentials_credential_id_get(credential_id, async_req=True)
+        >>> thread = api.get_credential(credential_id, async_req=True)
         >>> result = thread.get()
 
         :param credential_id: The id of the credential (required)
@@ -213,18 +360,18 @@ class CredentialsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_credentials_credential_id_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_credential_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_credentials_credential_id_get_with_http_info(credential_id, **kwargs)  # noqa: E501
+        return self.get_credential_with_http_info(credential_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_credentials_credential_id_get_with_http_info(self, credential_id : Annotated[StrictInt, Field(..., description="The id of the credential")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_credential_with_http_info(self, credential_id : Annotated[StrictInt, Field(..., description="The id of the credential")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get Credential  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_credentials_credential_id_get_with_http_info(credential_id, async_req=True)
+        >>> thread = api.get_credential_with_http_info(credential_id, async_req=True)
         >>> result = thread.get()
 
         :param credential_id: The id of the credential (required)
@@ -276,7 +423,7 @@ class CredentialsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_credentials_credential_id_get" % _key
+                    " to method get_credential" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -329,13 +476,455 @@ class CredentialsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_credentials_credential_id_put(self, credential_id : Annotated[StrictInt, Field(..., description="The id of the credential")], credential_input_request : Annotated[Optional[CredentialInputRequest], Field(description="Fields of credential to update in system")] = None, **kwargs) -> CredentialResponse:  # noqa: E501
+    def get_credentials(self, member_id : Annotated[Optional[StrictInt], Field(description="The id of the member")] = None, offer_id : Annotated[Optional[StrictInt], Field(description="The id of the offer")] = None, store_id : Annotated[Optional[StrictInt], Field(description="The id of the store")] = None, **kwargs) -> CredentialList:  # noqa: E501
+        """List Credentials  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_credentials(member_id, offer_id, store_id, async_req=True)
+        >>> result = thread.get()
+
+        :param member_id: The id of the member
+        :type member_id: int
+        :param offer_id: The id of the offer
+        :type offer_id: int
+        :param store_id: The id of the store
+        :type store_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: CredentialList
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the get_credentials_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.get_credentials_with_http_info(member_id, offer_id, store_id, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_credentials_with_http_info(self, member_id : Annotated[Optional[StrictInt], Field(description="The id of the member")] = None, offer_id : Annotated[Optional[StrictInt], Field(description="The id of the offer")] = None, store_id : Annotated[Optional[StrictInt], Field(description="The id of the store")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+        """List Credentials  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_credentials_with_http_info(member_id, offer_id, store_id, async_req=True)
+        >>> result = thread.get()
+
+        :param member_id: The id of the member
+        :type member_id: int
+        :param offer_id: The id of the offer
+        :type offer_id: int
+        :param store_id: The id of the store
+        :type store_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(CredentialList, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'member_id',
+            'offer_id',
+            'store_id'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_credentials" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+
+        # process the query parameters
+        _query_params = []
+        if _params.get('member_id') is not None:  # noqa: E501
+            _query_params.append(('member_id', _params['member_id']))
+
+        if _params.get('offer_id') is not None:  # noqa: E501
+            _query_params.append(('offer_id', _params['offer_id']))
+
+        if _params.get('store_id') is not None:  # noqa: E501
+            _query_params.append(('store_id', _params['store_id']))
+
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '200': "CredentialList",
+            '401': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/credentials', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def get_offer_eligibility_for_member(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], **kwargs) -> CredentialEligibilityResponse:  # noqa: E501
+        """Determine if a member is eligible for an offer  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_offer_eligibility_for_member(member_id, offer_id, async_req=True)
+        >>> result = thread.get()
+
+        :param member_id: The id of the member (required)
+        :type member_id: int
+        :param offer_id: The id of the offer (required)
+        :type offer_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: CredentialEligibilityResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the get_offer_eligibility_for_member_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.get_offer_eligibility_for_member_with_http_info(member_id, offer_id, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_offer_eligibility_for_member_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], **kwargs) -> ApiResponse:  # noqa: E501
+        """Determine if a member is eligible for an offer  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_offer_eligibility_for_member_with_http_info(member_id, offer_id, async_req=True)
+        >>> result = thread.get()
+
+        :param member_id: The id of the member (required)
+        :type member_id: int
+        :param offer_id: The id of the offer (required)
+        :type offer_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(CredentialEligibilityResponse, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'member_id',
+            'offer_id'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_offer_eligibility_for_member" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+
+        # process the query parameters
+        _query_params = []
+        if _params.get('member_id') is not None:  # noqa: E501
+            _query_params.append(('member_id', _params['member_id']))
+
+        if _params.get('offer_id') is not None:  # noqa: E501
+            _query_params.append(('offer_id', _params['offer_id']))
+
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '200': "CredentialEligibilityResponse",
+            '401': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/credentials/eligible', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def redeem_credential(self, credential_id : Annotated[StrictInt, Field(..., description="The id of the credential")], **kwargs) -> CredentialResponse:  # noqa: E501
+        """Redeem a credential  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.redeem_credential(credential_id, async_req=True)
+        >>> result = thread.get()
+
+        :param credential_id: The id of the credential (required)
+        :type credential_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: CredentialResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the redeem_credential_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.redeem_credential_with_http_info(credential_id, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def redeem_credential_with_http_info(self, credential_id : Annotated[StrictInt, Field(..., description="The id of the credential")], **kwargs) -> ApiResponse:  # noqa: E501
+        """Redeem a credential  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.redeem_credential_with_http_info(credential_id, async_req=True)
+        >>> result = thread.get()
+
+        :param credential_id: The id of the credential (required)
+        :type credential_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(CredentialResponse, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'credential_id'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method redeem_credential" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['credential_id']:
+            _path_params['credential_id'] = _params['credential_id']
+
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '201': "CredentialResponse",
+            '401': None,
+            '404': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/credentials/:credential_id/redeem', 'PUT',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def update_credential(self, credential_id : Annotated[StrictInt, Field(..., description="The id of the credential")], credential_input_request : Annotated[Optional[CredentialInputRequest], Field(description="Fields of credential to update in system")] = None, **kwargs) -> CredentialResponse:  # noqa: E501
         """Updates a credential  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_credentials_credential_id_put(credential_id, credential_input_request, async_req=True)
+        >>> thread = api.update_credential(credential_id, credential_input_request, async_req=True)
         >>> result = thread.get()
 
         :param credential_id: The id of the credential (required)
@@ -355,18 +944,18 @@ class CredentialsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_credentials_credential_id_put_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the update_credential_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_credentials_credential_id_put_with_http_info(credential_id, credential_input_request, **kwargs)  # noqa: E501
+        return self.update_credential_with_http_info(credential_id, credential_input_request, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_credentials_credential_id_put_with_http_info(self, credential_id : Annotated[StrictInt, Field(..., description="The id of the credential")], credential_input_request : Annotated[Optional[CredentialInputRequest], Field(description="Fields of credential to update in system")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def update_credential_with_http_info(self, credential_id : Annotated[StrictInt, Field(..., description="The id of the credential")], credential_input_request : Annotated[Optional[CredentialInputRequest], Field(description="Fields of credential to update in system")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Updates a credential  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_credentials_credential_id_put_with_http_info(credential_id, credential_input_request, async_req=True)
+        >>> thread = api.update_credential_with_http_info(credential_id, credential_input_request, async_req=True)
         >>> result = thread.get()
 
         :param credential_id: The id of the credential (required)
@@ -421,7 +1010,7 @@ class CredentialsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_credentials_credential_id_put" % _key
+                    " to method update_credential" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -485,13 +1074,13 @@ class CredentialsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_credentials_credential_id_redeem_put(self, credential_id : Annotated[StrictInt, Field(..., description="The id of the credential")], **kwargs) -> CredentialResponse:  # noqa: E501
-        """Redeem a credential  # noqa: E501
+    def void_credential(self, credential_id : Annotated[StrictInt, Field(..., description="The id of the credential")], **kwargs) -> CredentialResponse:  # noqa: E501
+        """Void a credential  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_credentials_credential_id_redeem_put(credential_id, async_req=True)
+        >>> thread = api.void_credential(credential_id, async_req=True)
         >>> result = thread.get()
 
         :param credential_id: The id of the credential (required)
@@ -509,18 +1098,18 @@ class CredentialsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_credentials_credential_id_redeem_put_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the void_credential_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_credentials_credential_id_redeem_put_with_http_info(credential_id, **kwargs)  # noqa: E501
+        return self.void_credential_with_http_info(credential_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_credentials_credential_id_redeem_put_with_http_info(self, credential_id : Annotated[StrictInt, Field(..., description="The id of the credential")], **kwargs) -> ApiResponse:  # noqa: E501
-        """Redeem a credential  # noqa: E501
+    def void_credential_with_http_info(self, credential_id : Annotated[StrictInt, Field(..., description="The id of the credential")], **kwargs) -> ApiResponse:  # noqa: E501
+        """Void a credential  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_credentials_credential_id_redeem_put_with_http_info(credential_id, async_req=True)
+        >>> thread = api.void_credential_with_http_info(credential_id, async_req=True)
         >>> result = thread.get()
 
         :param credential_id: The id of the credential (required)
@@ -572,147 +1161,7 @@ class CredentialsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_credentials_credential_id_redeem_put" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['credential_id']:
-            _path_params['credential_id'] = _params['credential_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '201': "CredentialResponse",
-            '401': None,
-            '404': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/credentials/:credential_id/redeem', 'PUT',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_credentials_credential_id_void_put(self, credential_id : Annotated[StrictInt, Field(..., description="The id of the credential")], **kwargs) -> CredentialResponse:  # noqa: E501
-        """Void a credential  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_credentials_credential_id_void_put(credential_id, async_req=True)
-        >>> result = thread.get()
-
-        :param credential_id: The id of the credential (required)
-        :type credential_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: CredentialResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_credentials_credential_id_void_put_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_credentials_credential_id_void_put_with_http_info(credential_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_credentials_credential_id_void_put_with_http_info(self, credential_id : Annotated[StrictInt, Field(..., description="The id of the credential")], **kwargs) -> ApiResponse:  # noqa: E501
-        """Void a credential  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_credentials_credential_id_void_put_with_http_info(credential_id, async_req=True)
-        >>> result = thread.get()
-
-        :param credential_id: The id of the credential (required)
-        :type credential_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(CredentialResponse, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'credential_id'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_credentials_credential_id_void_put" % _key
+                    " to method void_credential" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -749,455 +1198,6 @@ class CredentialsApi:
 
         return self.api_client.call_api(
             '/v1.0/credentials/:credential_id/void', 'PUT',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_credentials_eligible_get(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], **kwargs) -> CredentialEligibilityResponse:  # noqa: E501
-        """Determine if a member is eligible for an offer  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_credentials_eligible_get(member_id, offer_id, async_req=True)
-        >>> result = thread.get()
-
-        :param member_id: The id of the member (required)
-        :type member_id: int
-        :param offer_id: The id of the offer (required)
-        :type offer_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: CredentialEligibilityResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_credentials_eligible_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_credentials_eligible_get_with_http_info(member_id, offer_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_credentials_eligible_get_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], **kwargs) -> ApiResponse:  # noqa: E501
-        """Determine if a member is eligible for an offer  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_credentials_eligible_get_with_http_info(member_id, offer_id, async_req=True)
-        >>> result = thread.get()
-
-        :param member_id: The id of the member (required)
-        :type member_id: int
-        :param offer_id: The id of the offer (required)
-        :type offer_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(CredentialEligibilityResponse, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'member_id',
-            'offer_id'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_credentials_eligible_get" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-
-        # process the query parameters
-        _query_params = []
-        if _params.get('member_id') is not None:  # noqa: E501
-            _query_params.append(('member_id', _params['member_id']))
-
-        if _params.get('offer_id') is not None:  # noqa: E501
-            _query_params.append(('offer_id', _params['offer_id']))
-
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '200': "CredentialEligibilityResponse",
-            '401': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/credentials/eligible', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_credentials_get(self, member_id : Annotated[Optional[StrictInt], Field(description="The id of the member")] = None, offer_id : Annotated[Optional[StrictInt], Field(description="The id of the offer")] = None, store_id : Annotated[Optional[StrictInt], Field(description="The id of the store")] = None, **kwargs) -> CredentialList:  # noqa: E501
-        """List Credentials  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_credentials_get(member_id, offer_id, store_id, async_req=True)
-        >>> result = thread.get()
-
-        :param member_id: The id of the member
-        :type member_id: int
-        :param offer_id: The id of the offer
-        :type offer_id: int
-        :param store_id: The id of the store
-        :type store_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: CredentialList
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_credentials_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_credentials_get_with_http_info(member_id, offer_id, store_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_credentials_get_with_http_info(self, member_id : Annotated[Optional[StrictInt], Field(description="The id of the member")] = None, offer_id : Annotated[Optional[StrictInt], Field(description="The id of the offer")] = None, store_id : Annotated[Optional[StrictInt], Field(description="The id of the store")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """List Credentials  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_credentials_get_with_http_info(member_id, offer_id, store_id, async_req=True)
-        >>> result = thread.get()
-
-        :param member_id: The id of the member
-        :type member_id: int
-        :param offer_id: The id of the offer
-        :type offer_id: int
-        :param store_id: The id of the store
-        :type store_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(CredentialList, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'member_id',
-            'offer_id',
-            'store_id'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_credentials_get" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-
-        # process the query parameters
-        _query_params = []
-        if _params.get('member_id') is not None:  # noqa: E501
-            _query_params.append(('member_id', _params['member_id']))
-
-        if _params.get('offer_id') is not None:  # noqa: E501
-            _query_params.append(('offer_id', _params['offer_id']))
-
-        if _params.get('store_id') is not None:  # noqa: E501
-            _query_params.append(('store_id', _params['store_id']))
-
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '200': "CredentialList",
-            '401': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/credentials', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_credentials_post(self, credential_input_request : Annotated[Optional[CredentialInputRequest], Field(description="Fields of credential to create in system")] = None, **kwargs) -> CredentialResponse:  # noqa: E501
-        """Creates a credential  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_credentials_post(credential_input_request, async_req=True)
-        >>> result = thread.get()
-
-        :param credential_input_request: Fields of credential to create in system
-        :type credential_input_request: CredentialInputRequest
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: CredentialResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_credentials_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_credentials_post_with_http_info(credential_input_request, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_credentials_post_with_http_info(self, credential_input_request : Annotated[Optional[CredentialInputRequest], Field(description="Fields of credential to create in system")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """Creates a credential  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_credentials_post_with_http_info(credential_input_request, async_req=True)
-        >>> result = thread.get()
-
-        :param credential_input_request: Fields of credential to create in system
-        :type credential_input_request: CredentialInputRequest
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(CredentialResponse, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'credential_input_request'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_credentials_post" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        if _params['credential_input_request'] is not None:
-            _body_params = _params['credential_input_request']
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '201': "CredentialResponse",
-            '400': "BadRequestObject",
-            '401': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/credentials', 'POST',
             _path_params,
             _query_params,
             _header_params,

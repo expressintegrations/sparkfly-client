@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.redemption import Redemption  # noqa: E501
+from sparkfly_client.models.redemption import Redemption  # noqa: E501
 
 class TestRedemption(unittest.TestCase):
     """Redemption unit test stubs"""
@@ -52,13 +52,13 @@ class TestRedemption(unittest.TestCase):
                 purchase_amount = 56,
                 value = 56,
                 transaction_items = [
-                    openapi_client.models.transaction_item.transaction_item(
+                    sparkfly_client.models.transaction_item.transaction_item(
                         name = '', 
                         item_code = '', 
                         quantity = 56, 
                         ext_price = 56, 
                         transaction_type = 56, 
-                        extra_data = openapi_client.models.transaction_item_extra.transaction_item_extra(
+                        extra_data = sparkfly_client.models.transaction_item_extra.transaction_item_extra(
                             category = '', 
                             department = '', 
                             group = '', 

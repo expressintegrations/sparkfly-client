@@ -48,580 +48,13 @@ class CampaignsApi:
         self.api_client = api_client
 
     @validate_arguments
-    def v10_campaigns_campaign_id_delete(self, campaign_id : Annotated[StrictInt, Field(..., description="The id of the campaign")], **kwargs) -> None:  # noqa: E501
-        """Delete the campaign  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_campaigns_campaign_id_delete(campaign_id, async_req=True)
-        >>> result = thread.get()
-
-        :param campaign_id: The id of the campaign (required)
-        :type campaign_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: None
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_campaigns_campaign_id_delete_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_campaigns_campaign_id_delete_with_http_info(campaign_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_campaigns_campaign_id_delete_with_http_info(self, campaign_id : Annotated[StrictInt, Field(..., description="The id of the campaign")], **kwargs) -> ApiResponse:  # noqa: E501
-        """Delete the campaign  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_campaigns_campaign_id_delete_with_http_info(campaign_id, async_req=True)
-        >>> result = thread.get()
-
-        :param campaign_id: The id of the campaign (required)
-        :type campaign_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: None
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'campaign_id'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_campaigns_campaign_id_delete" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['campaign_id']:
-            _path_params['campaign_id'] = _params['campaign_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {}
-
-        return self.api_client.call_api(
-            '/v1.0/campaigns/:campaign_id', 'DELETE',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_campaigns_campaign_id_get(self, campaign_id : Annotated[StrictInt, Field(..., description="The id of the campaign")], **kwargs) -> CampaignResponse:  # noqa: E501
-        """Retrieve Campaign  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_campaigns_campaign_id_get(campaign_id, async_req=True)
-        >>> result = thread.get()
-
-        :param campaign_id: The id of the campaign (required)
-        :type campaign_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: CampaignResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_campaigns_campaign_id_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_campaigns_campaign_id_get_with_http_info(campaign_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_campaigns_campaign_id_get_with_http_info(self, campaign_id : Annotated[StrictInt, Field(..., description="The id of the campaign")], **kwargs) -> ApiResponse:  # noqa: E501
-        """Retrieve Campaign  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_campaigns_campaign_id_get_with_http_info(campaign_id, async_req=True)
-        >>> result = thread.get()
-
-        :param campaign_id: The id of the campaign (required)
-        :type campaign_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(CampaignResponse, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'campaign_id'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_campaigns_campaign_id_get" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['campaign_id']:
-            _path_params['campaign_id'] = _params['campaign_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '200': "CampaignResponse",
-            '401': None,
-            '404': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/campaigns/:campaign_id', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_campaigns_campaign_id_put(self, campaign_id : Annotated[StrictInt, Field(..., description="The id of the campaign")], campaign_input_request : Annotated[Optional[CampaignInputRequest], Field(description="The object that passes the updated campaign")] = None, **kwargs) -> CampaignResponse:  # noqa: E501
-        """Update Campaign  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_campaigns_campaign_id_put(campaign_id, campaign_input_request, async_req=True)
-        >>> result = thread.get()
-
-        :param campaign_id: The id of the campaign (required)
-        :type campaign_id: int
-        :param campaign_input_request: The object that passes the updated campaign
-        :type campaign_input_request: CampaignInputRequest
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: CampaignResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_campaigns_campaign_id_put_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_campaigns_campaign_id_put_with_http_info(campaign_id, campaign_input_request, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_campaigns_campaign_id_put_with_http_info(self, campaign_id : Annotated[StrictInt, Field(..., description="The id of the campaign")], campaign_input_request : Annotated[Optional[CampaignInputRequest], Field(description="The object that passes the updated campaign")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """Update Campaign  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_campaigns_campaign_id_put_with_http_info(campaign_id, campaign_input_request, async_req=True)
-        >>> result = thread.get()
-
-        :param campaign_id: The id of the campaign (required)
-        :type campaign_id: int
-        :param campaign_input_request: The object that passes the updated campaign
-        :type campaign_input_request: CampaignInputRequest
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(CampaignResponse, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'campaign_id',
-            'campaign_input_request'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_campaigns_campaign_id_put" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['campaign_id']:
-            _path_params['campaign_id'] = _params['campaign_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        if _params['campaign_input_request'] is not None:
-            _body_params = _params['campaign_input_request']
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '200': "CampaignResponse",
-            '400': "BadRequestObject",
-            '401': None,
-            '404': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/campaigns/:campaign_id', 'PUT',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_campaigns_get(self, external_id : Annotated[Optional[StrictStr], Field(description="The id of the record in an external system")] = None, **kwargs) -> CampaignResponse:  # noqa: E501
-        """Get campaign by external ID  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_campaigns_get(external_id, async_req=True)
-        >>> result = thread.get()
-
-        :param external_id: The id of the record in an external system
-        :type external_id: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: CampaignResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_campaigns_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_campaigns_get_with_http_info(external_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_campaigns_get_with_http_info(self, external_id : Annotated[Optional[StrictStr], Field(description="The id of the record in an external system")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """Get campaign by external ID  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_campaigns_get_with_http_info(external_id, async_req=True)
-        >>> result = thread.get()
-
-        :param external_id: The id of the record in an external system
-        :type external_id: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(CampaignResponse, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'external_id'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_campaigns_get" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-
-        # process the query parameters
-        _query_params = []
-        if _params.get('external_id') is not None:  # noqa: E501
-            _query_params.append(('external_id', _params['external_id']))
-
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '200': "CampaignResponse",
-            '401': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/campaigns', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_campaigns_post(self, campaign_input_request : Annotated[Optional[CampaignInputRequest], Field(description="Campaign to create")] = None, **kwargs) -> CampaignResponse:  # noqa: E501
+    def create_campaign(self, campaign_input_request : Annotated[Optional[CampaignInputRequest], Field(description="Campaign to create")] = None, **kwargs) -> CampaignResponse:  # noqa: E501
         """Create a new campaign  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_campaigns_post(campaign_input_request, async_req=True)
+        >>> thread = api.create_campaign(campaign_input_request, async_req=True)
         >>> result = thread.get()
 
         :param campaign_input_request: Campaign to create
@@ -639,18 +72,18 @@ class CampaignsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_campaigns_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the create_campaign_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_campaigns_post_with_http_info(campaign_input_request, **kwargs)  # noqa: E501
+        return self.create_campaign_with_http_info(campaign_input_request, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_campaigns_post_with_http_info(self, campaign_input_request : Annotated[Optional[CampaignInputRequest], Field(description="Campaign to create")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def create_campaign_with_http_info(self, campaign_input_request : Annotated[Optional[CampaignInputRequest], Field(description="Campaign to create")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Create a new campaign  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_campaigns_post_with_http_info(campaign_input_request, async_req=True)
+        >>> thread = api.create_campaign_with_http_info(campaign_input_request, async_req=True)
         >>> result = thread.get()
 
         :param campaign_input_request: Campaign to create
@@ -702,7 +135,7 @@ class CampaignsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_campaigns_post" % _key
+                    " to method create_campaign" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -762,13 +195,145 @@ class CampaignsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_campaigns_search_get(self, channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> List[CampaignSimplified]:  # noqa: E501
+    def delete_campaign(self, campaign_id : Annotated[StrictInt, Field(..., description="The id of the campaign")], **kwargs) -> None:  # noqa: E501
+        """Delete the campaign  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_campaign(campaign_id, async_req=True)
+        >>> result = thread.get()
+
+        :param campaign_id: The id of the campaign (required)
+        :type campaign_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the delete_campaign_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.delete_campaign_with_http_info(campaign_id, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def delete_campaign_with_http_info(self, campaign_id : Annotated[StrictInt, Field(..., description="The id of the campaign")], **kwargs) -> ApiResponse:  # noqa: E501
+        """Delete the campaign  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_campaign_with_http_info(campaign_id, async_req=True)
+        >>> result = thread.get()
+
+        :param campaign_id: The id of the campaign (required)
+        :type campaign_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'campaign_id'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_campaign" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['campaign_id']:
+            _path_params['campaign_id'] = _params['campaign_id']
+
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {}
+
+        return self.api_client.call_api(
+            '/v1.0/campaigns/:campaign_id', 'DELETE',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def get_active_reward_program_campaigns(self, channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> List[CampaignSimplified]:  # noqa: E501
         """Get active reward program campaigns  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_campaigns_search_get(channel_id, async_req=True)
+        >>> thread = api.get_active_reward_program_campaigns(channel_id, async_req=True)
         >>> result = thread.get()
 
         :param channel_id: The id of the channel (required)
@@ -786,18 +351,18 @@ class CampaignsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_campaigns_search_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_active_reward_program_campaigns_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_campaigns_search_get_with_http_info(channel_id, **kwargs)  # noqa: E501
+        return self.get_active_reward_program_campaigns_with_http_info(channel_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_campaigns_search_get_with_http_info(self, channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_active_reward_program_campaigns_with_http_info(self, channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get active reward program campaigns  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_campaigns_search_get_with_http_info(channel_id, async_req=True)
+        >>> thread = api.get_active_reward_program_campaigns_with_http_info(channel_id, async_req=True)
         >>> result = thread.get()
 
         :param channel_id: The id of the channel (required)
@@ -849,7 +414,7 @@ class CampaignsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_campaigns_search_get" % _key
+                    " to method get_active_reward_program_campaigns" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -885,6 +450,441 @@ class CampaignsApi:
 
         return self.api_client.call_api(
             '/v1.0/campaigns/search', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def get_campaign(self, campaign_id : Annotated[StrictInt, Field(..., description="The id of the campaign")], **kwargs) -> CampaignResponse:  # noqa: E501
+        """Retrieve Campaign  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_campaign(campaign_id, async_req=True)
+        >>> result = thread.get()
+
+        :param campaign_id: The id of the campaign (required)
+        :type campaign_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: CampaignResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the get_campaign_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.get_campaign_with_http_info(campaign_id, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_campaign_with_http_info(self, campaign_id : Annotated[StrictInt, Field(..., description="The id of the campaign")], **kwargs) -> ApiResponse:  # noqa: E501
+        """Retrieve Campaign  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_campaign_with_http_info(campaign_id, async_req=True)
+        >>> result = thread.get()
+
+        :param campaign_id: The id of the campaign (required)
+        :type campaign_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(CampaignResponse, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'campaign_id'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_campaign" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['campaign_id']:
+            _path_params['campaign_id'] = _params['campaign_id']
+
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '200': "CampaignResponse",
+            '401': None,
+            '404': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/campaigns/:campaign_id', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def get_campaign_by_external_id(self, external_id : Annotated[Optional[StrictStr], Field(description="The id of the record in an external system")] = None, **kwargs) -> CampaignResponse:  # noqa: E501
+        """Get campaign by external ID  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_campaign_by_external_id(external_id, async_req=True)
+        >>> result = thread.get()
+
+        :param external_id: The id of the record in an external system
+        :type external_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: CampaignResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the get_campaign_by_external_id_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.get_campaign_by_external_id_with_http_info(external_id, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_campaign_by_external_id_with_http_info(self, external_id : Annotated[Optional[StrictStr], Field(description="The id of the record in an external system")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+        """Get campaign by external ID  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_campaign_by_external_id_with_http_info(external_id, async_req=True)
+        >>> result = thread.get()
+
+        :param external_id: The id of the record in an external system
+        :type external_id: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(CampaignResponse, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'external_id'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_campaign_by_external_id" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+
+        # process the query parameters
+        _query_params = []
+        if _params.get('external_id') is not None:  # noqa: E501
+            _query_params.append(('external_id', _params['external_id']))
+
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '200': "CampaignResponse",
+            '401': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/campaigns', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def update_campaign(self, campaign_id : Annotated[StrictInt, Field(..., description="The id of the campaign")], campaign_input_request : Annotated[Optional[CampaignInputRequest], Field(description="The object that passes the updated campaign")] = None, **kwargs) -> CampaignResponse:  # noqa: E501
+        """Update Campaign  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_campaign(campaign_id, campaign_input_request, async_req=True)
+        >>> result = thread.get()
+
+        :param campaign_id: The id of the campaign (required)
+        :type campaign_id: int
+        :param campaign_input_request: The object that passes the updated campaign
+        :type campaign_input_request: CampaignInputRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: CampaignResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the update_campaign_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.update_campaign_with_http_info(campaign_id, campaign_input_request, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def update_campaign_with_http_info(self, campaign_id : Annotated[StrictInt, Field(..., description="The id of the campaign")], campaign_input_request : Annotated[Optional[CampaignInputRequest], Field(description="The object that passes the updated campaign")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+        """Update Campaign  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_campaign_with_http_info(campaign_id, campaign_input_request, async_req=True)
+        >>> result = thread.get()
+
+        :param campaign_id: The id of the campaign (required)
+        :type campaign_id: int
+        :param campaign_input_request: The object that passes the updated campaign
+        :type campaign_input_request: CampaignInputRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(CampaignResponse, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'campaign_id',
+            'campaign_input_request'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_campaign" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['campaign_id']:
+            _path_params['campaign_id'] = _params['campaign_id']
+
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        if _params['campaign_input_request'] is not None:
+            _body_params = _params['campaign_input_request']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '200': "CampaignResponse",
+            '400': "BadRequestObject",
+            '401': None,
+            '404': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/campaigns/:campaign_id', 'PUT',
             _path_params,
             _query_params,
             _header_params,

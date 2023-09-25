@@ -4,14 +4,14 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v10_offers_offer_id_store_lists_delete**](OffersStoreListsApi.md#v10_offers_offer_id_store_lists_delete) | **DELETE** /v1.0/offers/:offer_id/store_lists | Remove eligible Store Lists from offer
-[**v10_offers_offer_id_store_lists_get**](OffersStoreListsApi.md#v10_offers_offer_id_store_lists_get) | **GET** /v1.0/offers/:offer_id/store_lists | Eligible Store Lists List
-[**v10_offers_offer_id_store_lists_post**](OffersStoreListsApi.md#v10_offers_offer_id_store_lists_post) | **POST** /v1.0/offers/:offer_id/store_lists | Set eligible Store Lists for offer
-[**v10_offers_offer_id_store_lists_put**](OffersStoreListsApi.md#v10_offers_offer_id_store_lists_put) | **PUT** /v1.0/offers/:offer_id/store_lists | Add eligible Store Lists for offer
+[**delete_offer_store_lists**](OffersStoreListsApi.md#delete_offer_store_lists) | **DELETE** /v1.0/offers/:offer_id/store_lists | Remove eligible Store Lists from offer
+[**get_offer_store_lists**](OffersStoreListsApi.md#get_offer_store_lists) | **GET** /v1.0/offers/:offer_id/store_lists | Eligible Store Lists List
+[**set_offer_store_lists**](OffersStoreListsApi.md#set_offer_store_lists) | **POST** /v1.0/offers/:offer_id/store_lists | Set eligible Store Lists for offer
+[**update_offer_store_lists**](OffersStoreListsApi.md#update_offer_store_lists) | **PUT** /v1.0/offers/:offer_id/store_lists | Add eligible Store Lists for offer
 
 
-# **v10_offers_offer_id_store_lists_delete**
-> OfferStoreListsResponse v10_offers_offer_id_store_lists_delete(offer_id, offer_store_list_ids_input_request=offer_store_list_ids_input_request)
+# **delete_offer_store_lists**
+> OfferStoreListsResponse delete_offer_store_lists(offer_id, offer_store_list_ids_input_request=offer_store_list_ids_input_request)
 
 Remove eligible Store Lists from offer
 
@@ -53,11 +53,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Remove eligible Store Lists from offer
-        api_response = api_instance.v10_offers_offer_id_store_lists_delete(offer_id, offer_store_list_ids_input_request=offer_store_list_ids_input_request)
-        print("The response of OffersStoreListsApi->v10_offers_offer_id_store_lists_delete:\n")
+        api_response = api_instance.delete_offer_store_lists(offer_id, offer_store_list_ids_input_request=offer_store_list_ids_input_request)
+        print("The response of OffersStoreListsApi->delete_offer_store_lists:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling OffersStoreListsApi->v10_offers_offer_id_store_lists_delete: %s\n" % e)
+        print("Exception when calling OffersStoreListsApi->delete_offer_store_lists: %s\n" % e)
 ```
 
 
@@ -91,8 +91,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v10_offers_offer_id_store_lists_get**
-> OfferStoreListsResponse v10_offers_offer_id_store_lists_get(offer_id)
+# **get_offer_store_lists**
+> OfferStoreListsResponse get_offer_store_lists(offer_id)
 
 Eligible Store Lists List
 
@@ -132,11 +132,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Eligible Store Lists List
-        api_response = api_instance.v10_offers_offer_id_store_lists_get(offer_id)
-        print("The response of OffersStoreListsApi->v10_offers_offer_id_store_lists_get:\n")
+        api_response = api_instance.get_offer_store_lists(offer_id)
+        print("The response of OffersStoreListsApi->get_offer_store_lists:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling OffersStoreListsApi->v10_offers_offer_id_store_lists_get: %s\n" % e)
+        print("Exception when calling OffersStoreListsApi->get_offer_store_lists: %s\n" % e)
 ```
 
 
@@ -168,8 +168,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v10_offers_offer_id_store_lists_post**
-> OfferStoreListsResponse v10_offers_offer_id_store_lists_post(offer_id, offer_store_list_ids_input_request=offer_store_list_ids_input_request)
+# **set_offer_store_lists**
+> OfferStoreListsResponse set_offer_store_lists(offer_id, offer_store_list_ids_input_request=offer_store_list_ids_input_request)
 
 Set eligible Store Lists for offer
 
@@ -211,11 +211,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Set eligible Store Lists for offer
-        api_response = api_instance.v10_offers_offer_id_store_lists_post(offer_id, offer_store_list_ids_input_request=offer_store_list_ids_input_request)
-        print("The response of OffersStoreListsApi->v10_offers_offer_id_store_lists_post:\n")
+        api_response = api_instance.set_offer_store_lists(offer_id, offer_store_list_ids_input_request=offer_store_list_ids_input_request)
+        print("The response of OffersStoreListsApi->set_offer_store_lists:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling OffersStoreListsApi->v10_offers_offer_id_store_lists_post: %s\n" % e)
+        print("Exception when calling OffersStoreListsApi->set_offer_store_lists: %s\n" % e)
 ```
 
 
@@ -249,8 +249,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v10_offers_offer_id_store_lists_put**
-> OfferStoreListsResponse v10_offers_offer_id_store_lists_put(offer_id, offer_store_list_ids_input_request=offer_store_list_ids_input_request)
+# **update_offer_store_lists**
+> OfferStoreListsResponse update_offer_store_lists(offer_id, offer_store_list_ids_input_request=offer_store_list_ids_input_request)
 
 Add eligible Store Lists for offer
 
@@ -292,11 +292,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Add eligible Store Lists for offer
-        api_response = api_instance.v10_offers_offer_id_store_lists_put(offer_id, offer_store_list_ids_input_request=offer_store_list_ids_input_request)
-        print("The response of OffersStoreListsApi->v10_offers_offer_id_store_lists_put:\n")
+        api_response = api_instance.update_offer_store_lists(offer_id, offer_store_list_ids_input_request=offer_store_list_ids_input_request)
+        print("The response of OffersStoreListsApi->update_offer_store_lists:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling OffersStoreListsApi->v10_offers_offer_id_store_lists_put: %s\n" % e)
+        print("Exception when calling OffersStoreListsApi->update_offer_store_lists: %s\n" % e)
 ```
 
 

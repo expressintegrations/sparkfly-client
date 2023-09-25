@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.offer_eligibility import OfferEligibility  # noqa: E501
+from sparkfly_client.models.offer_eligibility import OfferEligibility  # noqa: E501
 
 class TestOfferEligibility(unittest.TestCase):
     """OfferEligibility unit test stubs"""

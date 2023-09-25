@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.reports_api import ReportsApi  # noqa: E501
+from sparkfly_client.api.reports_api import ReportsApi  # noqa: E501
 
 
 class TestReportsApi(unittest.TestCase):
@@ -26,36 +26,36 @@ class TestReportsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_merchants_merchant_id_reports_full_get(self) -> None:
-        """Test case for v10_merchants_merchant_id_reports_full_get
-
-        Generates a report of full Merchant data in a given timeframe for a single Merchant  # noqa: E501
-        """
-        pass
-
-    def test_v10_merchants_merchant_id_reports_impressions_get(self) -> None:
-        """Test case for v10_merchants_merchant_id_reports_impressions_get
-
-        Get Unique Impressions  # noqa: E501
-        """
-        pass
-
-    def test_v10_reports_account_level_get(self) -> None:
-        """Test case for v10_reports_account_level_get
+    def test_all_merchant_data(self) -> None:
+        """Test case for all_merchant_data
 
         Generates a report of full Merchant data in a given timeframe for a all Merchants  # noqa: E501
         """
         pass
 
-    def test_v10_reports_offer_activity_get(self) -> None:
-        """Test case for v10_reports_offer_activity_get
+    def test_merchant_data(self) -> None:
+        """Test case for merchant_data
+
+        Generates a report of full Merchant data in a given timeframe for a single Merchant  # noqa: E501
+        """
+        pass
+
+    def test_merchant_impressions(self) -> None:
+        """Test case for merchant_impressions
+
+        Get Unique Impressions  # noqa: E501
+        """
+        pass
+
+    def test_offer_activity(self) -> None:
+        """Test case for offer_activity
 
         Generates a report of all offer activity in a given timeframe  # noqa: E501
         """
         pass
 
-    def test_v10_reports_redemptions_get(self) -> None:
-        """Test case for v10_reports_redemptions_get
+    def test_offer_redemptions(self) -> None:
+        """Test case for offer_redemptions
 
         Generates a report of all offer redemptions for a given timeframe and store list  # noqa: E501
         """

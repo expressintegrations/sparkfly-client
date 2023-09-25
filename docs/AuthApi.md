@@ -4,11 +4,11 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**auth_get**](AuthApi.md#auth_get) | **GET** /auth | authenticate and receive auth token
+[**authenticate**](AuthApi.md#authenticate) | **GET** /auth | authenticate and receive auth token
 
 
-# **auth_get**
-> auth_get(x_auth_identity, x_auth_key)
+# **authenticate**
+> authenticate(x_auth_identity, x_auth_key)
 
 authenticate and receive auth token
 
@@ -37,9 +37,9 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # authenticate and receive auth token
-        api_instance.auth_get(x_auth_identity, x_auth_key)
+        api_instance.authenticate(x_auth_identity, x_auth_key)
     except Exception as e:
-        print("Exception when calling AuthApi->auth_get: %s\n" % e)
+        print("Exception when calling AuthApi->authenticate: %s\n" % e)
 ```
 
 

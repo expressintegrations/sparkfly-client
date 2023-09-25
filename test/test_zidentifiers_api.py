@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.zidentifiers_api import ZidentifiersApi  # noqa: E501
+from sparkfly_client.api.zidentifiers_api import ZidentifiersApi  # noqa: E501
 
 
 class TestZidentifiersApi(unittest.TestCase):
@@ -26,15 +26,15 @@ class TestZidentifiersApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_members_member_id_offers_offer_id_zidentifiers_get(self) -> None:
-        """Test case for v10_members_member_id_offers_offer_id_zidentifiers_get
+    def test_z_identifier(self) -> None:
+        """Test case for z_identifier
 
         Create an identifier linking Offer, Member, Channel  # noqa: E501
         """
         pass
 
-    def test_v10_members_zidentifiers_zid_get(self) -> None:
-        """Test case for v10_members_zidentifiers_zid_get
+    def test_z_identifier_0(self) -> None:
+        """Test case for z_identifier_0
 
         Get Zidentifier  # noqa: E501
         """

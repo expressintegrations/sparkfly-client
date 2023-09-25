@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.campaign_input_request import CampaignInputRequest  # noqa: E501
+from sparkfly_client.models.campaign_input_request import CampaignInputRequest  # noqa: E501
 
 class TestCampaignInputRequest(unittest.TestCase):
     """CampaignInputRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestCampaignInputRequest(unittest.TestCase):
         model = CampaignInputRequest()  # noqa: E501
         if include_optional:
             return CampaignInputRequest(
-                campaign = openapi_client.models.campaign_input.campaign_input(
+                campaign = sparkfly_client.models.campaign_input.campaign_input(
                     offer_id = 56, 
                     code_ref = '', 
                     code_count = '', 

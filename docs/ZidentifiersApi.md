@@ -4,12 +4,12 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v10_members_member_id_offers_offer_id_zidentifiers_get**](ZidentifiersApi.md#v10_members_member_id_offers_offer_id_zidentifiers_get) | **GET** /v1.0/members/:member_id/offers/:offer_id/zidentifiers | Create an identifier linking Offer, Member, Channel
-[**v10_members_zidentifiers_zid_get**](ZidentifiersApi.md#v10_members_zidentifiers_zid_get) | **GET** /v1.0/members/zidentifiers/:zid | Get Zidentifier
+[**create_z_identifier**](ZidentifiersApi.md#create_z_identifier) | **GET** /v1.0/members/:member_id/offers/:offer_id/zidentifiers | Create an identifier linking Offer, Member, Channel
+[**get_z_identifier**](ZidentifiersApi.md#get_z_identifier) | **GET** /v1.0/members/zidentifiers/:zid | Get Zidentifier
 
 
-# **v10_members_member_id_offers_offer_id_zidentifiers_get**
-> ZIdentifierResponse v10_members_member_id_offers_offer_id_zidentifiers_get(member_id, offer_id, x_channel_id)
+# **create_z_identifier**
+> ZIdentifierResponse create_z_identifier(member_id, offer_id, x_channel_id)
 
 Create an identifier linking Offer, Member, Channel
 
@@ -51,11 +51,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Create an identifier linking Offer, Member, Channel
-        api_response = api_instance.v10_members_member_id_offers_offer_id_zidentifiers_get(member_id, offer_id, x_channel_id)
-        print("The response of ZidentifiersApi->v10_members_member_id_offers_offer_id_zidentifiers_get:\n")
+        api_response = api_instance.create_z_identifier(member_id, offer_id, x_channel_id)
+        print("The response of ZidentifiersApi->create_z_identifier:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ZidentifiersApi->v10_members_member_id_offers_offer_id_zidentifiers_get: %s\n" % e)
+        print("Exception when calling ZidentifiersApi->create_z_identifier: %s\n" % e)
 ```
 
 
@@ -89,8 +89,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v10_members_zidentifiers_zid_get**
-> ZIdentifierResponse v10_members_zidentifiers_zid_get(zid)
+# **get_z_identifier**
+> ZIdentifierResponse get_z_identifier(zid)
 
 Get Zidentifier
 
@@ -130,11 +130,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Get Zidentifier
-        api_response = api_instance.v10_members_zidentifiers_zid_get(zid)
-        print("The response of ZidentifiersApi->v10_members_zidentifiers_zid_get:\n")
+        api_response = api_instance.get_z_identifier(zid)
+        print("The response of ZidentifiersApi->get_z_identifier:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ZidentifiersApi->v10_members_zidentifiers_zid_get: %s\n" % e)
+        print("Exception when calling ZidentifiersApi->get_z_identifier: %s\n" % e)
 ```
 
 

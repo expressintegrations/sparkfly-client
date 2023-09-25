@@ -44,13 +44,13 @@ class MerchantsOffersApi:
         self.api_client = api_client
 
     @validate_arguments
-    def v10_merchants_merchant_id_offers_get(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], **kwargs) -> MerchantOfferList:  # noqa: E501
+    def get_merchant_offers(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], **kwargs) -> MerchantOfferList:  # noqa: E501
         """List offers for merchant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_merchants_merchant_id_offers_get(merchant_id, async_req=True)
+        >>> thread = api.get_merchant_offers(merchant_id, async_req=True)
         >>> result = thread.get()
 
         :param merchant_id: The id of the merchant (required)
@@ -68,18 +68,18 @@ class MerchantsOffersApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_merchants_merchant_id_offers_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_merchant_offers_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_merchants_merchant_id_offers_get_with_http_info(merchant_id, **kwargs)  # noqa: E501
+        return self.get_merchant_offers_with_http_info(merchant_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_merchants_merchant_id_offers_get_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_merchant_offers_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], **kwargs) -> ApiResponse:  # noqa: E501
         """List offers for merchant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_merchants_merchant_id_offers_get_with_http_info(merchant_id, async_req=True)
+        >>> thread = api.get_merchant_offers_with_http_info(merchant_id, async_req=True)
         >>> result = thread.get()
 
         :param merchant_id: The id of the merchant (required)
@@ -131,7 +131,7 @@ class MerchantsOffersApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_merchants_merchant_id_offers_get" % _key
+                    " to method get_merchant_offers" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']

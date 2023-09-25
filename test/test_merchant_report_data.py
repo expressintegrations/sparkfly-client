@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.merchant_report_data import MerchantReportData  # noqa: E501
+from sparkfly_client.models.merchant_report_data import MerchantReportData  # noqa: E501
 
 class TestMerchantReportData(unittest.TestCase):
     """MerchantReportData unit test stubs"""
@@ -37,9 +37,9 @@ class TestMerchantReportData(unittest.TestCase):
         if include_optional:
             return MerchantReportData(
                 data = [
-                    openapi_client.models.merchant_report.merchant_report(
+                    sparkfly_client.models.merchant_report.merchant_report(
                         data = [
-                            openapi_client.models.report_data.report_data(
+                            sparkfly_client.models.report_data.report_data(
                                 id = 56, 
                                 pos_transaction_id = '', 
                                 operator_id = '', 
@@ -65,20 +65,20 @@ class TestMerchantReportData(unittest.TestCase):
                                     ''
                                     ], 
                                 transaction_items = [
-                                    openapi_client.models.transaction_item.transaction_item(
+                                    sparkfly_client.models.transaction_item.transaction_item(
                                         name = '', 
                                         item_code = '', 
                                         quantity = 56, 
                                         ext_price = 56, 
                                         transaction_type = 56, 
-                                        extra_data = openapi_client.models.transaction_item_extra.transaction_item_extra(
+                                        extra_data = sparkfly_client.models.transaction_item_extra.transaction_item_extra(
                                             category = '', 
                                             department = '', 
                                             group = '', 
                                             sub_group = '', ), )
                                     ], 
                                 item_groups = [
-                                    openapi_client.models.item.item(
+                                    sparkfly_client.models.item.item(
                                         id = 56, 
                                         name = '', 
                                         code = '', 
@@ -86,7 +86,7 @@ class TestMerchantReportData(unittest.TestCase):
                                         manufacturer_id = 56, )
                                     ], 
                                 redeemed_items = [
-                                    openapi_client.models.item.item(
+                                    sparkfly_client.models.item.item(
                                         id = 56, 
                                         name = '', 
                                         code = '', 

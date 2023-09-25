@@ -45,144 +45,13 @@ class POSOfferCodesApi:
         self.api_client = api_client
 
     @validate_arguments
-    def v10_pos_offer_codes_get(self, **kwargs) -> PosOfferCodeList:  # noqa: E501
-        """List POS Offer Codes  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_pos_offer_codes_get(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: PosOfferCodeList
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_pos_offer_codes_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_pos_offer_codes_get_with_http_info(**kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_pos_offer_codes_get_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
-        """List POS Offer Codes  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_pos_offer_codes_get_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(PosOfferCodeList, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_pos_offer_codes_get" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '200': "PosOfferCodeList",
-            '401': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/pos_offer_codes', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_pos_offer_codes_pos_offer_code_id_get(self, pos_offer_code_id : Annotated[StrictInt, Field(..., description="The id of the POS Offer Code")], **kwargs) -> PosOfferCodeResponse:  # noqa: E501
+    def get_pos_offer_code(self, pos_offer_code_id : Annotated[StrictInt, Field(..., description="The id of the POS Offer Code")], **kwargs) -> PosOfferCodeResponse:  # noqa: E501
         """Get POS Offer Code  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_pos_offer_codes_pos_offer_code_id_get(pos_offer_code_id, async_req=True)
+        >>> thread = api.get_pos_offer_code(pos_offer_code_id, async_req=True)
         >>> result = thread.get()
 
         :param pos_offer_code_id: The id of the POS Offer Code (required)
@@ -200,18 +69,18 @@ class POSOfferCodesApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_pos_offer_codes_pos_offer_code_id_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_pos_offer_code_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_pos_offer_codes_pos_offer_code_id_get_with_http_info(pos_offer_code_id, **kwargs)  # noqa: E501
+        return self.get_pos_offer_code_with_http_info(pos_offer_code_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_pos_offer_codes_pos_offer_code_id_get_with_http_info(self, pos_offer_code_id : Annotated[StrictInt, Field(..., description="The id of the POS Offer Code")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_pos_offer_code_with_http_info(self, pos_offer_code_id : Annotated[StrictInt, Field(..., description="The id of the POS Offer Code")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get POS Offer Code  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_pos_offer_codes_pos_offer_code_id_get_with_http_info(pos_offer_code_id, async_req=True)
+        >>> thread = api.get_pos_offer_code_with_http_info(pos_offer_code_id, async_req=True)
         >>> result = thread.get()
 
         :param pos_offer_code_id: The id of the POS Offer Code (required)
@@ -263,7 +132,7 @@ class POSOfferCodesApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_pos_offer_codes_pos_offer_code_id_get" % _key
+                    " to method get_pos_offer_code" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -299,6 +168,137 @@ class POSOfferCodesApi:
 
         return self.api_client.call_api(
             '/v1.0/pos_offer_codes/:pos_offer_code_id', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def get_pos_offer_codes(self, **kwargs) -> PosOfferCodeList:  # noqa: E501
+        """List POS Offer Codes  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_pos_offer_codes(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: PosOfferCodeList
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the get_pos_offer_codes_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.get_pos_offer_codes_with_http_info(**kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_pos_offer_codes_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
+        """List POS Offer Codes  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_pos_offer_codes_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(PosOfferCodeList, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_pos_offer_codes" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '200': "PosOfferCodeList",
+            '401': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/pos_offer_codes', 'GET',
             _path_params,
             _query_params,
             _header_params,

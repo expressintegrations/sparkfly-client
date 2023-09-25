@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.impressions_series_items import ImpressionsSeriesItems  # noqa: E501
+from sparkfly_client.models.impressions_series_items import ImpressionsSeriesItems  # noqa: E501
 
 class TestImpressionsSeriesItems(unittest.TestCase):
     """ImpressionsSeriesItems unit test stubs"""

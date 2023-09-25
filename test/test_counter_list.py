@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.counter_list import CounterList  # noqa: E501
+from sparkfly_client.models.counter_list import CounterList  # noqa: E501
 
 class TestCounterList(unittest.TestCase):
     """CounterList unit test stubs"""
@@ -41,8 +41,8 @@ class TestCounterList(unittest.TestCase):
                 total_entries = 56,
                 total_pages = 56,
                 counters = [
-                    openapi_client.models.counter_response.counter_response(
-                        counter = openapi_client.models.counter.counter(
+                    sparkfly_client.models.counter_response.counter_response(
+                        counter = sparkfly_client.models.counter.counter(
                             id = 56, 
                             name = 56, ), 
                         errors = {

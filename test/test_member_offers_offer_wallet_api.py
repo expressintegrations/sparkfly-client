@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.member_offers_offer_wallet_api import MemberOffersOfferWalletApi  # noqa: E501
+from sparkfly_client.api.member_offers_offer_wallet_api import MemberOffersOfferWalletApi  # noqa: E501
 
 
 class TestMemberOffersOfferWalletApi(unittest.TestCase):
@@ -26,50 +26,50 @@ class TestMemberOffersOfferWalletApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_members_member_id_offer_states_get(self) -> None:
-        """Test case for v10_members_member_id_offer_states_get
-
-        Get the entire list of Offer States for a Member  # noqa: E501
-        """
-        pass
-
-    def test_v10_members_member_id_offer_states_offer_state_id_get(self) -> None:
-        """Test case for v10_members_member_id_offer_states_offer_state_id_get
-
-        Get an individual Offer State for a Member  # noqa: E501
-        """
-        pass
-
-    def test_v10_members_member_id_offer_states_offer_state_id_put(self) -> None:
-        """Test case for v10_members_member_id_offer_states_offer_state_id_put
-
-        Update an individual Offer State for a Member - in order to change the availability  # noqa: E501
-        """
-        pass
-
-    def test_v10_members_member_id_offer_states_offer_state_id_void_post(self) -> None:
-        """Test case for v10_members_member_id_offer_states_offer_state_id_void_post
-
-        Voids an individual Offer State for a Member by Member ID  # noqa: E501
-        """
-        pass
-
-    def test_v10_members_member_id_offer_states_post(self) -> None:
-        """Test case for v10_members_member_id_offer_states_post
+    def test_member_offer_state(self) -> None:
+        """Test case for member_offer_state
 
         Create a new Member Offer State and provide optional activation and expiration dates  # noqa: E501
         """
         pass
 
-    def test_v10_members_offer_states_get(self) -> None:
-        """Test case for v10_members_offer_states_get
+    def test_member_offer_state_0(self) -> None:
+        """Test case for member_offer_state_0
+
+        Get an individual Offer State for a Member  # noqa: E501
+        """
+        pass
+
+    def test_member_offer_state_1(self) -> None:
+        """Test case for member_offer_state_1
+
+        Update an individual Offer State for a Member - in order to change the availability  # noqa: E501
+        """
+        pass
+
+    def test_member_offer_state_2(self) -> None:
+        """Test case for member_offer_state_2
+
+        Voids an individual Offer State for a Member by Member ID  # noqa: E501
+        """
+        pass
+
+    def test_member_offer_states(self) -> None:
+        """Test case for member_offer_states
+
+        Get the entire list of Offer States for a Member  # noqa: E501
+        """
+        pass
+
+    def test_members_with_offer_states(self) -> None:
+        """Test case for members_with_offer_states
 
         Retrieve Offer States  # noqa: E501
         """
         pass
 
-    def test_v10_members_offer_states_offer_state_id_void_post(self) -> None:
-        """Test case for v10_members_offer_states_offer_state_id_void_post
+    def test_offer_state_by_member_identifier(self) -> None:
+        """Test case for offer_state_by_member_identifier
 
         Voids an individual Offer State for a Member by Member Identifier  # noqa: E501
         """

@@ -4,14 +4,14 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v10_manufacturers_manufacturer_id_merchants_delete**](ManufacturersMerchantsApi.md#v10_manufacturers_manufacturer_id_merchants_delete) | **DELETE** /v1.0/manufacturers/:manufacturer_id/merchants | Remove an eligible merchant for manufacturer
-[**v10_manufacturers_manufacturer_id_merchants_get**](ManufacturersMerchantsApi.md#v10_manufacturers_manufacturer_id_merchants_get) | **GET** /v1.0/manufacturers/:manufacturer_id/merchants | Get all merchants for manufacturer
-[**v10_manufacturers_manufacturer_id_merchants_post**](ManufacturersMerchantsApi.md#v10_manufacturers_manufacturer_id_merchants_post) | **POST** /v1.0/manufacturers/:manufacturer_id/merchants | Add an eligible merchant for manufacturer
-[**v10_manufacturers_manufacturer_id_merchants_put**](ManufacturersMerchantsApi.md#v10_manufacturers_manufacturer_id_merchants_put) | **PUT** /v1.0/manufacturers/:manufacturer_id/merchants | Add an eligible merchant for manufacturer
+[**delete_manufacturer_merchants**](ManufacturersMerchantsApi.md#delete_manufacturer_merchants) | **DELETE** /v1.0/manufacturers/:manufacturer_id/merchants | Remove an eligible merchant for manufacturer
+[**get_manufacturer_merchants**](ManufacturersMerchantsApi.md#get_manufacturer_merchants) | **GET** /v1.0/manufacturers/:manufacturer_id/merchants | Get all merchants for manufacturer
+[**set_manufacturer_merchants**](ManufacturersMerchantsApi.md#set_manufacturer_merchants) | **POST** /v1.0/manufacturers/:manufacturer_id/merchants | Set eligible merchants for manufacturer
+[**update_manufacturer_merchants**](ManufacturersMerchantsApi.md#update_manufacturer_merchants) | **PUT** /v1.0/manufacturers/:manufacturer_id/merchants | Add an eligible merchant for manufacturer
 
 
-# **v10_manufacturers_manufacturer_id_merchants_delete**
-> ManufacturerMerchantsResponse v10_manufacturers_manufacturer_id_merchants_delete(manufacturer_id, manufacturer_merchant_ids_input_request=manufacturer_merchant_ids_input_request)
+# **delete_manufacturer_merchants**
+> ManufacturerMerchantsResponse delete_manufacturer_merchants(manufacturer_id, manufacturer_merchant_ids_input_request=manufacturer_merchant_ids_input_request)
 
 Remove an eligible merchant for manufacturer
 
@@ -53,11 +53,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Remove an eligible merchant for manufacturer
-        api_response = api_instance.v10_manufacturers_manufacturer_id_merchants_delete(manufacturer_id, manufacturer_merchant_ids_input_request=manufacturer_merchant_ids_input_request)
-        print("The response of ManufacturersMerchantsApi->v10_manufacturers_manufacturer_id_merchants_delete:\n")
+        api_response = api_instance.delete_manufacturer_merchants(manufacturer_id, manufacturer_merchant_ids_input_request=manufacturer_merchant_ids_input_request)
+        print("The response of ManufacturersMerchantsApi->delete_manufacturer_merchants:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ManufacturersMerchantsApi->v10_manufacturers_manufacturer_id_merchants_delete: %s\n" % e)
+        print("Exception when calling ManufacturersMerchantsApi->delete_manufacturer_merchants: %s\n" % e)
 ```
 
 
@@ -91,8 +91,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v10_manufacturers_manufacturer_id_merchants_get**
-> ManufacturerMerchantsResponse v10_manufacturers_manufacturer_id_merchants_get(manufacturer_id)
+# **get_manufacturer_merchants**
+> ManufacturerMerchantsResponse get_manufacturer_merchants(manufacturer_id)
 
 Get all merchants for manufacturer
 
@@ -132,11 +132,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Get all merchants for manufacturer
-        api_response = api_instance.v10_manufacturers_manufacturer_id_merchants_get(manufacturer_id)
-        print("The response of ManufacturersMerchantsApi->v10_manufacturers_manufacturer_id_merchants_get:\n")
+        api_response = api_instance.get_manufacturer_merchants(manufacturer_id)
+        print("The response of ManufacturersMerchantsApi->get_manufacturer_merchants:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ManufacturersMerchantsApi->v10_manufacturers_manufacturer_id_merchants_get: %s\n" % e)
+        print("Exception when calling ManufacturersMerchantsApi->get_manufacturer_merchants: %s\n" % e)
 ```
 
 
@@ -168,10 +168,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v10_manufacturers_manufacturer_id_merchants_post**
-> ManufacturerMerchantsResponse v10_manufacturers_manufacturer_id_merchants_post(manufacturer_id, manufacturer_merchant_ids_input_request=manufacturer_merchant_ids_input_request)
+# **set_manufacturer_merchants**
+> ManufacturerMerchantsResponse set_manufacturer_merchants(manufacturer_id, manufacturer_merchant_ids_input_request=manufacturer_merchant_ids_input_request)
 
-Add an eligible merchant for manufacturer
+Set eligible merchants for manufacturer
 
 ### Example
 
@@ -207,15 +207,15 @@ with sparkfly_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sparkfly_client.ManufacturersMerchantsApi(api_client)
     manufacturer_id = 56 # int | The id of the manufacturer
-    manufacturer_merchant_ids_input_request = sparkfly_client.ManufacturerMerchantIdsInputRequest() # ManufacturerMerchantIdsInputRequest | Merchant to add to manufacturer (optional)
+    manufacturer_merchant_ids_input_request = sparkfly_client.ManufacturerMerchantIdsInputRequest() # ManufacturerMerchantIdsInputRequest | Merchants to set for manufacturer (optional)
 
     try:
-        # Add an eligible merchant for manufacturer
-        api_response = api_instance.v10_manufacturers_manufacturer_id_merchants_post(manufacturer_id, manufacturer_merchant_ids_input_request=manufacturer_merchant_ids_input_request)
-        print("The response of ManufacturersMerchantsApi->v10_manufacturers_manufacturer_id_merchants_post:\n")
+        # Set eligible merchants for manufacturer
+        api_response = api_instance.set_manufacturer_merchants(manufacturer_id, manufacturer_merchant_ids_input_request=manufacturer_merchant_ids_input_request)
+        print("The response of ManufacturersMerchantsApi->set_manufacturer_merchants:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ManufacturersMerchantsApi->v10_manufacturers_manufacturer_id_merchants_post: %s\n" % e)
+        print("Exception when calling ManufacturersMerchantsApi->set_manufacturer_merchants: %s\n" % e)
 ```
 
 
@@ -225,7 +225,7 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **manufacturer_id** | **int**| The id of the manufacturer | 
- **manufacturer_merchant_ids_input_request** | [**ManufacturerMerchantIdsInputRequest**](ManufacturerMerchantIdsInputRequest.md)| Merchant to add to manufacturer | [optional] 
+ **manufacturer_merchant_ids_input_request** | [**ManufacturerMerchantIdsInputRequest**](ManufacturerMerchantIdsInputRequest.md)| Merchants to set for manufacturer | [optional] 
 
 ### Return type
 
@@ -249,8 +249,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v10_manufacturers_manufacturer_id_merchants_put**
-> ManufacturerMerchantsResponse v10_manufacturers_manufacturer_id_merchants_put(manufacturer_id, manufacturer_merchant_ids_input_request=manufacturer_merchant_ids_input_request)
+# **update_manufacturer_merchants**
+> ManufacturerMerchantsResponse update_manufacturer_merchants(manufacturer_id, manufacturer_merchant_ids_input_request=manufacturer_merchant_ids_input_request)
 
 Add an eligible merchant for manufacturer
 
@@ -292,11 +292,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Add an eligible merchant for manufacturer
-        api_response = api_instance.v10_manufacturers_manufacturer_id_merchants_put(manufacturer_id, manufacturer_merchant_ids_input_request=manufacturer_merchant_ids_input_request)
-        print("The response of ManufacturersMerchantsApi->v10_manufacturers_manufacturer_id_merchants_put:\n")
+        api_response = api_instance.update_manufacturer_merchants(manufacturer_id, manufacturer_merchant_ids_input_request=manufacturer_merchant_ids_input_request)
+        print("The response of ManufacturersMerchantsApi->update_manufacturer_merchants:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ManufacturersMerchantsApi->v10_manufacturers_manufacturer_id_merchants_put: %s\n" % e)
+        print("Exception when calling ManufacturersMerchantsApi->update_manufacturer_merchants: %s\n" % e)
 ```
 
 

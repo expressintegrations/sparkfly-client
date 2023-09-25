@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.location import Location  # noqa: E501
+from sparkfly_client.models.location import Location  # noqa: E501
 
 class TestLocation(unittest.TestCase):
     """Location unit test stubs"""

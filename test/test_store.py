@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.store import Store  # noqa: E501
+from sparkfly_client.models.store import Store  # noqa: E501
 
 class TestStore(unittest.TestCase):
     """Store unit test stubs"""
@@ -43,7 +43,7 @@ class TestStore(unittest.TestCase):
                 description = '',
                 is_active = True,
                 phone = '',
-                location = openapi_client.models.store_location.store_location(
+                location = sparkfly_client.models.store_location.store_location(
                     address = '', 
                     address2 = '', 
                     city = '', 
@@ -52,17 +52,17 @@ class TestStore(unittest.TestCase):
                     country = '', 
                     lat = '', 
                     lng = '', ),
-                contacts = openapi_client.models.contacts.contacts(
-                    primary = openapi_client.models.contact.contact(
+                contacts = sparkfly_client.models.contacts.contacts(
+                    primary = sparkfly_client.models.contact.contact(
                         name = '', 
                         phone = '', 
                         email = '', ), 
-                    secondary = openapi_client.models.contact.contact(
+                    secondary = sparkfly_client.models.contact.contact(
                         name = '', 
                         phone = '', 
                         email = '', ), ),
                 merchant_id = 56,
-                nearby = openapi_client.models.store_nearby.store_nearby(
+                nearby = sparkfly_client.models.store_nearby.store_nearby(
                     lat = '', 
                     lng = '', 
                     distance = 56, ),

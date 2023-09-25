@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.channel_list import ChannelList  # noqa: E501
+from sparkfly_client.models.channel_list import ChannelList  # noqa: E501
 
 class TestChannelList(unittest.TestCase):
     """ChannelList unit test stubs"""
@@ -41,8 +41,8 @@ class TestChannelList(unittest.TestCase):
                 total_entries = 56,
                 total_pages = 56,
                 channels = [
-                    openapi_client.models.channel_response.channel_response(
-                        channel = openapi_client.models.channel.channel(
+                    sparkfly_client.models.channel_response.channel_response(
+                        channel = sparkfly_client.models.channel.channel(
                             id = 56, 
                             name = '', 
                             allow_sms_keyword = True, 

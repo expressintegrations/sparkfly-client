@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.offer_engine_api import OfferEngineApi  # noqa: E501
+from sparkfly_client.api.offer_engine_api import OfferEngineApi  # noqa: E501
 
 
 class TestOfferEngineApi(unittest.TestCase):
@@ -26,38 +26,38 @@ class TestOfferEngineApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_activities_offers_get(self) -> None:
-        """Test case for v10_activities_offers_get
-
-        Retrieve Offer Activities for Member  # noqa: E501
-        """
-        pass
-
-    def test_v10_members_member_id_activities_redemptions_get(self) -> None:
-        """Test case for v10_members_member_id_activities_redemptions_get
-
-        Retrieve Redeemed Redemptions for Member  # noqa: E501
-        """
-        pass
-
-    def test_v10_members_member_id_stores_store_id_activities_redemptions_get(self) -> None:
-        """Test case for v10_members_member_id_stores_store_id_activities_redemptions_get
-
-        Retrieve Redeemed Redemptions for Member for Store  # noqa: E501
-        """
-        pass
-
-    def test_v10_members_member_id_stores_store_id_check_incheck_in_latlatcheck_in_lnglng_post(self) -> None:
-        """Test case for v10_members_member_id_stores_store_id_check_incheck_in_latlatcheck_in_lnglng_post
+    def test_in_member_to_store(self) -> None:
+        """Test case for in_member_to_store
 
         Check-In Member to Store  # noqa: E501
         """
         pass
 
-    def test_v10_members_member_id_stores_store_id_get(self) -> None:
-        """Test case for v10_members_member_id_stores_store_id_get
+    def test_member_offer_activities(self) -> None:
+        """Test case for member_offer_activities
+
+        Retrieve Offer Activities for Member  # noqa: E501
+        """
+        pass
+
+    def test_member_redemptions(self) -> None:
+        """Test case for member_redemptions
+
+        Retrieve Redeemed Redemptions for Member  # noqa: E501
+        """
+        pass
+
+    def test_member_store(self) -> None:
+        """Test case for member_store
 
         Retrieve Store for Member  # noqa: E501
+        """
+        pass
+
+    def test_member_store_redemptions(self) -> None:
+        """Test case for member_store_redemptions
+
+        Retrieve Redeemed Redemptions for Member for Store  # noqa: E501
         """
         pass
 

@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.offer_eligible_item_set_list import OfferEligibleItemSetList  # noqa: E501
+from sparkfly_client.models.offer_eligible_item_set_list import OfferEligibleItemSetList  # noqa: E501
 
 class TestOfferEligibleItemSetList(unittest.TestCase):
     """OfferEligibleItemSetList unit test stubs"""
@@ -41,8 +41,8 @@ class TestOfferEligibleItemSetList(unittest.TestCase):
                 total_entries = 56,
                 total_pages = 56,
                 eligible_item_sets = [
-                    openapi_client.models.eligible_item_set_response.eligible_item_set_response(
-                        eligible_item_set = openapi_client.models.eligible_item_set.eligible_item_set(
+                    sparkfly_client.models.eligible_item_set_response.eligible_item_set_response(
+                        eligible_item_set = sparkfly_client.models.eligible_item_set.eligible_item_set(
                             id = 56, 
                             list_type = 56, 
                             type_name = '', 

@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.item_set_list import ItemSetList  # noqa: E501
+from sparkfly_client.models.item_set_list import ItemSetList  # noqa: E501
 
 class TestItemSetList(unittest.TestCase):
     """ItemSetList unit test stubs"""
@@ -41,8 +41,8 @@ class TestItemSetList(unittest.TestCase):
                 total_entries = 56,
                 total_pages = 56,
                 item_sets = [
-                    openapi_client.models.item_set_response.item_set_response(
-                        item_set = openapi_client.models.item_set.item_set(
+                    sparkfly_client.models.item_set_response.item_set_response(
+                        item_set = sparkfly_client.models.item_set.item_set(
                             id = 56, 
                             name = '', 
                             merchant_id = 56, 

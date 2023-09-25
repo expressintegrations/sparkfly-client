@@ -4,11 +4,11 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v10_merchants_merchant_id_item_sets_item_set_id_items_get**](MerchantsItemSetsItemsApi.md#v10_merchants_merchant_id_item_sets_item_set_id_items_get) | **GET** /v1.0/merchants/:merchant_id/item_sets/:item_set_id/items | Get items for item set for merchant
+[**get_merchant_item_set_items**](MerchantsItemSetsItemsApi.md#get_merchant_item_set_items) | **GET** /v1.0/merchants/:merchant_id/item_sets/:item_set_id/items | Get items for item set for merchant
 
 
-# **v10_merchants_merchant_id_item_sets_item_set_id_items_get**
-> ItemListResponse v10_merchants_merchant_id_item_sets_item_set_id_items_get(merchant_id, item_set_id)
+# **get_merchant_item_set_items**
+> ItemListResponse get_merchant_item_set_items(merchant_id, item_set_id)
 
 Get items for item set for merchant
 
@@ -49,11 +49,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Get items for item set for merchant
-        api_response = api_instance.v10_merchants_merchant_id_item_sets_item_set_id_items_get(merchant_id, item_set_id)
-        print("The response of MerchantsItemSetsItemsApi->v10_merchants_merchant_id_item_sets_item_set_id_items_get:\n")
+        api_response = api_instance.get_merchant_item_set_items(merchant_id, item_set_id)
+        print("The response of MerchantsItemSetsItemsApi->get_merchant_item_set_items:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling MerchantsItemSetsItemsApi->v10_merchants_merchant_id_item_sets_item_set_id_items_get: %s\n" % e)
+        print("Exception when calling MerchantsItemSetsItemsApi->get_merchant_item_set_items: %s\n" % e)
 ```
 
 

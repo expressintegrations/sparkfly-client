@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.offer_activity_report import OfferActivityReport  # noqa: E501
+from sparkfly_client.models.offer_activity_report import OfferActivityReport  # noqa: E501
 
 class TestOfferActivityReport(unittest.TestCase):
     """OfferActivityReport unit test stubs"""
@@ -44,10 +44,10 @@ class TestOfferActivityReport(unittest.TestCase):
                 type = 'redeem',
                 offer_id = 56,
                 channel_id = 56,
-                member = openapi_client.models.member_info.member_info(
+                member = sparkfly_client.models.member_info.member_info(
                     id = '', 
                     identifier = '', ),
-                offer_state = openapi_client.models.offer_state_info.offer_state_info(
+                offer_state = sparkfly_client.models.offer_state_info.offer_state_info(
                     id = '', 
                     external_ref_id = '', )
             )

@@ -52,13 +52,161 @@ class ReportsApi:
         self.api_client = api_client
 
     @validate_arguments
-    def v10_merchants_merchant_id_reports_full_get(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], var_from : Annotated[StrictInt, Field(..., description="The first reported datetime to gather data from. Must be paired with the \"to\" parameter.")], to : Annotated[StrictInt, Field(..., description="The last reported datetime to gather data from. Must be paired with the \"from\" parameter.")], **kwargs) -> MerchantReportData:  # noqa: E501
+    def get_all_merchant_data(self, var_from : Annotated[StrictInt, Field(..., description="The first reported datetime to gather data from. Must be paired with the \"to\" parameter.")], to : Annotated[StrictInt, Field(..., description="The last reported datetime to gather data from. Must be paired with the \"from\" parameter.")], **kwargs) -> AccountLevelMerchantReport:  # noqa: E501
+        """Generates a report of full Merchant data in a given timeframe for a all Merchants  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_all_merchant_data(var_from, to, async_req=True)
+        >>> result = thread.get()
+
+        :param var_from: The first reported datetime to gather data from. Must be paired with the \"to\" parameter. (required)
+        :type var_from: int
+        :param to: The last reported datetime to gather data from. Must be paired with the \"from\" parameter. (required)
+        :type to: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: AccountLevelMerchantReport
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the get_all_merchant_data_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.get_all_merchant_data_with_http_info(var_from, to, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_all_merchant_data_with_http_info(self, var_from : Annotated[StrictInt, Field(..., description="The first reported datetime to gather data from. Must be paired with the \"to\" parameter.")], to : Annotated[StrictInt, Field(..., description="The last reported datetime to gather data from. Must be paired with the \"from\" parameter.")], **kwargs) -> ApiResponse:  # noqa: E501
+        """Generates a report of full Merchant data in a given timeframe for a all Merchants  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_all_merchant_data_with_http_info(var_from, to, async_req=True)
+        >>> result = thread.get()
+
+        :param var_from: The first reported datetime to gather data from. Must be paired with the \"to\" parameter. (required)
+        :type var_from: int
+        :param to: The last reported datetime to gather data from. Must be paired with the \"from\" parameter. (required)
+        :type to: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(AccountLevelMerchantReport, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'var_from',
+            'to'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_all_merchant_data" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+
+        # process the query parameters
+        _query_params = []
+        if _params.get('var_from') is not None:  # noqa: E501
+            _query_params.append(('from', _params['var_from']))
+
+        if _params.get('to') is not None:  # noqa: E501
+            _query_params.append(('to', _params['to']))
+
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '200': "AccountLevelMerchantReport",
+            '400': None,
+            '500': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/reports/account_level', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def get_merchant_data(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], var_from : Annotated[StrictInt, Field(..., description="The first reported datetime to gather data from. Must be paired with the \"to\" parameter.")], to : Annotated[StrictInt, Field(..., description="The last reported datetime to gather data from. Must be paired with the \"from\" parameter.")], **kwargs) -> MerchantReportData:  # noqa: E501
         """Generates a report of full Merchant data in a given timeframe for a single Merchant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_merchants_merchant_id_reports_full_get(merchant_id, var_from, to, async_req=True)
+        >>> thread = api.get_merchant_data(merchant_id, var_from, to, async_req=True)
         >>> result = thread.get()
 
         :param merchant_id: The id of the merchant (required)
@@ -80,18 +228,18 @@ class ReportsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_merchants_merchant_id_reports_full_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_merchant_data_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_merchants_merchant_id_reports_full_get_with_http_info(merchant_id, var_from, to, **kwargs)  # noqa: E501
+        return self.get_merchant_data_with_http_info(merchant_id, var_from, to, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_merchants_merchant_id_reports_full_get_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], var_from : Annotated[StrictInt, Field(..., description="The first reported datetime to gather data from. Must be paired with the \"to\" parameter.")], to : Annotated[StrictInt, Field(..., description="The last reported datetime to gather data from. Must be paired with the \"from\" parameter.")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_merchant_data_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], var_from : Annotated[StrictInt, Field(..., description="The first reported datetime to gather data from. Must be paired with the \"to\" parameter.")], to : Annotated[StrictInt, Field(..., description="The last reported datetime to gather data from. Must be paired with the \"from\" parameter.")], **kwargs) -> ApiResponse:  # noqa: E501
         """Generates a report of full Merchant data in a given timeframe for a single Merchant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_merchants_merchant_id_reports_full_get_with_http_info(merchant_id, var_from, to, async_req=True)
+        >>> thread = api.get_merchant_data_with_http_info(merchant_id, var_from, to, async_req=True)
         >>> result = thread.get()
 
         :param merchant_id: The id of the merchant (required)
@@ -149,7 +297,7 @@ class ReportsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_merchants_merchant_id_reports_full_get" % _key
+                    " to method get_merchant_data" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -208,13 +356,13 @@ class ReportsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_merchants_merchant_id_reports_impressions_get(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], var_from : Annotated[StrictInt, Field(..., description="The first reported datetime to gather data from. Must be paired with the \"to\" parameter.")], to : Annotated[StrictInt, Field(..., description="The last reported datetime to gather data from. Must be paired with the \"from\" parameter.")], **kwargs) -> ImpressionsReportData:  # noqa: E501
+    def get_merchant_impressions(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], var_from : Annotated[StrictInt, Field(..., description="The first reported datetime to gather data from. Must be paired with the \"to\" parameter.")], to : Annotated[StrictInt, Field(..., description="The last reported datetime to gather data from. Must be paired with the \"from\" parameter.")], **kwargs) -> ImpressionsReportData:  # noqa: E501
         """Get Unique Impressions  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_merchants_merchant_id_reports_impressions_get(merchant_id, var_from, to, async_req=True)
+        >>> thread = api.get_merchant_impressions(merchant_id, var_from, to, async_req=True)
         >>> result = thread.get()
 
         :param merchant_id: The id of the merchant (required)
@@ -236,18 +384,18 @@ class ReportsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_merchants_merchant_id_reports_impressions_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_merchant_impressions_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_merchants_merchant_id_reports_impressions_get_with_http_info(merchant_id, var_from, to, **kwargs)  # noqa: E501
+        return self.get_merchant_impressions_with_http_info(merchant_id, var_from, to, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_merchants_merchant_id_reports_impressions_get_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], var_from : Annotated[StrictInt, Field(..., description="The first reported datetime to gather data from. Must be paired with the \"to\" parameter.")], to : Annotated[StrictInt, Field(..., description="The last reported datetime to gather data from. Must be paired with the \"from\" parameter.")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_merchant_impressions_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], var_from : Annotated[StrictInt, Field(..., description="The first reported datetime to gather data from. Must be paired with the \"to\" parameter.")], to : Annotated[StrictInt, Field(..., description="The last reported datetime to gather data from. Must be paired with the \"from\" parameter.")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get Unique Impressions  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_merchants_merchant_id_reports_impressions_get_with_http_info(merchant_id, var_from, to, async_req=True)
+        >>> thread = api.get_merchant_impressions_with_http_info(merchant_id, var_from, to, async_req=True)
         >>> result = thread.get()
 
         :param merchant_id: The id of the merchant (required)
@@ -305,7 +453,7 @@ class ReportsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_merchants_merchant_id_reports_impressions_get" % _key
+                    " to method get_merchant_impressions" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -364,162 +512,14 @@ class ReportsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_reports_account_level_get(self, var_from : Annotated[StrictInt, Field(..., description="The first reported datetime to gather data from. Must be paired with the \"to\" parameter.")], to : Annotated[StrictInt, Field(..., description="The last reported datetime to gather data from. Must be paired with the \"from\" parameter.")], **kwargs) -> AccountLevelMerchantReport:  # noqa: E501
-        """Generates a report of full Merchant data in a given timeframe for a all Merchants  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_reports_account_level_get(var_from, to, async_req=True)
-        >>> result = thread.get()
-
-        :param var_from: The first reported datetime to gather data from. Must be paired with the \"to\" parameter. (required)
-        :type var_from: int
-        :param to: The last reported datetime to gather data from. Must be paired with the \"from\" parameter. (required)
-        :type to: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: AccountLevelMerchantReport
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_reports_account_level_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_reports_account_level_get_with_http_info(var_from, to, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_reports_account_level_get_with_http_info(self, var_from : Annotated[StrictInt, Field(..., description="The first reported datetime to gather data from. Must be paired with the \"to\" parameter.")], to : Annotated[StrictInt, Field(..., description="The last reported datetime to gather data from. Must be paired with the \"from\" parameter.")], **kwargs) -> ApiResponse:  # noqa: E501
-        """Generates a report of full Merchant data in a given timeframe for a all Merchants  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_reports_account_level_get_with_http_info(var_from, to, async_req=True)
-        >>> result = thread.get()
-
-        :param var_from: The first reported datetime to gather data from. Must be paired with the \"to\" parameter. (required)
-        :type var_from: int
-        :param to: The last reported datetime to gather data from. Must be paired with the \"from\" parameter. (required)
-        :type to: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(AccountLevelMerchantReport, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'var_from',
-            'to'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_reports_account_level_get" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-
-        # process the query parameters
-        _query_params = []
-        if _params.get('var_from') is not None:  # noqa: E501
-            _query_params.append(('from', _params['var_from']))
-
-        if _params.get('to') is not None:  # noqa: E501
-            _query_params.append(('to', _params['to']))
-
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '200': "AccountLevelMerchantReport",
-            '400': None,
-            '500': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/reports/account_level', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_reports_offer_activity_get(self, from_reported_datetime : Annotated[Optional[datetime], Field(description="The first reported datetime to gather data from. Must be paired with the \"to_reported_datetime\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, to_reported_datetime : Annotated[Optional[datetime], Field(description="The last reported datetime to gather data from. Must be paired with the \"from_reported_datetime\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, from_processed_datetime : Annotated[Optional[datetime], Field(description="The first processed datetime to gather data from. Must be paired with the \"to_processed_datetime\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, to_processed_datetime : Annotated[Optional[datetime], Field(description="The last reported datetime to gather data from. Must be paired with the \"from_processed_datetime\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, from_business_date : Annotated[Optional[date], Field(description="The first business date to gather data from. Must be paired with the \"to_business_date\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, to_business_date : Annotated[Optional[date], Field(description="The last business date to gather data from. Must be paired with the \"from_business_date\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, channel_id : Annotated[Optional[StrictInt], Field(description="The id of the channel. If both channel_id AND channel_name are missing, the request will return a \"400 - Bad Request\"")] = None, channel_name : Annotated[Optional[StrictStr], Field(description="The name of the channel. If no channel_id is provided, the program will try to find the id by the channel name. If both channel_id AND channel_name are missing, the request will return a \"400 - Bad Request\"")] = None, offer_id : Annotated[Optional[StrictInt], Field(description="The id of the offer. This is an optional filter.")] = None, type : Annotated[Optional[StrictStr], Field(description="The type of the offer. This is an optional filter.")] = None, campaign_xid : Annotated[Optional[StrictStr], Field(description="The id of the campaign. This is an optional filter.")] = None, credential_identifier : Annotated[Optional[StrictInt], Field(description="The identifier of the credential. This is an optional filter.")] = None, **kwargs) -> List[OfferActivityReport]:  # noqa: E501
+    def get_offer_activity(self, from_reported_datetime : Annotated[Optional[datetime], Field(description="The first reported datetime to gather data from. Must be paired with the \"to_reported_datetime\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, to_reported_datetime : Annotated[Optional[datetime], Field(description="The last reported datetime to gather data from. Must be paired with the \"from_reported_datetime\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, from_processed_datetime : Annotated[Optional[datetime], Field(description="The first processed datetime to gather data from. Must be paired with the \"to_processed_datetime\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, to_processed_datetime : Annotated[Optional[datetime], Field(description="The last reported datetime to gather data from. Must be paired with the \"from_processed_datetime\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, from_business_date : Annotated[Optional[date], Field(description="The first business date to gather data from. Must be paired with the \"to_business_date\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, to_business_date : Annotated[Optional[date], Field(description="The last business date to gather data from. Must be paired with the \"from_business_date\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, channel_id : Annotated[Optional[StrictInt], Field(description="The id of the channel. If both channel_id AND channel_name are missing, the request will return a \"400 - Bad Request\"")] = None, channel_name : Annotated[Optional[StrictStr], Field(description="The name of the channel. If no channel_id is provided, the program will try to find the id by the channel name. If both channel_id AND channel_name are missing, the request will return a \"400 - Bad Request\"")] = None, offer_id : Annotated[Optional[StrictInt], Field(description="The id of the offer. This is an optional filter.")] = None, type : Annotated[Optional[StrictStr], Field(description="The type of the offer. This is an optional filter.")] = None, campaign_xid : Annotated[Optional[StrictStr], Field(description="The id of the campaign. This is an optional filter.")] = None, credential_identifier : Annotated[Optional[StrictInt], Field(description="The identifier of the credential. This is an optional filter.")] = None, **kwargs) -> List[OfferActivityReport]:  # noqa: E501
         """Generates a report of all offer activity in a given timeframe  # noqa: E501
 
         Given a timeframe of less than 30 consecutive days, this will generate a report of  all offer activities for your account. Three types of dates are accepted: reported,  processed, and business date, but only one will be used. If more than one date set  is given, it will prioritize the dates in the order given before. Some filters can  also be applied to narrow down the reports given.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_reports_offer_activity_get(from_reported_datetime, to_reported_datetime, from_processed_datetime, to_processed_datetime, from_business_date, to_business_date, channel_id, channel_name, offer_id, type, campaign_xid, credential_identifier, async_req=True)
+        >>> thread = api.get_offer_activity(from_reported_datetime, to_reported_datetime, from_processed_datetime, to_processed_datetime, from_business_date, to_business_date, channel_id, channel_name, offer_id, type, campaign_xid, credential_identifier, async_req=True)
         >>> result = thread.get()
 
         :param from_reported_datetime: The first reported datetime to gather data from. Must be paired with the \"to_reported_datetime\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.
@@ -559,19 +559,19 @@ class ReportsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_reports_offer_activity_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_offer_activity_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_reports_offer_activity_get_with_http_info(from_reported_datetime, to_reported_datetime, from_processed_datetime, to_processed_datetime, from_business_date, to_business_date, channel_id, channel_name, offer_id, type, campaign_xid, credential_identifier, **kwargs)  # noqa: E501
+        return self.get_offer_activity_with_http_info(from_reported_datetime, to_reported_datetime, from_processed_datetime, to_processed_datetime, from_business_date, to_business_date, channel_id, channel_name, offer_id, type, campaign_xid, credential_identifier, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_reports_offer_activity_get_with_http_info(self, from_reported_datetime : Annotated[Optional[datetime], Field(description="The first reported datetime to gather data from. Must be paired with the \"to_reported_datetime\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, to_reported_datetime : Annotated[Optional[datetime], Field(description="The last reported datetime to gather data from. Must be paired with the \"from_reported_datetime\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, from_processed_datetime : Annotated[Optional[datetime], Field(description="The first processed datetime to gather data from. Must be paired with the \"to_processed_datetime\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, to_processed_datetime : Annotated[Optional[datetime], Field(description="The last reported datetime to gather data from. Must be paired with the \"from_processed_datetime\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, from_business_date : Annotated[Optional[date], Field(description="The first business date to gather data from. Must be paired with the \"to_business_date\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, to_business_date : Annotated[Optional[date], Field(description="The last business date to gather data from. Must be paired with the \"from_business_date\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, channel_id : Annotated[Optional[StrictInt], Field(description="The id of the channel. If both channel_id AND channel_name are missing, the request will return a \"400 - Bad Request\"")] = None, channel_name : Annotated[Optional[StrictStr], Field(description="The name of the channel. If no channel_id is provided, the program will try to find the id by the channel name. If both channel_id AND channel_name are missing, the request will return a \"400 - Bad Request\"")] = None, offer_id : Annotated[Optional[StrictInt], Field(description="The id of the offer. This is an optional filter.")] = None, type : Annotated[Optional[StrictStr], Field(description="The type of the offer. This is an optional filter.")] = None, campaign_xid : Annotated[Optional[StrictStr], Field(description="The id of the campaign. This is an optional filter.")] = None, credential_identifier : Annotated[Optional[StrictInt], Field(description="The identifier of the credential. This is an optional filter.")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_offer_activity_with_http_info(self, from_reported_datetime : Annotated[Optional[datetime], Field(description="The first reported datetime to gather data from. Must be paired with the \"to_reported_datetime\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, to_reported_datetime : Annotated[Optional[datetime], Field(description="The last reported datetime to gather data from. Must be paired with the \"from_reported_datetime\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, from_processed_datetime : Annotated[Optional[datetime], Field(description="The first processed datetime to gather data from. Must be paired with the \"to_processed_datetime\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, to_processed_datetime : Annotated[Optional[datetime], Field(description="The last reported datetime to gather data from. Must be paired with the \"from_processed_datetime\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, from_business_date : Annotated[Optional[date], Field(description="The first business date to gather data from. Must be paired with the \"to_business_date\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, to_business_date : Annotated[Optional[date], Field(description="The last business date to gather data from. Must be paired with the \"from_business_date\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.")] = None, channel_id : Annotated[Optional[StrictInt], Field(description="The id of the channel. If both channel_id AND channel_name are missing, the request will return a \"400 - Bad Request\"")] = None, channel_name : Annotated[Optional[StrictStr], Field(description="The name of the channel. If no channel_id is provided, the program will try to find the id by the channel name. If both channel_id AND channel_name are missing, the request will return a \"400 - Bad Request\"")] = None, offer_id : Annotated[Optional[StrictInt], Field(description="The id of the offer. This is an optional filter.")] = None, type : Annotated[Optional[StrictStr], Field(description="The type of the offer. This is an optional filter.")] = None, campaign_xid : Annotated[Optional[StrictStr], Field(description="The id of the campaign. This is an optional filter.")] = None, credential_identifier : Annotated[Optional[StrictInt], Field(description="The identifier of the credential. This is an optional filter.")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Generates a report of all offer activity in a given timeframe  # noqa: E501
 
         Given a timeframe of less than 30 consecutive days, this will generate a report of  all offer activities for your account. Three types of dates are accepted: reported,  processed, and business date, but only one will be used. If more than one date set  is given, it will prioritize the dates in the order given before. Some filters can  also be applied to narrow down the reports given.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_reports_offer_activity_get_with_http_info(from_reported_datetime, to_reported_datetime, from_processed_datetime, to_processed_datetime, from_business_date, to_business_date, channel_id, channel_name, offer_id, type, campaign_xid, credential_identifier, async_req=True)
+        >>> thread = api.get_offer_activity_with_http_info(from_reported_datetime, to_reported_datetime, from_processed_datetime, to_processed_datetime, from_business_date, to_business_date, channel_id, channel_name, offer_id, type, campaign_xid, credential_identifier, async_req=True)
         >>> result = thread.get()
 
         :param from_reported_datetime: The first reported datetime to gather data from. Must be paired with the \"to_reported_datetime\" parameter. One pair of dates must be provided in the request. The duration between the \"from\" and \"to\" dates must not exceed 1 day.
@@ -656,7 +656,7 @@ class ReportsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_reports_offer_activity_get" % _key
+                    " to method get_offer_activity" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -760,14 +760,14 @@ class ReportsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_reports_redemptions_get(self, from_business_date : Annotated[Optional[datetime], Field(description="The first business date to gather data from. Must be paired with the \"to_business_date\" parameter. One pair of dates must be provided in the request.")] = None, to_business_date : Annotated[Optional[datetime], Field(description="The last business date to gather data from. Must be paired with the \"from_business_date\" parameter. One pair of dates must be provided in the request.")] = None, from_redemption_datetime : Annotated[Optional[datetime], Field(description="The first redemption datetime to gather data from. Must be paired with the \"to_redemption_datetime\" parameter. One pair of dates must be provided in the request.")] = None, to_redemption_datetime : Annotated[Optional[datetime], Field(description="The last redemption datetime to gather data from. Must be paired with the \"from_redemption_datetime\" parameter. One pair of dates must be provided in the request.")] = None, bi_storelist : Annotated[Optional[StrictInt], Field(description="The ID of the Store List. Filters the redemptions using the Stores from the given Store List. If not given, ALL Store Lists and the corresponding Stores will be used to filter the results.")] = None, **kwargs) -> RedemptionList1:  # noqa: E501
+    def get_offer_redemptions(self, from_business_date : Annotated[Optional[datetime], Field(description="The first business date to gather data from. Must be paired with the \"to_business_date\" parameter. One pair of dates must be provided in the request.")] = None, to_business_date : Annotated[Optional[datetime], Field(description="The last business date to gather data from. Must be paired with the \"from_business_date\" parameter. One pair of dates must be provided in the request.")] = None, from_redemption_datetime : Annotated[Optional[datetime], Field(description="The first redemption datetime to gather data from. Must be paired with the \"to_redemption_datetime\" parameter. One pair of dates must be provided in the request.")] = None, to_redemption_datetime : Annotated[Optional[datetime], Field(description="The last redemption datetime to gather data from. Must be paired with the \"from_redemption_datetime\" parameter. One pair of dates must be provided in the request.")] = None, bi_storelist : Annotated[Optional[StrictInt], Field(description="The ID of the Store List. Filters the redemptions using the Stores from the given Store List. If not given, ALL Store Lists and the corresponding Stores will be used to filter the results.")] = None, **kwargs) -> RedemptionList1:  # noqa: E501
         """Generates a report of all offer redemptions for a given timeframe and store list  # noqa: E501
 
         Given a timeframe, this will generate a report of all offer activities for your account.  Two types of dates are accepted: business date and redemption date, but only one can be used.  If more than one date set is given, an error will be returned. Some filters can  also be applied to narrow down the reports given.    # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_reports_redemptions_get(from_business_date, to_business_date, from_redemption_datetime, to_redemption_datetime, bi_storelist, async_req=True)
+        >>> thread = api.get_offer_redemptions(from_business_date, to_business_date, from_redemption_datetime, to_redemption_datetime, bi_storelist, async_req=True)
         >>> result = thread.get()
 
         :param from_business_date: The first business date to gather data from. Must be paired with the \"to_business_date\" parameter. One pair of dates must be provided in the request.
@@ -793,19 +793,19 @@ class ReportsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_reports_redemptions_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_offer_redemptions_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_reports_redemptions_get_with_http_info(from_business_date, to_business_date, from_redemption_datetime, to_redemption_datetime, bi_storelist, **kwargs)  # noqa: E501
+        return self.get_offer_redemptions_with_http_info(from_business_date, to_business_date, from_redemption_datetime, to_redemption_datetime, bi_storelist, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_reports_redemptions_get_with_http_info(self, from_business_date : Annotated[Optional[datetime], Field(description="The first business date to gather data from. Must be paired with the \"to_business_date\" parameter. One pair of dates must be provided in the request.")] = None, to_business_date : Annotated[Optional[datetime], Field(description="The last business date to gather data from. Must be paired with the \"from_business_date\" parameter. One pair of dates must be provided in the request.")] = None, from_redemption_datetime : Annotated[Optional[datetime], Field(description="The first redemption datetime to gather data from. Must be paired with the \"to_redemption_datetime\" parameter. One pair of dates must be provided in the request.")] = None, to_redemption_datetime : Annotated[Optional[datetime], Field(description="The last redemption datetime to gather data from. Must be paired with the \"from_redemption_datetime\" parameter. One pair of dates must be provided in the request.")] = None, bi_storelist : Annotated[Optional[StrictInt], Field(description="The ID of the Store List. Filters the redemptions using the Stores from the given Store List. If not given, ALL Store Lists and the corresponding Stores will be used to filter the results.")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_offer_redemptions_with_http_info(self, from_business_date : Annotated[Optional[datetime], Field(description="The first business date to gather data from. Must be paired with the \"to_business_date\" parameter. One pair of dates must be provided in the request.")] = None, to_business_date : Annotated[Optional[datetime], Field(description="The last business date to gather data from. Must be paired with the \"from_business_date\" parameter. One pair of dates must be provided in the request.")] = None, from_redemption_datetime : Annotated[Optional[datetime], Field(description="The first redemption datetime to gather data from. Must be paired with the \"to_redemption_datetime\" parameter. One pair of dates must be provided in the request.")] = None, to_redemption_datetime : Annotated[Optional[datetime], Field(description="The last redemption datetime to gather data from. Must be paired with the \"from_redemption_datetime\" parameter. One pair of dates must be provided in the request.")] = None, bi_storelist : Annotated[Optional[StrictInt], Field(description="The ID of the Store List. Filters the redemptions using the Stores from the given Store List. If not given, ALL Store Lists and the corresponding Stores will be used to filter the results.")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Generates a report of all offer redemptions for a given timeframe and store list  # noqa: E501
 
         Given a timeframe, this will generate a report of all offer activities for your account.  Two types of dates are accepted: business date and redemption date, but only one can be used.  If more than one date set is given, an error will be returned. Some filters can  also be applied to narrow down the reports given.    # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_reports_redemptions_get_with_http_info(from_business_date, to_business_date, from_redemption_datetime, to_redemption_datetime, bi_storelist, async_req=True)
+        >>> thread = api.get_offer_redemptions_with_http_info(from_business_date, to_business_date, from_redemption_datetime, to_redemption_datetime, bi_storelist, async_req=True)
         >>> result = thread.get()
 
         :param from_business_date: The first business date to gather data from. Must be paired with the \"to_business_date\" parameter. One pair of dates must be provided in the request.
@@ -869,7 +869,7 @@ class ReportsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_reports_redemptions_get" % _key
+                    " to method get_offer_redemptions" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']

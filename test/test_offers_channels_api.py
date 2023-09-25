@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.offers_channels_api import OffersChannelsApi  # noqa: E501
+from sparkfly_client.api.offers_channels_api import OffersChannelsApi  # noqa: E501
 
 
 class TestOffersChannelsApi(unittest.TestCase):
@@ -26,45 +26,45 @@ class TestOffersChannelsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_offers_offer_id_channels_channel_id_get(self) -> None:
-        """Test case for v10_offers_offer_id_channels_channel_id_get
+    def test_offer_channel(self) -> None:
+        """Test case for offer_channel
 
         Eligible Channel Show  # noqa: E501
         """
         pass
 
-    def test_v10_offers_offer_id_channels_channel_id_put(self) -> None:
-        """Test case for v10_offers_offer_id_channels_channel_id_put
+    def test_offer_channel_0(self) -> None:
+        """Test case for offer_channel_0
 
         Eligible Channel Update  # noqa: E501
         """
         pass
 
-    def test_v10_offers_offer_id_channels_delete(self) -> None:
-        """Test case for v10_offers_offer_id_channels_delete
-
-        Remove eligible Channels from offer  # noqa: E501
-        """
-        pass
-
-    def test_v10_offers_offer_id_channels_get(self) -> None:
-        """Test case for v10_offers_offer_id_channels_get
+    def test_offer_channels(self) -> None:
+        """Test case for offer_channels
 
         Eligible Channels List  # noqa: E501
         """
         pass
 
-    def test_v10_offers_offer_id_channels_post(self) -> None:
-        """Test case for v10_offers_offer_id_channels_post
+    def test_offer_channels_0(self) -> None:
+        """Test case for offer_channels_0
+
+        Add eligible Channels for offer  # noqa: E501
+        """
+        pass
+
+    def test_offer_channels_1(self) -> None:
+        """Test case for offer_channels_1
 
         Set eligible Channels for offer  # noqa: E501
         """
         pass
 
-    def test_v10_offers_offer_id_channels_put(self) -> None:
-        """Test case for v10_offers_offer_id_channels_put
+    def test_offer_channels_2(self) -> None:
+        """Test case for offer_channels_2
 
-        Add eligible Channels for offer  # noqa: E501
+        Remove eligible Channels from offer  # noqa: E501
         """
         pass
 

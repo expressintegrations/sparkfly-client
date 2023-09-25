@@ -48,13 +48,456 @@ class MerchantsItemsApi:
         self.api_client = api_client
 
     @validate_arguments
-    def v10_merchants_merchant_id_items_get(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], name : Annotated[Optional[StrictStr], Field(description="The item name to search by")] = None, code : Annotated[Optional[StrictStr], Field(description="The code to search by")] = None, **kwargs) -> ItemListResponse:  # noqa: E501
+    def create_merchant_item(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], item_input_request : Annotated[Optional[ItemInputRequest], Field(description="Item to add")] = None, **kwargs) -> ItemResponse:  # noqa: E501
+        """Create an item for merchant  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_merchant_item(merchant_id, item_input_request, async_req=True)
+        >>> result = thread.get()
+
+        :param merchant_id: The id of the merchant (required)
+        :type merchant_id: int
+        :param item_input_request: Item to add
+        :type item_input_request: ItemInputRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: ItemResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the create_merchant_item_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.create_merchant_item_with_http_info(merchant_id, item_input_request, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def create_merchant_item_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], item_input_request : Annotated[Optional[ItemInputRequest], Field(description="Item to add")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+        """Create an item for merchant  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_merchant_item_with_http_info(merchant_id, item_input_request, async_req=True)
+        >>> result = thread.get()
+
+        :param merchant_id: The id of the merchant (required)
+        :type merchant_id: int
+        :param item_input_request: Item to add
+        :type item_input_request: ItemInputRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(ItemResponse, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'merchant_id',
+            'item_input_request'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_merchant_item" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['merchant_id']:
+            _path_params['merchant_id'] = _params['merchant_id']
+
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        if _params['item_input_request'] is not None:
+            _body_params = _params['item_input_request']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '201': "ItemResponse",
+            '400': "BadRequestObject",
+            '401': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/merchants/:merchant_id/items', 'POST',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def delete_merchant_item(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], item_id : Annotated[StrictInt, Field(..., description="The id of the item")], **kwargs) -> None:  # noqa: E501
+        """Delete item by ID for merchant  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_merchant_item(merchant_id, item_id, async_req=True)
+        >>> result = thread.get()
+
+        :param merchant_id: The id of the merchant (required)
+        :type merchant_id: int
+        :param item_id: The id of the item (required)
+        :type item_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the delete_merchant_item_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.delete_merchant_item_with_http_info(merchant_id, item_id, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def delete_merchant_item_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], item_id : Annotated[StrictInt, Field(..., description="The id of the item")], **kwargs) -> ApiResponse:  # noqa: E501
+        """Delete item by ID for merchant  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_merchant_item_with_http_info(merchant_id, item_id, async_req=True)
+        >>> result = thread.get()
+
+        :param merchant_id: The id of the merchant (required)
+        :type merchant_id: int
+        :param item_id: The id of the item (required)
+        :type item_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'merchant_id',
+            'item_id'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_merchant_item" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['merchant_id']:
+            _path_params['merchant_id'] = _params['merchant_id']
+
+        if _params['item_id']:
+            _path_params['item_id'] = _params['item_id']
+
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {}
+
+        return self.api_client.call_api(
+            '/v1.0/merchants/:merchant_id/items/:item_id', 'DELETE',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def get_merchant_item(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], item_id : Annotated[StrictInt, Field(..., description="The id of the item")], **kwargs) -> ItemResponse:  # noqa: E501
+        """Get item by ID for merchant  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_merchant_item(merchant_id, item_id, async_req=True)
+        >>> result = thread.get()
+
+        :param merchant_id: The id of the merchant (required)
+        :type merchant_id: int
+        :param item_id: The id of the item (required)
+        :type item_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: ItemResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the get_merchant_item_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.get_merchant_item_with_http_info(merchant_id, item_id, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_merchant_item_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], item_id : Annotated[StrictInt, Field(..., description="The id of the item")], **kwargs) -> ApiResponse:  # noqa: E501
+        """Get item by ID for merchant  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_merchant_item_with_http_info(merchant_id, item_id, async_req=True)
+        >>> result = thread.get()
+
+        :param merchant_id: The id of the merchant (required)
+        :type merchant_id: int
+        :param item_id: The id of the item (required)
+        :type item_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(ItemResponse, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'merchant_id',
+            'item_id'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_merchant_item" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['merchant_id']:
+            _path_params['merchant_id'] = _params['merchant_id']
+
+        if _params['item_id']:
+            _path_params['item_id'] = _params['item_id']
+
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '200': "ItemResponse",
+            '401': None,
+            '404': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/merchants/:merchant_id/items/:item_id', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def get_merchant_items(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], name : Annotated[Optional[StrictStr], Field(description="The item name to search by")] = None, code : Annotated[Optional[StrictStr], Field(description="The code to search by")] = None, **kwargs) -> ItemListResponse:  # noqa: E501
         """Get all items for merchant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_merchants_merchant_id_items_get(merchant_id, name, code, async_req=True)
+        >>> thread = api.get_merchant_items(merchant_id, name, code, async_req=True)
         >>> result = thread.get()
 
         :param merchant_id: The id of the merchant (required)
@@ -76,18 +519,18 @@ class MerchantsItemsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_merchants_merchant_id_items_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_merchant_items_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_merchants_merchant_id_items_get_with_http_info(merchant_id, name, code, **kwargs)  # noqa: E501
+        return self.get_merchant_items_with_http_info(merchant_id, name, code, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_merchants_merchant_id_items_get_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], name : Annotated[Optional[StrictStr], Field(description="The item name to search by")] = None, code : Annotated[Optional[StrictStr], Field(description="The code to search by")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_merchant_items_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], name : Annotated[Optional[StrictStr], Field(description="The item name to search by")] = None, code : Annotated[Optional[StrictStr], Field(description="The code to search by")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get all items for merchant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_merchants_merchant_id_items_get_with_http_info(merchant_id, name, code, async_req=True)
+        >>> thread = api.get_merchant_items_with_http_info(merchant_id, name, code, async_req=True)
         >>> result = thread.get()
 
         :param merchant_id: The id of the merchant (required)
@@ -145,7 +588,7 @@ class MerchantsItemsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_merchants_merchant_id_items_get" % _key
+                    " to method get_merchant_items" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -203,301 +646,13 @@ class MerchantsItemsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_merchants_merchant_id_items_item_id_delete(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], item_id : Annotated[StrictInt, Field(..., description="The id of the item")], **kwargs) -> None:  # noqa: E501
-        """Delete item by ID for merchant  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_merchants_merchant_id_items_item_id_delete(merchant_id, item_id, async_req=True)
-        >>> result = thread.get()
-
-        :param merchant_id: The id of the merchant (required)
-        :type merchant_id: int
-        :param item_id: The id of the item (required)
-        :type item_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: None
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_merchants_merchant_id_items_item_id_delete_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_merchants_merchant_id_items_item_id_delete_with_http_info(merchant_id, item_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_merchants_merchant_id_items_item_id_delete_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], item_id : Annotated[StrictInt, Field(..., description="The id of the item")], **kwargs) -> ApiResponse:  # noqa: E501
-        """Delete item by ID for merchant  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_merchants_merchant_id_items_item_id_delete_with_http_info(merchant_id, item_id, async_req=True)
-        >>> result = thread.get()
-
-        :param merchant_id: The id of the merchant (required)
-        :type merchant_id: int
-        :param item_id: The id of the item (required)
-        :type item_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: None
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'merchant_id',
-            'item_id'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_merchants_merchant_id_items_item_id_delete" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['merchant_id']:
-            _path_params['merchant_id'] = _params['merchant_id']
-
-        if _params['item_id']:
-            _path_params['item_id'] = _params['item_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {}
-
-        return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/items/:item_id', 'DELETE',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_merchants_merchant_id_items_item_id_get(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], item_id : Annotated[StrictInt, Field(..., description="The id of the item")], **kwargs) -> ItemResponse:  # noqa: E501
-        """Get item by ID for merchant  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_merchants_merchant_id_items_item_id_get(merchant_id, item_id, async_req=True)
-        >>> result = thread.get()
-
-        :param merchant_id: The id of the merchant (required)
-        :type merchant_id: int
-        :param item_id: The id of the item (required)
-        :type item_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: ItemResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_merchants_merchant_id_items_item_id_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_merchants_merchant_id_items_item_id_get_with_http_info(merchant_id, item_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_merchants_merchant_id_items_item_id_get_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], item_id : Annotated[StrictInt, Field(..., description="The id of the item")], **kwargs) -> ApiResponse:  # noqa: E501
-        """Get item by ID for merchant  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_merchants_merchant_id_items_item_id_get_with_http_info(merchant_id, item_id, async_req=True)
-        >>> result = thread.get()
-
-        :param merchant_id: The id of the merchant (required)
-        :type merchant_id: int
-        :param item_id: The id of the item (required)
-        :type item_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(ItemResponse, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'merchant_id',
-            'item_id'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_merchants_merchant_id_items_item_id_get" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['merchant_id']:
-            _path_params['merchant_id'] = _params['merchant_id']
-
-        if _params['item_id']:
-            _path_params['item_id'] = _params['item_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '200': "ItemResponse",
-            '401': None,
-            '404': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/items/:item_id', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_merchants_merchant_id_items_item_id_put(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], item_id : Annotated[StrictInt, Field(..., description="The id of the item")], item_input_request : Annotated[Optional[ItemInputRequest], Field(description="Fields of item to update in system")] = None, **kwargs) -> ItemResponse:  # noqa: E501
+    def update_merchant_item(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], item_id : Annotated[StrictInt, Field(..., description="The id of the item")], item_input_request : Annotated[Optional[ItemInputRequest], Field(description="Fields of item to update in system")] = None, **kwargs) -> ItemResponse:  # noqa: E501
         """Update item by ID for merchant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_merchants_merchant_id_items_item_id_put(merchant_id, item_id, item_input_request, async_req=True)
+        >>> thread = api.update_merchant_item(merchant_id, item_id, item_input_request, async_req=True)
         >>> result = thread.get()
 
         :param merchant_id: The id of the merchant (required)
@@ -519,18 +674,18 @@ class MerchantsItemsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_merchants_merchant_id_items_item_id_put_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the update_merchant_item_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_merchants_merchant_id_items_item_id_put_with_http_info(merchant_id, item_id, item_input_request, **kwargs)  # noqa: E501
+        return self.update_merchant_item_with_http_info(merchant_id, item_id, item_input_request, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_merchants_merchant_id_items_item_id_put_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], item_id : Annotated[StrictInt, Field(..., description="The id of the item")], item_input_request : Annotated[Optional[ItemInputRequest], Field(description="Fields of item to update in system")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def update_merchant_item_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], item_id : Annotated[StrictInt, Field(..., description="The id of the item")], item_input_request : Annotated[Optional[ItemInputRequest], Field(description="Fields of item to update in system")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Update item by ID for merchant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_merchants_merchant_id_items_item_id_put_with_http_info(merchant_id, item_id, item_input_request, async_req=True)
+        >>> thread = api.update_merchant_item_with_http_info(merchant_id, item_id, item_input_request, async_req=True)
         >>> result = thread.get()
 
         :param merchant_id: The id of the merchant (required)
@@ -588,7 +743,7 @@ class MerchantsItemsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_merchants_merchant_id_items_item_id_put" % _key
+                    " to method update_merchant_item" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -639,161 +794,6 @@ class MerchantsItemsApi:
 
         return self.api_client.call_api(
             '/v1.0/merchants/:merchant_id/items/:item_id', 'PUT',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_merchants_merchant_id_items_post(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], item_input_request : Annotated[Optional[ItemInputRequest], Field(description="Item to add")] = None, **kwargs) -> ItemResponse:  # noqa: E501
-        """Create an item for merchant  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_merchants_merchant_id_items_post(merchant_id, item_input_request, async_req=True)
-        >>> result = thread.get()
-
-        :param merchant_id: The id of the merchant (required)
-        :type merchant_id: int
-        :param item_input_request: Item to add
-        :type item_input_request: ItemInputRequest
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: ItemResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_merchants_merchant_id_items_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_merchants_merchant_id_items_post_with_http_info(merchant_id, item_input_request, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_merchants_merchant_id_items_post_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], item_input_request : Annotated[Optional[ItemInputRequest], Field(description="Item to add")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """Create an item for merchant  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_merchants_merchant_id_items_post_with_http_info(merchant_id, item_input_request, async_req=True)
-        >>> result = thread.get()
-
-        :param merchant_id: The id of the merchant (required)
-        :type merchant_id: int
-        :param item_input_request: Item to add
-        :type item_input_request: ItemInputRequest
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(ItemResponse, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'merchant_id',
-            'item_input_request'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_merchants_merchant_id_items_post" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['merchant_id']:
-            _path_params['merchant_id'] = _params['merchant_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        if _params['item_input_request'] is not None:
-            _body_params = _params['item_input_request']
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '201': "ItemResponse",
-            '400': "BadRequestObject",
-            '401': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/items', 'POST',
             _path_params,
             _query_params,
             _header_params,

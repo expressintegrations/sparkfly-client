@@ -49,160 +49,13 @@ class MerchantsStoresApi:
         self.api_client = api_client
 
     @validate_arguments
-    def v10_merchants_merchant_id_stores_get(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], name : Annotated[Optional[StrictStr], Field(description="The store name to search by")] = None, **kwargs) -> StoreListResponse:  # noqa: E501
-        """Get all Stores for merchant  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_merchants_merchant_id_stores_get(merchant_id, name, async_req=True)
-        >>> result = thread.get()
-
-        :param merchant_id: The id of the merchant (required)
-        :type merchant_id: int
-        :param name: The store name to search by
-        :type name: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: StoreListResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_merchants_merchant_id_stores_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_merchants_merchant_id_stores_get_with_http_info(merchant_id, name, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_merchants_merchant_id_stores_get_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], name : Annotated[Optional[StrictStr], Field(description="The store name to search by")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """Get all Stores for merchant  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_merchants_merchant_id_stores_get_with_http_info(merchant_id, name, async_req=True)
-        >>> result = thread.get()
-
-        :param merchant_id: The id of the merchant (required)
-        :type merchant_id: int
-        :param name: The store name to search by
-        :type name: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(StoreListResponse, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'merchant_id',
-            'name'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_merchants_merchant_id_stores_get" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['merchant_id']:
-            _path_params['merchant_id'] = _params['merchant_id']
-
-
-        # process the query parameters
-        _query_params = []
-        if _params.get('name') is not None:  # noqa: E501
-            _query_params.append(('name', _params['name']))
-
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '200': "StoreListResponse",
-            '401': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/stores', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_merchants_merchant_id_stores_post(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], store_input_request : Annotated[Optional[StoreInputRequest], Field(description="Store to add")] = None, **kwargs) -> StoreResponse:  # noqa: E501
+    def create_merchant_store(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], store_input_request : Annotated[Optional[StoreInputRequest], Field(description="Store to add")] = None, **kwargs) -> StoreResponse:  # noqa: E501
         """Create an Store for merchant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_merchants_merchant_id_stores_post(merchant_id, store_input_request, async_req=True)
+        >>> thread = api.create_merchant_store(merchant_id, store_input_request, async_req=True)
         >>> result = thread.get()
 
         :param merchant_id: The id of the merchant (required)
@@ -222,18 +75,18 @@ class MerchantsStoresApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_merchants_merchant_id_stores_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the create_merchant_store_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_merchants_merchant_id_stores_post_with_http_info(merchant_id, store_input_request, **kwargs)  # noqa: E501
+        return self.create_merchant_store_with_http_info(merchant_id, store_input_request, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_merchants_merchant_id_stores_post_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], store_input_request : Annotated[Optional[StoreInputRequest], Field(description="Store to add")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def create_merchant_store_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], store_input_request : Annotated[Optional[StoreInputRequest], Field(description="Store to add")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Create an Store for merchant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_merchants_merchant_id_stores_post_with_http_info(merchant_id, store_input_request, async_req=True)
+        >>> thread = api.create_merchant_store_with_http_info(merchant_id, store_input_request, async_req=True)
         >>> result = thread.get()
 
         :param merchant_id: The id of the merchant (required)
@@ -288,7 +141,7 @@ class MerchantsStoresApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_merchants_merchant_id_stores_post" % _key
+                    " to method create_merchant_store" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -351,13 +204,13 @@ class MerchantsStoresApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_merchants_merchant_id_stores_store_id_delete(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], **kwargs) -> None:  # noqa: E501
+    def delete_merchant_store(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], **kwargs) -> None:  # noqa: E501
         """Delete Store by ID for merchant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_merchants_merchant_id_stores_store_id_delete(merchant_id, store_id, async_req=True)
+        >>> thread = api.delete_merchant_store(merchant_id, store_id, async_req=True)
         >>> result = thread.get()
 
         :param merchant_id: The id of the merchant (required)
@@ -377,18 +230,18 @@ class MerchantsStoresApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_merchants_merchant_id_stores_store_id_delete_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the delete_merchant_store_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_merchants_merchant_id_stores_store_id_delete_with_http_info(merchant_id, store_id, **kwargs)  # noqa: E501
+        return self.delete_merchant_store_with_http_info(merchant_id, store_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_merchants_merchant_id_stores_store_id_delete_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], **kwargs) -> ApiResponse:  # noqa: E501
+    def delete_merchant_store_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], **kwargs) -> ApiResponse:  # noqa: E501
         """Delete Store by ID for merchant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_merchants_merchant_id_stores_store_id_delete_with_http_info(merchant_id, store_id, async_req=True)
+        >>> thread = api.delete_merchant_store_with_http_info(merchant_id, store_id, async_req=True)
         >>> result = thread.get()
 
         :param merchant_id: The id of the merchant (required)
@@ -443,7 +296,7 @@ class MerchantsStoresApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_merchants_merchant_id_stores_store_id_delete" % _key
+                    " to method delete_merchant_store" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -491,472 +344,13 @@ class MerchantsStoresApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_merchants_merchant_id_stores_store_id_get(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], **kwargs) -> StoreResponse:  # noqa: E501
-        """Get Store by ID for merchant  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_merchants_merchant_id_stores_store_id_get(merchant_id, store_id, async_req=True)
-        >>> result = thread.get()
-
-        :param merchant_id: The id of the merchant (required)
-        :type merchant_id: int
-        :param store_id: The id of the store (required)
-        :type store_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: StoreResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_merchants_merchant_id_stores_store_id_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_merchants_merchant_id_stores_store_id_get_with_http_info(merchant_id, store_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_merchants_merchant_id_stores_store_id_get_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], **kwargs) -> ApiResponse:  # noqa: E501
-        """Get Store by ID for merchant  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_merchants_merchant_id_stores_store_id_get_with_http_info(merchant_id, store_id, async_req=True)
-        >>> result = thread.get()
-
-        :param merchant_id: The id of the merchant (required)
-        :type merchant_id: int
-        :param store_id: The id of the store (required)
-        :type store_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(StoreResponse, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'merchant_id',
-            'store_id'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_merchants_merchant_id_stores_store_id_get" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['merchant_id']:
-            _path_params['merchant_id'] = _params['merchant_id']
-
-        if _params['store_id']:
-            _path_params['store_id'] = _params['store_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '200': "StoreResponse",
-            '401': None,
-            '404': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/stores/:store_id', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_merchants_merchant_id_stores_store_id_offers_get(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], **kwargs) -> MerchantStoreOfferIdList:  # noqa: E501
-        """List Offer IDs for Merchant and Store  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_merchants_merchant_id_stores_store_id_offers_get(merchant_id, store_id, async_req=True)
-        >>> result = thread.get()
-
-        :param merchant_id: The id of the merchant (required)
-        :type merchant_id: int
-        :param store_id: The id of the store (required)
-        :type store_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: MerchantStoreOfferIdList
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_merchants_merchant_id_stores_store_id_offers_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_merchants_merchant_id_stores_store_id_offers_get_with_http_info(merchant_id, store_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_merchants_merchant_id_stores_store_id_offers_get_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], **kwargs) -> ApiResponse:  # noqa: E501
-        """List Offer IDs for Merchant and Store  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_merchants_merchant_id_stores_store_id_offers_get_with_http_info(merchant_id, store_id, async_req=True)
-        >>> result = thread.get()
-
-        :param merchant_id: The id of the merchant (required)
-        :type merchant_id: int
-        :param store_id: The id of the store (required)
-        :type store_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(MerchantStoreOfferIdList, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'merchant_id',
-            'store_id'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_merchants_merchant_id_stores_store_id_offers_get" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['merchant_id']:
-            _path_params['merchant_id'] = _params['merchant_id']
-
-        if _params['store_id']:
-            _path_params['store_id'] = _params['store_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '200': "MerchantStoreOfferIdList",
-            '401': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/stores/:store_id/offers', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_merchants_merchant_id_stores_store_id_put(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], store_input_request : Annotated[Optional[StoreInputRequest], Field(description="Fields of Store to update in system")] = None, **kwargs) -> StoreResponse:  # noqa: E501
-        """Update Store by ID for merchant  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_merchants_merchant_id_stores_store_id_put(merchant_id, store_id, store_input_request, async_req=True)
-        >>> result = thread.get()
-
-        :param merchant_id: The id of the merchant (required)
-        :type merchant_id: int
-        :param store_id: The id of the store (required)
-        :type store_id: int
-        :param store_input_request: Fields of Store to update in system
-        :type store_input_request: StoreInputRequest
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: StoreResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_merchants_merchant_id_stores_store_id_put_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_merchants_merchant_id_stores_store_id_put_with_http_info(merchant_id, store_id, store_input_request, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_merchants_merchant_id_stores_store_id_put_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], store_input_request : Annotated[Optional[StoreInputRequest], Field(description="Fields of Store to update in system")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """Update Store by ID for merchant  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_merchants_merchant_id_stores_store_id_put_with_http_info(merchant_id, store_id, store_input_request, async_req=True)
-        >>> result = thread.get()
-
-        :param merchant_id: The id of the merchant (required)
-        :type merchant_id: int
-        :param store_id: The id of the store (required)
-        :type store_id: int
-        :param store_input_request: Fields of Store to update in system
-        :type store_input_request: StoreInputRequest
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(StoreResponse, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'merchant_id',
-            'store_id',
-            'store_input_request'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_merchants_merchant_id_stores_store_id_put" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['merchant_id']:
-            _path_params['merchant_id'] = _params['merchant_id']
-
-        if _params['store_id']:
-            _path_params['store_id'] = _params['store_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        if _params['store_input_request'] is not None:
-            _body_params = _params['store_input_request']
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '200': "StoreResponse",
-            '400': "BadRequestObject",
-            '401': None,
-            '404': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/stores/:store_id', 'PUT',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_merchants_stores_index_get(self, lat : Annotated[StrictStr, Field(..., description="The latitude for the location to check")], lng : Annotated[StrictStr, Field(..., description="The longitude for the location to check")], by_tag_ids : Annotated[Optional[StrictStr], Field(description="Store Tag IDs to filter by")] = None, sort_by : Annotated[Optional[StrictStr], Field(description="Sort offers by 1 of their attributes ( name, start_running_at, status )")] = None, **kwargs) -> StoreListResponse:  # noqa: E501
+    def get_filtered_merchant_stores(self, lat : Annotated[StrictStr, Field(..., description="The latitude for the location to check")], lng : Annotated[StrictStr, Field(..., description="The longitude for the location to check")], by_tag_ids : Annotated[Optional[StrictStr], Field(description="Store Tag IDs to filter by")] = None, sort_by : Annotated[Optional[StrictStr], Field(description="Sort offers by 1 of their attributes ( name, start_running_at, status )")] = None, **kwargs) -> StoreListResponse:  # noqa: E501
         """Get and Filter Stores WITH Active Offers (stores/index)  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_merchants_stores_index_get(lat, lng, by_tag_ids, sort_by, async_req=True)
+        >>> thread = api.get_filtered_merchant_stores(lat, lng, by_tag_ids, sort_by, async_req=True)
         >>> result = thread.get()
 
         :param lat: The latitude for the location to check (required)
@@ -980,18 +374,18 @@ class MerchantsStoresApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_merchants_stores_index_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_filtered_merchant_stores_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_merchants_stores_index_get_with_http_info(lat, lng, by_tag_ids, sort_by, **kwargs)  # noqa: E501
+        return self.get_filtered_merchant_stores_with_http_info(lat, lng, by_tag_ids, sort_by, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_merchants_stores_index_get_with_http_info(self, lat : Annotated[StrictStr, Field(..., description="The latitude for the location to check")], lng : Annotated[StrictStr, Field(..., description="The longitude for the location to check")], by_tag_ids : Annotated[Optional[StrictStr], Field(description="Store Tag IDs to filter by")] = None, sort_by : Annotated[Optional[StrictStr], Field(description="Sort offers by 1 of their attributes ( name, start_running_at, status )")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_filtered_merchant_stores_with_http_info(self, lat : Annotated[StrictStr, Field(..., description="The latitude for the location to check")], lng : Annotated[StrictStr, Field(..., description="The longitude for the location to check")], by_tag_ids : Annotated[Optional[StrictStr], Field(description="Store Tag IDs to filter by")] = None, sort_by : Annotated[Optional[StrictStr], Field(description="Sort offers by 1 of their attributes ( name, start_running_at, status )")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get and Filter Stores WITH Active Offers (stores/index)  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_merchants_stores_index_get_with_http_info(lat, lng, by_tag_ids, sort_by, async_req=True)
+        >>> thread = api.get_filtered_merchant_stores_with_http_info(lat, lng, by_tag_ids, sort_by, async_req=True)
         >>> result = thread.get()
 
         :param lat: The latitude for the location to check (required)
@@ -1052,7 +446,7 @@ class MerchantsStoresApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_merchants_stores_index_get" % _key
+                    " to method get_filtered_merchant_stores" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -1113,13 +507,595 @@ class MerchantsStoresApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_merchants_stores_nearby_index_get(self, lat : Annotated[StrictStr, Field(..., description="The latitude for the location to check")], lng : Annotated[StrictStr, Field(..., description="The longitude for the location to check")], by_tag_ids : Annotated[Optional[StrictStr], Field(description="Store Tag IDs to filter by")] = None, sort_by : Annotated[Optional[StrictStr], Field(description="Sort offers by 1 of their attributes ( name, start_running_at, status )")] = None, **kwargs) -> StoreListResponse:  # noqa: E501
+    def get_merchant_store(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], **kwargs) -> StoreResponse:  # noqa: E501
+        """Get Store by ID for merchant  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_merchant_store(merchant_id, store_id, async_req=True)
+        >>> result = thread.get()
+
+        :param merchant_id: The id of the merchant (required)
+        :type merchant_id: int
+        :param store_id: The id of the store (required)
+        :type store_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: StoreResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the get_merchant_store_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.get_merchant_store_with_http_info(merchant_id, store_id, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_merchant_store_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], **kwargs) -> ApiResponse:  # noqa: E501
+        """Get Store by ID for merchant  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_merchant_store_with_http_info(merchant_id, store_id, async_req=True)
+        >>> result = thread.get()
+
+        :param merchant_id: The id of the merchant (required)
+        :type merchant_id: int
+        :param store_id: The id of the store (required)
+        :type store_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(StoreResponse, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'merchant_id',
+            'store_id'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_merchant_store" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['merchant_id']:
+            _path_params['merchant_id'] = _params['merchant_id']
+
+        if _params['store_id']:
+            _path_params['store_id'] = _params['store_id']
+
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '200': "StoreResponse",
+            '401': None,
+            '404': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/merchants/:merchant_id/stores/:store_id', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def get_merchant_store_offer_ids(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], **kwargs) -> MerchantStoreOfferIdList:  # noqa: E501
+        """List Offer IDs for Merchant and Store  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_merchant_store_offer_ids(merchant_id, store_id, async_req=True)
+        >>> result = thread.get()
+
+        :param merchant_id: The id of the merchant (required)
+        :type merchant_id: int
+        :param store_id: The id of the store (required)
+        :type store_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: MerchantStoreOfferIdList
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the get_merchant_store_offer_ids_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.get_merchant_store_offer_ids_with_http_info(merchant_id, store_id, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_merchant_store_offer_ids_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], **kwargs) -> ApiResponse:  # noqa: E501
+        """List Offer IDs for Merchant and Store  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_merchant_store_offer_ids_with_http_info(merchant_id, store_id, async_req=True)
+        >>> result = thread.get()
+
+        :param merchant_id: The id of the merchant (required)
+        :type merchant_id: int
+        :param store_id: The id of the store (required)
+        :type store_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(MerchantStoreOfferIdList, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'merchant_id',
+            'store_id'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_merchant_store_offer_ids" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['merchant_id']:
+            _path_params['merchant_id'] = _params['merchant_id']
+
+        if _params['store_id']:
+            _path_params['store_id'] = _params['store_id']
+
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '200': "MerchantStoreOfferIdList",
+            '401': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/merchants/:merchant_id/stores/:store_id/offers', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def get_merchant_store_without_merchant(self, store_id : Annotated[StrictInt, Field(..., description="The id of the store")], **kwargs) -> StoreResponse:  # noqa: E501
+        """Get Store by ID (without merchant)  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_merchant_store_without_merchant(store_id, async_req=True)
+        >>> result = thread.get()
+
+        :param store_id: The id of the store (required)
+        :type store_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: StoreResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the get_merchant_store_without_merchant_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.get_merchant_store_without_merchant_with_http_info(store_id, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_merchant_store_without_merchant_with_http_info(self, store_id : Annotated[StrictInt, Field(..., description="The id of the store")], **kwargs) -> ApiResponse:  # noqa: E501
+        """Get Store by ID (without merchant)  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_merchant_store_without_merchant_with_http_info(store_id, async_req=True)
+        >>> result = thread.get()
+
+        :param store_id: The id of the store (required)
+        :type store_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(StoreResponse, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'store_id'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_merchant_store_without_merchant" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['store_id']:
+            _path_params['store_id'] = _params['store_id']
+
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '200': "StoreResponse",
+            '401': None,
+            '404': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/merchants/stores/:store_id', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def get_merchant_stores(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], name : Annotated[Optional[StrictStr], Field(description="The store name to search by")] = None, **kwargs) -> StoreListResponse:  # noqa: E501
+        """Get all Stores for merchant  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_merchant_stores(merchant_id, name, async_req=True)
+        >>> result = thread.get()
+
+        :param merchant_id: The id of the merchant (required)
+        :type merchant_id: int
+        :param name: The store name to search by
+        :type name: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: StoreListResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the get_merchant_stores_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.get_merchant_stores_with_http_info(merchant_id, name, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_merchant_stores_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], name : Annotated[Optional[StrictStr], Field(description="The store name to search by")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+        """Get all Stores for merchant  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_merchant_stores_with_http_info(merchant_id, name, async_req=True)
+        >>> result = thread.get()
+
+        :param merchant_id: The id of the merchant (required)
+        :type merchant_id: int
+        :param name: The store name to search by
+        :type name: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(StoreListResponse, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'merchant_id',
+            'name'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_merchant_stores" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['merchant_id']:
+            _path_params['merchant_id'] = _params['merchant_id']
+
+
+        # process the query parameters
+        _query_params = []
+        if _params.get('name') is not None:  # noqa: E501
+            _query_params.append(('name', _params['name']))
+
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '200': "StoreListResponse",
+            '401': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/merchants/:merchant_id/stores', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def get_nearby_filtered_merchant_stores(self, lat : Annotated[StrictStr, Field(..., description="The latitude for the location to check")], lng : Annotated[StrictStr, Field(..., description="The longitude for the location to check")], by_tag_ids : Annotated[Optional[StrictStr], Field(description="Store Tag IDs to filter by")] = None, sort_by : Annotated[Optional[StrictStr], Field(description="Sort offers by 1 of their attributes ( name, start_running_at, status )")] = None, **kwargs) -> StoreListResponse:  # noqa: E501
         """Get and Filter Stores WITH Active Offers (stores/nearby/index)  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_merchants_stores_nearby_index_get(lat, lng, by_tag_ids, sort_by, async_req=True)
+        >>> thread = api.get_nearby_filtered_merchant_stores(lat, lng, by_tag_ids, sort_by, async_req=True)
         >>> result = thread.get()
 
         :param lat: The latitude for the location to check (required)
@@ -1143,18 +1119,18 @@ class MerchantsStoresApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_merchants_stores_nearby_index_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_nearby_filtered_merchant_stores_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_merchants_stores_nearby_index_get_with_http_info(lat, lng, by_tag_ids, sort_by, **kwargs)  # noqa: E501
+        return self.get_nearby_filtered_merchant_stores_with_http_info(lat, lng, by_tag_ids, sort_by, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_merchants_stores_nearby_index_get_with_http_info(self, lat : Annotated[StrictStr, Field(..., description="The latitude for the location to check")], lng : Annotated[StrictStr, Field(..., description="The longitude for the location to check")], by_tag_ids : Annotated[Optional[StrictStr], Field(description="Store Tag IDs to filter by")] = None, sort_by : Annotated[Optional[StrictStr], Field(description="Sort offers by 1 of their attributes ( name, start_running_at, status )")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_nearby_filtered_merchant_stores_with_http_info(self, lat : Annotated[StrictStr, Field(..., description="The latitude for the location to check")], lng : Annotated[StrictStr, Field(..., description="The longitude for the location to check")], by_tag_ids : Annotated[Optional[StrictStr], Field(description="Store Tag IDs to filter by")] = None, sort_by : Annotated[Optional[StrictStr], Field(description="Sort offers by 1 of their attributes ( name, start_running_at, status )")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get and Filter Stores WITH Active Offers (stores/nearby/index)  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_merchants_stores_nearby_index_get_with_http_info(lat, lng, by_tag_ids, sort_by, async_req=True)
+        >>> thread = api.get_nearby_filtered_merchant_stores_with_http_info(lat, lng, by_tag_ids, sort_by, async_req=True)
         >>> result = thread.get()
 
         :param lat: The latitude for the location to check (required)
@@ -1215,7 +1191,7 @@ class MerchantsStoresApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_merchants_stores_nearby_index_get" % _key
+                    " to method get_nearby_filtered_merchant_stores" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -1276,13 +1252,13 @@ class MerchantsStoresApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_merchants_stores_nearby_lat_lng_index_get(self, lat : Annotated[StrictStr, Field(..., description="The latitude for the location to check")], lng : Annotated[StrictStr, Field(..., description="The longitude for the location to check")], by_tag_ids : Annotated[Optional[StrictStr], Field(description="Store Tag IDs to filter by")] = None, sort_by : Annotated[Optional[StrictStr], Field(description="Sort offers by 1 of their attributes ( name, start_running_at, status )")] = None, **kwargs) -> StoreListResponse:  # noqa: E501
+    def get_nearby_merchant_stores(self, lat : Annotated[StrictStr, Field(..., description="The latitude for the location to check")], lng : Annotated[StrictStr, Field(..., description="The longitude for the location to check")], by_tag_ids : Annotated[Optional[StrictStr], Field(description="Store Tag IDs to filter by")] = None, sort_by : Annotated[Optional[StrictStr], Field(description="Sort offers by 1 of their attributes ( name, start_running_at, status )")] = None, **kwargs) -> StoreListResponse:  # noqa: E501
         """Get and Filter Stores WITH Active Offers (stores/nearby/:lat/:lng/index)  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_merchants_stores_nearby_lat_lng_index_get(lat, lng, by_tag_ids, sort_by, async_req=True)
+        >>> thread = api.get_nearby_merchant_stores(lat, lng, by_tag_ids, sort_by, async_req=True)
         >>> result = thread.get()
 
         :param lat: The latitude for the location to check (required)
@@ -1306,18 +1282,18 @@ class MerchantsStoresApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_merchants_stores_nearby_lat_lng_index_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_nearby_merchant_stores_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_merchants_stores_nearby_lat_lng_index_get_with_http_info(lat, lng, by_tag_ids, sort_by, **kwargs)  # noqa: E501
+        return self.get_nearby_merchant_stores_with_http_info(lat, lng, by_tag_ids, sort_by, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_merchants_stores_nearby_lat_lng_index_get_with_http_info(self, lat : Annotated[StrictStr, Field(..., description="The latitude for the location to check")], lng : Annotated[StrictStr, Field(..., description="The longitude for the location to check")], by_tag_ids : Annotated[Optional[StrictStr], Field(description="Store Tag IDs to filter by")] = None, sort_by : Annotated[Optional[StrictStr], Field(description="Sort offers by 1 of their attributes ( name, start_running_at, status )")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_nearby_merchant_stores_with_http_info(self, lat : Annotated[StrictStr, Field(..., description="The latitude for the location to check")], lng : Annotated[StrictStr, Field(..., description="The longitude for the location to check")], by_tag_ids : Annotated[Optional[StrictStr], Field(description="Store Tag IDs to filter by")] = None, sort_by : Annotated[Optional[StrictStr], Field(description="Sort offers by 1 of their attributes ( name, start_running_at, status )")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get and Filter Stores WITH Active Offers (stores/nearby/:lat/:lng/index)  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_merchants_stores_nearby_lat_lng_index_get_with_http_info(lat, lng, by_tag_ids, sort_by, async_req=True)
+        >>> thread = api.get_nearby_merchant_stores_with_http_info(lat, lng, by_tag_ids, sort_by, async_req=True)
         >>> result = thread.get()
 
         :param lat: The latitude for the location to check (required)
@@ -1378,7 +1354,7 @@ class MerchantsStoresApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_merchants_stores_nearby_lat_lng_index_get" % _key
+                    " to method get_nearby_merchant_stores" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -1439,17 +1415,21 @@ class MerchantsStoresApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_merchants_stores_store_id_get(self, store_id : Annotated[StrictInt, Field(..., description="The id of the store")], **kwargs) -> StoreResponse:  # noqa: E501
-        """Get Store by ID (without merchant)  # noqa: E501
+    def update_merchant_store(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], store_input_request : Annotated[Optional[StoreInputRequest], Field(description="Fields of Store to update in system")] = None, **kwargs) -> StoreResponse:  # noqa: E501
+        """Update Store by ID for merchant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_merchants_stores_store_id_get(store_id, async_req=True)
+        >>> thread = api.update_merchant_store(merchant_id, store_id, store_input_request, async_req=True)
         >>> result = thread.get()
 
+        :param merchant_id: The id of the merchant (required)
+        :type merchant_id: int
         :param store_id: The id of the store (required)
         :type store_id: int
+        :param store_input_request: Fields of Store to update in system
+        :type store_input_request: StoreInputRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request.
@@ -1463,22 +1443,26 @@ class MerchantsStoresApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_merchants_stores_store_id_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the update_merchant_store_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_merchants_stores_store_id_get_with_http_info(store_id, **kwargs)  # noqa: E501
+        return self.update_merchant_store_with_http_info(merchant_id, store_id, store_input_request, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_merchants_stores_store_id_get_with_http_info(self, store_id : Annotated[StrictInt, Field(..., description="The id of the store")], **kwargs) -> ApiResponse:  # noqa: E501
-        """Get Store by ID (without merchant)  # noqa: E501
+    def update_merchant_store_with_http_info(self, merchant_id : Annotated[StrictInt, Field(..., description="The id of the merchant")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], store_input_request : Annotated[Optional[StoreInputRequest], Field(description="Fields of Store to update in system")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+        """Update Store by ID for merchant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_merchants_stores_store_id_get_with_http_info(store_id, async_req=True)
+        >>> thread = api.update_merchant_store_with_http_info(merchant_id, store_id, store_input_request, async_req=True)
         >>> result = thread.get()
 
+        :param merchant_id: The id of the merchant (required)
+        :type merchant_id: int
         :param store_id: The id of the store (required)
         :type store_id: int
+        :param store_input_request: Fields of Store to update in system
+        :type store_input_request: StoreInputRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -1507,7 +1491,9 @@ class MerchantsStoresApi:
         _params = locals()
 
         _all_params = [
-            'store_id'
+            'merchant_id',
+            'store_id',
+            'store_input_request'
         ]
         _all_params.extend(
             [
@@ -1526,7 +1512,7 @@ class MerchantsStoresApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_merchants_stores_store_id_get" % _key
+                    " to method update_merchant_store" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -1535,6 +1521,9 @@ class MerchantsStoresApi:
 
         # process the path parameters
         _path_params = {}
+        if _params['merchant_id']:
+            _path_params['merchant_id'] = _params['merchant_id']
+
         if _params['store_id']:
             _path_params['store_id'] = _params['store_id']
 
@@ -1548,21 +1537,32 @@ class MerchantsStoresApi:
         _files = {}
         # process the body parameter
         _body_params = None
+        if _params['store_input_request'] is not None:
+            _body_params = _params['store_input_request']
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
+
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
         _auth_settings = ['X-Auth-Token']  # noqa: E501
 
         _response_types_map = {
             '200': "StoreResponse",
+            '400': "BadRequestObject",
             '401': None,
             '404': None,
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/stores/:store_id', 'GET',
+            '/v1.0/merchants/:merchant_id/stores/:store_id', 'PUT',
             _path_params,
             _query_params,
             _header_params,

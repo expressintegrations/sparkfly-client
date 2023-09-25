@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.counter_input_request import CounterInputRequest  # noqa: E501
+from sparkfly_client.models.counter_input_request import CounterInputRequest  # noqa: E501
 
 class TestCounterInputRequest(unittest.TestCase):
     """CounterInputRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestCounterInputRequest(unittest.TestCase):
         model = CounterInputRequest()  # noqa: E501
         if include_optional:
             return CounterInputRequest(
-                counter = openapi_client.models.counter_input.counter_input(
+                counter = sparkfly_client.models.counter_input.counter_input(
                     name = 56, )
             )
         else:

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.offers_eligible_item_sets_api import OffersEligibleItemSetsApi  # noqa: E501
+from sparkfly_client.api.offers_eligible_item_sets_api import OffersEligibleItemSetsApi  # noqa: E501
 
 
 class TestOffersEligibleItemSetsApi(unittest.TestCase):
@@ -26,8 +26,8 @@ class TestOffersEligibleItemSetsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_offers_offer_id_eligible_item_sets_get(self) -> None:
-        """Test case for v10_offers_offer_id_eligible_item_sets_get
+    def test_offer_eligible_item_sets(self) -> None:
+        """Test case for offer_eligible_item_sets
 
         Eligible Item Sets List  # noqa: E501
         """

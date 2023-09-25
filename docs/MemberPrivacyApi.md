@@ -4,12 +4,12 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v10_privacy_member_delete_request_post**](MemberPrivacyApi.md#v10_privacy_member_delete_request_post) | **POST** /v1.0/privacy/member/delete_request | Creates a deletion request for a member
-[**v10_privacy_member_export_get**](MemberPrivacyApi.md#v10_privacy_member_export_get) | **GET** /v1.0/privacy/member/export | Exports data associated with a member
+[**create_member_deletion_request**](MemberPrivacyApi.md#create_member_deletion_request) | **POST** /v1.0/privacy/member/delete_request | Creates a deletion request for a member
+[**export_member_data**](MemberPrivacyApi.md#export_member_data) | **GET** /v1.0/privacy/member/export | Exports data associated with a member
 
 
-# **v10_privacy_member_delete_request_post**
-> v10_privacy_member_delete_request_post(credential_identifier=credential_identifier, member_identifier=member_identifier)
+# **create_member_deletion_request**
+> create_member_deletion_request(credential_identifier=credential_identifier, member_identifier=member_identifier)
 
 Creates a deletion request for a member
 
@@ -51,9 +51,9 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Creates a deletion request for a member
-        api_instance.v10_privacy_member_delete_request_post(credential_identifier=credential_identifier, member_identifier=member_identifier)
+        api_instance.create_member_deletion_request(credential_identifier=credential_identifier, member_identifier=member_identifier)
     except Exception as e:
-        print("Exception when calling MemberPrivacyApi->v10_privacy_member_delete_request_post: %s\n" % e)
+        print("Exception when calling MemberPrivacyApi->create_member_deletion_request: %s\n" % e)
 ```
 
 
@@ -89,8 +89,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v10_privacy_member_export_get**
-> MemberExportData v10_privacy_member_export_get(credential_identifier=credential_identifier, member_identifier=member_identifier)
+# **export_member_data**
+> MemberExportData export_member_data(credential_identifier=credential_identifier, member_identifier=member_identifier)
 
 Exports data associated with a member
 
@@ -133,11 +133,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Exports data associated with a member
-        api_response = api_instance.v10_privacy_member_export_get(credential_identifier=credential_identifier, member_identifier=member_identifier)
-        print("The response of MemberPrivacyApi->v10_privacy_member_export_get:\n")
+        api_response = api_instance.export_member_data(credential_identifier=credential_identifier, member_identifier=member_identifier)
+        print("The response of MemberPrivacyApi->export_member_data:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling MemberPrivacyApi->v10_privacy_member_export_get: %s\n" % e)
+        print("Exception when calling MemberPrivacyApi->export_member_data: %s\n" % e)
 ```
 
 

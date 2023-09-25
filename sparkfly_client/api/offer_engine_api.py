@@ -19,7 +19,9 @@ import warnings
 from pydantic import validate_arguments, ValidationError
 
 from typing_extensions import Annotated
-from pydantic import Field, StrictInt, StrictStr
+from pydantic import Field, StrictFloat, StrictInt
+
+from typing import Union
 
 from sparkfly_client.models.member_store_response import MemberStoreResponse
 from sparkfly_client.models.offer_activity_list import OfferActivityList
@@ -46,13 +48,169 @@ class OfferEngineApi:
         self.api_client = api_client
 
     @validate_arguments
-    def v10_activities_offers_get(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], **kwargs) -> OfferActivityList:  # noqa: E501
+    def check_in_member_to_store(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], check_in_lat : Annotated[Union[StrictFloat, StrictInt], Field(..., description="The Latitude of the Store")], check_in_lng : Annotated[Union[StrictFloat, StrictInt], Field(..., description="The Latitude of the Store")], **kwargs) -> None:  # noqa: E501
+        """Check-In Member to Store  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.check_in_member_to_store(member_id, store_id, check_in_lat, check_in_lng, async_req=True)
+        >>> result = thread.get()
+
+        :param member_id: The id of the member (required)
+        :type member_id: int
+        :param store_id: The id of the store (required)
+        :type store_id: int
+        :param check_in_lat: The Latitude of the Store (required)
+        :type check_in_lat: float
+        :param check_in_lng: The Latitude of the Store (required)
+        :type check_in_lng: float
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the check_in_member_to_store_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.check_in_member_to_store_with_http_info(member_id, store_id, check_in_lat, check_in_lng, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def check_in_member_to_store_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], check_in_lat : Annotated[Union[StrictFloat, StrictInt], Field(..., description="The Latitude of the Store")], check_in_lng : Annotated[Union[StrictFloat, StrictInt], Field(..., description="The Latitude of the Store")], **kwargs) -> ApiResponse:  # noqa: E501
+        """Check-In Member to Store  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.check_in_member_to_store_with_http_info(member_id, store_id, check_in_lat, check_in_lng, async_req=True)
+        >>> result = thread.get()
+
+        :param member_id: The id of the member (required)
+        :type member_id: int
+        :param store_id: The id of the store (required)
+        :type store_id: int
+        :param check_in_lat: The Latitude of the Store (required)
+        :type check_in_lat: float
+        :param check_in_lng: The Latitude of the Store (required)
+        :type check_in_lng: float
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'member_id',
+            'store_id',
+            'check_in_lat',
+            'check_in_lng'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method check_in_member_to_store" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['member_id']:
+            _path_params['member_id'] = _params['member_id']
+
+        if _params['store_id']:
+            _path_params['store_id'] = _params['store_id']
+
+
+        # process the query parameters
+        _query_params = []
+        if _params.get('check_in_lat') is not None:  # noqa: E501
+            _query_params.append(('check_in[lat]', _params['check_in_lat']))
+
+        if _params.get('check_in_lng') is not None:  # noqa: E501
+            _query_params.append(('check_in[lng]', _params['check_in_lng']))
+
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {}
+
+        return self.api_client.call_api(
+            '/v1.0/members/:member_id/stores/:store_id/check-in', 'POST',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def get_member_offer_activities(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], **kwargs) -> OfferActivityList:  # noqa: E501
         """Retrieve Offer Activities for Member  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_activities_offers_get(member_id, async_req=True)
+        >>> thread = api.get_member_offer_activities(member_id, async_req=True)
         >>> result = thread.get()
 
         :param member_id: The id of the member (required)
@@ -70,18 +228,18 @@ class OfferEngineApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_activities_offers_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_member_offer_activities_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_activities_offers_get_with_http_info(member_id, **kwargs)  # noqa: E501
+        return self.get_member_offer_activities_with_http_info(member_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_activities_offers_get_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_member_offer_activities_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], **kwargs) -> ApiResponse:  # noqa: E501
         """Retrieve Offer Activities for Member  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_activities_offers_get_with_http_info(member_id, async_req=True)
+        >>> thread = api.get_member_offer_activities_with_http_info(member_id, async_req=True)
         >>> result = thread.get()
 
         :param member_id: The id of the member (required)
@@ -133,7 +291,7 @@ class OfferEngineApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_activities_offers_get" % _key
+                    " to method get_member_offer_activities" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -185,13 +343,13 @@ class OfferEngineApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_members_member_id_activities_redemptions_get(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], **kwargs) -> RedemptionList:  # noqa: E501
+    def get_member_redemptions(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], **kwargs) -> RedemptionList:  # noqa: E501
         """Retrieve Redeemed Redemptions for Member  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_members_member_id_activities_redemptions_get(member_id, async_req=True)
+        >>> thread = api.get_member_redemptions(member_id, async_req=True)
         >>> result = thread.get()
 
         :param member_id: The id of the member (required)
@@ -209,18 +367,18 @@ class OfferEngineApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_members_member_id_activities_redemptions_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_member_redemptions_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_members_member_id_activities_redemptions_get_with_http_info(member_id, **kwargs)  # noqa: E501
+        return self.get_member_redemptions_with_http_info(member_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_members_member_id_activities_redemptions_get_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_member_redemptions_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], **kwargs) -> ApiResponse:  # noqa: E501
         """Retrieve Redeemed Redemptions for Member  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_members_member_id_activities_redemptions_get_with_http_info(member_id, async_req=True)
+        >>> thread = api.get_member_redemptions_with_http_info(member_id, async_req=True)
         >>> result = thread.get()
 
         :param member_id: The id of the member (required)
@@ -272,7 +430,7 @@ class OfferEngineApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_members_member_id_activities_redemptions_get" % _key
+                    " to method get_member_redemptions" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -324,316 +482,13 @@ class OfferEngineApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_members_member_id_stores_store_id_activities_redemptions_get(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], **kwargs) -> RedemptionList:  # noqa: E501
-        """Retrieve Redeemed Redemptions for Member for Store  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_members_member_id_stores_store_id_activities_redemptions_get(member_id, store_id, async_req=True)
-        >>> result = thread.get()
-
-        :param member_id: The id of the member (required)
-        :type member_id: int
-        :param store_id: The id of the store (required)
-        :type store_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: RedemptionList
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_members_member_id_stores_store_id_activities_redemptions_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_members_member_id_stores_store_id_activities_redemptions_get_with_http_info(member_id, store_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_members_member_id_stores_store_id_activities_redemptions_get_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], **kwargs) -> ApiResponse:  # noqa: E501
-        """Retrieve Redeemed Redemptions for Member for Store  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_members_member_id_stores_store_id_activities_redemptions_get_with_http_info(member_id, store_id, async_req=True)
-        >>> result = thread.get()
-
-        :param member_id: The id of the member (required)
-        :type member_id: int
-        :param store_id: The id of the store (required)
-        :type store_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(RedemptionList, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'member_id',
-            'store_id'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_members_member_id_stores_store_id_activities_redemptions_get" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['member_id']:
-            _path_params['member_id'] = _params['member_id']
-
-        if _params['store_id']:
-            _path_params['store_id'] = _params['store_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '200': "RedemptionList",
-            '401': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/members/:member_id/stores/:store_id/activities/redemptions', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_members_member_id_stores_store_id_check_incheck_in_latlatcheck_in_lnglng_post(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], lat : Annotated[StrictStr, Field(..., description="The latitude for the location to check")], lng : Annotated[StrictStr, Field(..., description="The longitude for the location to check")], **kwargs) -> None:  # noqa: E501
-        """Check-In Member to Store  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_members_member_id_stores_store_id_check_incheck_in_latlatcheck_in_lnglng_post(member_id, store_id, lat, lng, async_req=True)
-        >>> result = thread.get()
-
-        :param member_id: The id of the member (required)
-        :type member_id: int
-        :param store_id: The id of the store (required)
-        :type store_id: int
-        :param lat: The latitude for the location to check (required)
-        :type lat: str
-        :param lng: The longitude for the location to check (required)
-        :type lng: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: None
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_members_member_id_stores_store_id_check_incheck_in_latlatcheck_in_lnglng_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_members_member_id_stores_store_id_check_incheck_in_latlatcheck_in_lnglng_post_with_http_info(member_id, store_id, lat, lng, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_members_member_id_stores_store_id_check_incheck_in_latlatcheck_in_lnglng_post_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], lat : Annotated[StrictStr, Field(..., description="The latitude for the location to check")], lng : Annotated[StrictStr, Field(..., description="The longitude for the location to check")], **kwargs) -> ApiResponse:  # noqa: E501
-        """Check-In Member to Store  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_members_member_id_stores_store_id_check_incheck_in_latlatcheck_in_lnglng_post_with_http_info(member_id, store_id, lat, lng, async_req=True)
-        >>> result = thread.get()
-
-        :param member_id: The id of the member (required)
-        :type member_id: int
-        :param store_id: The id of the store (required)
-        :type store_id: int
-        :param lat: The latitude for the location to check (required)
-        :type lat: str
-        :param lng: The longitude for the location to check (required)
-        :type lng: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: None
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'member_id',
-            'store_id',
-            'lat',
-            'lng'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_members_member_id_stores_store_id_check_incheck_in_latlatcheck_in_lnglng_post" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['member_id']:
-            _path_params['member_id'] = _params['member_id']
-
-        if _params['store_id']:
-            _path_params['store_id'] = _params['store_id']
-
-        if _params['lat']:
-            _path_params['lat'] = _params['lat']
-
-        if _params['lng']:
-            _path_params['lng'] = _params['lng']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {}
-
-        return self.api_client.call_api(
-            '/v1.0/members/:member_id/stores/:store_id/check-in?check_in[lat]=:lat&check_in[lng]=:lng', 'POST',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_members_member_id_stores_store_id_get(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], x_channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> MemberStoreResponse:  # noqa: E501
+    def get_member_store(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], x_channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> MemberStoreResponse:  # noqa: E501
         """Retrieve Store for Member  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_members_member_id_stores_store_id_get(member_id, store_id, x_channel_id, async_req=True)
+        >>> thread = api.get_member_store(member_id, store_id, x_channel_id, async_req=True)
         >>> result = thread.get()
 
         :param member_id: The id of the member (required)
@@ -655,18 +510,18 @@ class OfferEngineApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_members_member_id_stores_store_id_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_member_store_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_members_member_id_stores_store_id_get_with_http_info(member_id, store_id, x_channel_id, **kwargs)  # noqa: E501
+        return self.get_member_store_with_http_info(member_id, store_id, x_channel_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_members_member_id_stores_store_id_get_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], x_channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_member_store_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], x_channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> ApiResponse:  # noqa: E501
         """Retrieve Store for Member  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_members_member_id_stores_store_id_get_with_http_info(member_id, store_id, x_channel_id, async_req=True)
+        >>> thread = api.get_member_store_with_http_info(member_id, store_id, x_channel_id, async_req=True)
         >>> result = thread.get()
 
         :param member_id: The id of the member (required)
@@ -724,7 +579,7 @@ class OfferEngineApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_members_member_id_stores_store_id_get" % _key
+                    " to method get_member_store" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -767,6 +622,153 @@ class OfferEngineApi:
 
         return self.api_client.call_api(
             '/v1.0/members/:member_id/stores/:store_id', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def get_member_store_redemptions(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], **kwargs) -> RedemptionList:  # noqa: E501
+        """Retrieve Redeemed Redemptions for Member for Store  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_member_store_redemptions(member_id, store_id, async_req=True)
+        >>> result = thread.get()
+
+        :param member_id: The id of the member (required)
+        :type member_id: int
+        :param store_id: The id of the store (required)
+        :type store_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: RedemptionList
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the get_member_store_redemptions_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.get_member_store_redemptions_with_http_info(member_id, store_id, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_member_store_redemptions_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], store_id : Annotated[StrictInt, Field(..., description="The id of the store")], **kwargs) -> ApiResponse:  # noqa: E501
+        """Retrieve Redeemed Redemptions for Member for Store  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_member_store_redemptions_with_http_info(member_id, store_id, async_req=True)
+        >>> result = thread.get()
+
+        :param member_id: The id of the member (required)
+        :type member_id: int
+        :param store_id: The id of the store (required)
+        :type store_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(RedemptionList, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'member_id',
+            'store_id'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_member_store_redemptions" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['member_id']:
+            _path_params['member_id'] = _params['member_id']
+
+        if _params['store_id']:
+            _path_params['store_id'] = _params['store_id']
+
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '200': "RedemptionList",
+            '401': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/members/:member_id/stores/:store_id/activities/redemptions', 'GET',
             _path_params,
             _query_params,
             _header_params,

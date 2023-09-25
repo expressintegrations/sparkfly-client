@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.manufacturers_item_sets_api import ManufacturersItemSetsApi  # noqa: E501
+from sparkfly_client.api.manufacturers_item_sets_api import ManufacturersItemSetsApi  # noqa: E501
 
 
 class TestManufacturersItemSetsApi(unittest.TestCase):
@@ -26,36 +26,36 @@ class TestManufacturersItemSetsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_manufacturers_manufacturer_id_item_sets_get(self) -> None:
-        """Test case for v10_manufacturers_manufacturer_id_item_sets_get
-
-        Get all item sets for manufacturer  # noqa: E501
-        """
-        pass
-
-    def test_v10_manufacturers_manufacturer_id_item_sets_item_set_id_delete(self) -> None:
-        """Test case for v10_manufacturers_manufacturer_id_item_sets_item_set_id_delete
-
-        Delete item set by ID for manufacturer  # noqa: E501
-        """
-        pass
-
-    def test_v10_manufacturers_manufacturer_id_item_sets_item_set_id_get(self) -> None:
-        """Test case for v10_manufacturers_manufacturer_id_item_sets_item_set_id_get
+    def test_manufacturer_item_set(self) -> None:
+        """Test case for manufacturer_item_set
 
         Get item set by ID for manufacturer  # noqa: E501
         """
         pass
 
-    def test_v10_manufacturers_manufacturer_id_item_sets_item_set_id_put(self) -> None:
-        """Test case for v10_manufacturers_manufacturer_id_item_sets_item_set_id_put
+    def test_manufacturer_item_set_0(self) -> None:
+        """Test case for manufacturer_item_set_0
 
         Update item set by ID for manufacturer  # noqa: E501
         """
         pass
 
-    def test_v10_manufacturers_manufacturer_id_item_sets_post(self) -> None:
-        """Test case for v10_manufacturers_manufacturer_id_item_sets_post
+    def test_manufacturer_item_set_1(self) -> None:
+        """Test case for manufacturer_item_set_1
+
+        Delete item set by ID for manufacturer  # noqa: E501
+        """
+        pass
+
+    def test_manufacturer_item_sets(self) -> None:
+        """Test case for manufacturer_item_sets
+
+        Get all item sets for manufacturer  # noqa: E501
+        """
+        pass
+
+    def test_manufacturer_item_sets_0(self) -> None:
+        """Test case for manufacturer_item_sets_0
 
         Create an item set for manufacturer  # noqa: E501
         """

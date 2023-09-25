@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.campaign_simplified import CampaignSimplified  # noqa: E501
+from sparkfly_client.models.campaign_simplified import CampaignSimplified  # noqa: E501
 
 class TestCampaignSimplified(unittest.TestCase):
     """CampaignSimplified unit test stubs"""

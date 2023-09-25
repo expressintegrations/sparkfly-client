@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.offer_activity_list import OfferActivityList  # noqa: E501
+from sparkfly_client.models.offer_activity_list import OfferActivityList  # noqa: E501
 
 class TestOfferActivityList(unittest.TestCase):
     """OfferActivityList unit test stubs"""
@@ -41,8 +41,8 @@ class TestOfferActivityList(unittest.TestCase):
                 total_entries = 56,
                 total_pages = 56,
                 collection = [
-                    openapi_client.models.offer_activity_response.offer_activity_response(
-                        offer_activity = openapi_client.models.offer_activity.offer_activity(
+                    sparkfly_client.models.offer_activity_response.offer_activity_response(
+                        offer_activity = sparkfly_client.models.offer_activity.offer_activity(
                             id = 56, 
                             transaction_id = 56, 
                             credential_id = 56, 

@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.credential_input_request import CredentialInputRequest  # noqa: E501
+from sparkfly_client.models.credential_input_request import CredentialInputRequest  # noqa: E501
 
 class TestCredentialInputRequest(unittest.TestCase):
     """CredentialInputRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestCredentialInputRequest(unittest.TestCase):
         model = CredentialInputRequest()  # noqa: E501
         if include_optional:
             return CredentialInputRequest(
-                credential = openapi_client.models.credential_input.credential_input(
+                credential = sparkfly_client.models.credential_input.credential_input(
                     member_id = 56, 
                     offer_id = 56, 
                     channel_id = 56, 

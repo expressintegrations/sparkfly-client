@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.item_set_input import ItemSetInput  # noqa: E501
+from sparkfly_client.models.item_set_input import ItemSetInput  # noqa: E501
 
 class TestItemSetInput(unittest.TestCase):
     """ItemSetInput unit test stubs"""

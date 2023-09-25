@@ -4,14 +4,14 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v10_offers_offer_id_member_lists_delete**](OffersMemberListsApi.md#v10_offers_offer_id_member_lists_delete) | **DELETE** /v1.0/offers/:offer_id/member_lists | Remove eligible Member Lists from offer
-[**v10_offers_offer_id_member_lists_get**](OffersMemberListsApi.md#v10_offers_offer_id_member_lists_get) | **GET** /v1.0/offers/:offer_id/member_lists | Eligible Member Lists List
-[**v10_offers_offer_id_member_lists_post**](OffersMemberListsApi.md#v10_offers_offer_id_member_lists_post) | **POST** /v1.0/offers/:offer_id/member_lists | Set eligible Member Lists for offer
-[**v10_offers_offer_id_member_lists_put**](OffersMemberListsApi.md#v10_offers_offer_id_member_lists_put) | **PUT** /v1.0/offers/:offer_id/member_lists | Add eligible Member Lists for offer
+[**delete_offer_member_lists**](OffersMemberListsApi.md#delete_offer_member_lists) | **DELETE** /v1.0/offers/:offer_id/member_lists | Remove eligible Member Lists from offer
+[**get_offer_member_lists**](OffersMemberListsApi.md#get_offer_member_lists) | **GET** /v1.0/offers/:offer_id/member_lists | Eligible Member Lists List
+[**set_offer_member_lists**](OffersMemberListsApi.md#set_offer_member_lists) | **POST** /v1.0/offers/:offer_id/member_lists | Set eligible Member Lists for offer
+[**update_offer_member_lists**](OffersMemberListsApi.md#update_offer_member_lists) | **PUT** /v1.0/offers/:offer_id/member_lists | Add eligible Member Lists for offer
 
 
-# **v10_offers_offer_id_member_lists_delete**
-> OfferMemberListsResponse v10_offers_offer_id_member_lists_delete(offer_id, offer_member_list_ids_input_request=offer_member_list_ids_input_request)
+# **delete_offer_member_lists**
+> OfferMemberListsResponse delete_offer_member_lists(offer_id, offer_member_list_ids_input_request=offer_member_list_ids_input_request)
 
 Remove eligible Member Lists from offer
 
@@ -53,11 +53,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Remove eligible Member Lists from offer
-        api_response = api_instance.v10_offers_offer_id_member_lists_delete(offer_id, offer_member_list_ids_input_request=offer_member_list_ids_input_request)
-        print("The response of OffersMemberListsApi->v10_offers_offer_id_member_lists_delete:\n")
+        api_response = api_instance.delete_offer_member_lists(offer_id, offer_member_list_ids_input_request=offer_member_list_ids_input_request)
+        print("The response of OffersMemberListsApi->delete_offer_member_lists:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling OffersMemberListsApi->v10_offers_offer_id_member_lists_delete: %s\n" % e)
+        print("Exception when calling OffersMemberListsApi->delete_offer_member_lists: %s\n" % e)
 ```
 
 
@@ -91,8 +91,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v10_offers_offer_id_member_lists_get**
-> OfferMemberListsResponse v10_offers_offer_id_member_lists_get(offer_id)
+# **get_offer_member_lists**
+> OfferMemberListsResponse get_offer_member_lists(offer_id)
 
 Eligible Member Lists List
 
@@ -132,11 +132,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Eligible Member Lists List
-        api_response = api_instance.v10_offers_offer_id_member_lists_get(offer_id)
-        print("The response of OffersMemberListsApi->v10_offers_offer_id_member_lists_get:\n")
+        api_response = api_instance.get_offer_member_lists(offer_id)
+        print("The response of OffersMemberListsApi->get_offer_member_lists:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling OffersMemberListsApi->v10_offers_offer_id_member_lists_get: %s\n" % e)
+        print("Exception when calling OffersMemberListsApi->get_offer_member_lists: %s\n" % e)
 ```
 
 
@@ -168,8 +168,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v10_offers_offer_id_member_lists_post**
-> OfferMemberListsResponse v10_offers_offer_id_member_lists_post(offer_id, offer_member_list_ids_input_request=offer_member_list_ids_input_request)
+# **set_offer_member_lists**
+> OfferMemberListsResponse set_offer_member_lists(offer_id, offer_member_list_ids_input_request=offer_member_list_ids_input_request)
 
 Set eligible Member Lists for offer
 
@@ -211,11 +211,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Set eligible Member Lists for offer
-        api_response = api_instance.v10_offers_offer_id_member_lists_post(offer_id, offer_member_list_ids_input_request=offer_member_list_ids_input_request)
-        print("The response of OffersMemberListsApi->v10_offers_offer_id_member_lists_post:\n")
+        api_response = api_instance.set_offer_member_lists(offer_id, offer_member_list_ids_input_request=offer_member_list_ids_input_request)
+        print("The response of OffersMemberListsApi->set_offer_member_lists:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling OffersMemberListsApi->v10_offers_offer_id_member_lists_post: %s\n" % e)
+        print("Exception when calling OffersMemberListsApi->set_offer_member_lists: %s\n" % e)
 ```
 
 
@@ -249,8 +249,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v10_offers_offer_id_member_lists_put**
-> OfferMemberListsResponse v10_offers_offer_id_member_lists_put(offer_id, offer_member_list_ids_input_request=offer_member_list_ids_input_request)
+# **update_offer_member_lists**
+> OfferMemberListsResponse update_offer_member_lists(offer_id, offer_member_list_ids_input_request=offer_member_list_ids_input_request)
 
 Add eligible Member Lists for offer
 
@@ -292,11 +292,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Add eligible Member Lists for offer
-        api_response = api_instance.v10_offers_offer_id_member_lists_put(offer_id, offer_member_list_ids_input_request=offer_member_list_ids_input_request)
-        print("The response of OffersMemberListsApi->v10_offers_offer_id_member_lists_put:\n")
+        api_response = api_instance.update_offer_member_lists(offer_id, offer_member_list_ids_input_request=offer_member_list_ids_input_request)
+        print("The response of OffersMemberListsApi->update_offer_member_lists:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling OffersMemberListsApi->v10_offers_offer_id_member_lists_put: %s\n" % e)
+        print("Exception when calling OffersMemberListsApi->update_offer_member_lists: %s\n" % e)
 ```
 
 

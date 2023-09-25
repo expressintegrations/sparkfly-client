@@ -46,14 +46,14 @@ class MemberPrivacyApi:
         self.api_client = api_client
 
     @validate_arguments
-    def v10_privacy_member_delete_request_post(self, credential_identifier : Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None, member_identifier : Annotated[Optional[StrictStr], Field(description="The identifier of the member")] = None, **kwargs) -> None:  # noqa: E501
+    def create_member_deletion_request(self, credential_identifier : Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None, member_identifier : Annotated[Optional[StrictStr], Field(description="The identifier of the member")] = None, **kwargs) -> None:  # noqa: E501
         """Creates a deletion request for a member  # noqa: E501
 
         Looks up and creates a deletion request for the member associated with the provided  `member_identifier` or `credential_identifier` query parameter. For each deletion request, all member offers will first be voided, then after 7 days, or longer if specified in an  Account's preferences, the member will be anonymized.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_privacy_member_delete_request_post(credential_identifier, member_identifier, async_req=True)
+        >>> thread = api.create_member_deletion_request(credential_identifier, member_identifier, async_req=True)
         >>> result = thread.get()
 
         :param credential_identifier: The identifier of the credential
@@ -73,19 +73,19 @@ class MemberPrivacyApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_privacy_member_delete_request_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the create_member_deletion_request_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_privacy_member_delete_request_post_with_http_info(credential_identifier, member_identifier, **kwargs)  # noqa: E501
+        return self.create_member_deletion_request_with_http_info(credential_identifier, member_identifier, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_privacy_member_delete_request_post_with_http_info(self, credential_identifier : Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None, member_identifier : Annotated[Optional[StrictStr], Field(description="The identifier of the member")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def create_member_deletion_request_with_http_info(self, credential_identifier : Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None, member_identifier : Annotated[Optional[StrictStr], Field(description="The identifier of the member")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Creates a deletion request for a member  # noqa: E501
 
         Looks up and creates a deletion request for the member associated with the provided  `member_identifier` or `credential_identifier` query parameter. For each deletion request, all member offers will first be voided, then after 7 days, or longer if specified in an  Account's preferences, the member will be anonymized.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_privacy_member_delete_request_post_with_http_info(credential_identifier, member_identifier, async_req=True)
+        >>> thread = api.create_member_deletion_request_with_http_info(credential_identifier, member_identifier, async_req=True)
         >>> result = thread.get()
 
         :param credential_identifier: The identifier of the credential
@@ -140,7 +140,7 @@ class MemberPrivacyApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_privacy_member_delete_request_post" % _key
+                    " to method create_member_deletion_request" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -188,14 +188,14 @@ class MemberPrivacyApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_privacy_member_export_get(self, credential_identifier : Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None, member_identifier : Annotated[Optional[StrictStr], Field(description="The identifier of the member")] = None, **kwargs) -> MemberExportData:  # noqa: E501
+    def export_member_data(self, credential_identifier : Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None, member_identifier : Annotated[Optional[StrictStr], Field(description="The identifier of the member")] = None, **kwargs) -> MemberExportData:  # noqa: E501
         """Exports data associated with a member  # noqa: E501
 
         Looks up and exports data for the member associated with the provided  `member_identifier` or `credential_identifier` query parameter.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_privacy_member_export_get(credential_identifier, member_identifier, async_req=True)
+        >>> thread = api.export_member_data(credential_identifier, member_identifier, async_req=True)
         >>> result = thread.get()
 
         :param credential_identifier: The identifier of the credential
@@ -215,19 +215,19 @@ class MemberPrivacyApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_privacy_member_export_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the export_member_data_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_privacy_member_export_get_with_http_info(credential_identifier, member_identifier, **kwargs)  # noqa: E501
+        return self.export_member_data_with_http_info(credential_identifier, member_identifier, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_privacy_member_export_get_with_http_info(self, credential_identifier : Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None, member_identifier : Annotated[Optional[StrictStr], Field(description="The identifier of the member")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def export_member_data_with_http_info(self, credential_identifier : Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None, member_identifier : Annotated[Optional[StrictStr], Field(description="The identifier of the member")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Exports data associated with a member  # noqa: E501
 
         Looks up and exports data for the member associated with the provided  `member_identifier` or `credential_identifier` query parameter.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_privacy_member_export_get_with_http_info(credential_identifier, member_identifier, async_req=True)
+        >>> thread = api.export_member_data_with_http_info(credential_identifier, member_identifier, async_req=True)
         >>> result = thread.get()
 
         :param credential_identifier: The identifier of the credential
@@ -282,7 +282,7 @@ class MemberPrivacyApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_privacy_member_export_get" % _key
+                    " to method export_member_data" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']

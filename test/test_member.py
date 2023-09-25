@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.member import Member  # noqa: E501
+from sparkfly_client.models.member import Member  # noqa: E501
 
 class TestMember(unittest.TestCase):
     """Member unit test stubs"""

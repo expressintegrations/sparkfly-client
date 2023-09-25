@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.account_input_request import AccountInputRequest  # noqa: E501
+from sparkfly_client.models.account_input_request import AccountInputRequest  # noqa: E501
 
 class TestAccountInputRequest(unittest.TestCase):
     """AccountInputRequest unit test stubs"""
@@ -36,8 +36,8 @@ class TestAccountInputRequest(unittest.TestCase):
         model = AccountInputRequest()  # noqa: E501
         if include_optional:
             return AccountInputRequest(
-                account = openapi_client.models.account_input.account_input(
-                    callbacks = openapi_client.models.account_callbacks.account_callbacks(
+                account = sparkfly_client.models.account_input.account_input(
+                    callbacks = sparkfly_client.models.account_callbacks.account_callbacks(
                         credential_url = '', ), )
             )
         else:

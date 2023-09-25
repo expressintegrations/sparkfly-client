@@ -48,13 +48,160 @@ class CountersApi:
         self.api_client = api_client
 
     @validate_arguments
-    def v10_counters_counter_id_delete(self, counter_id : Annotated[StrictInt, Field(..., description="The id of the counter")], **kwargs) -> None:  # noqa: E501
+    def create_counter(self, counter_input_request : Annotated[Optional[CounterInputRequest], Field(description="Counter to add")] = None, **kwargs) -> CounterResponse:  # noqa: E501
+        """Create a counter  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_counter(counter_input_request, async_req=True)
+        >>> result = thread.get()
+
+        :param counter_input_request: Counter to add
+        :type counter_input_request: CounterInputRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: CounterResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the create_counter_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.create_counter_with_http_info(counter_input_request, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def create_counter_with_http_info(self, counter_input_request : Annotated[Optional[CounterInputRequest], Field(description="Counter to add")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+        """Create a counter  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_counter_with_http_info(counter_input_request, async_req=True)
+        >>> result = thread.get()
+
+        :param counter_input_request: Counter to add
+        :type counter_input_request: CounterInputRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(CounterResponse, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'counter_input_request'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_counter" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        if _params['counter_input_request'] is not None:
+            _body_params = _params['counter_input_request']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '201': "CounterResponse",
+            '400': "BadRequestObject",
+            '401': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/counters', 'POST',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def delete_counter(self, counter_id : Annotated[StrictInt, Field(..., description="The id of the counter")], **kwargs) -> None:  # noqa: E501
         """Delete counter by ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_counters_counter_id_delete(counter_id, async_req=True)
+        >>> thread = api.delete_counter(counter_id, async_req=True)
         >>> result = thread.get()
 
         :param counter_id: The id of the counter (required)
@@ -72,18 +219,18 @@ class CountersApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_counters_counter_id_delete_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the delete_counter_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_counters_counter_id_delete_with_http_info(counter_id, **kwargs)  # noqa: E501
+        return self.delete_counter_with_http_info(counter_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_counters_counter_id_delete_with_http_info(self, counter_id : Annotated[StrictInt, Field(..., description="The id of the counter")], **kwargs) -> ApiResponse:  # noqa: E501
+    def delete_counter_with_http_info(self, counter_id : Annotated[StrictInt, Field(..., description="The id of the counter")], **kwargs) -> ApiResponse:  # noqa: E501
         """Delete counter by ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_counters_counter_id_delete_with_http_info(counter_id, async_req=True)
+        >>> thread = api.delete_counter_with_http_info(counter_id, async_req=True)
         >>> result = thread.get()
 
         :param counter_id: The id of the counter (required)
@@ -135,7 +282,7 @@ class CountersApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_counters_counter_id_delete" % _key
+                    " to method delete_counter" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -180,13 +327,13 @@ class CountersApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_counters_counter_id_get(self, counter_id : Annotated[StrictInt, Field(..., description="The id of the counter")], **kwargs) -> CounterResponse:  # noqa: E501
+    def get_counter(self, counter_id : Annotated[StrictInt, Field(..., description="The id of the counter")], **kwargs) -> CounterResponse:  # noqa: E501
         """Get counter by ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_counters_counter_id_get(counter_id, async_req=True)
+        >>> thread = api.get_counter(counter_id, async_req=True)
         >>> result = thread.get()
 
         :param counter_id: The id of the counter (required)
@@ -204,18 +351,18 @@ class CountersApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_counters_counter_id_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_counter_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_counters_counter_id_get_with_http_info(counter_id, **kwargs)  # noqa: E501
+        return self.get_counter_with_http_info(counter_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_counters_counter_id_get_with_http_info(self, counter_id : Annotated[StrictInt, Field(..., description="The id of the counter")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_counter_with_http_info(self, counter_id : Annotated[StrictInt, Field(..., description="The id of the counter")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get counter by ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_counters_counter_id_get_with_http_info(counter_id, async_req=True)
+        >>> thread = api.get_counter_with_http_info(counter_id, async_req=True)
         >>> result = thread.get()
 
         :param counter_id: The id of the counter (required)
@@ -267,7 +414,7 @@ class CountersApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_counters_counter_id_get" % _key
+                    " to method get_counter" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -320,13 +467,144 @@ class CountersApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_counters_counter_id_put(self, counter_id : Annotated[StrictInt, Field(..., description="The id of the counter")], counter_input_request : Annotated[Optional[CounterInputRequest], Field(description="Fields of counter to update in system")] = None, **kwargs) -> CounterResponse:  # noqa: E501
+    def get_counters(self, **kwargs) -> CounterList:  # noqa: E501
+        """Get counters  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_counters(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: CounterList
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the get_counters_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.get_counters_with_http_info(**kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_counters_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
+        """Get counters  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_counters_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(CounterList, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_counters" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '200': "CounterList",
+            '401': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/counters', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def update_counter(self, counter_id : Annotated[StrictInt, Field(..., description="The id of the counter")], counter_input_request : Annotated[Optional[CounterInputRequest], Field(description="Fields of counter to update in system")] = None, **kwargs) -> CounterResponse:  # noqa: E501
         """Update counter by ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_counters_counter_id_put(counter_id, counter_input_request, async_req=True)
+        >>> thread = api.update_counter(counter_id, counter_input_request, async_req=True)
         >>> result = thread.get()
 
         :param counter_id: The id of the counter (required)
@@ -346,18 +624,18 @@ class CountersApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_counters_counter_id_put_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the update_counter_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_counters_counter_id_put_with_http_info(counter_id, counter_input_request, **kwargs)  # noqa: E501
+        return self.update_counter_with_http_info(counter_id, counter_input_request, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_counters_counter_id_put_with_http_info(self, counter_id : Annotated[StrictInt, Field(..., description="The id of the counter")], counter_input_request : Annotated[Optional[CounterInputRequest], Field(description="Fields of counter to update in system")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def update_counter_with_http_info(self, counter_id : Annotated[StrictInt, Field(..., description="The id of the counter")], counter_input_request : Annotated[Optional[CounterInputRequest], Field(description="Fields of counter to update in system")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Update counter by ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_counters_counter_id_put_with_http_info(counter_id, counter_input_request, async_req=True)
+        >>> thread = api.update_counter_with_http_info(counter_id, counter_input_request, async_req=True)
         >>> result = thread.get()
 
         :param counter_id: The id of the counter (required)
@@ -412,7 +690,7 @@ class CountersApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_counters_counter_id_put" % _key
+                    " to method update_counter" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -460,284 +738,6 @@ class CountersApi:
 
         return self.api_client.call_api(
             '/v1.0/counters/:counter_id', 'PUT',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_counters_get(self, **kwargs) -> CounterList:  # noqa: E501
-        """Get counters  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_counters_get(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: CounterList
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_counters_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_counters_get_with_http_info(**kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_counters_get_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
-        """Get counters  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_counters_get_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(CounterList, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_counters_get" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '200': "CounterList",
-            '401': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/counters', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_counters_post(self, counter_input_request : Annotated[Optional[CounterInputRequest], Field(description="Counter to add")] = None, **kwargs) -> CounterResponse:  # noqa: E501
-        """Create a counter  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_counters_post(counter_input_request, async_req=True)
-        >>> result = thread.get()
-
-        :param counter_input_request: Counter to add
-        :type counter_input_request: CounterInputRequest
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: CounterResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_counters_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_counters_post_with_http_info(counter_input_request, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_counters_post_with_http_info(self, counter_input_request : Annotated[Optional[CounterInputRequest], Field(description="Counter to add")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """Create a counter  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_counters_post_with_http_info(counter_input_request, async_req=True)
-        >>> result = thread.get()
-
-        :param counter_input_request: Counter to add
-        :type counter_input_request: CounterInputRequest
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(CounterResponse, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'counter_input_request'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_counters_post" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        if _params['counter_input_request'] is not None:
-            _body_params = _params['counter_input_request']
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '201': "CounterResponse",
-            '400': "BadRequestObject",
-            '401': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/counters', 'POST',
             _path_params,
             _query_params,
             _header_params,

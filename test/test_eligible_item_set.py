@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.eligible_item_set import EligibleItemSet  # noqa: E501
+from sparkfly_client.models.eligible_item_set import EligibleItemSet  # noqa: E501
 
 class TestEligibleItemSet(unittest.TestCase):
     """EligibleItemSet unit test stubs"""

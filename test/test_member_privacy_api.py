@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.member_privacy_api import MemberPrivacyApi  # noqa: E501
+from sparkfly_client.api.member_privacy_api import MemberPrivacyApi  # noqa: E501
 
 
 class TestMemberPrivacyApi(unittest.TestCase):
@@ -26,17 +26,17 @@ class TestMemberPrivacyApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_privacy_member_delete_request_post(self) -> None:
-        """Test case for v10_privacy_member_delete_request_post
+    def test_member_data(self) -> None:
+        """Test case for member_data
 
-        Creates a deletion request for a member  # noqa: E501
+        Exports data associated with a member  # noqa: E501
         """
         pass
 
-    def test_v10_privacy_member_export_get(self) -> None:
-        """Test case for v10_privacy_member_export_get
+    def test_member_deletion_request(self) -> None:
+        """Test case for member_deletion_request
 
-        Exports data associated with a member  # noqa: E501
+        Creates a deletion request for a member  # noqa: E501
         """
         pass
 

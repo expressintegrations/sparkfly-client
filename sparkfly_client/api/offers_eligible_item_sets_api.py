@@ -44,13 +44,13 @@ class OffersEligibleItemSetsApi:
         self.api_client = api_client
 
     @validate_arguments
-    def v10_offers_offer_id_eligible_item_sets_get(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], **kwargs) -> OfferEligibleItemSetList:  # noqa: E501
+    def get_offer_eligible_item_sets(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], **kwargs) -> OfferEligibleItemSetList:  # noqa: E501
         """Eligible Item Sets List  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_offers_offer_id_eligible_item_sets_get(offer_id, async_req=True)
+        >>> thread = api.get_offer_eligible_item_sets(offer_id, async_req=True)
         >>> result = thread.get()
 
         :param offer_id: The id of the offer (required)
@@ -68,18 +68,18 @@ class OffersEligibleItemSetsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_offers_offer_id_eligible_item_sets_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_offer_eligible_item_sets_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_offers_offer_id_eligible_item_sets_get_with_http_info(offer_id, **kwargs)  # noqa: E501
+        return self.get_offer_eligible_item_sets_with_http_info(offer_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_offers_offer_id_eligible_item_sets_get_with_http_info(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_offer_eligible_item_sets_with_http_info(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], **kwargs) -> ApiResponse:  # noqa: E501
         """Eligible Item Sets List  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_offers_offer_id_eligible_item_sets_get_with_http_info(offer_id, async_req=True)
+        >>> thread = api.get_offer_eligible_item_sets_with_http_info(offer_id, async_req=True)
         >>> result = thread.get()
 
         :param offer_id: The id of the offer (required)
@@ -131,7 +131,7 @@ class OffersEligibleItemSetsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_offers_offer_id_eligible_item_sets_get" % _key
+                    " to method get_offer_eligible_item_sets" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']

@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.account_response import AccountResponse  # noqa: E501
+from sparkfly_client.models.account_response import AccountResponse  # noqa: E501
 
 class TestAccountResponse(unittest.TestCase):
     """AccountResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestAccountResponse(unittest.TestCase):
         model = AccountResponse()  # noqa: E501
         if include_optional:
             return AccountResponse(
-                account = openapi_client.models.account.account(
+                account = sparkfly_client.models.account.account(
                     id = 56, 
                     name = '', 
                     enable_callbacks = True, 

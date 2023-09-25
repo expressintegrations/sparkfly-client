@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.merchant_store_list_stores_list import MerchantStoreListStoresList  # noqa: E501
+from sparkfly_client.models.merchant_store_list_stores_list import MerchantStoreListStoresList  # noqa: E501
 
 class TestMerchantStoreListStoresList(unittest.TestCase):
     """MerchantStoreListStoresList unit test stubs"""
@@ -41,8 +41,8 @@ class TestMerchantStoreListStoresList(unittest.TestCase):
                 total_entries = 56,
                 total_pages = 56,
                 stores = [
-                    openapi_client.models.store_response.store_response(
-                        store = openapi_client.models.store.store(
+                    sparkfly_client.models.store_response.store_response(
+                        store = sparkfly_client.models.store.store(
                             id = 56, 
                             name = '', 
                             site_id = '', 
@@ -50,7 +50,7 @@ class TestMerchantStoreListStoresList(unittest.TestCase):
                             description = '', 
                             is_active = True, 
                             phone = '', 
-                            location = openapi_client.models.store_location.store_location(
+                            location = sparkfly_client.models.store_location.store_location(
                                 address = '', 
                                 address2 = '', 
                                 city = '', 
@@ -59,17 +59,17 @@ class TestMerchantStoreListStoresList(unittest.TestCase):
                                 country = '', 
                                 lat = '', 
                                 lng = '', ), 
-                            contacts = openapi_client.models.contacts.contacts(
-                                primary = openapi_client.models.contact.contact(
+                            contacts = sparkfly_client.models.contacts.contacts(
+                                primary = sparkfly_client.models.contact.contact(
                                     name = '', 
                                     phone = '', 
                                     email = '', ), 
-                                secondary = openapi_client.models.contact.contact(
+                                secondary = sparkfly_client.models.contact.contact(
                                     name = '', 
                                     phone = '', 
                                     email = '', ), ), 
                             merchant_id = 56, 
-                            nearby = openapi_client.models.store_nearby.store_nearby(
+                            nearby = sparkfly_client.models.store_nearby.store_nearby(
                                 lat = '', 
                                 lng = '', 
                                 distance = 56, ), 

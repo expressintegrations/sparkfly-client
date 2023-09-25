@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.store_list_store_ids_input import StoreListStoreIdsInput  # noqa: E501
+from sparkfly_client.models.store_list_store_ids_input import StoreListStoreIdsInput  # noqa: E501
 
 class TestStoreListStoreIdsInput(unittest.TestCase):
     """StoreListStoreIdsInput unit test stubs"""

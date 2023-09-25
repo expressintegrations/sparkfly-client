@@ -48,13 +48,160 @@ class EventsApi:
         self.api_client = api_client
 
     @validate_arguments
-    def v10_events_event_id_delete(self, event_id : Annotated[StrictInt, Field(..., description="The id of the event")], **kwargs) -> None:  # noqa: E501
+    def create_event(self, event_input_request : Annotated[Optional[EventInputRequest], Field(description="Event to add to system")] = None, **kwargs) -> EventResponse:  # noqa: E501
+        """Creates an event  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_event(event_input_request, async_req=True)
+        >>> result = thread.get()
+
+        :param event_input_request: Event to add to system
+        :type event_input_request: EventInputRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: EventResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the create_event_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.create_event_with_http_info(event_input_request, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def create_event_with_http_info(self, event_input_request : Annotated[Optional[EventInputRequest], Field(description="Event to add to system")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+        """Creates an event  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_event_with_http_info(event_input_request, async_req=True)
+        >>> result = thread.get()
+
+        :param event_input_request: Event to add to system
+        :type event_input_request: EventInputRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(EventResponse, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'event_input_request'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_event" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        if _params['event_input_request'] is not None:
+            _body_params = _params['event_input_request']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '201': "EventResponse",
+            '400': "BadRequestObject",
+            '401': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/events', 'POST',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def delete_event(self, event_id : Annotated[StrictInt, Field(..., description="The id of the event")], **kwargs) -> None:  # noqa: E501
         """Delete the event  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_events_event_id_delete(event_id, async_req=True)
+        >>> thread = api.delete_event(event_id, async_req=True)
         >>> result = thread.get()
 
         :param event_id: The id of the event (required)
@@ -72,18 +219,18 @@ class EventsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_events_event_id_delete_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the delete_event_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_events_event_id_delete_with_http_info(event_id, **kwargs)  # noqa: E501
+        return self.delete_event_with_http_info(event_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_events_event_id_delete_with_http_info(self, event_id : Annotated[StrictInt, Field(..., description="The id of the event")], **kwargs) -> ApiResponse:  # noqa: E501
+    def delete_event_with_http_info(self, event_id : Annotated[StrictInt, Field(..., description="The id of the event")], **kwargs) -> ApiResponse:  # noqa: E501
         """Delete the event  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_events_event_id_delete_with_http_info(event_id, async_req=True)
+        >>> thread = api.delete_event_with_http_info(event_id, async_req=True)
         >>> result = thread.get()
 
         :param event_id: The id of the event (required)
@@ -135,7 +282,7 @@ class EventsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_events_event_id_delete" % _key
+                    " to method delete_event" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -180,13 +327,13 @@ class EventsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_events_event_id_get(self, event_id : Annotated[StrictInt, Field(..., description="The id of the event")], **kwargs) -> EventResponse:  # noqa: E501
+    def get_event(self, event_id : Annotated[StrictInt, Field(..., description="The id of the event")], **kwargs) -> EventResponse:  # noqa: E501
         """Get event by ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_events_event_id_get(event_id, async_req=True)
+        >>> thread = api.get_event(event_id, async_req=True)
         >>> result = thread.get()
 
         :param event_id: The id of the event (required)
@@ -204,18 +351,18 @@ class EventsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_events_event_id_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_event_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_events_event_id_get_with_http_info(event_id, **kwargs)  # noqa: E501
+        return self.get_event_with_http_info(event_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_events_event_id_get_with_http_info(self, event_id : Annotated[StrictInt, Field(..., description="The id of the event")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_event_with_http_info(self, event_id : Annotated[StrictInt, Field(..., description="The id of the event")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get event by ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_events_event_id_get_with_http_info(event_id, async_req=True)
+        >>> thread = api.get_event_with_http_info(event_id, async_req=True)
         >>> result = thread.get()
 
         :param event_id: The id of the event (required)
@@ -267,7 +414,7 @@ class EventsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_events_event_id_get" % _key
+                    " to method get_event" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -319,13 +466,144 @@ class EventsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_events_event_id_put(self, event_id : Annotated[StrictInt, Field(..., description="The id of the event")], event_input_request : Annotated[Optional[EventInputRequest], Field(description="The object that passes the updated name")] = None, **kwargs) -> EventResponse:  # noqa: E501
+    def get_events(self, **kwargs) -> EventList:  # noqa: E501
+        """get all events  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_events(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: EventList
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the get_events_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.get_events_with_http_info(**kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_events_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
+        """get all events  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_events_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(EventList, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_events" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '200': "EventList",
+            '401': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/events', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def update_event_name(self, event_id : Annotated[StrictInt, Field(..., description="The id of the event")], event_input_request : Annotated[Optional[EventInputRequest], Field(description="The object that passes the updated name")] = None, **kwargs) -> EventResponse:  # noqa: E501
         """Change the name of an event  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_events_event_id_put(event_id, event_input_request, async_req=True)
+        >>> thread = api.update_event_name(event_id, event_input_request, async_req=True)
         >>> result = thread.get()
 
         :param event_id: The id of the event (required)
@@ -345,18 +623,18 @@ class EventsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_events_event_id_put_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the update_event_name_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_events_event_id_put_with_http_info(event_id, event_input_request, **kwargs)  # noqa: E501
+        return self.update_event_name_with_http_info(event_id, event_input_request, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_events_event_id_put_with_http_info(self, event_id : Annotated[StrictInt, Field(..., description="The id of the event")], event_input_request : Annotated[Optional[EventInputRequest], Field(description="The object that passes the updated name")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def update_event_name_with_http_info(self, event_id : Annotated[StrictInt, Field(..., description="The id of the event")], event_input_request : Annotated[Optional[EventInputRequest], Field(description="The object that passes the updated name")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Change the name of an event  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_events_event_id_put_with_http_info(event_id, event_input_request, async_req=True)
+        >>> thread = api.update_event_name_with_http_info(event_id, event_input_request, async_req=True)
         >>> result = thread.get()
 
         :param event_id: The id of the event (required)
@@ -411,7 +689,7 @@ class EventsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_events_event_id_put" % _key
+                    " to method update_event_name" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -458,284 +736,6 @@ class EventsApi:
 
         return self.api_client.call_api(
             '/v1.0/events/:event_id', 'PUT',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_events_get(self, **kwargs) -> EventList:  # noqa: E501
-        """get all events  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_events_get(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EventList
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_events_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_events_get_with_http_info(**kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_events_get_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
-        """get all events  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_events_get_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EventList, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_events_get" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '200': "EventList",
-            '401': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/events', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_events_post(self, event_input_request : Annotated[Optional[EventInputRequest], Field(description="Event to add to system")] = None, **kwargs) -> EventResponse:  # noqa: E501
-        """Creates an event  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_events_post(event_input_request, async_req=True)
-        >>> result = thread.get()
-
-        :param event_input_request: Event to add to system
-        :type event_input_request: EventInputRequest
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EventResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_events_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_events_post_with_http_info(event_input_request, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_events_post_with_http_info(self, event_input_request : Annotated[Optional[EventInputRequest], Field(description="Event to add to system")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """Creates an event  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_events_post_with_http_info(event_input_request, async_req=True)
-        >>> result = thread.get()
-
-        :param event_input_request: Event to add to system
-        :type event_input_request: EventInputRequest
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EventResponse, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'event_input_request'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_events_post" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        if _params['event_input_request'] is not None:
-            _body_params = _params['event_input_request']
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '201': "EventResponse",
-            '400': "BadRequestObject",
-            '401': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/events', 'POST',
             _path_params,
             _query_params,
             _header_params,

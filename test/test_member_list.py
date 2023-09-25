@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.member_list import MemberList  # noqa: E501
+from sparkfly_client.models.member_list import MemberList  # noqa: E501
 
 class TestMemberList(unittest.TestCase):
     """MemberList unit test stubs"""
@@ -41,8 +41,8 @@ class TestMemberList(unittest.TestCase):
                 total_entries = 56,
                 total_pages = 56,
                 members = [
-                    openapi_client.models.member_response.member_response(
-                        member = openapi_client.models.member.member(
+                    sparkfly_client.models.member_response.member_response(
+                        member = sparkfly_client.models.member.member(
                             identifier = '', 
                             notification_mode = '', 
                             id = 56, 

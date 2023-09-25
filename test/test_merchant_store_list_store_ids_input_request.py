@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.merchant_store_list_store_ids_input_request import MerchantStoreListStoreIdsInputRequest  # noqa: E501
+from sparkfly_client.models.merchant_store_list_store_ids_input_request import MerchantStoreListStoreIdsInputRequest  # noqa: E501
 
 class TestMerchantStoreListStoreIdsInputRequest(unittest.TestCase):
     """MerchantStoreListStoreIdsInputRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestMerchantStoreListStoreIdsInputRequest(unittest.TestCase):
         model = MerchantStoreListStoreIdsInputRequest()  # noqa: E501
         if include_optional:
             return MerchantStoreListStoreIdsInputRequest(
-                store_list = openapi_client.models.store_list_store_ids_input.store_list_store_ids_input(
+                store_list = sparkfly_client.models.store_list_store_ids_input.store_list_store_ids_input(
                     store_ids = [
                         56
                         ], )

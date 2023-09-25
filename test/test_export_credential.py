@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.export_credential import ExportCredential  # noqa: E501
+from sparkfly_client.models.export_credential import ExportCredential  # noqa: E501
 
 class TestExportCredential(unittest.TestCase):
     """ExportCredential unit test stubs"""

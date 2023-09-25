@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.eligible_item_set_input_request import EligibleItemSetInputRequest  # noqa: E501
+from sparkfly_client.models.eligible_item_set_input_request import EligibleItemSetInputRequest  # noqa: E501
 
 class TestEligibleItemSetInputRequest(unittest.TestCase):
     """EligibleItemSetInputRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestEligibleItemSetInputRequest(unittest.TestCase):
         model = EligibleItemSetInputRequest()  # noqa: E501
         if include_optional:
             return EligibleItemSetInputRequest(
-                eligible_item_set = openapi_client.models.eligible_item_set_input.eligible_item_set_input(
+                eligible_item_set = sparkfly_client.models.eligible_item_set_input.eligible_item_set_input(
                     item_set_id = 56, 
                     list_type = 56, 
                     req_qty = 56, )

@@ -44,13 +44,13 @@ class ZidentifiersApi:
         self.api_client = api_client
 
     @validate_arguments
-    def v10_members_member_id_offers_offer_id_zidentifiers_get(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], x_channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> ZIdentifierResponse:  # noqa: E501
+    def create_z_identifier(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], x_channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> ZIdentifierResponse:  # noqa: E501
         """Create an identifier linking Offer, Member, Channel  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_members_member_id_offers_offer_id_zidentifiers_get(member_id, offer_id, x_channel_id, async_req=True)
+        >>> thread = api.create_z_identifier(member_id, offer_id, x_channel_id, async_req=True)
         >>> result = thread.get()
 
         :param member_id: The id of the member (required)
@@ -72,18 +72,18 @@ class ZidentifiersApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_members_member_id_offers_offer_id_zidentifiers_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the create_z_identifier_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_members_member_id_offers_offer_id_zidentifiers_get_with_http_info(member_id, offer_id, x_channel_id, **kwargs)  # noqa: E501
+        return self.create_z_identifier_with_http_info(member_id, offer_id, x_channel_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_members_member_id_offers_offer_id_zidentifiers_get_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], x_channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> ApiResponse:  # noqa: E501
+    def create_z_identifier_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], x_channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> ApiResponse:  # noqa: E501
         """Create an identifier linking Offer, Member, Channel  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_members_member_id_offers_offer_id_zidentifiers_get_with_http_info(member_id, offer_id, x_channel_id, async_req=True)
+        >>> thread = api.create_z_identifier_with_http_info(member_id, offer_id, x_channel_id, async_req=True)
         >>> result = thread.get()
 
         :param member_id: The id of the member (required)
@@ -141,7 +141,7 @@ class ZidentifiersApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_members_member_id_offers_offer_id_zidentifiers_get" % _key
+                    " to method create_z_identifier" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -199,13 +199,13 @@ class ZidentifiersApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_members_zidentifiers_zid_get(self, zid : Annotated[StrictInt, Field(..., description="The id linking Offer, Member, and Channel")], **kwargs) -> ZIdentifierResponse:  # noqa: E501
+    def get_z_identifier(self, zid : Annotated[StrictInt, Field(..., description="The id linking Offer, Member, and Channel")], **kwargs) -> ZIdentifierResponse:  # noqa: E501
         """Get Zidentifier  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_members_zidentifiers_zid_get(zid, async_req=True)
+        >>> thread = api.get_z_identifier(zid, async_req=True)
         >>> result = thread.get()
 
         :param zid: The id linking Offer, Member, and Channel (required)
@@ -223,18 +223,18 @@ class ZidentifiersApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_members_zidentifiers_zid_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_z_identifier_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_members_zidentifiers_zid_get_with_http_info(zid, **kwargs)  # noqa: E501
+        return self.get_z_identifier_with_http_info(zid, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_members_zidentifiers_zid_get_with_http_info(self, zid : Annotated[StrictInt, Field(..., description="The id linking Offer, Member, and Channel")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_z_identifier_with_http_info(self, zid : Annotated[StrictInt, Field(..., description="The id linking Offer, Member, and Channel")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get Zidentifier  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_members_zidentifiers_zid_get_with_http_info(zid, async_req=True)
+        >>> thread = api.get_z_identifier_with_http_info(zid, async_req=True)
         >>> result = thread.get()
 
         :param zid: The id linking Offer, Member, and Channel (required)
@@ -286,7 +286,7 @@ class ZidentifiersApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_members_zidentifiers_zid_get" % _key
+                    " to method get_z_identifier" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']

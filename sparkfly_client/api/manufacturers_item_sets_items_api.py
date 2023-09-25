@@ -44,13 +44,13 @@ class ManufacturersItemSetsItemsApi:
         self.api_client = api_client
 
     @validate_arguments
-    def v10_manufacturers_manufacturer_id_item_sets_item_set_id_items_get(self, manufacturer_id : Annotated[StrictInt, Field(..., description="The id of the manufacturer")], item_set_id : Annotated[StrictInt, Field(..., description="The id of the item set")], **kwargs) -> ItemListResponse:  # noqa: E501
+    def get_manufacturer_item_set_items(self, manufacturer_id : Annotated[StrictInt, Field(..., description="The id of the manufacturer")], item_set_id : Annotated[StrictInt, Field(..., description="The id of the item set")], **kwargs) -> ItemListResponse:  # noqa: E501
         """Get items for item set for manufacturer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_manufacturers_manufacturer_id_item_sets_item_set_id_items_get(manufacturer_id, item_set_id, async_req=True)
+        >>> thread = api.get_manufacturer_item_set_items(manufacturer_id, item_set_id, async_req=True)
         >>> result = thread.get()
 
         :param manufacturer_id: The id of the manufacturer (required)
@@ -70,18 +70,18 @@ class ManufacturersItemSetsItemsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_manufacturers_manufacturer_id_item_sets_item_set_id_items_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_manufacturer_item_set_items_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_manufacturers_manufacturer_id_item_sets_item_set_id_items_get_with_http_info(manufacturer_id, item_set_id, **kwargs)  # noqa: E501
+        return self.get_manufacturer_item_set_items_with_http_info(manufacturer_id, item_set_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_manufacturers_manufacturer_id_item_sets_item_set_id_items_get_with_http_info(self, manufacturer_id : Annotated[StrictInt, Field(..., description="The id of the manufacturer")], item_set_id : Annotated[StrictInt, Field(..., description="The id of the item set")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_manufacturer_item_set_items_with_http_info(self, manufacturer_id : Annotated[StrictInt, Field(..., description="The id of the manufacturer")], item_set_id : Annotated[StrictInt, Field(..., description="The id of the item set")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get items for item set for manufacturer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_manufacturers_manufacturer_id_item_sets_item_set_id_items_get_with_http_info(manufacturer_id, item_set_id, async_req=True)
+        >>> thread = api.get_manufacturer_item_set_items_with_http_info(manufacturer_id, item_set_id, async_req=True)
         >>> result = thread.get()
 
         :param manufacturer_id: The id of the manufacturer (required)
@@ -136,7 +136,7 @@ class ManufacturersItemSetsItemsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_manufacturers_manufacturer_id_item_sets_item_set_id_items_get" % _key
+                    " to method get_manufacturer_item_set_items" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']

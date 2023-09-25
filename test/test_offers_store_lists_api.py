@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.offers_store_lists_api import OffersStoreListsApi  # noqa: E501
+from sparkfly_client.api.offers_store_lists_api import OffersStoreListsApi  # noqa: E501
 
 
 class TestOffersStoreListsApi(unittest.TestCase):
@@ -26,31 +26,31 @@ class TestOffersStoreListsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_offers_offer_id_store_lists_delete(self) -> None:
-        """Test case for v10_offers_offer_id_store_lists_delete
-
-        Remove eligible Store Lists from offer  # noqa: E501
-        """
-        pass
-
-    def test_v10_offers_offer_id_store_lists_get(self) -> None:
-        """Test case for v10_offers_offer_id_store_lists_get
+    def test_offer_store_lists(self) -> None:
+        """Test case for offer_store_lists
 
         Eligible Store Lists List  # noqa: E501
         """
         pass
 
-    def test_v10_offers_offer_id_store_lists_post(self) -> None:
-        """Test case for v10_offers_offer_id_store_lists_post
+    def test_offer_store_lists_0(self) -> None:
+        """Test case for offer_store_lists_0
+
+        Add eligible Store Lists for offer  # noqa: E501
+        """
+        pass
+
+    def test_offer_store_lists_1(self) -> None:
+        """Test case for offer_store_lists_1
 
         Set eligible Store Lists for offer  # noqa: E501
         """
         pass
 
-    def test_v10_offers_offer_id_store_lists_put(self) -> None:
-        """Test case for v10_offers_offer_id_store_lists_put
+    def test_offer_store_lists_2(self) -> None:
+        """Test case for offer_store_lists_2
 
-        Add eligible Store Lists for offer  # noqa: E501
+        Remove eligible Store Lists from offer  # noqa: E501
         """
         pass
 

@@ -4,14 +4,14 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v10_offers_offer_id_merchants_delete**](OffersMerchantsApi.md#v10_offers_offer_id_merchants_delete) | **DELETE** /v1.0/offers/:offer_id/merchants | Remove eligible Merchants from offer
-[**v10_offers_offer_id_merchants_get**](OffersMerchantsApi.md#v10_offers_offer_id_merchants_get) | **GET** /v1.0/offers/:offer_id/merchants | Eligible Merchants List
-[**v10_offers_offer_id_merchants_post**](OffersMerchantsApi.md#v10_offers_offer_id_merchants_post) | **POST** /v1.0/offers/:offer_id/merchants | Set eligible Merchants for offer
-[**v10_offers_offer_id_merchants_put**](OffersMerchantsApi.md#v10_offers_offer_id_merchants_put) | **PUT** /v1.0/offers/:offer_id/merchants | Add eligible Merchants for offer
+[**delete_offer_merchants**](OffersMerchantsApi.md#delete_offer_merchants) | **DELETE** /v1.0/offers/:offer_id/merchants | Remove eligible Merchants from offer
+[**get_offer_merchants**](OffersMerchantsApi.md#get_offer_merchants) | **GET** /v1.0/offers/:offer_id/merchants | Eligible Merchants List
+[**set_offer_merchants**](OffersMerchantsApi.md#set_offer_merchants) | **POST** /v1.0/offers/:offer_id/merchants | Set eligible Merchants for offer
+[**update_offer_merchants**](OffersMerchantsApi.md#update_offer_merchants) | **PUT** /v1.0/offers/:offer_id/merchants | Add eligible Merchants for offer
 
 
-# **v10_offers_offer_id_merchants_delete**
-> OfferMerchantsResponse v10_offers_offer_id_merchants_delete(offer_id, offer_merchant_ids_input_request=offer_merchant_ids_input_request)
+# **delete_offer_merchants**
+> OfferMerchantsResponse delete_offer_merchants(offer_id, offer_merchant_ids_input_request=offer_merchant_ids_input_request)
 
 Remove eligible Merchants from offer
 
@@ -53,11 +53,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Remove eligible Merchants from offer
-        api_response = api_instance.v10_offers_offer_id_merchants_delete(offer_id, offer_merchant_ids_input_request=offer_merchant_ids_input_request)
-        print("The response of OffersMerchantsApi->v10_offers_offer_id_merchants_delete:\n")
+        api_response = api_instance.delete_offer_merchants(offer_id, offer_merchant_ids_input_request=offer_merchant_ids_input_request)
+        print("The response of OffersMerchantsApi->delete_offer_merchants:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling OffersMerchantsApi->v10_offers_offer_id_merchants_delete: %s\n" % e)
+        print("Exception when calling OffersMerchantsApi->delete_offer_merchants: %s\n" % e)
 ```
 
 
@@ -91,8 +91,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v10_offers_offer_id_merchants_get**
-> OfferMerchantsResponse v10_offers_offer_id_merchants_get(offer_id)
+# **get_offer_merchants**
+> OfferMerchantsResponse get_offer_merchants(offer_id)
 
 Eligible Merchants List
 
@@ -132,11 +132,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Eligible Merchants List
-        api_response = api_instance.v10_offers_offer_id_merchants_get(offer_id)
-        print("The response of OffersMerchantsApi->v10_offers_offer_id_merchants_get:\n")
+        api_response = api_instance.get_offer_merchants(offer_id)
+        print("The response of OffersMerchantsApi->get_offer_merchants:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling OffersMerchantsApi->v10_offers_offer_id_merchants_get: %s\n" % e)
+        print("Exception when calling OffersMerchantsApi->get_offer_merchants: %s\n" % e)
 ```
 
 
@@ -168,8 +168,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v10_offers_offer_id_merchants_post**
-> OfferMerchantsResponse v10_offers_offer_id_merchants_post(offer_id, offer_merchant_ids_input_request=offer_merchant_ids_input_request)
+# **set_offer_merchants**
+> OfferMerchantsResponse set_offer_merchants(offer_id, offer_merchant_ids_input_request=offer_merchant_ids_input_request)
 
 Set eligible Merchants for offer
 
@@ -211,11 +211,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Set eligible Merchants for offer
-        api_response = api_instance.v10_offers_offer_id_merchants_post(offer_id, offer_merchant_ids_input_request=offer_merchant_ids_input_request)
-        print("The response of OffersMerchantsApi->v10_offers_offer_id_merchants_post:\n")
+        api_response = api_instance.set_offer_merchants(offer_id, offer_merchant_ids_input_request=offer_merchant_ids_input_request)
+        print("The response of OffersMerchantsApi->set_offer_merchants:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling OffersMerchantsApi->v10_offers_offer_id_merchants_post: %s\n" % e)
+        print("Exception when calling OffersMerchantsApi->set_offer_merchants: %s\n" % e)
 ```
 
 
@@ -249,8 +249,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v10_offers_offer_id_merchants_put**
-> OfferMerchantsResponse v10_offers_offer_id_merchants_put(offer_id, offer_merchant_ids_input_request=offer_merchant_ids_input_request)
+# **update_offer_merchants**
+> OfferMerchantsResponse update_offer_merchants(offer_id, offer_merchant_ids_input_request=offer_merchant_ids_input_request)
 
 Add eligible Merchants for offer
 
@@ -292,11 +292,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Add eligible Merchants for offer
-        api_response = api_instance.v10_offers_offer_id_merchants_put(offer_id, offer_merchant_ids_input_request=offer_merchant_ids_input_request)
-        print("The response of OffersMerchantsApi->v10_offers_offer_id_merchants_put:\n")
+        api_response = api_instance.update_offer_merchants(offer_id, offer_merchant_ids_input_request=offer_merchant_ids_input_request)
+        print("The response of OffersMerchantsApi->update_offer_merchants:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling OffersMerchantsApi->v10_offers_offer_id_merchants_put: %s\n" % e)
+        print("Exception when calling OffersMerchantsApi->update_offer_merchants: %s\n" % e)
 ```
 
 

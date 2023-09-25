@@ -4,14 +4,14 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v10_account_callbacks_disable_put**](AccountApi.md#v10_account_callbacks_disable_put) | **PUT** /v1.0/account/callbacks/disable | Disable Callbacks
-[**v10_account_callbacks_enable_put**](AccountApi.md#v10_account_callbacks_enable_put) | **PUT** /v1.0/account/callbacks/enable | Enable Callbacks
-[**v10_account_get**](AccountApi.md#v10_account_get) | **GET** /v1.0/account | View Account
-[**v10_account_put**](AccountApi.md#v10_account_put) | **PUT** /v1.0/account | Update Account
+[**disable_callbacks**](AccountApi.md#disable_callbacks) | **PUT** /v1.0/account/callbacks/disable | Disable Callbacks
+[**enable_callbacks**](AccountApi.md#enable_callbacks) | **PUT** /v1.0/account/callbacks/enable | Enable Callbacks
+[**get_account**](AccountApi.md#get_account) | **GET** /v1.0/account | View Account
+[**update_account**](AccountApi.md#update_account) | **PUT** /v1.0/account | Update Account
 
 
-# **v10_account_callbacks_disable_put**
-> v10_account_callbacks_disable_put()
+# **disable_callbacks**
+> disable_callbacks()
 
 Disable Callbacks
 
@@ -49,9 +49,9 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Disable Callbacks
-        api_instance.v10_account_callbacks_disable_put()
+        api_instance.disable_callbacks()
     except Exception as e:
-        print("Exception when calling AccountApi->v10_account_callbacks_disable_put: %s\n" % e)
+        print("Exception when calling AccountApi->disable_callbacks: %s\n" % e)
 ```
 
 
@@ -80,8 +80,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v10_account_callbacks_enable_put**
-> v10_account_callbacks_enable_put()
+# **enable_callbacks**
+> enable_callbacks()
 
 Enable Callbacks
 
@@ -119,9 +119,9 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Enable Callbacks
-        api_instance.v10_account_callbacks_enable_put()
+        api_instance.enable_callbacks()
     except Exception as e:
-        print("Exception when calling AccountApi->v10_account_callbacks_enable_put: %s\n" % e)
+        print("Exception when calling AccountApi->enable_callbacks: %s\n" % e)
 ```
 
 
@@ -150,8 +150,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v10_account_get**
-> AccountResponse v10_account_get()
+# **get_account**
+> AccountResponse get_account()
 
 View Account
 
@@ -190,11 +190,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # View Account
-        api_response = api_instance.v10_account_get()
-        print("The response of AccountApi->v10_account_get:\n")
+        api_response = api_instance.get_account()
+        print("The response of AccountApi->get_account:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AccountApi->v10_account_get: %s\n" % e)
+        print("Exception when calling AccountApi->get_account: %s\n" % e)
 ```
 
 
@@ -223,8 +223,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v10_account_put**
-> AccountResponse v10_account_put(account_input_request=account_input_request)
+# **update_account**
+> AccountResponse update_account(account_input_request=account_input_request)
 
 Update Account
 
@@ -265,11 +265,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Update Account
-        api_response = api_instance.v10_account_put(account_input_request=account_input_request)
-        print("The response of AccountApi->v10_account_put:\n")
+        api_response = api_instance.update_account(account_input_request=account_input_request)
+        print("The response of AccountApi->update_account:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AccountApi->v10_account_put: %s\n" % e)
+        print("Exception when calling AccountApi->update_account: %s\n" % e)
 ```
 
 

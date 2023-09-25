@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.credential import Credential  # noqa: E501
+from sparkfly_client.models.credential import Credential  # noqa: E501
 
 class TestCredential(unittest.TestCase):
     """Credential unit test stubs"""

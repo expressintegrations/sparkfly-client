@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.account import Account  # noqa: E501
+from sparkfly_client.models.account import Account  # noqa: E501
 
 class TestAccount(unittest.TestCase):
     """Account unit test stubs"""

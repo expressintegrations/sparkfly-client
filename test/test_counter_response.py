@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.counter_response import CounterResponse  # noqa: E501
+from sparkfly_client.models.counter_response import CounterResponse  # noqa: E501
 
 class TestCounterResponse(unittest.TestCase):
     """CounterResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestCounterResponse(unittest.TestCase):
         model = CounterResponse()  # noqa: E501
         if include_optional:
             return CounterResponse(
-                counter = openapi_client.models.counter.counter(
+                counter = sparkfly_client.models.counter.counter(
                     id = 56, 
                     name = 56, ),
                 errors = {

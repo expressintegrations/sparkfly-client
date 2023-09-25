@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.impression_list import ImpressionList  # noqa: E501
+from sparkfly_client.models.impression_list import ImpressionList  # noqa: E501
 
 class TestImpressionList(unittest.TestCase):
     """ImpressionList unit test stubs"""
@@ -41,8 +41,8 @@ class TestImpressionList(unittest.TestCase):
                 total_entries = 56,
                 total_pages = 56,
                 impressions = [
-                    openapi_client.models.impression_response.impression_response(
-                        impression = openapi_client.models.impression.impression(
+                    sparkfly_client.models.impression_response.impression_response(
+                        impression = sparkfly_client.models.impression.impression(
                             id = 56, 
                             account_id = 56, 
                             annotations = '', 

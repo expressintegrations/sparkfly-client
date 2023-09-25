@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.passbook_configuration_response import PassbookConfigurationResponse  # noqa: E501
+from sparkfly_client.models.passbook_configuration_response import PassbookConfigurationResponse  # noqa: E501
 
 class TestPassbookConfigurationResponse(unittest.TestCase):
     """PassbookConfigurationResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestPassbookConfigurationResponse(unittest.TestCase):
         model = PassbookConfigurationResponse()  # noqa: E501
         if include_optional:
             return PassbookConfigurationResponse(
-                passbook_configuration = openapi_client.models.passbook_configuration.passbook_configuration(
+                passbook_configuration = sparkfly_client.models.passbook_configuration.passbook_configuration(
                     p12_certificate = '', 
                     p12_password = '', 
                     pass_type_id_name = '', 

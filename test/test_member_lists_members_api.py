@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.member_lists_members_api import MemberListsMembersApi  # noqa: E501
+from sparkfly_client.api.member_lists_members_api import MemberListsMembersApi  # noqa: E501
 
 
 class TestMemberListsMembersApi(unittest.TestCase):
@@ -26,31 +26,31 @@ class TestMemberListsMembersApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_member_lists_member_list_id_members_delete(self) -> None:
-        """Test case for v10_member_lists_member_list_id_members_delete
-
-        Remove an eligible member for member_list  # noqa: E501
-        """
-        pass
-
-    def test_v10_member_lists_member_list_id_members_get(self) -> None:
-        """Test case for v10_member_lists_member_list_id_members_get
+    def test_member_list_members(self) -> None:
+        """Test case for member_list_members
 
         Get all Members for Member List  # noqa: E501
         """
         pass
 
-    def test_v10_member_lists_member_list_id_members_post(self) -> None:
-        """Test case for v10_member_lists_member_list_id_members_post
+    def test_member_list_members_0(self) -> None:
+        """Test case for member_list_members_0
+
+        Add eligible members for Member List  # noqa: E501
+        """
+        pass
+
+    def test_member_list_members_1(self) -> None:
+        """Test case for member_list_members_1
 
         Set eligible members for Member List  # noqa: E501
         """
         pass
 
-    def test_v10_member_lists_member_list_id_members_put(self) -> None:
-        """Test case for v10_member_lists_member_list_id_members_put
+    def test_member_list_members_2(self) -> None:
+        """Test case for member_list_members_2
 
-        Add eligible members for Member List  # noqa: E501
+        Remove an eligible member for member_list  # noqa: E501
         """
         pass
 

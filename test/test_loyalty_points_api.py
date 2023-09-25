@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.loyalty_points_api import LoyaltyPointsApi  # noqa: E501
+from sparkfly_client.api.loyalty_points_api import LoyaltyPointsApi  # noqa: E501
 
 
 class TestLoyaltyPointsApi(unittest.TestCase):
@@ -26,17 +26,17 @@ class TestLoyaltyPointsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_points_card_status_get(self) -> None:
-        """Test case for v10_points_card_status_get
+    def test_loyalty_points(self) -> None:
+        """Test case for loyalty_points
 
-        Check Card Status  # noqa: E501
+        Transfer Loyalty Points  # noqa: E501
         """
         pass
 
-    def test_v10_points_transfer_post(self) -> None:
-        """Test case for v10_points_transfer_post
+    def test_points_card_status(self) -> None:
+        """Test case for points_card_status
 
-        Transfer Loyalty Points  # noqa: E501
+        Check Card Status  # noqa: E501
         """
         pass
 

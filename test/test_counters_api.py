@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.counters_api import CountersApi  # noqa: E501
+from sparkfly_client.api.counters_api import CountersApi  # noqa: E501
 
 
 class TestCountersApi(unittest.TestCase):
@@ -26,38 +26,38 @@ class TestCountersApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_counters_counter_id_delete(self) -> None:
-        """Test case for v10_counters_counter_id_delete
+    def test_counter(self) -> None:
+        """Test case for counter
 
-        Delete counter by ID  # noqa: E501
+        Create a counter  # noqa: E501
         """
         pass
 
-    def test_v10_counters_counter_id_get(self) -> None:
-        """Test case for v10_counters_counter_id_get
+    def test_counter_0(self) -> None:
+        """Test case for counter_0
 
         Get counter by ID  # noqa: E501
         """
         pass
 
-    def test_v10_counters_counter_id_put(self) -> None:
-        """Test case for v10_counters_counter_id_put
+    def test_counter_1(self) -> None:
+        """Test case for counter_1
 
         Update counter by ID  # noqa: E501
         """
         pass
 
-    def test_v10_counters_get(self) -> None:
-        """Test case for v10_counters_get
+    def test_counter_2(self) -> None:
+        """Test case for counter_2
 
-        Get counters  # noqa: E501
+        Delete counter by ID  # noqa: E501
         """
         pass
 
-    def test_v10_counters_post(self) -> None:
-        """Test case for v10_counters_post
+    def test_counters(self) -> None:
+        """Test case for counters
 
-        Create a counter  # noqa: E501
+        Get counters  # noqa: E501
         """
         pass
 

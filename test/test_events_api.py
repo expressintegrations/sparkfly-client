@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.events_api import EventsApi  # noqa: E501
+from sparkfly_client.api.events_api import EventsApi  # noqa: E501
 
 
 class TestEventsApi(unittest.TestCase):
@@ -26,38 +26,38 @@ class TestEventsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_events_event_id_delete(self) -> None:
-        """Test case for v10_events_event_id_delete
+    def test_event(self) -> None:
+        """Test case for event
 
-        Delete the event  # noqa: E501
+        Creates an event  # noqa: E501
         """
         pass
 
-    def test_v10_events_event_id_get(self) -> None:
-        """Test case for v10_events_event_id_get
+    def test_event_0(self) -> None:
+        """Test case for event_0
 
         Get event by ID  # noqa: E501
         """
         pass
 
-    def test_v10_events_event_id_put(self) -> None:
-        """Test case for v10_events_event_id_put
+    def test_event_1(self) -> None:
+        """Test case for event_1
+
+        Delete the event  # noqa: E501
+        """
+        pass
+
+    def test_event_name(self) -> None:
+        """Test case for event_name
 
         Change the name of an event  # noqa: E501
         """
         pass
 
-    def test_v10_events_get(self) -> None:
-        """Test case for v10_events_get
+    def test_events(self) -> None:
+        """Test case for events
 
         get all events  # noqa: E501
-        """
-        pass
-
-    def test_v10_events_post(self) -> None:
-        """Test case for v10_events_post
-
-        Creates an event  # noqa: E501
         """
         pass
 

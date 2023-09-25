@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.store_list_object_response import StoreListObjectResponse  # noqa: E501
+from sparkfly_client.models.store_list_object_response import StoreListObjectResponse  # noqa: E501
 
 class TestStoreListObjectResponse(unittest.TestCase):
     """StoreListObjectResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestStoreListObjectResponse(unittest.TestCase):
         model = StoreListObjectResponse()  # noqa: E501
         if include_optional:
             return StoreListObjectResponse(
-                store_list = openapi_client.models.store_list_object.store_list_object(
+                store_list = sparkfly_client.models.store_list_object.store_list_object(
                     id = 56, 
                     name = '', 
                     merchant_id = 56, 

@@ -4,14 +4,14 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v10_member_lists_member_list_id_members_delete**](MemberListsMembersApi.md#v10_member_lists_member_list_id_members_delete) | **DELETE** /v1.0/member_lists/:member_list_id/members | Remove an eligible member for member_list
-[**v10_member_lists_member_list_id_members_get**](MemberListsMembersApi.md#v10_member_lists_member_list_id_members_get) | **GET** /v1.0/member_lists/:member_list_id/members | Get all Members for Member List
-[**v10_member_lists_member_list_id_members_post**](MemberListsMembersApi.md#v10_member_lists_member_list_id_members_post) | **POST** /v1.0/member_lists/:member_list_id/members | Set eligible members for Member List
-[**v10_member_lists_member_list_id_members_put**](MemberListsMembersApi.md#v10_member_lists_member_list_id_members_put) | **PUT** /v1.0/member_lists/:member_list_id/members | Add eligible members for Member List
+[**delete_member_list_members**](MemberListsMembersApi.md#delete_member_list_members) | **DELETE** /v1.0/member_lists/:member_list_id/members | Remove an eligible member for member_list
+[**get_member_list_members**](MemberListsMembersApi.md#get_member_list_members) | **GET** /v1.0/member_lists/:member_list_id/members | Get all Members for Member List
+[**set_member_list_members**](MemberListsMembersApi.md#set_member_list_members) | **POST** /v1.0/member_lists/:member_list_id/members | Set eligible members for Member List
+[**update_member_list_members**](MemberListsMembersApi.md#update_member_list_members) | **PUT** /v1.0/member_lists/:member_list_id/members | Add eligible members for Member List
 
 
-# **v10_member_lists_member_list_id_members_delete**
-> MemberListMembersResponse v10_member_lists_member_list_id_members_delete(member_list_id, member_list_member_ids_input_request=member_list_member_ids_input_request)
+# **delete_member_list_members**
+> MemberListMembersResponse delete_member_list_members(member_list_id, member_list_member_ids_input_request=member_list_member_ids_input_request)
 
 Remove an eligible member for member_list
 
@@ -53,11 +53,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Remove an eligible member for member_list
-        api_response = api_instance.v10_member_lists_member_list_id_members_delete(member_list_id, member_list_member_ids_input_request=member_list_member_ids_input_request)
-        print("The response of MemberListsMembersApi->v10_member_lists_member_list_id_members_delete:\n")
+        api_response = api_instance.delete_member_list_members(member_list_id, member_list_member_ids_input_request=member_list_member_ids_input_request)
+        print("The response of MemberListsMembersApi->delete_member_list_members:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling MemberListsMembersApi->v10_member_lists_member_list_id_members_delete: %s\n" % e)
+        print("Exception when calling MemberListsMembersApi->delete_member_list_members: %s\n" % e)
 ```
 
 
@@ -91,8 +91,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v10_member_lists_member_list_id_members_get**
-> MemberListMembersResponse v10_member_lists_member_list_id_members_get(member_list_id)
+# **get_member_list_members**
+> MemberListMembersResponse get_member_list_members(member_list_id)
 
 Get all Members for Member List
 
@@ -132,11 +132,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Get all Members for Member List
-        api_response = api_instance.v10_member_lists_member_list_id_members_get(member_list_id)
-        print("The response of MemberListsMembersApi->v10_member_lists_member_list_id_members_get:\n")
+        api_response = api_instance.get_member_list_members(member_list_id)
+        print("The response of MemberListsMembersApi->get_member_list_members:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling MemberListsMembersApi->v10_member_lists_member_list_id_members_get: %s\n" % e)
+        print("Exception when calling MemberListsMembersApi->get_member_list_members: %s\n" % e)
 ```
 
 
@@ -168,8 +168,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v10_member_lists_member_list_id_members_post**
-> MemberListMembersResponse v10_member_lists_member_list_id_members_post(member_list_id, member_list_member_ids_input_request=member_list_member_ids_input_request)
+# **set_member_list_members**
+> MemberListMembersResponse set_member_list_members(member_list_id, member_list_member_ids_input_request=member_list_member_ids_input_request)
 
 Set eligible members for Member List
 
@@ -211,11 +211,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Set eligible members for Member List
-        api_response = api_instance.v10_member_lists_member_list_id_members_post(member_list_id, member_list_member_ids_input_request=member_list_member_ids_input_request)
-        print("The response of MemberListsMembersApi->v10_member_lists_member_list_id_members_post:\n")
+        api_response = api_instance.set_member_list_members(member_list_id, member_list_member_ids_input_request=member_list_member_ids_input_request)
+        print("The response of MemberListsMembersApi->set_member_list_members:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling MemberListsMembersApi->v10_member_lists_member_list_id_members_post: %s\n" % e)
+        print("Exception when calling MemberListsMembersApi->set_member_list_members: %s\n" % e)
 ```
 
 
@@ -249,8 +249,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v10_member_lists_member_list_id_members_put**
-> MemberListMembersResponse v10_member_lists_member_list_id_members_put(member_list_id, member_list_member_ids_input_request=member_list_member_ids_input_request)
+# **update_member_list_members**
+> MemberListMembersResponse update_member_list_members(member_list_id, member_list_member_ids_input_request=member_list_member_ids_input_request)
 
 Add eligible members for Member List
 
@@ -292,11 +292,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Add eligible members for Member List
-        api_response = api_instance.v10_member_lists_member_list_id_members_put(member_list_id, member_list_member_ids_input_request=member_list_member_ids_input_request)
-        print("The response of MemberListsMembersApi->v10_member_lists_member_list_id_members_put:\n")
+        api_response = api_instance.update_member_list_members(member_list_id, member_list_member_ids_input_request=member_list_member_ids_input_request)
+        print("The response of MemberListsMembersApi->update_member_list_members:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling MemberListsMembersApi->v10_member_lists_member_list_id_members_put: %s\n" % e)
+        print("Exception when calling MemberListsMembersApi->update_member_list_members: %s\n" % e)
 ```
 
 

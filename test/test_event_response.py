@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.event_response import EventResponse  # noqa: E501
+from sparkfly_client.models.event_response import EventResponse  # noqa: E501
 
 class TestEventResponse(unittest.TestCase):
     """EventResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestEventResponse(unittest.TestCase):
         model = EventResponse()  # noqa: E501
         if include_optional:
             return EventResponse(
-                event = openapi_client.models.event.event(
+                event = sparkfly_client.models.event.event(
                     id = 56, 
                     name = '', ),
                 errors = {

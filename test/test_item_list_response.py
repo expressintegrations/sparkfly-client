@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.item_list_response import ItemListResponse  # noqa: E501
+from sparkfly_client.models.item_list_response import ItemListResponse  # noqa: E501
 
 class TestItemListResponse(unittest.TestCase):
     """ItemListResponse unit test stubs"""
@@ -41,8 +41,8 @@ class TestItemListResponse(unittest.TestCase):
                 total_entries = 56,
                 total_pages = 56,
                 stores = [
-                    openapi_client.models.item_response.item_response(
-                        item = openapi_client.models.item.item(
+                    sparkfly_client.models.item_response.item_response(
+                        item = sparkfly_client.models.item.item(
                             id = 56, 
                             name = '', 
                             code = '', 

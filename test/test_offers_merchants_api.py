@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.offers_merchants_api import OffersMerchantsApi  # noqa: E501
+from sparkfly_client.api.offers_merchants_api import OffersMerchantsApi  # noqa: E501
 
 
 class TestOffersMerchantsApi(unittest.TestCase):
@@ -26,31 +26,31 @@ class TestOffersMerchantsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_offers_offer_id_merchants_delete(self) -> None:
-        """Test case for v10_offers_offer_id_merchants_delete
-
-        Remove eligible Merchants from offer  # noqa: E501
-        """
-        pass
-
-    def test_v10_offers_offer_id_merchants_get(self) -> None:
-        """Test case for v10_offers_offer_id_merchants_get
+    def test_offer_merchants(self) -> None:
+        """Test case for offer_merchants
 
         Eligible Merchants List  # noqa: E501
         """
         pass
 
-    def test_v10_offers_offer_id_merchants_post(self) -> None:
-        """Test case for v10_offers_offer_id_merchants_post
+    def test_offer_merchants_0(self) -> None:
+        """Test case for offer_merchants_0
+
+        Add eligible Merchants for offer  # noqa: E501
+        """
+        pass
+
+    def test_offer_merchants_1(self) -> None:
+        """Test case for offer_merchants_1
 
         Set eligible Merchants for offer  # noqa: E501
         """
         pass
 
-    def test_v10_offers_offer_id_merchants_put(self) -> None:
-        """Test case for v10_offers_offer_id_merchants_put
+    def test_offer_merchants_2(self) -> None:
+        """Test case for offer_merchants_2
 
-        Add eligible Merchants for offer  # noqa: E501
+        Remove eligible Merchants from offer  # noqa: E501
         """
         pass
 

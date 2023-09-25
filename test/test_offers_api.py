@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.offers_api import OffersApi  # noqa: E501
+from sparkfly_client.api.offers_api import OffersApi  # noqa: E501
 
 
 class TestOffersApi(unittest.TestCase):
@@ -26,38 +26,38 @@ class TestOffersApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_offers_get(self) -> None:
-        """Test case for v10_offers_get
+    def test_offer(self) -> None:
+        """Test case for offer
 
-        List offers  # noqa: E501
+        Creates an offer  # noqa: E501
         """
         pass
 
-    def test_v10_offers_offer_id_delete(self) -> None:
-        """Test case for v10_offers_offer_id_delete
-
-        Delete the offer  # noqa: E501
-        """
-        pass
-
-    def test_v10_offers_offer_id_get(self) -> None:
-        """Test case for v10_offers_offer_id_get
+    def test_offer_0(self) -> None:
+        """Test case for offer_0
 
         Retrieve Offer  # noqa: E501
         """
         pass
 
-    def test_v10_offers_offer_id_put(self) -> None:
-        """Test case for v10_offers_offer_id_put
+    def test_offer_1(self) -> None:
+        """Test case for offer_1
 
         Update Offer  # noqa: E501
         """
         pass
 
-    def test_v10_offers_post(self) -> None:
-        """Test case for v10_offers_post
+    def test_offer_2(self) -> None:
+        """Test case for offer_2
 
-        Creates an offer  # noqa: E501
+        Delete the offer  # noqa: E501
+        """
+        pass
+
+    def test_offers(self) -> None:
+        """Test case for offers
+
+        List offers  # noqa: E501
         """
         pass
 

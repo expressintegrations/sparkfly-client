@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.offer_response import OfferResponse  # noqa: E501
+from sparkfly_client.models.offer_response import OfferResponse  # noqa: E501
 
 class TestOfferResponse(unittest.TestCase):
     """OfferResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestOfferResponse(unittest.TestCase):
         model = OfferResponse()  # noqa: E501
         if include_optional:
             return OfferResponse(
-                offer = openapi_client.models.offer.offer(
+                offer = sparkfly_client.models.offer.offer(
                     id = 56, 
                     status = '', 
                     merchant_id = '', 
@@ -76,7 +76,7 @@ class TestOfferResponse(unittest.TestCase):
                     availability = '', 
                     offer_value_text = '', 
                     offer_value_text_es = '', 
-                    formatting = openapi_client.models.offer_formatting.offer_formatting(
+                    formatting = sparkfly_client.models.offer_formatting.offer_formatting(
                         bg_color = '', 
                         bg_image = '', 
                         custom_credential_content = '', 
@@ -94,7 +94,7 @@ class TestOfferResponse(unittest.TestCase):
                         text_message = '', 
                         web_thumb_url = '', 
                         web_url = '', ), 
-                    eligibility = openapi_client.models.offer_eligibility.offer_eligibility(
+                    eligibility = sparkfly_client.models.offer_eligibility.offer_eligibility(
                         merchant_ids = [
                             56
                             ], 

@@ -4,11 +4,11 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v10_offers_offer_id_eligible_item_sets_get**](OffersEligibleItemSetsApi.md#v10_offers_offer_id_eligible_item_sets_get) | **GET** /v1.0/offers/:offer_id/eligible_item_sets | Eligible Item Sets List
+[**get_offer_eligible_item_sets**](OffersEligibleItemSetsApi.md#get_offer_eligible_item_sets) | **GET** /v1.0/offers/:offer_id/eligible_item_sets | Eligible Item Sets List
 
 
-# **v10_offers_offer_id_eligible_item_sets_get**
-> OfferEligibleItemSetList v10_offers_offer_id_eligible_item_sets_get(offer_id)
+# **get_offer_eligible_item_sets**
+> OfferEligibleItemSetList get_offer_eligible_item_sets(offer_id)
 
 Eligible Item Sets List
 
@@ -48,11 +48,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Eligible Item Sets List
-        api_response = api_instance.v10_offers_offer_id_eligible_item_sets_get(offer_id)
-        print("The response of OffersEligibleItemSetsApi->v10_offers_offer_id_eligible_item_sets_get:\n")
+        api_response = api_instance.get_offer_eligible_item_sets(offer_id)
+        print("The response of OffersEligibleItemSetsApi->get_offer_eligible_item_sets:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling OffersEligibleItemSetsApi->v10_offers_offer_id_eligible_item_sets_get: %s\n" % e)
+        print("Exception when calling OffersEligibleItemSetsApi->get_offer_eligible_item_sets: %s\n" % e)
 ```
 
 

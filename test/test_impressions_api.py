@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.impressions_api import ImpressionsApi  # noqa: E501
+from sparkfly_client.api.impressions_api import ImpressionsApi  # noqa: E501
 
 
 class TestImpressionsApi(unittest.TestCase):
@@ -26,24 +26,24 @@ class TestImpressionsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_impressions_get(self) -> None:
-        """Test case for v10_impressions_get
+    def test_impression(self) -> None:
+        """Test case for impression
 
-        Get all impressions  # noqa: E501
+        Creates an impression  # noqa: E501
         """
         pass
 
-    def test_v10_impressions_impression_id_delete(self) -> None:
-        """Test case for v10_impressions_impression_id_delete
+    def test_impression_0(self) -> None:
+        """Test case for impression_0
 
         Delete the impression  # noqa: E501
         """
         pass
 
-    def test_v10_impressions_post(self) -> None:
-        """Test case for v10_impressions_post
+    def test_impressions(self) -> None:
+        """Test case for impressions
 
-        Creates an impression  # noqa: E501
+        Get all impressions  # noqa: E501
         """
         pass
 

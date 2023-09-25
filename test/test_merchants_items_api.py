@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.merchants_items_api import MerchantsItemsApi  # noqa: E501
+from sparkfly_client.api.merchants_items_api import MerchantsItemsApi  # noqa: E501
 
 
 class TestMerchantsItemsApi(unittest.TestCase):
@@ -26,38 +26,38 @@ class TestMerchantsItemsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_merchants_merchant_id_items_get(self) -> None:
-        """Test case for v10_merchants_merchant_id_items_get
+    def test_merchant_item(self) -> None:
+        """Test case for merchant_item
 
-        Get all items for merchant  # noqa: E501
+        Create an item for merchant  # noqa: E501
         """
         pass
 
-    def test_v10_merchants_merchant_id_items_item_id_delete(self) -> None:
-        """Test case for v10_merchants_merchant_id_items_item_id_delete
-
-        Delete item by ID for merchant  # noqa: E501
-        """
-        pass
-
-    def test_v10_merchants_merchant_id_items_item_id_get(self) -> None:
-        """Test case for v10_merchants_merchant_id_items_item_id_get
+    def test_merchant_item_0(self) -> None:
+        """Test case for merchant_item_0
 
         Get item by ID for merchant  # noqa: E501
         """
         pass
 
-    def test_v10_merchants_merchant_id_items_item_id_put(self) -> None:
-        """Test case for v10_merchants_merchant_id_items_item_id_put
+    def test_merchant_item_1(self) -> None:
+        """Test case for merchant_item_1
 
         Update item by ID for merchant  # noqa: E501
         """
         pass
 
-    def test_v10_merchants_merchant_id_items_post(self) -> None:
-        """Test case for v10_merchants_merchant_id_items_post
+    def test_merchant_item_2(self) -> None:
+        """Test case for merchant_item_2
 
-        Create an item for merchant  # noqa: E501
+        Delete item by ID for merchant  # noqa: E501
+        """
+        pass
+
+    def test_merchant_items(self) -> None:
+        """Test case for merchant_items
+
+        Get all items for merchant  # noqa: E501
         """
         pass
 

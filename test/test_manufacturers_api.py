@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.manufacturers_api import ManufacturersApi  # noqa: E501
+from sparkfly_client.api.manufacturers_api import ManufacturersApi  # noqa: E501
 
 
 class TestManufacturersApi(unittest.TestCase):
@@ -26,38 +26,38 @@ class TestManufacturersApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_manufacturers_get(self) -> None:
-        """Test case for v10_manufacturers_get
+    def test_manufacturer(self) -> None:
+        """Test case for manufacturer
 
-        Get all manufacturers  # noqa: E501
+        Create a manufacturer  # noqa: E501
         """
         pass
 
-    def test_v10_manufacturers_manufacturer_id_delete(self) -> None:
-        """Test case for v10_manufacturers_manufacturer_id_delete
-
-        Delete manufacturer by ID  # noqa: E501
-        """
-        pass
-
-    def test_v10_manufacturers_manufacturer_id_get(self) -> None:
-        """Test case for v10_manufacturers_manufacturer_id_get
+    def test_manufacturer_0(self) -> None:
+        """Test case for manufacturer_0
 
         Get manufacturer by ID  # noqa: E501
         """
         pass
 
-    def test_v10_manufacturers_manufacturer_id_put(self) -> None:
-        """Test case for v10_manufacturers_manufacturer_id_put
+    def test_manufacturer_1(self) -> None:
+        """Test case for manufacturer_1
 
         Update manufacturer by ID  # noqa: E501
         """
         pass
 
-    def test_v10_manufacturers_post(self) -> None:
-        """Test case for v10_manufacturers_post
+    def test_manufacturer_2(self) -> None:
+        """Test case for manufacturer_2
 
-        Create a manufacturer  # noqa: E501
+        Delete manufacturer by ID  # noqa: E501
+        """
+        pass
+
+    def test_manufacturers(self) -> None:
+        """Test case for manufacturers
+
+        Get all manufacturers  # noqa: E501
         """
         pass
 

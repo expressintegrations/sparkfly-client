@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.impression_response import ImpressionResponse  # noqa: E501
+from sparkfly_client.models.impression_response import ImpressionResponse  # noqa: E501
 
 class TestImpressionResponse(unittest.TestCase):
     """ImpressionResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestImpressionResponse(unittest.TestCase):
         model = ImpressionResponse()  # noqa: E501
         if include_optional:
             return ImpressionResponse(
-                impression = openapi_client.models.impression.impression(
+                impression = sparkfly_client.models.impression.impression(
                     id = 56, 
                     account_id = 56, 
                     annotations = '', 

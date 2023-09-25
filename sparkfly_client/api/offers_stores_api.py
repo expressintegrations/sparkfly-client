@@ -46,13 +46,13 @@ class OffersStoresApi:
         self.api_client = api_client
 
     @validate_arguments
-    def v10_offers_offer_id_stores_get(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], lat : Annotated[StrictStr, Field(..., description="The latitude for the location to check")], lng : Annotated[StrictStr, Field(..., description="The longitude for the location to check")], x_channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], by_tag_ids : Annotated[Optional[StrictStr], Field(description="Store Tag IDs to filter by")] = None, sort_by : Annotated[Optional[StrictStr], Field(description="Sort offers by 1 of their attributes ( name, start_running_at, status )")] = None, **kwargs) -> StoreListResponse:  # noqa: E501
+    def get_nearby_offer_stores(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], lat : Annotated[StrictStr, Field(..., description="The latitude for the location to check")], lng : Annotated[StrictStr, Field(..., description="The longitude for the location to check")], x_channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], by_tag_ids : Annotated[Optional[StrictStr], Field(description="Store Tag IDs to filter by")] = None, sort_by : Annotated[Optional[StrictStr], Field(description="Sort offers by 1 of their attributes ( name, start_running_at, status )")] = None, **kwargs) -> StoreListResponse:  # noqa: E501
         """Get nearby Stores for Offer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_offers_offer_id_stores_get(offer_id, lat, lng, x_channel_id, by_tag_ids, sort_by, async_req=True)
+        >>> thread = api.get_nearby_offer_stores(offer_id, lat, lng, x_channel_id, by_tag_ids, sort_by, async_req=True)
         >>> result = thread.get()
 
         :param offer_id: The id of the offer (required)
@@ -80,18 +80,18 @@ class OffersStoresApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_offers_offer_id_stores_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_nearby_offer_stores_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_offers_offer_id_stores_get_with_http_info(offer_id, lat, lng, x_channel_id, by_tag_ids, sort_by, **kwargs)  # noqa: E501
+        return self.get_nearby_offer_stores_with_http_info(offer_id, lat, lng, x_channel_id, by_tag_ids, sort_by, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_offers_offer_id_stores_get_with_http_info(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], lat : Annotated[StrictStr, Field(..., description="The latitude for the location to check")], lng : Annotated[StrictStr, Field(..., description="The longitude for the location to check")], x_channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], by_tag_ids : Annotated[Optional[StrictStr], Field(description="Store Tag IDs to filter by")] = None, sort_by : Annotated[Optional[StrictStr], Field(description="Sort offers by 1 of their attributes ( name, start_running_at, status )")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_nearby_offer_stores_with_http_info(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], lat : Annotated[StrictStr, Field(..., description="The latitude for the location to check")], lng : Annotated[StrictStr, Field(..., description="The longitude for the location to check")], x_channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], by_tag_ids : Annotated[Optional[StrictStr], Field(description="Store Tag IDs to filter by")] = None, sort_by : Annotated[Optional[StrictStr], Field(description="Sort offers by 1 of their attributes ( name, start_running_at, status )")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get nearby Stores for Offer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_offers_offer_id_stores_get_with_http_info(offer_id, lat, lng, x_channel_id, by_tag_ids, sort_by, async_req=True)
+        >>> thread = api.get_nearby_offer_stores_with_http_info(offer_id, lat, lng, x_channel_id, by_tag_ids, sort_by, async_req=True)
         >>> result = thread.get()
 
         :param offer_id: The id of the offer (required)
@@ -158,7 +158,7 @@ class OffersStoresApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_offers_offer_id_stores_get" % _key
+                    " to method get_nearby_offer_stores" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -170,15 +170,15 @@ class OffersStoresApi:
         if _params['offer_id']:
             _path_params['offer_id'] = _params['offer_id']
 
-        if _params['lat']:
-            _path_params['lat'] = _params['lat']
-
-        if _params['lng']:
-            _path_params['lng'] = _params['lng']
-
 
         # process the query parameters
         _query_params = []
+        if _params.get('lat') is not None:  # noqa: E501
+            _query_params.append(('lat', _params['lat']))
+
+        if _params.get('lng') is not None:  # noqa: E501
+            _query_params.append(('lng', _params['lng']))
+
         if _params.get('by_tag_ids') is not None:  # noqa: E501
             _query_params.append(('by_tag_ids', _params['by_tag_ids']))
 

@@ -48,615 +48,14 @@ class MemberOffersOfferWalletApi:
         self.api_client = api_client
 
     @validate_arguments
-    def v10_members_member_id_offer_states_get(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> OfferStateList:  # noqa: E501
-        """Get the entire list of Offer States for a Member  # noqa: E501
-
-        This is used to retrieve a list of offer states linked to a member. This list can be used to display the list to the member within a channel (i.e. App)  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_members_member_id_offer_states_get(member_id, channel_id, async_req=True)
-        >>> result = thread.get()
-
-        :param member_id: The id of the member (required)
-        :type member_id: int
-        :param channel_id: The id of the channel (required)
-        :type channel_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: OfferStateList
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_members_member_id_offer_states_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_members_member_id_offer_states_get_with_http_info(member_id, channel_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_members_member_id_offer_states_get_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> ApiResponse:  # noqa: E501
-        """Get the entire list of Offer States for a Member  # noqa: E501
-
-        This is used to retrieve a list of offer states linked to a member. This list can be used to display the list to the member within a channel (i.e. App)  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_members_member_id_offer_states_get_with_http_info(member_id, channel_id, async_req=True)
-        >>> result = thread.get()
-
-        :param member_id: The id of the member (required)
-        :type member_id: int
-        :param channel_id: The id of the channel (required)
-        :type channel_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(OfferStateList, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'member_id',
-            'channel_id'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_members_member_id_offer_states_get" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['member_id']:
-            _path_params['member_id'] = _params['member_id']
-
-
-        # process the query parameters
-        _query_params = []
-        if _params.get('channel_id') is not None:  # noqa: E501
-            _query_params.append(('channel_id', _params['channel_id']))
-
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '200': "OfferStateList",
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/members/:member_id/offer_states', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_members_member_id_offer_states_offer_state_id_get(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], offer_state_id : Annotated[StrictInt, Field(..., description="The id of the offer state")], **kwargs) -> OfferStateResponse:  # noqa: E501
-        """Get an individual Offer State for a Member  # noqa: E501
-
-        This is used to retrieve an individual offer state linked to a member. This can be used to display individual details for a particular offer state.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_members_member_id_offer_states_offer_state_id_get(member_id, offer_state_id, async_req=True)
-        >>> result = thread.get()
-
-        :param member_id: The id of the member (required)
-        :type member_id: int
-        :param offer_state_id: The id of the offer state (required)
-        :type offer_state_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: OfferStateResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_members_member_id_offer_states_offer_state_id_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_members_member_id_offer_states_offer_state_id_get_with_http_info(member_id, offer_state_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_members_member_id_offer_states_offer_state_id_get_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], offer_state_id : Annotated[StrictInt, Field(..., description="The id of the offer state")], **kwargs) -> ApiResponse:  # noqa: E501
-        """Get an individual Offer State for a Member  # noqa: E501
-
-        This is used to retrieve an individual offer state linked to a member. This can be used to display individual details for a particular offer state.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_members_member_id_offer_states_offer_state_id_get_with_http_info(member_id, offer_state_id, async_req=True)
-        >>> result = thread.get()
-
-        :param member_id: The id of the member (required)
-        :type member_id: int
-        :param offer_state_id: The id of the offer state (required)
-        :type offer_state_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(OfferStateResponse, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'member_id',
-            'offer_state_id'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_members_member_id_offer_states_offer_state_id_get" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['member_id']:
-            _path_params['member_id'] = _params['member_id']
-
-        if _params['offer_state_id']:
-            _path_params['offer_state_id'] = _params['offer_state_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '200': "OfferStateResponse",
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/members/:member_id/offer_states/:offer_state_id', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_members_member_id_offer_states_offer_state_id_put(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], offer_state_id : Annotated[StrictInt, Field(..., description="The id of the offer state")], offer_state_input_request : Annotated[Optional[OfferStateInputRequest], Field(description="The Offer State details to set - Object is required, fields are optional")] = None, **kwargs) -> OfferStateResponse:  # noqa: E501
-        """Update an individual Offer State for a Member - in order to change the availability  # noqa: E501
-
-        This is used to update the activation date and expiration date for an offer_state  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_members_member_id_offer_states_offer_state_id_put(member_id, offer_state_id, offer_state_input_request, async_req=True)
-        >>> result = thread.get()
-
-        :param member_id: The id of the member (required)
-        :type member_id: int
-        :param offer_state_id: The id of the offer state (required)
-        :type offer_state_id: int
-        :param offer_state_input_request: The Offer State details to set - Object is required, fields are optional
-        :type offer_state_input_request: OfferStateInputRequest
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: OfferStateResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_members_member_id_offer_states_offer_state_id_put_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_members_member_id_offer_states_offer_state_id_put_with_http_info(member_id, offer_state_id, offer_state_input_request, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_members_member_id_offer_states_offer_state_id_put_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], offer_state_id : Annotated[StrictInt, Field(..., description="The id of the offer state")], offer_state_input_request : Annotated[Optional[OfferStateInputRequest], Field(description="The Offer State details to set - Object is required, fields are optional")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """Update an individual Offer State for a Member - in order to change the availability  # noqa: E501
-
-        This is used to update the activation date and expiration date for an offer_state  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_members_member_id_offer_states_offer_state_id_put_with_http_info(member_id, offer_state_id, offer_state_input_request, async_req=True)
-        >>> result = thread.get()
-
-        :param member_id: The id of the member (required)
-        :type member_id: int
-        :param offer_state_id: The id of the offer state (required)
-        :type offer_state_id: int
-        :param offer_state_input_request: The Offer State details to set - Object is required, fields are optional
-        :type offer_state_input_request: OfferStateInputRequest
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(OfferStateResponse, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'member_id',
-            'offer_state_id',
-            'offer_state_input_request'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_members_member_id_offer_states_offer_state_id_put" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['member_id']:
-            _path_params['member_id'] = _params['member_id']
-
-        if _params['offer_state_id']:
-            _path_params['offer_state_id'] = _params['offer_state_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        if _params['offer_state_input_request'] is not None:
-            _body_params = _params['offer_state_input_request']
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '200': "OfferStateResponse",
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/members/:member_id/offer_states/:offer_state_id', 'PUT',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_members_member_id_offer_states_offer_state_id_void_post(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], offer_state_id : Annotated[StrictInt, Field(..., description="The id of the offer state")], **kwargs) -> None:  # noqa: E501
-        """Voids an individual Offer State for a Member by Member ID  # noqa: E501
-
-        This is used to void an individual offer state linked to a member (by ID).  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_members_member_id_offer_states_offer_state_id_void_post(member_id, offer_state_id, async_req=True)
-        >>> result = thread.get()
-
-        :param member_id: The id of the member (required)
-        :type member_id: int
-        :param offer_state_id: The id of the offer state (required)
-        :type offer_state_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: None
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_members_member_id_offer_states_offer_state_id_void_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_members_member_id_offer_states_offer_state_id_void_post_with_http_info(member_id, offer_state_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_members_member_id_offer_states_offer_state_id_void_post_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], offer_state_id : Annotated[StrictInt, Field(..., description="The id of the offer state")], **kwargs) -> ApiResponse:  # noqa: E501
-        """Voids an individual Offer State for a Member by Member ID  # noqa: E501
-
-        This is used to void an individual offer state linked to a member (by ID).  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_members_member_id_offer_states_offer_state_id_void_post_with_http_info(member_id, offer_state_id, async_req=True)
-        >>> result = thread.get()
-
-        :param member_id: The id of the member (required)
-        :type member_id: int
-        :param offer_state_id: The id of the offer state (required)
-        :type offer_state_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: None
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'member_id',
-            'offer_state_id'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_members_member_id_offer_states_offer_state_id_void_post" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['member_id']:
-            _path_params['member_id'] = _params['member_id']
-
-        if _params['offer_state_id']:
-            _path_params['offer_state_id'] = _params['offer_state_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {}
-
-        return self.api_client.call_api(
-            '/v1.0/members/:member_id/offer_states/:offer_state_id/void', 'POST',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_members_member_id_offer_states_post(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], token : Annotated[Optional[StrictStr], Field(description="the token of the offer_state to search by")] = None, offer_state_input_request : Annotated[Optional[OfferStateInputRequest], Field(description="Offer State to add to system")] = None, **kwargs) -> OfferStateResponse:  # noqa: E501
+    def create_member_offer_state(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], token : Annotated[Optional[StrictStr], Field(description="the token of the offer_state to search by")] = None, offer_state_input_request : Annotated[Optional[OfferStateInputRequest], Field(description="Offer State to add to system")] = None, **kwargs) -> OfferStateResponse:  # noqa: E501
         """Create a new Member Offer State and provide optional activation and expiration dates  # noqa: E501
 
         This is used to create an individual offer state linking an offer to a member and set optional custom activation and expiration dates for the offer. This can be used to add an offer to a member - A few examples are when a member saves an offer to their account or reaches a particular milestone (i.e. after 10 visits).  If a token parameter is passed, the request will transfer an existing and transferable offer_state with the provided token to this member. A token would have been retrieved through some external integration process with the service interacting with the API.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_members_member_id_offer_states_post(member_id, channel_id, offer_id, token, offer_state_input_request, async_req=True)
+        >>> thread = api.create_member_offer_state(member_id, channel_id, offer_id, token, offer_state_input_request, async_req=True)
         >>> result = thread.get()
 
         :param member_id: The id of the member (required)
@@ -682,19 +81,19 @@ class MemberOffersOfferWalletApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_members_member_id_offer_states_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the create_member_offer_state_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_members_member_id_offer_states_post_with_http_info(member_id, channel_id, offer_id, token, offer_state_input_request, **kwargs)  # noqa: E501
+        return self.create_member_offer_state_with_http_info(member_id, channel_id, offer_id, token, offer_state_input_request, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_members_member_id_offer_states_post_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], token : Annotated[Optional[StrictStr], Field(description="the token of the offer_state to search by")] = None, offer_state_input_request : Annotated[Optional[OfferStateInputRequest], Field(description="Offer State to add to system")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def create_member_offer_state_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], token : Annotated[Optional[StrictStr], Field(description="the token of the offer_state to search by")] = None, offer_state_input_request : Annotated[Optional[OfferStateInputRequest], Field(description="Offer State to add to system")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Create a new Member Offer State and provide optional activation and expiration dates  # noqa: E501
 
         This is used to create an individual offer state linking an offer to a member and set optional custom activation and expiration dates for the offer. This can be used to add an offer to a member - A few examples are when a member saves an offer to their account or reaches a particular milestone (i.e. after 10 visits).  If a token parameter is passed, the request will transfer an existing and transferable offer_state with the provided token to this member. A token would have been retrieved through some external integration process with the service interacting with the API.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_members_member_id_offer_states_post_with_http_info(member_id, channel_id, offer_id, token, offer_state_input_request, async_req=True)
+        >>> thread = api.create_member_offer_state_with_http_info(member_id, channel_id, offer_id, token, offer_state_input_request, async_req=True)
         >>> result = thread.get()
 
         :param member_id: The id of the member (required)
@@ -758,7 +157,7 @@ class MemberOffersOfferWalletApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_members_member_id_offer_states_post" % _key
+                    " to method create_member_offer_state" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -828,14 +227,310 @@ class MemberOffersOfferWalletApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_members_offer_states_get(self, token : Annotated[Optional[StrictStr], Field(description="the token of the offer_state to search by")] = None, credential_identifier : Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None, **kwargs) -> OfferStateList:  # noqa: E501
+    def get_member_offer_state(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], offer_state_id : Annotated[StrictInt, Field(..., description="The id of the offer state")], **kwargs) -> OfferStateResponse:  # noqa: E501
+        """Get an individual Offer State for a Member  # noqa: E501
+
+        This is used to retrieve an individual offer state linked to a member. This can be used to display individual details for a particular offer state.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_member_offer_state(member_id, offer_state_id, async_req=True)
+        >>> result = thread.get()
+
+        :param member_id: The id of the member (required)
+        :type member_id: int
+        :param offer_state_id: The id of the offer state (required)
+        :type offer_state_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: OfferStateResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the get_member_offer_state_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.get_member_offer_state_with_http_info(member_id, offer_state_id, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_member_offer_state_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], offer_state_id : Annotated[StrictInt, Field(..., description="The id of the offer state")], **kwargs) -> ApiResponse:  # noqa: E501
+        """Get an individual Offer State for a Member  # noqa: E501
+
+        This is used to retrieve an individual offer state linked to a member. This can be used to display individual details for a particular offer state.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_member_offer_state_with_http_info(member_id, offer_state_id, async_req=True)
+        >>> result = thread.get()
+
+        :param member_id: The id of the member (required)
+        :type member_id: int
+        :param offer_state_id: The id of the offer state (required)
+        :type offer_state_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(OfferStateResponse, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'member_id',
+            'offer_state_id'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_member_offer_state" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['member_id']:
+            _path_params['member_id'] = _params['member_id']
+
+        if _params['offer_state_id']:
+            _path_params['offer_state_id'] = _params['offer_state_id']
+
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '200': "OfferStateResponse",
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/members/:member_id/offer_states/:offer_state_id', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def get_member_offer_states(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> OfferStateList:  # noqa: E501
+        """Get the entire list of Offer States for a Member  # noqa: E501
+
+        This is used to retrieve a list of offer states linked to a member. This list can be used to display the list to the member within a channel (i.e. App)  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_member_offer_states(member_id, channel_id, async_req=True)
+        >>> result = thread.get()
+
+        :param member_id: The id of the member (required)
+        :type member_id: int
+        :param channel_id: The id of the channel (required)
+        :type channel_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: OfferStateList
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the get_member_offer_states_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.get_member_offer_states_with_http_info(member_id, channel_id, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_member_offer_states_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> ApiResponse:  # noqa: E501
+        """Get the entire list of Offer States for a Member  # noqa: E501
+
+        This is used to retrieve a list of offer states linked to a member. This list can be used to display the list to the member within a channel (i.e. App)  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_member_offer_states_with_http_info(member_id, channel_id, async_req=True)
+        >>> result = thread.get()
+
+        :param member_id: The id of the member (required)
+        :type member_id: int
+        :param channel_id: The id of the channel (required)
+        :type channel_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(OfferStateList, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'member_id',
+            'channel_id'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_member_offer_states" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['member_id']:
+            _path_params['member_id'] = _params['member_id']
+
+
+        # process the query parameters
+        _query_params = []
+        if _params.get('channel_id') is not None:  # noqa: E501
+            _query_params.append(('channel_id', _params['channel_id']))
+
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '200': "OfferStateList",
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/members/:member_id/offer_states', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def get_members_with_offer_states(self, token : Annotated[Optional[StrictStr], Field(description="the token of the offer_state to search by")] = None, credential_identifier : Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None, **kwargs) -> OfferStateList:  # noqa: E501
         """Retrieve Offer States  # noqa: E501
 
         This is used to retrieve offer states. This call is normally used to search for particular offer states that can be added to a member.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_members_offer_states_get(token, credential_identifier, async_req=True)
+        >>> thread = api.get_members_with_offer_states(token, credential_identifier, async_req=True)
         >>> result = thread.get()
 
         :param token: the token of the offer_state to search by
@@ -855,19 +550,19 @@ class MemberOffersOfferWalletApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_members_offer_states_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_members_with_offer_states_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_members_offer_states_get_with_http_info(token, credential_identifier, **kwargs)  # noqa: E501
+        return self.get_members_with_offer_states_with_http_info(token, credential_identifier, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_members_offer_states_get_with_http_info(self, token : Annotated[Optional[StrictStr], Field(description="the token of the offer_state to search by")] = None, credential_identifier : Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_members_with_offer_states_with_http_info(self, token : Annotated[Optional[StrictStr], Field(description="the token of the offer_state to search by")] = None, credential_identifier : Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Retrieve Offer States  # noqa: E501
 
         This is used to retrieve offer states. This call is normally used to search for particular offer states that can be added to a member.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_members_offer_states_get_with_http_info(token, credential_identifier, async_req=True)
+        >>> thread = api.get_members_with_offer_states_with_http_info(token, credential_identifier, async_req=True)
         >>> result = thread.get()
 
         :param token: the token of the offer_state to search by
@@ -922,7 +617,7 @@ class MemberOffersOfferWalletApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_members_offer_states_get" % _key
+                    " to method get_members_with_offer_states" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -976,14 +671,319 @@ class MemberOffersOfferWalletApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_members_offer_states_offer_state_id_void_post(self, offer_state_id : Annotated[StrictInt, Field(..., description="The id of the offer state")], member_identifier : Annotated[StrictStr, Field(..., description="The identifier of the member")], **kwargs) -> None:  # noqa: E501
+    def update_member_offer_state(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], offer_state_id : Annotated[StrictInt, Field(..., description="The id of the offer state")], offer_state_input_request : Annotated[Optional[OfferStateInputRequest], Field(description="The Offer State details to set - Object is required, fields are optional")] = None, **kwargs) -> OfferStateResponse:  # noqa: E501
+        """Update an individual Offer State for a Member - in order to change the availability  # noqa: E501
+
+        This is used to update the activation date and expiration date for an offer_state  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_member_offer_state(member_id, offer_state_id, offer_state_input_request, async_req=True)
+        >>> result = thread.get()
+
+        :param member_id: The id of the member (required)
+        :type member_id: int
+        :param offer_state_id: The id of the offer state (required)
+        :type offer_state_id: int
+        :param offer_state_input_request: The Offer State details to set - Object is required, fields are optional
+        :type offer_state_input_request: OfferStateInputRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: OfferStateResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the update_member_offer_state_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.update_member_offer_state_with_http_info(member_id, offer_state_id, offer_state_input_request, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def update_member_offer_state_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], offer_state_id : Annotated[StrictInt, Field(..., description="The id of the offer state")], offer_state_input_request : Annotated[Optional[OfferStateInputRequest], Field(description="The Offer State details to set - Object is required, fields are optional")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+        """Update an individual Offer State for a Member - in order to change the availability  # noqa: E501
+
+        This is used to update the activation date and expiration date for an offer_state  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_member_offer_state_with_http_info(member_id, offer_state_id, offer_state_input_request, async_req=True)
+        >>> result = thread.get()
+
+        :param member_id: The id of the member (required)
+        :type member_id: int
+        :param offer_state_id: The id of the offer state (required)
+        :type offer_state_id: int
+        :param offer_state_input_request: The Offer State details to set - Object is required, fields are optional
+        :type offer_state_input_request: OfferStateInputRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(OfferStateResponse, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'member_id',
+            'offer_state_id',
+            'offer_state_input_request'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_member_offer_state" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['member_id']:
+            _path_params['member_id'] = _params['member_id']
+
+        if _params['offer_state_id']:
+            _path_params['offer_state_id'] = _params['offer_state_id']
+
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        if _params['offer_state_input_request'] is not None:
+            _body_params = _params['offer_state_input_request']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '200': "OfferStateResponse",
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/members/:member_id/offer_states/:offer_state_id', 'PUT',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def void_member_offer_state(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], offer_state_id : Annotated[StrictInt, Field(..., description="The id of the offer state")], **kwargs) -> None:  # noqa: E501
+        """Voids an individual Offer State for a Member by Member ID  # noqa: E501
+
+        This is used to void an individual offer state linked to a member (by ID).  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.void_member_offer_state(member_id, offer_state_id, async_req=True)
+        >>> result = thread.get()
+
+        :param member_id: The id of the member (required)
+        :type member_id: int
+        :param offer_state_id: The id of the offer state (required)
+        :type offer_state_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the void_member_offer_state_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.void_member_offer_state_with_http_info(member_id, offer_state_id, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def void_member_offer_state_with_http_info(self, member_id : Annotated[StrictInt, Field(..., description="The id of the member")], offer_state_id : Annotated[StrictInt, Field(..., description="The id of the offer state")], **kwargs) -> ApiResponse:  # noqa: E501
+        """Voids an individual Offer State for a Member by Member ID  # noqa: E501
+
+        This is used to void an individual offer state linked to a member (by ID).  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.void_member_offer_state_with_http_info(member_id, offer_state_id, async_req=True)
+        >>> result = thread.get()
+
+        :param member_id: The id of the member (required)
+        :type member_id: int
+        :param offer_state_id: The id of the offer state (required)
+        :type offer_state_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'member_id',
+            'offer_state_id'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method void_member_offer_state" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['member_id']:
+            _path_params['member_id'] = _params['member_id']
+
+        if _params['offer_state_id']:
+            _path_params['offer_state_id'] = _params['offer_state_id']
+
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {}
+
+        return self.api_client.call_api(
+            '/v1.0/members/:member_id/offer_states/:offer_state_id/void', 'POST',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def void_offer_state_by_member_identifier(self, offer_state_id : Annotated[StrictInt, Field(..., description="The id of the offer state")], member_identifier : Annotated[StrictStr, Field(..., description="The identifier of the member")], **kwargs) -> None:  # noqa: E501
         """Voids an individual Offer State for a Member by Member Identifier  # noqa: E501
 
         This is used to void an individual offer state linked to a member (by identifier).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_members_offer_states_offer_state_id_void_post(offer_state_id, member_identifier, async_req=True)
+        >>> thread = api.void_offer_state_by_member_identifier(offer_state_id, member_identifier, async_req=True)
         >>> result = thread.get()
 
         :param offer_state_id: The id of the offer state (required)
@@ -1003,19 +1003,19 @@ class MemberOffersOfferWalletApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_members_offer_states_offer_state_id_void_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the void_offer_state_by_member_identifier_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_members_offer_states_offer_state_id_void_post_with_http_info(offer_state_id, member_identifier, **kwargs)  # noqa: E501
+        return self.void_offer_state_by_member_identifier_with_http_info(offer_state_id, member_identifier, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_members_offer_states_offer_state_id_void_post_with_http_info(self, offer_state_id : Annotated[StrictInt, Field(..., description="The id of the offer state")], member_identifier : Annotated[StrictStr, Field(..., description="The identifier of the member")], **kwargs) -> ApiResponse:  # noqa: E501
+    def void_offer_state_by_member_identifier_with_http_info(self, offer_state_id : Annotated[StrictInt, Field(..., description="The id of the offer state")], member_identifier : Annotated[StrictStr, Field(..., description="The identifier of the member")], **kwargs) -> ApiResponse:  # noqa: E501
         """Voids an individual Offer State for a Member by Member Identifier  # noqa: E501
 
         This is used to void an individual offer state linked to a member (by identifier).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_members_offer_states_offer_state_id_void_post_with_http_info(offer_state_id, member_identifier, async_req=True)
+        >>> thread = api.void_offer_state_by_member_identifier_with_http_info(offer_state_id, member_identifier, async_req=True)
         >>> result = thread.get()
 
         :param offer_state_id: The id of the offer state (required)
@@ -1070,7 +1070,7 @@ class MemberOffersOfferWalletApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_members_offer_states_offer_state_id_void_post" % _key
+                    " to method void_offer_state_by_member_identifier" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']

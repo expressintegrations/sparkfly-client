@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.credential_response import CredentialResponse  # noqa: E501
+from sparkfly_client.models.credential_response import CredentialResponse  # noqa: E501
 
 class TestCredentialResponse(unittest.TestCase):
     """CredentialResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestCredentialResponse(unittest.TestCase):
         model = CredentialResponse()  # noqa: E501
         if include_optional:
             return CredentialResponse(
-                credential = openapi_client.models.credential.credential(
+                credential = sparkfly_client.models.credential.credential(
                     id = 56, 
                     account_id = 56, 
                     created_at = '', 

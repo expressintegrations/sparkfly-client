@@ -4,12 +4,12 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v10_points_card_status_get**](LoyaltyPointsApi.md#v10_points_card_status_get) | **GET** /v1.0/points/card_status | Check Card Status
-[**v10_points_transfer_post**](LoyaltyPointsApi.md#v10_points_transfer_post) | **POST** /v1.0/points/transfer | Transfer Loyalty Points
+[**get_points_card_status**](LoyaltyPointsApi.md#get_points_card_status) | **GET** /v1.0/points/card_status | Check Card Status
+[**transfer_loyalty_points**](LoyaltyPointsApi.md#transfer_loyalty_points) | **POST** /v1.0/points/transfer | Transfer Loyalty Points
 
 
-# **v10_points_card_status_get**
-> PointsCardStatus v10_points_card_status_get(identifier, channel_id)
+# **get_points_card_status**
+> PointsCardStatus get_points_card_status(identifier, channel_id)
 
 Check Card Status
 
@@ -50,11 +50,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Check Card Status
-        api_response = api_instance.v10_points_card_status_get(identifier, channel_id)
-        print("The response of LoyaltyPointsApi->v10_points_card_status_get:\n")
+        api_response = api_instance.get_points_card_status(identifier, channel_id)
+        print("The response of LoyaltyPointsApi->get_points_card_status:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling LoyaltyPointsApi->v10_points_card_status_get: %s\n" % e)
+        print("Exception when calling LoyaltyPointsApi->get_points_card_status: %s\n" % e)
 ```
 
 
@@ -87,8 +87,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v10_points_transfer_post**
-> PointsCardStatus v10_points_transfer_post(identifier, points, txid, channel_id)
+# **transfer_loyalty_points**
+> PointsCardStatus transfer_loyalty_points(identifier, points, txid, channel_id)
 
 Transfer Loyalty Points
 
@@ -131,11 +131,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Transfer Loyalty Points
-        api_response = api_instance.v10_points_transfer_post(identifier, points, txid, channel_id)
-        print("The response of LoyaltyPointsApi->v10_points_transfer_post:\n")
+        api_response = api_instance.transfer_loyalty_points(identifier, points, txid, channel_id)
+        print("The response of LoyaltyPointsApi->transfer_loyalty_points:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling LoyaltyPointsApi->v10_points_transfer_post: %s\n" % e)
+        print("Exception when calling LoyaltyPointsApi->transfer_loyalty_points: %s\n" % e)
 ```
 
 

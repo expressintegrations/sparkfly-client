@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.merchants_item_sets_api import MerchantsItemSetsApi  # noqa: E501
+from sparkfly_client.api.merchants_item_sets_api import MerchantsItemSetsApi  # noqa: E501
 
 
 class TestMerchantsItemSetsApi(unittest.TestCase):
@@ -26,38 +26,38 @@ class TestMerchantsItemSetsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_merchants_merchant_id_item_sets_get(self) -> None:
-        """Test case for v10_merchants_merchant_id_item_sets_get
+    def test_merchant_item_set(self) -> None:
+        """Test case for merchant_item_set
 
-        Get all item sets for merchant  # noqa: E501
+        Create an item set for merchant  # noqa: E501
         """
         pass
 
-    def test_v10_merchants_merchant_id_item_sets_item_set_id_delete(self) -> None:
-        """Test case for v10_merchants_merchant_id_item_sets_item_set_id_delete
-
-        Delete item set by ID for merchant  # noqa: E501
-        """
-        pass
-
-    def test_v10_merchants_merchant_id_item_sets_item_set_id_get(self) -> None:
-        """Test case for v10_merchants_merchant_id_item_sets_item_set_id_get
+    def test_merchant_item_set_0(self) -> None:
+        """Test case for merchant_item_set_0
 
         Get item set by ID for merchant  # noqa: E501
         """
         pass
 
-    def test_v10_merchants_merchant_id_item_sets_item_set_id_put(self) -> None:
-        """Test case for v10_merchants_merchant_id_item_sets_item_set_id_put
+    def test_merchant_item_set_1(self) -> None:
+        """Test case for merchant_item_set_1
 
         Update item set by ID for merchant  # noqa: E501
         """
         pass
 
-    def test_v10_merchants_merchant_id_item_sets_post(self) -> None:
-        """Test case for v10_merchants_merchant_id_item_sets_post
+    def test_merchant_item_set_2(self) -> None:
+        """Test case for merchant_item_set_2
 
-        Create an item set for merchant  # noqa: E501
+        Delete item set by ID for merchant  # noqa: E501
+        """
+        pass
+
+    def test_merchant_item_sets(self) -> None:
+        """Test case for merchant_item_sets
+
+        Get all item sets for merchant  # noqa: E501
         """
         pass
 

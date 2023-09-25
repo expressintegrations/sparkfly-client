@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.offer_state_input_request import OfferStateInputRequest  # noqa: E501
+from sparkfly_client.models.offer_state_input_request import OfferStateInputRequest  # noqa: E501
 
 class TestOfferStateInputRequest(unittest.TestCase):
     """OfferStateInputRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestOfferStateInputRequest(unittest.TestCase):
         model = OfferStateInputRequest()  # noqa: E501
         if include_optional:
             return OfferStateInputRequest(
-                offer_state = openapi_client.models.offer_state_input.offer_state_input(
+                offer_state = sparkfly_client.models.offer_state_input.offer_state_input(
                     activates_at = '', 
                     expires_at = '', 
                     external_ref_id = '', )

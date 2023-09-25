@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.merchant_input_request import MerchantInputRequest  # noqa: E501
+from sparkfly_client.models.merchant_input_request import MerchantInputRequest  # noqa: E501
 
 class TestMerchantInputRequest(unittest.TestCase):
     """MerchantInputRequest unit test stubs"""
@@ -36,18 +36,18 @@ class TestMerchantInputRequest(unittest.TestCase):
         model = MerchantInputRequest()  # noqa: E501
         if include_optional:
             return MerchantInputRequest(
-                merchant = openapi_client.models.merchant_input.merchant_input(
+                merchant = sparkfly_client.models.merchant_input.merchant_input(
                     name = '', 
                     logo = '', 
                     is_active = True, 
                     billing_arrangement = '', 
                     supports_barcode = True, 
                     redemption_identifier_type = 56, 
-                    primary = openapi_client.models.contact.contact(
+                    primary = sparkfly_client.models.contact.contact(
                         name = '', 
                         phone = '', 
                         email = '', ), 
-                    secondary = openapi_client.models.contact.contact(
+                    secondary = sparkfly_client.models.contact.contact(
                         name = '', 
                         phone = '', 
                         email = '', ), )

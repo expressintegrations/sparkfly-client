@@ -649,9 +649,9 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # Disable Callbacks
-        api_instance.v10_account_callbacks_disable_put()
+        api_instance.disable_callbacks()
     except ApiException as e:
-        print("Exception when calling AccountApi->v10_account_callbacks_disable_put: %s\n" % e)
+        print("Exception when calling AccountApi->disable_callbacks: %s\n" % e)
 
 ```
 
@@ -661,184 +661,184 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccountApi* | [**v10_account_callbacks_disable_put**](docs/AccountApi.md#v10_account_callbacks_disable_put) | **PUT** /v1.0/account/callbacks/disable | Disable Callbacks
-*AccountApi* | [**v10_account_callbacks_enable_put**](docs/AccountApi.md#v10_account_callbacks_enable_put) | **PUT** /v1.0/account/callbacks/enable | Enable Callbacks
-*AccountApi* | [**v10_account_get**](docs/AccountApi.md#v10_account_get) | **GET** /v1.0/account | View Account
-*AccountApi* | [**v10_account_put**](docs/AccountApi.md#v10_account_put) | **PUT** /v1.0/account | Update Account
-*AuthApi* | [**auth_get**](docs/AuthApi.md#auth_get) | **GET** /auth | authenticate and receive auth token
-*CampaignsApi* | [**v10_campaigns_campaign_id_delete**](docs/CampaignsApi.md#v10_campaigns_campaign_id_delete) | **DELETE** /v1.0/campaigns/:campaign_id | Delete the campaign
-*CampaignsApi* | [**v10_campaigns_campaign_id_get**](docs/CampaignsApi.md#v10_campaigns_campaign_id_get) | **GET** /v1.0/campaigns/:campaign_id | Retrieve Campaign
-*CampaignsApi* | [**v10_campaigns_campaign_id_put**](docs/CampaignsApi.md#v10_campaigns_campaign_id_put) | **PUT** /v1.0/campaigns/:campaign_id | Update Campaign
-*CampaignsApi* | [**v10_campaigns_get**](docs/CampaignsApi.md#v10_campaigns_get) | **GET** /v1.0/campaigns | Get campaign by external ID
-*CampaignsApi* | [**v10_campaigns_post**](docs/CampaignsApi.md#v10_campaigns_post) | **POST** /v1.0/campaigns | Create a new campaign
-*CampaignsApi* | [**v10_campaigns_search_get**](docs/CampaignsApi.md#v10_campaigns_search_get) | **GET** /v1.0/campaigns/search | Get active reward program campaigns
-*ChannelsApi* | [**v10_channels_channel_id_delete**](docs/ChannelsApi.md#v10_channels_channel_id_delete) | **DELETE** /v1.0/channels/:channel_id | Delete channel by ID
-*ChannelsApi* | [**v10_channels_channel_id_get**](docs/ChannelsApi.md#v10_channels_channel_id_get) | **GET** /v1.0/channels/:channel_id | Get channel by ID
-*ChannelsApi* | [**v10_channels_channel_id_put**](docs/ChannelsApi.md#v10_channels_channel_id_put) | **PUT** /v1.0/channels/:channel_id | Update channel by ID
-*ChannelsApi* | [**v10_channels_get**](docs/ChannelsApi.md#v10_channels_get) | **GET** /v1.0/channels | Get channels
-*ChannelsApi* | [**v10_channels_post**](docs/ChannelsApi.md#v10_channels_post) | **POST** /v1.0/channels | Create a channel
-*CountersApi* | [**v10_counters_counter_id_delete**](docs/CountersApi.md#v10_counters_counter_id_delete) | **DELETE** /v1.0/counters/:counter_id | Delete counter by ID
-*CountersApi* | [**v10_counters_counter_id_get**](docs/CountersApi.md#v10_counters_counter_id_get) | **GET** /v1.0/counters/:counter_id | Get counter by ID
-*CountersApi* | [**v10_counters_counter_id_put**](docs/CountersApi.md#v10_counters_counter_id_put) | **PUT** /v1.0/counters/:counter_id | Update counter by ID
-*CountersApi* | [**v10_counters_get**](docs/CountersApi.md#v10_counters_get) | **GET** /v1.0/counters | Get counters
-*CountersApi* | [**v10_counters_post**](docs/CountersApi.md#v10_counters_post) | **POST** /v1.0/counters | Create a counter
-*CredentialsApi* | [**v10_credentials_credential_id_delete**](docs/CredentialsApi.md#v10_credentials_credential_id_delete) | **DELETE** /v1.0/credentials/:credential_id | Delete Credential
-*CredentialsApi* | [**v10_credentials_credential_id_get**](docs/CredentialsApi.md#v10_credentials_credential_id_get) | **GET** /v1.0/credentials/:credential_id | Get Credential
-*CredentialsApi* | [**v10_credentials_credential_id_put**](docs/CredentialsApi.md#v10_credentials_credential_id_put) | **PUT** /v1.0/credentials/:credential_id | Updates a credential
-*CredentialsApi* | [**v10_credentials_credential_id_redeem_put**](docs/CredentialsApi.md#v10_credentials_credential_id_redeem_put) | **PUT** /v1.0/credentials/:credential_id/redeem | Redeem a credential
-*CredentialsApi* | [**v10_credentials_credential_id_void_put**](docs/CredentialsApi.md#v10_credentials_credential_id_void_put) | **PUT** /v1.0/credentials/:credential_id/void | Void a credential
-*CredentialsApi* | [**v10_credentials_eligible_get**](docs/CredentialsApi.md#v10_credentials_eligible_get) | **GET** /v1.0/credentials/eligible | Determine if a member is eligible for an offer
-*CredentialsApi* | [**v10_credentials_get**](docs/CredentialsApi.md#v10_credentials_get) | **GET** /v1.0/credentials | List Credentials
-*CredentialsApi* | [**v10_credentials_post**](docs/CredentialsApi.md#v10_credentials_post) | **POST** /v1.0/credentials | Creates a credential
-*EventsApi* | [**v10_events_event_id_delete**](docs/EventsApi.md#v10_events_event_id_delete) | **DELETE** /v1.0/events/:event_id | Delete the event
-*EventsApi* | [**v10_events_event_id_get**](docs/EventsApi.md#v10_events_event_id_get) | **GET** /v1.0/events/:event_id | Get event by ID
-*EventsApi* | [**v10_events_event_id_put**](docs/EventsApi.md#v10_events_event_id_put) | **PUT** /v1.0/events/:event_id | Change the name of an event
-*EventsApi* | [**v10_events_get**](docs/EventsApi.md#v10_events_get) | **GET** /v1.0/events | get all events
-*EventsApi* | [**v10_events_post**](docs/EventsApi.md#v10_events_post) | **POST** /v1.0/events | Creates an event
-*ImpressionsApi* | [**v10_impressions_get**](docs/ImpressionsApi.md#v10_impressions_get) | **GET** /v1.0/impressions | Get all impressions
-*ImpressionsApi* | [**v10_impressions_impression_id_delete**](docs/ImpressionsApi.md#v10_impressions_impression_id_delete) | **DELETE** /v1.0/impressions/:impression_id | Delete the impression
-*ImpressionsApi* | [**v10_impressions_post**](docs/ImpressionsApi.md#v10_impressions_post) | **POST** /v1.0/impressions | Creates an impression
-*ItemSetsApi* | [**v10_item_sets_get**](docs/ItemSetsApi.md#v10_item_sets_get) | **GET** /v1.0/item_sets | Get all item sets
-*ItemSetsApi* | [**v10_item_sets_item_set_id_delete**](docs/ItemSetsApi.md#v10_item_sets_item_set_id_delete) | **DELETE** /v1.0/item_sets/:item_set_id | Delete item set by ID
-*ItemSetsApi* | [**v10_item_sets_item_set_id_get**](docs/ItemSetsApi.md#v10_item_sets_item_set_id_get) | **GET** /v1.0/item_sets/:item_set_id | Get item set by ID
-*ItemSetsApi* | [**v10_item_sets_item_set_id_items_get**](docs/ItemSetsApi.md#v10_item_sets_item_set_id_items_get) | **GET** /v1.0/item_sets/:item_set_id/items | Get items for item set
-*ItemSetsApi* | [**v10_item_sets_item_set_id_put**](docs/ItemSetsApi.md#v10_item_sets_item_set_id_put) | **PUT** /v1.0/item_sets/:item_set_id | Update item set by ID
-*ItemSetsApi* | [**v10_item_sets_post**](docs/ItemSetsApi.md#v10_item_sets_post) | **POST** /v1.0/item_sets | Create an item set
-*ItemsApi* | [**v10_items_get**](docs/ItemsApi.md#v10_items_get) | **GET** /v1.0/items | Get all items
-*ItemsApi* | [**v10_items_item_id_delete**](docs/ItemsApi.md#v10_items_item_id_delete) | **DELETE** /v1.0/items/:item_id | Delete item by ID
-*ItemsApi* | [**v10_items_item_id_get**](docs/ItemsApi.md#v10_items_item_id_get) | **GET** /v1.0/items/:item_id | Get item by ID
-*ItemsApi* | [**v10_items_item_id_put**](docs/ItemsApi.md#v10_items_item_id_put) | **PUT** /v1.0/items/:item_id | Update item by ID
-*ItemsApi* | [**v10_items_post**](docs/ItemsApi.md#v10_items_post) | **POST** /v1.0/items | Create an item
-*LoyaltyPointsApi* | [**v10_points_card_status_get**](docs/LoyaltyPointsApi.md#v10_points_card_status_get) | **GET** /v1.0/points/card_status | Check Card Status
-*LoyaltyPointsApi* | [**v10_points_transfer_post**](docs/LoyaltyPointsApi.md#v10_points_transfer_post) | **POST** /v1.0/points/transfer | Transfer Loyalty Points
-*ManufacturersApi* | [**v10_manufacturers_get**](docs/ManufacturersApi.md#v10_manufacturers_get) | **GET** /v1.0/manufacturers | Get all manufacturers
-*ManufacturersApi* | [**v10_manufacturers_manufacturer_id_delete**](docs/ManufacturersApi.md#v10_manufacturers_manufacturer_id_delete) | **DELETE** /v1.0/manufacturers/:manufacturer_id | Delete manufacturer by ID
-*ManufacturersApi* | [**v10_manufacturers_manufacturer_id_get**](docs/ManufacturersApi.md#v10_manufacturers_manufacturer_id_get) | **GET** /v1.0/manufacturers/:manufacturer_id | Get manufacturer by ID
-*ManufacturersApi* | [**v10_manufacturers_manufacturer_id_put**](docs/ManufacturersApi.md#v10_manufacturers_manufacturer_id_put) | **PUT** /v1.0/manufacturers/:manufacturer_id | Update manufacturer by ID
-*ManufacturersApi* | [**v10_manufacturers_post**](docs/ManufacturersApi.md#v10_manufacturers_post) | **POST** /v1.0/manufacturers | Create a manufacturer
-*ManufacturersItemSetsApi* | [**v10_manufacturers_manufacturer_id_item_sets_get**](docs/ManufacturersItemSetsApi.md#v10_manufacturers_manufacturer_id_item_sets_get) | **GET** /v1.0/manufacturers/:manufacturer_id/item_sets | Get all item sets for manufacturer
-*ManufacturersItemSetsApi* | [**v10_manufacturers_manufacturer_id_item_sets_item_set_id_delete**](docs/ManufacturersItemSetsApi.md#v10_manufacturers_manufacturer_id_item_sets_item_set_id_delete) | **DELETE** /v1.0/manufacturers/:manufacturer_id/item_sets/:item_set_id | Delete item set by ID for manufacturer
-*ManufacturersItemSetsApi* | [**v10_manufacturers_manufacturer_id_item_sets_item_set_id_get**](docs/ManufacturersItemSetsApi.md#v10_manufacturers_manufacturer_id_item_sets_item_set_id_get) | **GET** /v1.0/manufacturers/:manufacturer_id/item_sets/:item_set_id | Get item set by ID for manufacturer
-*ManufacturersItemSetsApi* | [**v10_manufacturers_manufacturer_id_item_sets_item_set_id_put**](docs/ManufacturersItemSetsApi.md#v10_manufacturers_manufacturer_id_item_sets_item_set_id_put) | **PUT** /v1.0/manufacturers/:manufacturer_id/item_sets/:item_set_id | Update item set by ID for manufacturer
-*ManufacturersItemSetsApi* | [**v10_manufacturers_manufacturer_id_item_sets_post**](docs/ManufacturersItemSetsApi.md#v10_manufacturers_manufacturer_id_item_sets_post) | **POST** /v1.0/manufacturers/:manufacturer_id/item_sets | Create an item set for manufacturer
-*ManufacturersItemSetsItemsApi* | [**v10_manufacturers_manufacturer_id_item_sets_item_set_id_items_get**](docs/ManufacturersItemSetsItemsApi.md#v10_manufacturers_manufacturer_id_item_sets_item_set_id_items_get) | **GET** /v1.0/manufacturers/:manufacturer_id/item_sets/:item_set_id/items | Get items for item set for manufacturer
-*ManufacturersItemsApi* | [**v10_manufacturers_manufacturer_id_items_get**](docs/ManufacturersItemsApi.md#v10_manufacturers_manufacturer_id_items_get) | **GET** /v1.0/manufacturers/:manufacturer_id/items | Get all items for manufacturer
-*ManufacturersItemsApi* | [**v10_manufacturers_manufacturer_id_items_item_id_delete**](docs/ManufacturersItemsApi.md#v10_manufacturers_manufacturer_id_items_item_id_delete) | **DELETE** /v1.0/manufacturers/:manufacturer_id/items/:item_id | Delete item by ID for manufacturer
-*ManufacturersItemsApi* | [**v10_manufacturers_manufacturer_id_items_item_id_get**](docs/ManufacturersItemsApi.md#v10_manufacturers_manufacturer_id_items_item_id_get) | **GET** /v1.0/manufacturers/:manufacturer_id/items/:item_id | Get item by ID for manufacturer
-*ManufacturersItemsApi* | [**v10_manufacturers_manufacturer_id_items_item_id_put**](docs/ManufacturersItemsApi.md#v10_manufacturers_manufacturer_id_items_item_id_put) | **PUT** /v1.0/manufacturers/:manufacturer_id/items/:item_id | Update item by ID for manufacturer
-*ManufacturersItemsApi* | [**v10_manufacturers_manufacturer_id_items_post**](docs/ManufacturersItemsApi.md#v10_manufacturers_manufacturer_id_items_post) | **POST** /v1.0/manufacturers/:manufacturer_id/items | Create an item for manufacturer
-*ManufacturersMerchantsApi* | [**v10_manufacturers_manufacturer_id_merchants_delete**](docs/ManufacturersMerchantsApi.md#v10_manufacturers_manufacturer_id_merchants_delete) | **DELETE** /v1.0/manufacturers/:manufacturer_id/merchants | Remove an eligible merchant for manufacturer
-*ManufacturersMerchantsApi* | [**v10_manufacturers_manufacturer_id_merchants_get**](docs/ManufacturersMerchantsApi.md#v10_manufacturers_manufacturer_id_merchants_get) | **GET** /v1.0/manufacturers/:manufacturer_id/merchants | Get all merchants for manufacturer
-*ManufacturersMerchantsApi* | [**v10_manufacturers_manufacturer_id_merchants_post**](docs/ManufacturersMerchantsApi.md#v10_manufacturers_manufacturer_id_merchants_post) | **POST** /v1.0/manufacturers/:manufacturer_id/merchants | Add an eligible merchant for manufacturer
-*ManufacturersMerchantsApi* | [**v10_manufacturers_manufacturer_id_merchants_put**](docs/ManufacturersMerchantsApi.md#v10_manufacturers_manufacturer_id_merchants_put) | **PUT** /v1.0/manufacturers/:manufacturer_id/merchants | Add an eligible merchant for manufacturer
-*MemberListsApi* | [**v10_member_lists_get**](docs/MemberListsApi.md#v10_member_lists_get) | **GET** /v1.0/member_lists | Get all member lists
-*MemberListsApi* | [**v10_member_lists_member_list_id_delete**](docs/MemberListsApi.md#v10_member_lists_member_list_id_delete) | **DELETE** /v1.0/member_lists/:member_list_id | Delete Member List by ID
-*MemberListsApi* | [**v10_member_lists_member_list_id_get**](docs/MemberListsApi.md#v10_member_lists_member_list_id_get) | **GET** /v1.0/member_lists/:member_list_id | Get member list by ID
-*MemberListsApi* | [**v10_member_lists_member_list_id_put**](docs/MemberListsApi.md#v10_member_lists_member_list_id_put) | **PUT** /v1.0/member_lists/:member_list_id | Update Member List by ID
-*MemberListsApi* | [**v10_member_lists_post**](docs/MemberListsApi.md#v10_member_lists_post) | **POST** /v1.0/member_lists | Create a member list
-*MemberListsMembersApi* | [**v10_member_lists_member_list_id_members_delete**](docs/MemberListsMembersApi.md#v10_member_lists_member_list_id_members_delete) | **DELETE** /v1.0/member_lists/:member_list_id/members | Remove an eligible member for member_list
-*MemberListsMembersApi* | [**v10_member_lists_member_list_id_members_get**](docs/MemberListsMembersApi.md#v10_member_lists_member_list_id_members_get) | **GET** /v1.0/member_lists/:member_list_id/members | Get all Members for Member List
-*MemberListsMembersApi* | [**v10_member_lists_member_list_id_members_post**](docs/MemberListsMembersApi.md#v10_member_lists_member_list_id_members_post) | **POST** /v1.0/member_lists/:member_list_id/members | Set eligible members for Member List
-*MemberListsMembersApi* | [**v10_member_lists_member_list_id_members_put**](docs/MemberListsMembersApi.md#v10_member_lists_member_list_id_members_put) | **PUT** /v1.0/member_lists/:member_list_id/members | Add eligible members for Member List
-*MemberOffersOfferWalletApi* | [**v10_members_member_id_offer_states_get**](docs/MemberOffersOfferWalletApi.md#v10_members_member_id_offer_states_get) | **GET** /v1.0/members/:member_id/offer_states | Get the entire list of Offer States for a Member
-*MemberOffersOfferWalletApi* | [**v10_members_member_id_offer_states_offer_state_id_get**](docs/MemberOffersOfferWalletApi.md#v10_members_member_id_offer_states_offer_state_id_get) | **GET** /v1.0/members/:member_id/offer_states/:offer_state_id | Get an individual Offer State for a Member
-*MemberOffersOfferWalletApi* | [**v10_members_member_id_offer_states_offer_state_id_put**](docs/MemberOffersOfferWalletApi.md#v10_members_member_id_offer_states_offer_state_id_put) | **PUT** /v1.0/members/:member_id/offer_states/:offer_state_id | Update an individual Offer State for a Member - in order to change the availability
-*MemberOffersOfferWalletApi* | [**v10_members_member_id_offer_states_offer_state_id_void_post**](docs/MemberOffersOfferWalletApi.md#v10_members_member_id_offer_states_offer_state_id_void_post) | **POST** /v1.0/members/:member_id/offer_states/:offer_state_id/void | Voids an individual Offer State for a Member by Member ID
-*MemberOffersOfferWalletApi* | [**v10_members_member_id_offer_states_post**](docs/MemberOffersOfferWalletApi.md#v10_members_member_id_offer_states_post) | **POST** /v1.0/members/:member_id/offer_states | Create a new Member Offer State and provide optional activation and expiration dates
-*MemberOffersOfferWalletApi* | [**v10_members_offer_states_get**](docs/MemberOffersOfferWalletApi.md#v10_members_offer_states_get) | **GET** /v1.0/members/offer_states | Retrieve Offer States
-*MemberOffersOfferWalletApi* | [**v10_members_offer_states_offer_state_id_void_post**](docs/MemberOffersOfferWalletApi.md#v10_members_offer_states_offer_state_id_void_post) | **POST** /v1.0/members/offer_states/:offer_state_id/void | Voids an individual Offer State for a Member by Member Identifier
-*MemberPrivacyApi* | [**v10_privacy_member_delete_request_post**](docs/MemberPrivacyApi.md#v10_privacy_member_delete_request_post) | **POST** /v1.0/privacy/member/delete_request | Creates a deletion request for a member
-*MemberPrivacyApi* | [**v10_privacy_member_export_get**](docs/MemberPrivacyApi.md#v10_privacy_member_export_get) | **GET** /v1.0/privacy/member/export | Exports data associated with a member
-*MembersApi* | [**v10_members_get**](docs/MembersApi.md#v10_members_get) | **GET** /v1.0/members | List members
-*MembersApi* | [**v10_members_member_id_delete**](docs/MembersApi.md#v10_members_member_id_delete) | **DELETE** /v1.0/members/:member_id | Delete the member
-*MembersApi* | [**v10_members_member_id_get**](docs/MembersApi.md#v10_members_member_id_get) | **GET** /v1.0/members/:member_id | Retrieve Member
-*MembersApi* | [**v10_members_member_id_put**](docs/MembersApi.md#v10_members_member_id_put) | **PUT** /v1.0/members/:member_id | Update Member
-*MembersApi* | [**v10_members_post**](docs/MembersApi.md#v10_members_post) | **POST** /v1.0/members | Creates a member
-*MembersApi* | [**v10_members_search_get**](docs/MembersApi.md#v10_members_search_get) | **GET** /v1.0/members/search | Search for Member by Identifier
-*MerchantsApi* | [**v10_merchants_get**](docs/MerchantsApi.md#v10_merchants_get) | **GET** /v1.0/merchants | Get all merchants
-*MerchantsApi* | [**v10_merchants_merchant_id_delete**](docs/MerchantsApi.md#v10_merchants_merchant_id_delete) | **DELETE** /v1.0/merchants/:merchant_id | Delete merchant by ID
-*MerchantsApi* | [**v10_merchants_merchant_id_get**](docs/MerchantsApi.md#v10_merchants_merchant_id_get) | **GET** /v1.0/merchants/:merchant_id | Get merchant by ID
-*MerchantsApi* | [**v10_merchants_merchant_id_put**](docs/MerchantsApi.md#v10_merchants_merchant_id_put) | **PUT** /v1.0/merchants/:merchant_id | Update merchant by ID
-*MerchantsApi* | [**v10_merchants_post**](docs/MerchantsApi.md#v10_merchants_post) | **POST** /v1.0/merchants | Create a merchant
-*MerchantsItemSetsApi* | [**v10_merchants_merchant_id_item_sets_get**](docs/MerchantsItemSetsApi.md#v10_merchants_merchant_id_item_sets_get) | **GET** /v1.0/merchants/:merchant_id/item_sets | Get all item sets for merchant
-*MerchantsItemSetsApi* | [**v10_merchants_merchant_id_item_sets_item_set_id_delete**](docs/MerchantsItemSetsApi.md#v10_merchants_merchant_id_item_sets_item_set_id_delete) | **DELETE** /v1.0/merchants/:merchant_id/item_sets/:item_set_id | Delete item set by ID for merchant
-*MerchantsItemSetsApi* | [**v10_merchants_merchant_id_item_sets_item_set_id_get**](docs/MerchantsItemSetsApi.md#v10_merchants_merchant_id_item_sets_item_set_id_get) | **GET** /v1.0/merchants/:merchant_id/item_sets/:item_set_id | Get item set by ID for merchant
-*MerchantsItemSetsApi* | [**v10_merchants_merchant_id_item_sets_item_set_id_put**](docs/MerchantsItemSetsApi.md#v10_merchants_merchant_id_item_sets_item_set_id_put) | **PUT** /v1.0/merchants/:merchant_id/item_sets/:item_set_id | Update item set by ID for merchant
-*MerchantsItemSetsApi* | [**v10_merchants_merchant_id_item_sets_post**](docs/MerchantsItemSetsApi.md#v10_merchants_merchant_id_item_sets_post) | **POST** /v1.0/merchants/:merchant_id/item_sets | Create an item set for merchant
-*MerchantsItemSetsItemsApi* | [**v10_merchants_merchant_id_item_sets_item_set_id_items_get**](docs/MerchantsItemSetsItemsApi.md#v10_merchants_merchant_id_item_sets_item_set_id_items_get) | **GET** /v1.0/merchants/:merchant_id/item_sets/:item_set_id/items | Get items for item set for merchant
-*MerchantsItemsApi* | [**v10_merchants_merchant_id_items_get**](docs/MerchantsItemsApi.md#v10_merchants_merchant_id_items_get) | **GET** /v1.0/merchants/:merchant_id/items | Get all items for merchant
-*MerchantsItemsApi* | [**v10_merchants_merchant_id_items_item_id_delete**](docs/MerchantsItemsApi.md#v10_merchants_merchant_id_items_item_id_delete) | **DELETE** /v1.0/merchants/:merchant_id/items/:item_id | Delete item by ID for merchant
-*MerchantsItemsApi* | [**v10_merchants_merchant_id_items_item_id_get**](docs/MerchantsItemsApi.md#v10_merchants_merchant_id_items_item_id_get) | **GET** /v1.0/merchants/:merchant_id/items/:item_id | Get item by ID for merchant
-*MerchantsItemsApi* | [**v10_merchants_merchant_id_items_item_id_put**](docs/MerchantsItemsApi.md#v10_merchants_merchant_id_items_item_id_put) | **PUT** /v1.0/merchants/:merchant_id/items/:item_id | Update item by ID for merchant
-*MerchantsItemsApi* | [**v10_merchants_merchant_id_items_post**](docs/MerchantsItemsApi.md#v10_merchants_merchant_id_items_post) | **POST** /v1.0/merchants/:merchant_id/items | Create an item for merchant
-*MerchantsOffersApi* | [**v10_merchants_merchant_id_offers_get**](docs/MerchantsOffersApi.md#v10_merchants_merchant_id_offers_get) | **GET** /v1.0/merchants/:merchant_id/offers | List offers for merchant
-*MerchantsStoreListsApi* | [**v10_merchants_merchant_id_store_lists_get**](docs/MerchantsStoreListsApi.md#v10_merchants_merchant_id_store_lists_get) | **GET** /v1.0/merchants/:merchant_id/store_lists | Get all Store Lists for merchant
-*MerchantsStoreListsApi* | [**v10_merchants_merchant_id_store_lists_post**](docs/MerchantsStoreListsApi.md#v10_merchants_merchant_id_store_lists_post) | **POST** /v1.0/merchants/:merchant_id/store_lists | Create an Store List for merchant
-*MerchantsStoreListsApi* | [**v10_merchants_merchant_id_store_lists_store_list_id_delete**](docs/MerchantsStoreListsApi.md#v10_merchants_merchant_id_store_lists_store_list_id_delete) | **DELETE** /v1.0/merchants/:merchant_id/store_lists/:store_list_id | Delete Store List by ID for merchant
-*MerchantsStoreListsApi* | [**v10_merchants_merchant_id_store_lists_store_list_id_get**](docs/MerchantsStoreListsApi.md#v10_merchants_merchant_id_store_lists_store_list_id_get) | **GET** /v1.0/merchants/:merchant_id/store_lists/:store_list_id | Get Store List by ID for merchant
-*MerchantsStoreListsApi* | [**v10_merchants_merchant_id_store_lists_store_list_id_put**](docs/MerchantsStoreListsApi.md#v10_merchants_merchant_id_store_lists_store_list_id_put) | **PUT** /v1.0/merchants/:merchant_id/store_lists/:store_list_id | Update Store List by ID for merchant
-*MerchantsStoreListsApi* | [**v10_merchants_merchant_id_store_lists_store_list_id_stores_get**](docs/MerchantsStoreListsApi.md#v10_merchants_merchant_id_store_lists_store_list_id_stores_get) | **GET** /v1.0/merchants/:merchant_id/store_lists/:store_list_id/stores | Get all Stores for Store List (detailed)
-*MerchantsStoreListsApi* | [**v10_merchants_store_lists_store_list_id_stores_delete**](docs/MerchantsStoreListsApi.md#v10_merchants_store_lists_store_list_id_stores_delete) | **DELETE** /v1.0/merchants/store_lists/:store_list_id/stores | Remove an eligible Store for store_list
-*MerchantsStoreListsApi* | [**v10_merchants_store_lists_store_list_id_stores_get**](docs/MerchantsStoreListsApi.md#v10_merchants_store_lists_store_list_id_stores_get) | **GET** /v1.0/merchants/store_lists/:store_list_id/stores | Get all Stores for Store List
-*MerchantsStoreListsApi* | [**v10_merchants_store_lists_store_list_id_stores_post**](docs/MerchantsStoreListsApi.md#v10_merchants_store_lists_store_list_id_stores_post) | **POST** /v1.0/merchants/store_lists/:store_list_id/stores | Set eligible Stores for Store List
-*MerchantsStoreListsApi* | [**v10_merchants_store_lists_store_list_id_stores_put**](docs/MerchantsStoreListsApi.md#v10_merchants_store_lists_store_list_id_stores_put) | **PUT** /v1.0/merchants/store_lists/:store_list_id/stores | Add eligible Stores for Store List
-*MerchantsStoresApi* | [**v10_merchants_merchant_id_stores_get**](docs/MerchantsStoresApi.md#v10_merchants_merchant_id_stores_get) | **GET** /v1.0/merchants/:merchant_id/stores | Get all Stores for merchant
-*MerchantsStoresApi* | [**v10_merchants_merchant_id_stores_post**](docs/MerchantsStoresApi.md#v10_merchants_merchant_id_stores_post) | **POST** /v1.0/merchants/:merchant_id/stores | Create an Store for merchant
-*MerchantsStoresApi* | [**v10_merchants_merchant_id_stores_store_id_delete**](docs/MerchantsStoresApi.md#v10_merchants_merchant_id_stores_store_id_delete) | **DELETE** /v1.0/merchants/:merchant_id/stores/:store_id | Delete Store by ID for merchant
-*MerchantsStoresApi* | [**v10_merchants_merchant_id_stores_store_id_get**](docs/MerchantsStoresApi.md#v10_merchants_merchant_id_stores_store_id_get) | **GET** /v1.0/merchants/:merchant_id/stores/:store_id | Get Store by ID for merchant
-*MerchantsStoresApi* | [**v10_merchants_merchant_id_stores_store_id_offers_get**](docs/MerchantsStoresApi.md#v10_merchants_merchant_id_stores_store_id_offers_get) | **GET** /v1.0/merchants/:merchant_id/stores/:store_id/offers | List Offer IDs for Merchant and Store
-*MerchantsStoresApi* | [**v10_merchants_merchant_id_stores_store_id_put**](docs/MerchantsStoresApi.md#v10_merchants_merchant_id_stores_store_id_put) | **PUT** /v1.0/merchants/:merchant_id/stores/:store_id | Update Store by ID for merchant
-*MerchantsStoresApi* | [**v10_merchants_stores_index_get**](docs/MerchantsStoresApi.md#v10_merchants_stores_index_get) | **GET** /v1.0/merchants/stores/index | Get and Filter Stores WITH Active Offers (stores/index)
-*MerchantsStoresApi* | [**v10_merchants_stores_nearby_index_get**](docs/MerchantsStoresApi.md#v10_merchants_stores_nearby_index_get) | **GET** /v1.0/merchants/stores/nearby/index | Get and Filter Stores WITH Active Offers (stores/nearby/index)
-*MerchantsStoresApi* | [**v10_merchants_stores_nearby_lat_lng_index_get**](docs/MerchantsStoresApi.md#v10_merchants_stores_nearby_lat_lng_index_get) | **GET** /v1.0/merchants/stores/nearby/:lat/:lng/index | Get and Filter Stores WITH Active Offers (stores/nearby/:lat/:lng/index)
-*MerchantsStoresApi* | [**v10_merchants_stores_store_id_get**](docs/MerchantsStoresApi.md#v10_merchants_stores_store_id_get) | **GET** /v1.0/merchants/stores/:store_id | Get Store by ID (without merchant)
-*OfferEngineApi* | [**v10_activities_offers_get**](docs/OfferEngineApi.md#v10_activities_offers_get) | **GET** /v1.0/activities/offers | Retrieve Offer Activities for Member
-*OfferEngineApi* | [**v10_members_member_id_activities_redemptions_get**](docs/OfferEngineApi.md#v10_members_member_id_activities_redemptions_get) | **GET** /v1.0/members/:member_id/activities/redemptions | Retrieve Redeemed Redemptions for Member
-*OfferEngineApi* | [**v10_members_member_id_stores_store_id_activities_redemptions_get**](docs/OfferEngineApi.md#v10_members_member_id_stores_store_id_activities_redemptions_get) | **GET** /v1.0/members/:member_id/stores/:store_id/activities/redemptions | Retrieve Redeemed Redemptions for Member for Store
-*OfferEngineApi* | [**v10_members_member_id_stores_store_id_check_incheck_in_latlatcheck_in_lnglng_post**](docs/OfferEngineApi.md#v10_members_member_id_stores_store_id_check_incheck_in_latlatcheck_in_lnglng_post) | **POST** /v1.0/members/:member_id/stores/:store_id/check-in?check_in[lat]&#x3D;:lat&amp;check_in[lng]&#x3D;:lng | Check-In Member to Store
-*OfferEngineApi* | [**v10_members_member_id_stores_store_id_get**](docs/OfferEngineApi.md#v10_members_member_id_stores_store_id_get) | **GET** /v1.0/members/:member_id/stores/:store_id | Retrieve Store for Member
-*OffersApi* | [**v10_offers_get**](docs/OffersApi.md#v10_offers_get) | **GET** /v1.0/offers | List offers
-*OffersApi* | [**v10_offers_offer_id_delete**](docs/OffersApi.md#v10_offers_offer_id_delete) | **DELETE** /v1.0/offers/:offer_id | Delete the offer
-*OffersApi* | [**v10_offers_offer_id_get**](docs/OffersApi.md#v10_offers_offer_id_get) | **GET** /v1.0/offers/:offer_id | Retrieve Offer
-*OffersApi* | [**v10_offers_offer_id_put**](docs/OffersApi.md#v10_offers_offer_id_put) | **PUT** /v1.0/offers/:offer_id | Update Offer
-*OffersApi* | [**v10_offers_post**](docs/OffersApi.md#v10_offers_post) | **POST** /v1.0/offers | Creates an offer
-*OffersChannelsApi* | [**v10_offers_offer_id_channels_channel_id_get**](docs/OffersChannelsApi.md#v10_offers_offer_id_channels_channel_id_get) | **GET** /v1.0/offers/:offer_id/channels/:channel_id | Eligible Channel Show
-*OffersChannelsApi* | [**v10_offers_offer_id_channels_channel_id_put**](docs/OffersChannelsApi.md#v10_offers_offer_id_channels_channel_id_put) | **PUT** /v1.0/offers/:offer_id/channels/:channel_id | Eligible Channel Update
-*OffersChannelsApi* | [**v10_offers_offer_id_channels_delete**](docs/OffersChannelsApi.md#v10_offers_offer_id_channels_delete) | **DELETE** /v1.0/offers/:offer_id/channels | Remove eligible Channels from offer
-*OffersChannelsApi* | [**v10_offers_offer_id_channels_get**](docs/OffersChannelsApi.md#v10_offers_offer_id_channels_get) | **GET** /v1.0/offers/:offer_id/channels | Eligible Channels List
-*OffersChannelsApi* | [**v10_offers_offer_id_channels_post**](docs/OffersChannelsApi.md#v10_offers_offer_id_channels_post) | **POST** /v1.0/offers/:offer_id/channels | Set eligible Channels for offer
-*OffersChannelsApi* | [**v10_offers_offer_id_channels_put**](docs/OffersChannelsApi.md#v10_offers_offer_id_channels_put) | **PUT** /v1.0/offers/:offer_id/channels | Add eligible Channels for offer
-*OffersEligibleItemSetsApi* | [**v10_offers_offer_id_eligible_item_sets_get**](docs/OffersEligibleItemSetsApi.md#v10_offers_offer_id_eligible_item_sets_get) | **GET** /v1.0/offers/:offer_id/eligible_item_sets | Eligible Item Sets List
-*OffersItemSetsApi* | [**v10_offers_offer_id_eligible_item_sets_eligible_item_set_id_delete**](docs/OffersItemSetsApi.md#v10_offers_offer_id_eligible_item_sets_eligible_item_set_id_delete) | **DELETE** /v1.0/offers/:offer_id/eligible_item_sets/:eligible_item_set_id | Remove eligible Item Set from offer
-*OffersItemSetsApi* | [**v10_offers_offer_id_eligible_item_sets_eligible_item_set_id_get**](docs/OffersItemSetsApi.md#v10_offers_offer_id_eligible_item_sets_eligible_item_set_id_get) | **GET** /v1.0/offers/:offer_id/eligible_item_sets/:eligible_item_set_id | Retrieve eligible Item Set for offer
-*OffersItemSetsApi* | [**v10_offers_offer_id_eligible_item_sets_eligible_item_set_id_put**](docs/OffersItemSetsApi.md#v10_offers_offer_id_eligible_item_sets_eligible_item_set_id_put) | **PUT** /v1.0/offers/:offer_id/eligible_item_sets/:eligible_item_set_id | Update eligible Item Set for offer
-*OffersItemSetsApi* | [**v10_offers_offer_id_eligible_item_sets_post**](docs/OffersItemSetsApi.md#v10_offers_offer_id_eligible_item_sets_post) | **POST** /v1.0/offers/:offer_id/eligible_item_sets | Eligible Item Set for Offer - Create
-*OffersMemberListsApi* | [**v10_offers_offer_id_member_lists_delete**](docs/OffersMemberListsApi.md#v10_offers_offer_id_member_lists_delete) | **DELETE** /v1.0/offers/:offer_id/member_lists | Remove eligible Member Lists from offer
-*OffersMemberListsApi* | [**v10_offers_offer_id_member_lists_get**](docs/OffersMemberListsApi.md#v10_offers_offer_id_member_lists_get) | **GET** /v1.0/offers/:offer_id/member_lists | Eligible Member Lists List
-*OffersMemberListsApi* | [**v10_offers_offer_id_member_lists_post**](docs/OffersMemberListsApi.md#v10_offers_offer_id_member_lists_post) | **POST** /v1.0/offers/:offer_id/member_lists | Set eligible Member Lists for offer
-*OffersMemberListsApi* | [**v10_offers_offer_id_member_lists_put**](docs/OffersMemberListsApi.md#v10_offers_offer_id_member_lists_put) | **PUT** /v1.0/offers/:offer_id/member_lists | Add eligible Member Lists for offer
-*OffersMerchantsApi* | [**v10_offers_offer_id_merchants_delete**](docs/OffersMerchantsApi.md#v10_offers_offer_id_merchants_delete) | **DELETE** /v1.0/offers/:offer_id/merchants | Remove eligible Merchants from offer
-*OffersMerchantsApi* | [**v10_offers_offer_id_merchants_get**](docs/OffersMerchantsApi.md#v10_offers_offer_id_merchants_get) | **GET** /v1.0/offers/:offer_id/merchants | Eligible Merchants List
-*OffersMerchantsApi* | [**v10_offers_offer_id_merchants_post**](docs/OffersMerchantsApi.md#v10_offers_offer_id_merchants_post) | **POST** /v1.0/offers/:offer_id/merchants | Set eligible Merchants for offer
-*OffersMerchantsApi* | [**v10_offers_offer_id_merchants_put**](docs/OffersMerchantsApi.md#v10_offers_offer_id_merchants_put) | **PUT** /v1.0/offers/:offer_id/merchants | Add eligible Merchants for offer
-*OffersPassbookConfigurationApi* | [**v10_offers_offer_id_passbook_configuration_delete**](docs/OffersPassbookConfigurationApi.md#v10_offers_offer_id_passbook_configuration_delete) | **DELETE** /v1.0/offers/:offer_id/passbook_configuration | Passbook Configuration Delete for Offer
-*OffersPassbookConfigurationApi* | [**v10_offers_offer_id_passbook_configuration_get**](docs/OffersPassbookConfigurationApi.md#v10_offers_offer_id_passbook_configuration_get) | **GET** /v1.0/offers/:offer_id/passbook_configuration | Get Passbook Configuration for Offer
-*OffersPassbookConfigurationApi* | [**v10_offers_offer_id_passbook_configuration_post**](docs/OffersPassbookConfigurationApi.md#v10_offers_offer_id_passbook_configuration_post) | **POST** /v1.0/offers/:offer_id/passbook_configuration | Passbook Configuration Create
-*OffersPassbookConfigurationApi* | [**v10_offers_offer_id_passbook_configuration_put**](docs/OffersPassbookConfigurationApi.md#v10_offers_offer_id_passbook_configuration_put) | **PUT** /v1.0/offers/:offer_id/passbook_configuration | Update Passbook Configuration for Offer
-*OffersStoreListsApi* | [**v10_offers_offer_id_store_lists_delete**](docs/OffersStoreListsApi.md#v10_offers_offer_id_store_lists_delete) | **DELETE** /v1.0/offers/:offer_id/store_lists | Remove eligible Store Lists from offer
-*OffersStoreListsApi* | [**v10_offers_offer_id_store_lists_get**](docs/OffersStoreListsApi.md#v10_offers_offer_id_store_lists_get) | **GET** /v1.0/offers/:offer_id/store_lists | Eligible Store Lists List
-*OffersStoreListsApi* | [**v10_offers_offer_id_store_lists_post**](docs/OffersStoreListsApi.md#v10_offers_offer_id_store_lists_post) | **POST** /v1.0/offers/:offer_id/store_lists | Set eligible Store Lists for offer
-*OffersStoreListsApi* | [**v10_offers_offer_id_store_lists_put**](docs/OffersStoreListsApi.md#v10_offers_offer_id_store_lists_put) | **PUT** /v1.0/offers/:offer_id/store_lists | Add eligible Store Lists for offer
-*OffersStoresApi* | [**v10_offers_offer_id_stores_get**](docs/OffersStoresApi.md#v10_offers_offer_id_stores_get) | **GET** /v1.0/offers/:offer_id/stores | Get nearby Stores for Offer
-*POSOfferCodesApi* | [**v10_pos_offer_codes_get**](docs/POSOfferCodesApi.md#v10_pos_offer_codes_get) | **GET** /v1.0/pos_offer_codes | List POS Offer Codes
-*POSOfferCodesApi* | [**v10_pos_offer_codes_pos_offer_code_id_get**](docs/POSOfferCodesApi.md#v10_pos_offer_codes_pos_offer_code_id_get) | **GET** /v1.0/pos_offer_codes/:pos_offer_code_id | Get POS Offer Code
-*ReportsApi* | [**v10_merchants_merchant_id_reports_full_get**](docs/ReportsApi.md#v10_merchants_merchant_id_reports_full_get) | **GET** /v1.0/merchants/:merchant_id/reports/full | Generates a report of full Merchant data in a given timeframe for a single Merchant
-*ReportsApi* | [**v10_merchants_merchant_id_reports_impressions_get**](docs/ReportsApi.md#v10_merchants_merchant_id_reports_impressions_get) | **GET** /v1.0/merchants/:merchant_id/reports/impressions | Get Unique Impressions
-*ReportsApi* | [**v10_reports_account_level_get**](docs/ReportsApi.md#v10_reports_account_level_get) | **GET** /v1.0/reports/account_level | Generates a report of full Merchant data in a given timeframe for a all Merchants
-*ReportsApi* | [**v10_reports_offer_activity_get**](docs/ReportsApi.md#v10_reports_offer_activity_get) | **GET** /v1.0/reports/offer_activity | Generates a report of all offer activity in a given timeframe
-*ReportsApi* | [**v10_reports_redemptions_get**](docs/ReportsApi.md#v10_reports_redemptions_get) | **GET** /v1.0/reports/redemptions | Generates a report of all offer redemptions for a given timeframe and store list
-*ZidentifiersApi* | [**v10_members_member_id_offers_offer_id_zidentifiers_get**](docs/ZidentifiersApi.md#v10_members_member_id_offers_offer_id_zidentifiers_get) | **GET** /v1.0/members/:member_id/offers/:offer_id/zidentifiers | Create an identifier linking Offer, Member, Channel
-*ZidentifiersApi* | [**v10_members_zidentifiers_zid_get**](docs/ZidentifiersApi.md#v10_members_zidentifiers_zid_get) | **GET** /v1.0/members/zidentifiers/:zid | Get Zidentifier
+*AccountApi* | [**disable_callbacks**](docs/AccountApi.md#disable_callbacks) | **PUT** /v1.0/account/callbacks/disable | Disable Callbacks
+*AccountApi* | [**enable_callbacks**](docs/AccountApi.md#enable_callbacks) | **PUT** /v1.0/account/callbacks/enable | Enable Callbacks
+*AccountApi* | [**get_account**](docs/AccountApi.md#get_account) | **GET** /v1.0/account | View Account
+*AccountApi* | [**update_account**](docs/AccountApi.md#update_account) | **PUT** /v1.0/account | Update Account
+*AuthApi* | [**authenticate**](docs/AuthApi.md#authenticate) | **GET** /auth | authenticate and receive auth token
+*CampaignsApi* | [**create_campaign**](docs/CampaignsApi.md#create_campaign) | **POST** /v1.0/campaigns | Create a new campaign
+*CampaignsApi* | [**delete_campaign**](docs/CampaignsApi.md#delete_campaign) | **DELETE** /v1.0/campaigns/:campaign_id | Delete the campaign
+*CampaignsApi* | [**get_active_reward_program_campaigns**](docs/CampaignsApi.md#get_active_reward_program_campaigns) | **GET** /v1.0/campaigns/search | Get active reward program campaigns
+*CampaignsApi* | [**get_campaign**](docs/CampaignsApi.md#get_campaign) | **GET** /v1.0/campaigns/:campaign_id | Retrieve Campaign
+*CampaignsApi* | [**get_campaign_by_external_id**](docs/CampaignsApi.md#get_campaign_by_external_id) | **GET** /v1.0/campaigns | Get campaign by external ID
+*CampaignsApi* | [**update_campaign**](docs/CampaignsApi.md#update_campaign) | **PUT** /v1.0/campaigns/:campaign_id | Update Campaign
+*ChannelsApi* | [**create_channel**](docs/ChannelsApi.md#create_channel) | **POST** /v1.0/channels | Create a channel
+*ChannelsApi* | [**delete_channel**](docs/ChannelsApi.md#delete_channel) | **DELETE** /v1.0/channels/:channel_id | Delete channel by ID
+*ChannelsApi* | [**get_channel**](docs/ChannelsApi.md#get_channel) | **GET** /v1.0/channels/:channel_id | Get channel by ID
+*ChannelsApi* | [**get_channels**](docs/ChannelsApi.md#get_channels) | **GET** /v1.0/channels | Get channels
+*ChannelsApi* | [**update_channel**](docs/ChannelsApi.md#update_channel) | **PUT** /v1.0/channels/:channel_id | Update channel by ID
+*CountersApi* | [**create_counter**](docs/CountersApi.md#create_counter) | **POST** /v1.0/counters | Create a counter
+*CountersApi* | [**delete_counter**](docs/CountersApi.md#delete_counter) | **DELETE** /v1.0/counters/:counter_id | Delete counter by ID
+*CountersApi* | [**get_counter**](docs/CountersApi.md#get_counter) | **GET** /v1.0/counters/:counter_id | Get counter by ID
+*CountersApi* | [**get_counters**](docs/CountersApi.md#get_counters) | **GET** /v1.0/counters | Get counters
+*CountersApi* | [**update_counter**](docs/CountersApi.md#update_counter) | **PUT** /v1.0/counters/:counter_id | Update counter by ID
+*CredentialsApi* | [**create_credential**](docs/CredentialsApi.md#create_credential) | **POST** /v1.0/credentials | Creates a credential
+*CredentialsApi* | [**delete_credential**](docs/CredentialsApi.md#delete_credential) | **DELETE** /v1.0/credentials/:credential_id | Delete Credential
+*CredentialsApi* | [**get_credential**](docs/CredentialsApi.md#get_credential) | **GET** /v1.0/credentials/:credential_id | Get Credential
+*CredentialsApi* | [**get_credentials**](docs/CredentialsApi.md#get_credentials) | **GET** /v1.0/credentials | List Credentials
+*CredentialsApi* | [**get_offer_eligibility_for_member**](docs/CredentialsApi.md#get_offer_eligibility_for_member) | **GET** /v1.0/credentials/eligible | Determine if a member is eligible for an offer
+*CredentialsApi* | [**redeem_credential**](docs/CredentialsApi.md#redeem_credential) | **PUT** /v1.0/credentials/:credential_id/redeem | Redeem a credential
+*CredentialsApi* | [**update_credential**](docs/CredentialsApi.md#update_credential) | **PUT** /v1.0/credentials/:credential_id | Updates a credential
+*CredentialsApi* | [**void_credential**](docs/CredentialsApi.md#void_credential) | **PUT** /v1.0/credentials/:credential_id/void | Void a credential
+*EventsApi* | [**create_event**](docs/EventsApi.md#create_event) | **POST** /v1.0/events | Creates an event
+*EventsApi* | [**delete_event**](docs/EventsApi.md#delete_event) | **DELETE** /v1.0/events/:event_id | Delete the event
+*EventsApi* | [**get_event**](docs/EventsApi.md#get_event) | **GET** /v1.0/events/:event_id | Get event by ID
+*EventsApi* | [**get_events**](docs/EventsApi.md#get_events) | **GET** /v1.0/events | get all events
+*EventsApi* | [**update_event_name**](docs/EventsApi.md#update_event_name) | **PUT** /v1.0/events/:event_id | Change the name of an event
+*ImpressionsApi* | [**create_impression**](docs/ImpressionsApi.md#create_impression) | **POST** /v1.0/impressions | Creates an impression
+*ImpressionsApi* | [**delete_impression**](docs/ImpressionsApi.md#delete_impression) | **DELETE** /v1.0/impressions/:impression_id | Delete the impression
+*ImpressionsApi* | [**get_impressions**](docs/ImpressionsApi.md#get_impressions) | **GET** /v1.0/impressions | Get all impressions
+*ItemSetsApi* | [**create_item_sets**](docs/ItemSetsApi.md#create_item_sets) | **POST** /v1.0/item_sets | Create an item set
+*ItemSetsApi* | [**delete_item_set**](docs/ItemSetsApi.md#delete_item_set) | **DELETE** /v1.0/item_sets/:item_set_id | Delete item set by ID
+*ItemSetsApi* | [**get_item_set**](docs/ItemSetsApi.md#get_item_set) | **GET** /v1.0/item_sets/:item_set_id | Get item set by ID
+*ItemSetsApi* | [**get_item_set_items**](docs/ItemSetsApi.md#get_item_set_items) | **GET** /v1.0/item_sets/:item_set_id/items | Get items for item set
+*ItemSetsApi* | [**get_item_sets**](docs/ItemSetsApi.md#get_item_sets) | **GET** /v1.0/item_sets | Get all item sets
+*ItemSetsApi* | [**update_item_set**](docs/ItemSetsApi.md#update_item_set) | **PUT** /v1.0/item_sets/:item_set_id | Update item set by ID
+*ItemsApi* | [**create_item**](docs/ItemsApi.md#create_item) | **POST** /v1.0/items | Create an item
+*ItemsApi* | [**delete_item**](docs/ItemsApi.md#delete_item) | **DELETE** /v1.0/items/:item_id | Delete item by ID
+*ItemsApi* | [**get_item**](docs/ItemsApi.md#get_item) | **GET** /v1.0/items/:item_id | Get item by ID
+*ItemsApi* | [**get_items**](docs/ItemsApi.md#get_items) | **GET** /v1.0/items | Get all items
+*ItemsApi* | [**update_item**](docs/ItemsApi.md#update_item) | **PUT** /v1.0/items/:item_id | Update item by ID
+*LoyaltyPointsApi* | [**get_points_card_status**](docs/LoyaltyPointsApi.md#get_points_card_status) | **GET** /v1.0/points/card_status | Check Card Status
+*LoyaltyPointsApi* | [**transfer_loyalty_points**](docs/LoyaltyPointsApi.md#transfer_loyalty_points) | **POST** /v1.0/points/transfer | Transfer Loyalty Points
+*ManufacturersApi* | [**create_manufacturer**](docs/ManufacturersApi.md#create_manufacturer) | **POST** /v1.0/manufacturers | Create a manufacturer
+*ManufacturersApi* | [**delete_manufacturer**](docs/ManufacturersApi.md#delete_manufacturer) | **DELETE** /v1.0/manufacturers/:manufacturer_id | Delete manufacturer by ID
+*ManufacturersApi* | [**get_manufacturer**](docs/ManufacturersApi.md#get_manufacturer) | **GET** /v1.0/manufacturers/:manufacturer_id | Get manufacturer by ID
+*ManufacturersApi* | [**get_manufacturers**](docs/ManufacturersApi.md#get_manufacturers) | **GET** /v1.0/manufacturers | Get all manufacturers
+*ManufacturersApi* | [**update_manufacturer**](docs/ManufacturersApi.md#update_manufacturer) | **PUT** /v1.0/manufacturers/:manufacturer_id | Update manufacturer by ID
+*ManufacturersItemSetsApi* | [**create_manufacturer_item_sets**](docs/ManufacturersItemSetsApi.md#create_manufacturer_item_sets) | **POST** /v1.0/manufacturers/:manufacturer_id/item_sets | Create an item set for manufacturer
+*ManufacturersItemSetsApi* | [**delete_manufacturer_item_set**](docs/ManufacturersItemSetsApi.md#delete_manufacturer_item_set) | **DELETE** /v1.0/manufacturers/:manufacturer_id/item_sets/:item_set_id | Delete item set by ID for manufacturer
+*ManufacturersItemSetsApi* | [**get_manufacturer_item_set**](docs/ManufacturersItemSetsApi.md#get_manufacturer_item_set) | **GET** /v1.0/manufacturers/:manufacturer_id/item_sets/:item_set_id | Get item set by ID for manufacturer
+*ManufacturersItemSetsApi* | [**get_manufacturer_item_sets**](docs/ManufacturersItemSetsApi.md#get_manufacturer_item_sets) | **GET** /v1.0/manufacturers/:manufacturer_id/item_sets | Get all item sets for manufacturer
+*ManufacturersItemSetsApi* | [**update_manufacturer_item_set**](docs/ManufacturersItemSetsApi.md#update_manufacturer_item_set) | **PUT** /v1.0/manufacturers/:manufacturer_id/item_sets/:item_set_id | Update item set by ID for manufacturer
+*ManufacturersItemSetsItemsApi* | [**get_manufacturer_item_set_items**](docs/ManufacturersItemSetsItemsApi.md#get_manufacturer_item_set_items) | **GET** /v1.0/manufacturers/:manufacturer_id/item_sets/:item_set_id/items | Get items for item set for manufacturer
+*ManufacturersItemsApi* | [**create_manufacturer_item**](docs/ManufacturersItemsApi.md#create_manufacturer_item) | **POST** /v1.0/manufacturers/:manufacturer_id/items | Create an item for manufacturer
+*ManufacturersItemsApi* | [**delete_manufacturer_item**](docs/ManufacturersItemsApi.md#delete_manufacturer_item) | **DELETE** /v1.0/manufacturers/:manufacturer_id/items/:item_id | Delete item by ID for manufacturer
+*ManufacturersItemsApi* | [**get_manufacturer_item**](docs/ManufacturersItemsApi.md#get_manufacturer_item) | **GET** /v1.0/manufacturers/:manufacturer_id/items/:item_id | Get item by ID for manufacturer
+*ManufacturersItemsApi* | [**get_manufacturer_items**](docs/ManufacturersItemsApi.md#get_manufacturer_items) | **GET** /v1.0/manufacturers/:manufacturer_id/items | Get all items for manufacturer
+*ManufacturersItemsApi* | [**update_manufacturer_item**](docs/ManufacturersItemsApi.md#update_manufacturer_item) | **PUT** /v1.0/manufacturers/:manufacturer_id/items/:item_id | Update item by ID for manufacturer
+*ManufacturersMerchantsApi* | [**delete_manufacturer_merchants**](docs/ManufacturersMerchantsApi.md#delete_manufacturer_merchants) | **DELETE** /v1.0/manufacturers/:manufacturer_id/merchants | Remove an eligible merchant for manufacturer
+*ManufacturersMerchantsApi* | [**get_manufacturer_merchants**](docs/ManufacturersMerchantsApi.md#get_manufacturer_merchants) | **GET** /v1.0/manufacturers/:manufacturer_id/merchants | Get all merchants for manufacturer
+*ManufacturersMerchantsApi* | [**set_manufacturer_merchants**](docs/ManufacturersMerchantsApi.md#set_manufacturer_merchants) | **POST** /v1.0/manufacturers/:manufacturer_id/merchants | Set eligible merchants for manufacturer
+*ManufacturersMerchantsApi* | [**update_manufacturer_merchants**](docs/ManufacturersMerchantsApi.md#update_manufacturer_merchants) | **PUT** /v1.0/manufacturers/:manufacturer_id/merchants | Add an eligible merchant for manufacturer
+*MemberListsApi* | [**create_member_list**](docs/MemberListsApi.md#create_member_list) | **POST** /v1.0/member_lists | Create a member list
+*MemberListsApi* | [**delete_member_list**](docs/MemberListsApi.md#delete_member_list) | **DELETE** /v1.0/member_lists/:member_list_id | Delete Member List by ID
+*MemberListsApi* | [**get_member_list**](docs/MemberListsApi.md#get_member_list) | **GET** /v1.0/member_lists/:member_list_id | Get member list by ID
+*MemberListsApi* | [**get_member_lists**](docs/MemberListsApi.md#get_member_lists) | **GET** /v1.0/member_lists | Get all member lists
+*MemberListsApi* | [**update_member_list**](docs/MemberListsApi.md#update_member_list) | **PUT** /v1.0/member_lists/:member_list_id | Update Member List by ID
+*MemberListsMembersApi* | [**delete_member_list_members**](docs/MemberListsMembersApi.md#delete_member_list_members) | **DELETE** /v1.0/member_lists/:member_list_id/members | Remove an eligible member for member_list
+*MemberListsMembersApi* | [**get_member_list_members**](docs/MemberListsMembersApi.md#get_member_list_members) | **GET** /v1.0/member_lists/:member_list_id/members | Get all Members for Member List
+*MemberListsMembersApi* | [**set_member_list_members**](docs/MemberListsMembersApi.md#set_member_list_members) | **POST** /v1.0/member_lists/:member_list_id/members | Set eligible members for Member List
+*MemberListsMembersApi* | [**update_member_list_members**](docs/MemberListsMembersApi.md#update_member_list_members) | **PUT** /v1.0/member_lists/:member_list_id/members | Add eligible members for Member List
+*MemberOffersOfferWalletApi* | [**create_member_offer_state**](docs/MemberOffersOfferWalletApi.md#create_member_offer_state) | **POST** /v1.0/members/:member_id/offer_states | Create a new Member Offer State and provide optional activation and expiration dates
+*MemberOffersOfferWalletApi* | [**get_member_offer_state**](docs/MemberOffersOfferWalletApi.md#get_member_offer_state) | **GET** /v1.0/members/:member_id/offer_states/:offer_state_id | Get an individual Offer State for a Member
+*MemberOffersOfferWalletApi* | [**get_member_offer_states**](docs/MemberOffersOfferWalletApi.md#get_member_offer_states) | **GET** /v1.0/members/:member_id/offer_states | Get the entire list of Offer States for a Member
+*MemberOffersOfferWalletApi* | [**get_members_with_offer_states**](docs/MemberOffersOfferWalletApi.md#get_members_with_offer_states) | **GET** /v1.0/members/offer_states | Retrieve Offer States
+*MemberOffersOfferWalletApi* | [**update_member_offer_state**](docs/MemberOffersOfferWalletApi.md#update_member_offer_state) | **PUT** /v1.0/members/:member_id/offer_states/:offer_state_id | Update an individual Offer State for a Member - in order to change the availability
+*MemberOffersOfferWalletApi* | [**void_member_offer_state**](docs/MemberOffersOfferWalletApi.md#void_member_offer_state) | **POST** /v1.0/members/:member_id/offer_states/:offer_state_id/void | Voids an individual Offer State for a Member by Member ID
+*MemberOffersOfferWalletApi* | [**void_offer_state_by_member_identifier**](docs/MemberOffersOfferWalletApi.md#void_offer_state_by_member_identifier) | **POST** /v1.0/members/offer_states/:offer_state_id/void | Voids an individual Offer State for a Member by Member Identifier
+*MemberPrivacyApi* | [**create_member_deletion_request**](docs/MemberPrivacyApi.md#create_member_deletion_request) | **POST** /v1.0/privacy/member/delete_request | Creates a deletion request for a member
+*MemberPrivacyApi* | [**export_member_data**](docs/MemberPrivacyApi.md#export_member_data) | **GET** /v1.0/privacy/member/export | Exports data associated with a member
+*MembersApi* | [**create_member**](docs/MembersApi.md#create_member) | **POST** /v1.0/members | Creates a member
+*MembersApi* | [**delete_member**](docs/MembersApi.md#delete_member) | **DELETE** /v1.0/members/:member_id | Delete the member
+*MembersApi* | [**get_member**](docs/MembersApi.md#get_member) | **GET** /v1.0/members/:member_id | Retrieve Member
+*MembersApi* | [**get_members**](docs/MembersApi.md#get_members) | **GET** /v1.0/members | List members
+*MembersApi* | [**get_members_by_identifier**](docs/MembersApi.md#get_members_by_identifier) | **GET** /v1.0/members/search | Search for Member by Identifier
+*MembersApi* | [**update_member**](docs/MembersApi.md#update_member) | **PUT** /v1.0/members/:member_id | Update Member
+*MerchantsApi* | [**create_merchant**](docs/MerchantsApi.md#create_merchant) | **POST** /v1.0/merchants | Create a merchant
+*MerchantsApi* | [**delete_merchant**](docs/MerchantsApi.md#delete_merchant) | **DELETE** /v1.0/merchants/:merchant_id | Delete merchant by ID
+*MerchantsApi* | [**get_merchant**](docs/MerchantsApi.md#get_merchant) | **GET** /v1.0/merchants/:merchant_id | Get merchant by ID
+*MerchantsApi* | [**get_merchants**](docs/MerchantsApi.md#get_merchants) | **GET** /v1.0/merchants | Get all merchants
+*MerchantsApi* | [**update_merchant**](docs/MerchantsApi.md#update_merchant) | **PUT** /v1.0/merchants/:merchant_id | Update merchant by ID
+*MerchantsItemSetsApi* | [**create_merchant_item_set**](docs/MerchantsItemSetsApi.md#create_merchant_item_set) | **POST** /v1.0/merchants/:merchant_id/item_sets | Create an item set for merchant
+*MerchantsItemSetsApi* | [**delete_merchant_item_set**](docs/MerchantsItemSetsApi.md#delete_merchant_item_set) | **DELETE** /v1.0/merchants/:merchant_id/item_sets/:item_set_id | Delete item set by ID for merchant
+*MerchantsItemSetsApi* | [**get_merchant_item_set**](docs/MerchantsItemSetsApi.md#get_merchant_item_set) | **GET** /v1.0/merchants/:merchant_id/item_sets/:item_set_id | Get item set by ID for merchant
+*MerchantsItemSetsApi* | [**get_merchant_item_sets**](docs/MerchantsItemSetsApi.md#get_merchant_item_sets) | **GET** /v1.0/merchants/:merchant_id/item_sets | Get all item sets for merchant
+*MerchantsItemSetsApi* | [**update_merchant_item_set**](docs/MerchantsItemSetsApi.md#update_merchant_item_set) | **PUT** /v1.0/merchants/:merchant_id/item_sets/:item_set_id | Update item set by ID for merchant
+*MerchantsItemSetsItemsApi* | [**get_merchant_item_set_items**](docs/MerchantsItemSetsItemsApi.md#get_merchant_item_set_items) | **GET** /v1.0/merchants/:merchant_id/item_sets/:item_set_id/items | Get items for item set for merchant
+*MerchantsItemsApi* | [**create_merchant_item**](docs/MerchantsItemsApi.md#create_merchant_item) | **POST** /v1.0/merchants/:merchant_id/items | Create an item for merchant
+*MerchantsItemsApi* | [**delete_merchant_item**](docs/MerchantsItemsApi.md#delete_merchant_item) | **DELETE** /v1.0/merchants/:merchant_id/items/:item_id | Delete item by ID for merchant
+*MerchantsItemsApi* | [**get_merchant_item**](docs/MerchantsItemsApi.md#get_merchant_item) | **GET** /v1.0/merchants/:merchant_id/items/:item_id | Get item by ID for merchant
+*MerchantsItemsApi* | [**get_merchant_items**](docs/MerchantsItemsApi.md#get_merchant_items) | **GET** /v1.0/merchants/:merchant_id/items | Get all items for merchant
+*MerchantsItemsApi* | [**update_merchant_item**](docs/MerchantsItemsApi.md#update_merchant_item) | **PUT** /v1.0/merchants/:merchant_id/items/:item_id | Update item by ID for merchant
+*MerchantsOffersApi* | [**get_merchant_offers**](docs/MerchantsOffersApi.md#get_merchant_offers) | **GET** /v1.0/merchants/:merchant_id/offers | List offers for merchant
+*MerchantsStoreListsApi* | [**create_merchant_store_list**](docs/MerchantsStoreListsApi.md#create_merchant_store_list) | **POST** /v1.0/merchants/:merchant_id/store_lists | Create an Store List for merchant
+*MerchantsStoreListsApi* | [**delete_merchant_store_list**](docs/MerchantsStoreListsApi.md#delete_merchant_store_list) | **DELETE** /v1.0/merchants/:merchant_id/store_lists/:store_list_id | Delete Store List by ID for merchant
+*MerchantsStoreListsApi* | [**delete_merchant_store_list_stores**](docs/MerchantsStoreListsApi.md#delete_merchant_store_list_stores) | **DELETE** /v1.0/merchants/store_lists/:store_list_id/stores | Remove an eligible Store for store_list
+*MerchantsStoreListsApi* | [**get_merchant_store_list**](docs/MerchantsStoreListsApi.md#get_merchant_store_list) | **GET** /v1.0/merchants/:merchant_id/store_lists/:store_list_id | Get Store List by ID for merchant
+*MerchantsStoreListsApi* | [**get_merchant_store_list_stores**](docs/MerchantsStoreListsApi.md#get_merchant_store_list_stores) | **GET** /v1.0/merchants/store_lists/:store_list_id/stores | Get all Stores for Store List
+*MerchantsStoreListsApi* | [**get_merchant_store_list_stores_detailed**](docs/MerchantsStoreListsApi.md#get_merchant_store_list_stores_detailed) | **GET** /v1.0/merchants/:merchant_id/store_lists/:store_list_id/stores | Get all Stores for Store List (detailed)
+*MerchantsStoreListsApi* | [**get_merchant_store_lists**](docs/MerchantsStoreListsApi.md#get_merchant_store_lists) | **GET** /v1.0/merchants/:merchant_id/store_lists | Get all Store Lists for merchant
+*MerchantsStoreListsApi* | [**set_merchant_store_list_stores**](docs/MerchantsStoreListsApi.md#set_merchant_store_list_stores) | **POST** /v1.0/merchants/store_lists/:store_list_id/stores | Set eligible Stores for Store List
+*MerchantsStoreListsApi* | [**update_merchant_store_list**](docs/MerchantsStoreListsApi.md#update_merchant_store_list) | **PUT** /v1.0/merchants/:merchant_id/store_lists/:store_list_id | Update Store List by ID for merchant
+*MerchantsStoreListsApi* | [**update_merchant_store_list_stores**](docs/MerchantsStoreListsApi.md#update_merchant_store_list_stores) | **PUT** /v1.0/merchants/store_lists/:store_list_id/stores | Add eligible Stores for Store List
+*MerchantsStoresApi* | [**create_merchant_store**](docs/MerchantsStoresApi.md#create_merchant_store) | **POST** /v1.0/merchants/:merchant_id/stores | Create an Store for merchant
+*MerchantsStoresApi* | [**delete_merchant_store**](docs/MerchantsStoresApi.md#delete_merchant_store) | **DELETE** /v1.0/merchants/:merchant_id/stores/:store_id | Delete Store by ID for merchant
+*MerchantsStoresApi* | [**get_filtered_merchant_stores**](docs/MerchantsStoresApi.md#get_filtered_merchant_stores) | **GET** /v1.0/merchants/stores/index | Get and Filter Stores WITH Active Offers (stores/index)
+*MerchantsStoresApi* | [**get_merchant_store**](docs/MerchantsStoresApi.md#get_merchant_store) | **GET** /v1.0/merchants/:merchant_id/stores/:store_id | Get Store by ID for merchant
+*MerchantsStoresApi* | [**get_merchant_store_offer_ids**](docs/MerchantsStoresApi.md#get_merchant_store_offer_ids) | **GET** /v1.0/merchants/:merchant_id/stores/:store_id/offers | List Offer IDs for Merchant and Store
+*MerchantsStoresApi* | [**get_merchant_store_without_merchant**](docs/MerchantsStoresApi.md#get_merchant_store_without_merchant) | **GET** /v1.0/merchants/stores/:store_id | Get Store by ID (without merchant)
+*MerchantsStoresApi* | [**get_merchant_stores**](docs/MerchantsStoresApi.md#get_merchant_stores) | **GET** /v1.0/merchants/:merchant_id/stores | Get all Stores for merchant
+*MerchantsStoresApi* | [**get_nearby_filtered_merchant_stores**](docs/MerchantsStoresApi.md#get_nearby_filtered_merchant_stores) | **GET** /v1.0/merchants/stores/nearby/index | Get and Filter Stores WITH Active Offers (stores/nearby/index)
+*MerchantsStoresApi* | [**get_nearby_merchant_stores**](docs/MerchantsStoresApi.md#get_nearby_merchant_stores) | **GET** /v1.0/merchants/stores/nearby/:lat/:lng/index | Get and Filter Stores WITH Active Offers (stores/nearby/:lat/:lng/index)
+*MerchantsStoresApi* | [**update_merchant_store**](docs/MerchantsStoresApi.md#update_merchant_store) | **PUT** /v1.0/merchants/:merchant_id/stores/:store_id | Update Store by ID for merchant
+*OfferEngineApi* | [**check_in_member_to_store**](docs/OfferEngineApi.md#check_in_member_to_store) | **POST** /v1.0/members/:member_id/stores/:store_id/check-in | Check-In Member to Store
+*OfferEngineApi* | [**get_member_offer_activities**](docs/OfferEngineApi.md#get_member_offer_activities) | **GET** /v1.0/activities/offers | Retrieve Offer Activities for Member
+*OfferEngineApi* | [**get_member_redemptions**](docs/OfferEngineApi.md#get_member_redemptions) | **GET** /v1.0/members/:member_id/activities/redemptions | Retrieve Redeemed Redemptions for Member
+*OfferEngineApi* | [**get_member_store**](docs/OfferEngineApi.md#get_member_store) | **GET** /v1.0/members/:member_id/stores/:store_id | Retrieve Store for Member
+*OfferEngineApi* | [**get_member_store_redemptions**](docs/OfferEngineApi.md#get_member_store_redemptions) | **GET** /v1.0/members/:member_id/stores/:store_id/activities/redemptions | Retrieve Redeemed Redemptions for Member for Store
+*OffersApi* | [**create_offer**](docs/OffersApi.md#create_offer) | **POST** /v1.0/offers | Creates an offer
+*OffersApi* | [**delete_offer**](docs/OffersApi.md#delete_offer) | **DELETE** /v1.0/offers/:offer_id | Delete the offer
+*OffersApi* | [**get_offer**](docs/OffersApi.md#get_offer) | **GET** /v1.0/offers/:offer_id | Retrieve Offer
+*OffersApi* | [**get_offers**](docs/OffersApi.md#get_offers) | **GET** /v1.0/offers | List offers
+*OffersApi* | [**update_offer**](docs/OffersApi.md#update_offer) | **PUT** /v1.0/offers/:offer_id | Update Offer
+*OffersChannelsApi* | [**delete_offer_channels**](docs/OffersChannelsApi.md#delete_offer_channels) | **DELETE** /v1.0/offers/:offer_id/channels | Remove eligible Channels from offer
+*OffersChannelsApi* | [**get_offer_channel**](docs/OffersChannelsApi.md#get_offer_channel) | **GET** /v1.0/offers/:offer_id/channels/:channel_id | Eligible Channel Show
+*OffersChannelsApi* | [**get_offer_channels**](docs/OffersChannelsApi.md#get_offer_channels) | **GET** /v1.0/offers/:offer_id/channels | Eligible Channels List
+*OffersChannelsApi* | [**set_offer_channels**](docs/OffersChannelsApi.md#set_offer_channels) | **POST** /v1.0/offers/:offer_id/channels | Set eligible Channels for offer
+*OffersChannelsApi* | [**update_offer_channel**](docs/OffersChannelsApi.md#update_offer_channel) | **PUT** /v1.0/offers/:offer_id/channels/:channel_id | Eligible Channel Update
+*OffersChannelsApi* | [**update_offer_channels**](docs/OffersChannelsApi.md#update_offer_channels) | **PUT** /v1.0/offers/:offer_id/channels | Add eligible Channels for offer
+*OffersEligibleItemSetsApi* | [**get_offer_eligible_item_sets**](docs/OffersEligibleItemSetsApi.md#get_offer_eligible_item_sets) | **GET** /v1.0/offers/:offer_id/eligible_item_sets | Eligible Item Sets List
+*OffersItemSetsApi* | [**delete_offer_eligible_item_set**](docs/OffersItemSetsApi.md#delete_offer_eligible_item_set) | **DELETE** /v1.0/offers/:offer_id/eligible_item_sets/:eligible_item_set_id | Remove eligible Item Set from offer
+*OffersItemSetsApi* | [**get_offer_eligible_item_set**](docs/OffersItemSetsApi.md#get_offer_eligible_item_set) | **GET** /v1.0/offers/:offer_id/eligible_item_sets/:eligible_item_set_id | Retrieve eligible Item Set for offer
+*OffersItemSetsApi* | [**set_offer_eligible_item_sets**](docs/OffersItemSetsApi.md#set_offer_eligible_item_sets) | **POST** /v1.0/offers/:offer_id/eligible_item_sets | Eligible Item Set for Offer - Create
+*OffersItemSetsApi* | [**update_offer_eligible_item_set**](docs/OffersItemSetsApi.md#update_offer_eligible_item_set) | **PUT** /v1.0/offers/:offer_id/eligible_item_sets/:eligible_item_set_id | Update eligible Item Set for offer
+*OffersMemberListsApi* | [**delete_offer_member_lists**](docs/OffersMemberListsApi.md#delete_offer_member_lists) | **DELETE** /v1.0/offers/:offer_id/member_lists | Remove eligible Member Lists from offer
+*OffersMemberListsApi* | [**get_offer_member_lists**](docs/OffersMemberListsApi.md#get_offer_member_lists) | **GET** /v1.0/offers/:offer_id/member_lists | Eligible Member Lists List
+*OffersMemberListsApi* | [**set_offer_member_lists**](docs/OffersMemberListsApi.md#set_offer_member_lists) | **POST** /v1.0/offers/:offer_id/member_lists | Set eligible Member Lists for offer
+*OffersMemberListsApi* | [**update_offer_member_lists**](docs/OffersMemberListsApi.md#update_offer_member_lists) | **PUT** /v1.0/offers/:offer_id/member_lists | Add eligible Member Lists for offer
+*OffersMerchantsApi* | [**delete_offer_merchants**](docs/OffersMerchantsApi.md#delete_offer_merchants) | **DELETE** /v1.0/offers/:offer_id/merchants | Remove eligible Merchants from offer
+*OffersMerchantsApi* | [**get_offer_merchants**](docs/OffersMerchantsApi.md#get_offer_merchants) | **GET** /v1.0/offers/:offer_id/merchants | Eligible Merchants List
+*OffersMerchantsApi* | [**set_offer_merchants**](docs/OffersMerchantsApi.md#set_offer_merchants) | **POST** /v1.0/offers/:offer_id/merchants | Set eligible Merchants for offer
+*OffersMerchantsApi* | [**update_offer_merchants**](docs/OffersMerchantsApi.md#update_offer_merchants) | **PUT** /v1.0/offers/:offer_id/merchants | Add eligible Merchants for offer
+*OffersPassbookConfigurationApi* | [**create_offer_passbook_configuration**](docs/OffersPassbookConfigurationApi.md#create_offer_passbook_configuration) | **POST** /v1.0/offers/:offer_id/passbook_configuration | Passbook Configuration Create
+*OffersPassbookConfigurationApi* | [**delete_offer_passbook_configuration**](docs/OffersPassbookConfigurationApi.md#delete_offer_passbook_configuration) | **DELETE** /v1.0/offers/:offer_id/passbook_configuration | Passbook Configuration Delete for Offer
+*OffersPassbookConfigurationApi* | [**get_offer_passbook_configuration**](docs/OffersPassbookConfigurationApi.md#get_offer_passbook_configuration) | **GET** /v1.0/offers/:offer_id/passbook_configuration | Get Passbook Configuration for Offer
+*OffersPassbookConfigurationApi* | [**update_offer_passbook_configuration**](docs/OffersPassbookConfigurationApi.md#update_offer_passbook_configuration) | **PUT** /v1.0/offers/:offer_id/passbook_configuration | Update Passbook Configuration for Offer
+*OffersStoreListsApi* | [**delete_offer_store_lists**](docs/OffersStoreListsApi.md#delete_offer_store_lists) | **DELETE** /v1.0/offers/:offer_id/store_lists | Remove eligible Store Lists from offer
+*OffersStoreListsApi* | [**get_offer_store_lists**](docs/OffersStoreListsApi.md#get_offer_store_lists) | **GET** /v1.0/offers/:offer_id/store_lists | Eligible Store Lists List
+*OffersStoreListsApi* | [**set_offer_store_lists**](docs/OffersStoreListsApi.md#set_offer_store_lists) | **POST** /v1.0/offers/:offer_id/store_lists | Set eligible Store Lists for offer
+*OffersStoreListsApi* | [**update_offer_store_lists**](docs/OffersStoreListsApi.md#update_offer_store_lists) | **PUT** /v1.0/offers/:offer_id/store_lists | Add eligible Store Lists for offer
+*OffersStoresApi* | [**get_nearby_offer_stores**](docs/OffersStoresApi.md#get_nearby_offer_stores) | **GET** /v1.0/offers/:offer_id/stores | Get nearby Stores for Offer
+*POSOfferCodesApi* | [**get_pos_offer_code**](docs/POSOfferCodesApi.md#get_pos_offer_code) | **GET** /v1.0/pos_offer_codes/:pos_offer_code_id | Get POS Offer Code
+*POSOfferCodesApi* | [**get_pos_offer_codes**](docs/POSOfferCodesApi.md#get_pos_offer_codes) | **GET** /v1.0/pos_offer_codes | List POS Offer Codes
+*ReportsApi* | [**get_all_merchant_data**](docs/ReportsApi.md#get_all_merchant_data) | **GET** /v1.0/reports/account_level | Generates a report of full Merchant data in a given timeframe for a all Merchants
+*ReportsApi* | [**get_merchant_data**](docs/ReportsApi.md#get_merchant_data) | **GET** /v1.0/merchants/:merchant_id/reports/full | Generates a report of full Merchant data in a given timeframe for a single Merchant
+*ReportsApi* | [**get_merchant_impressions**](docs/ReportsApi.md#get_merchant_impressions) | **GET** /v1.0/merchants/:merchant_id/reports/impressions | Get Unique Impressions
+*ReportsApi* | [**get_offer_activity**](docs/ReportsApi.md#get_offer_activity) | **GET** /v1.0/reports/offer_activity | Generates a report of all offer activity in a given timeframe
+*ReportsApi* | [**get_offer_redemptions**](docs/ReportsApi.md#get_offer_redemptions) | **GET** /v1.0/reports/redemptions | Generates a report of all offer redemptions for a given timeframe and store list
+*ZidentifiersApi* | [**create_z_identifier**](docs/ZidentifiersApi.md#create_z_identifier) | **GET** /v1.0/members/:member_id/offers/:offer_id/zidentifiers | Create an identifier linking Offer, Member, Channel
+*ZidentifiersApi* | [**get_z_identifier**](docs/ZidentifiersApi.md#get_z_identifier) | **GET** /v1.0/members/zidentifiers/:zid | Get Zidentifier
 
 
 ## Documentation For Models

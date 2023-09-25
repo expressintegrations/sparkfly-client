@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.account_api import AccountApi  # noqa: E501
+from sparkfly_client.api.account_api import AccountApi  # noqa: E501
 
 
 class TestAccountApi(unittest.TestCase):
@@ -26,31 +26,31 @@ class TestAccountApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_account_callbacks_disable_put(self) -> None:
-        """Test case for v10_account_callbacks_disable_put
-
-        Disable Callbacks  # noqa: E501
-        """
-        pass
-
-    def test_v10_account_callbacks_enable_put(self) -> None:
-        """Test case for v10_account_callbacks_enable_put
-
-        Enable Callbacks  # noqa: E501
-        """
-        pass
-
-    def test_v10_account_get(self) -> None:
-        """Test case for v10_account_get
+    def test_account(self) -> None:
+        """Test case for account
 
         View Account  # noqa: E501
         """
         pass
 
-    def test_v10_account_put(self) -> None:
-        """Test case for v10_account_put
+    def test_account_0(self) -> None:
+        """Test case for account_0
 
         Update Account  # noqa: E501
+        """
+        pass
+
+    def test_callbacks(self) -> None:
+        """Test case for callbacks
+
+        Disable Callbacks  # noqa: E501
+        """
+        pass
+
+    def test_callbacks_0(self) -> None:
+        """Test case for callbacks_0
+
+        Enable Callbacks  # noqa: E501
         """
         pass
 

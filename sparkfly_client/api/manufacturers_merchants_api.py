@@ -47,13 +47,13 @@ class ManufacturersMerchantsApi:
         self.api_client = api_client
 
     @validate_arguments
-    def v10_manufacturers_manufacturer_id_merchants_delete(self, manufacturer_id : Annotated[StrictInt, Field(..., description="The id of the manufacturer")], manufacturer_merchant_ids_input_request : Annotated[Optional[ManufacturerMerchantIdsInputRequest], Field(description="Merchant to remove from manufacturer")] = None, **kwargs) -> ManufacturerMerchantsResponse:  # noqa: E501
+    def delete_manufacturer_merchants(self, manufacturer_id : Annotated[StrictInt, Field(..., description="The id of the manufacturer")], manufacturer_merchant_ids_input_request : Annotated[Optional[ManufacturerMerchantIdsInputRequest], Field(description="Merchant to remove from manufacturer")] = None, **kwargs) -> ManufacturerMerchantsResponse:  # noqa: E501
         """Remove an eligible merchant for manufacturer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_manufacturers_manufacturer_id_merchants_delete(manufacturer_id, manufacturer_merchant_ids_input_request, async_req=True)
+        >>> thread = api.delete_manufacturer_merchants(manufacturer_id, manufacturer_merchant_ids_input_request, async_req=True)
         >>> result = thread.get()
 
         :param manufacturer_id: The id of the manufacturer (required)
@@ -73,18 +73,18 @@ class ManufacturersMerchantsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_manufacturers_manufacturer_id_merchants_delete_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the delete_manufacturer_merchants_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_manufacturers_manufacturer_id_merchants_delete_with_http_info(manufacturer_id, manufacturer_merchant_ids_input_request, **kwargs)  # noqa: E501
+        return self.delete_manufacturer_merchants_with_http_info(manufacturer_id, manufacturer_merchant_ids_input_request, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_manufacturers_manufacturer_id_merchants_delete_with_http_info(self, manufacturer_id : Annotated[StrictInt, Field(..., description="The id of the manufacturer")], manufacturer_merchant_ids_input_request : Annotated[Optional[ManufacturerMerchantIdsInputRequest], Field(description="Merchant to remove from manufacturer")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def delete_manufacturer_merchants_with_http_info(self, manufacturer_id : Annotated[StrictInt, Field(..., description="The id of the manufacturer")], manufacturer_merchant_ids_input_request : Annotated[Optional[ManufacturerMerchantIdsInputRequest], Field(description="Merchant to remove from manufacturer")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Remove an eligible merchant for manufacturer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_manufacturers_manufacturer_id_merchants_delete_with_http_info(manufacturer_id, manufacturer_merchant_ids_input_request, async_req=True)
+        >>> thread = api.delete_manufacturer_merchants_with_http_info(manufacturer_id, manufacturer_merchant_ids_input_request, async_req=True)
         >>> result = thread.get()
 
         :param manufacturer_id: The id of the manufacturer (required)
@@ -139,7 +139,7 @@ class ManufacturersMerchantsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_manufacturers_manufacturer_id_merchants_delete" % _key
+                    " to method delete_manufacturer_merchants" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -202,13 +202,13 @@ class ManufacturersMerchantsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_manufacturers_manufacturer_id_merchants_get(self, manufacturer_id : Annotated[StrictInt, Field(..., description="The id of the manufacturer")], **kwargs) -> ManufacturerMerchantsResponse:  # noqa: E501
+    def get_manufacturer_merchants(self, manufacturer_id : Annotated[StrictInt, Field(..., description="The id of the manufacturer")], **kwargs) -> ManufacturerMerchantsResponse:  # noqa: E501
         """Get all merchants for manufacturer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_manufacturers_manufacturer_id_merchants_get(manufacturer_id, async_req=True)
+        >>> thread = api.get_manufacturer_merchants(manufacturer_id, async_req=True)
         >>> result = thread.get()
 
         :param manufacturer_id: The id of the manufacturer (required)
@@ -226,18 +226,18 @@ class ManufacturersMerchantsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_manufacturers_manufacturer_id_merchants_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_manufacturer_merchants_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_manufacturers_manufacturer_id_merchants_get_with_http_info(manufacturer_id, **kwargs)  # noqa: E501
+        return self.get_manufacturer_merchants_with_http_info(manufacturer_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_manufacturers_manufacturer_id_merchants_get_with_http_info(self, manufacturer_id : Annotated[StrictInt, Field(..., description="The id of the manufacturer")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_manufacturer_merchants_with_http_info(self, manufacturer_id : Annotated[StrictInt, Field(..., description="The id of the manufacturer")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get all merchants for manufacturer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_manufacturers_manufacturer_id_merchants_get_with_http_info(manufacturer_id, async_req=True)
+        >>> thread = api.get_manufacturer_merchants_with_http_info(manufacturer_id, async_req=True)
         >>> result = thread.get()
 
         :param manufacturer_id: The id of the manufacturer (required)
@@ -289,7 +289,7 @@ class ManufacturersMerchantsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_manufacturers_manufacturer_id_merchants_get" % _key
+                    " to method get_manufacturer_merchants" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -341,18 +341,18 @@ class ManufacturersMerchantsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_manufacturers_manufacturer_id_merchants_post(self, manufacturer_id : Annotated[StrictInt, Field(..., description="The id of the manufacturer")], manufacturer_merchant_ids_input_request : Annotated[Optional[ManufacturerMerchantIdsInputRequest], Field(description="Merchant to add to manufacturer")] = None, **kwargs) -> ManufacturerMerchantsResponse:  # noqa: E501
-        """Add an eligible merchant for manufacturer  # noqa: E501
+    def set_manufacturer_merchants(self, manufacturer_id : Annotated[StrictInt, Field(..., description="The id of the manufacturer")], manufacturer_merchant_ids_input_request : Annotated[Optional[ManufacturerMerchantIdsInputRequest], Field(description="Merchants to set for manufacturer")] = None, **kwargs) -> ManufacturerMerchantsResponse:  # noqa: E501
+        """Set eligible merchants for manufacturer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_manufacturers_manufacturer_id_merchants_post(manufacturer_id, manufacturer_merchant_ids_input_request, async_req=True)
+        >>> thread = api.set_manufacturer_merchants(manufacturer_id, manufacturer_merchant_ids_input_request, async_req=True)
         >>> result = thread.get()
 
         :param manufacturer_id: The id of the manufacturer (required)
         :type manufacturer_id: int
-        :param manufacturer_merchant_ids_input_request: Merchant to add to manufacturer
+        :param manufacturer_merchant_ids_input_request: Merchants to set for manufacturer
         :type manufacturer_merchant_ids_input_request: ManufacturerMerchantIdsInputRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -367,23 +367,23 @@ class ManufacturersMerchantsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_manufacturers_manufacturer_id_merchants_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the set_manufacturer_merchants_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_manufacturers_manufacturer_id_merchants_post_with_http_info(manufacturer_id, manufacturer_merchant_ids_input_request, **kwargs)  # noqa: E501
+        return self.set_manufacturer_merchants_with_http_info(manufacturer_id, manufacturer_merchant_ids_input_request, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_manufacturers_manufacturer_id_merchants_post_with_http_info(self, manufacturer_id : Annotated[StrictInt, Field(..., description="The id of the manufacturer")], manufacturer_merchant_ids_input_request : Annotated[Optional[ManufacturerMerchantIdsInputRequest], Field(description="Merchant to add to manufacturer")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """Add an eligible merchant for manufacturer  # noqa: E501
+    def set_manufacturer_merchants_with_http_info(self, manufacturer_id : Annotated[StrictInt, Field(..., description="The id of the manufacturer")], manufacturer_merchant_ids_input_request : Annotated[Optional[ManufacturerMerchantIdsInputRequest], Field(description="Merchants to set for manufacturer")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+        """Set eligible merchants for manufacturer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_manufacturers_manufacturer_id_merchants_post_with_http_info(manufacturer_id, manufacturer_merchant_ids_input_request, async_req=True)
+        >>> thread = api.set_manufacturer_merchants_with_http_info(manufacturer_id, manufacturer_merchant_ids_input_request, async_req=True)
         >>> result = thread.get()
 
         :param manufacturer_id: The id of the manufacturer (required)
         :type manufacturer_id: int
-        :param manufacturer_merchant_ids_input_request: Merchant to add to manufacturer
+        :param manufacturer_merchant_ids_input_request: Merchants to set for manufacturer
         :type manufacturer_merchant_ids_input_request: ManufacturerMerchantIdsInputRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -433,7 +433,7 @@ class ManufacturersMerchantsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_manufacturers_manufacturer_id_merchants_post" % _key
+                    " to method set_manufacturer_merchants" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -496,13 +496,13 @@ class ManufacturersMerchantsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_manufacturers_manufacturer_id_merchants_put(self, manufacturer_id : Annotated[StrictInt, Field(..., description="The id of the manufacturer")], manufacturer_merchant_ids_input_request : Annotated[Optional[ManufacturerMerchantIdsInputRequest], Field(description="Merchant to add to manufacturer")] = None, **kwargs) -> ManufacturerMerchantsResponse:  # noqa: E501
+    def update_manufacturer_merchants(self, manufacturer_id : Annotated[StrictInt, Field(..., description="The id of the manufacturer")], manufacturer_merchant_ids_input_request : Annotated[Optional[ManufacturerMerchantIdsInputRequest], Field(description="Merchant to add to manufacturer")] = None, **kwargs) -> ManufacturerMerchantsResponse:  # noqa: E501
         """Add an eligible merchant for manufacturer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_manufacturers_manufacturer_id_merchants_put(manufacturer_id, manufacturer_merchant_ids_input_request, async_req=True)
+        >>> thread = api.update_manufacturer_merchants(manufacturer_id, manufacturer_merchant_ids_input_request, async_req=True)
         >>> result = thread.get()
 
         :param manufacturer_id: The id of the manufacturer (required)
@@ -522,18 +522,18 @@ class ManufacturersMerchantsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_manufacturers_manufacturer_id_merchants_put_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the update_manufacturer_merchants_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_manufacturers_manufacturer_id_merchants_put_with_http_info(manufacturer_id, manufacturer_merchant_ids_input_request, **kwargs)  # noqa: E501
+        return self.update_manufacturer_merchants_with_http_info(manufacturer_id, manufacturer_merchant_ids_input_request, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_manufacturers_manufacturer_id_merchants_put_with_http_info(self, manufacturer_id : Annotated[StrictInt, Field(..., description="The id of the manufacturer")], manufacturer_merchant_ids_input_request : Annotated[Optional[ManufacturerMerchantIdsInputRequest], Field(description="Merchant to add to manufacturer")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def update_manufacturer_merchants_with_http_info(self, manufacturer_id : Annotated[StrictInt, Field(..., description="The id of the manufacturer")], manufacturer_merchant_ids_input_request : Annotated[Optional[ManufacturerMerchantIdsInputRequest], Field(description="Merchant to add to manufacturer")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Add an eligible merchant for manufacturer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_manufacturers_manufacturer_id_merchants_put_with_http_info(manufacturer_id, manufacturer_merchant_ids_input_request, async_req=True)
+        >>> thread = api.update_manufacturer_merchants_with_http_info(manufacturer_id, manufacturer_merchant_ids_input_request, async_req=True)
         >>> result = thread.get()
 
         :param manufacturer_id: The id of the manufacturer (required)
@@ -588,7 +588,7 @@ class ManufacturersMerchantsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_manufacturers_manufacturer_id_merchants_put" % _key
+                    " to method update_manufacturer_merchants" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']

@@ -48,15 +48,17 @@ class MemberListsApi:
         self.api_client = api_client
 
     @validate_arguments
-    def v10_member_lists_get(self, **kwargs) -> MemberListList:  # noqa: E501
-        """Get all member lists  # noqa: E501
+    def create_member_list(self, member_list_input_request : Annotated[Optional[MemberListInputRequest], Field(description="Member list to add to system")] = None, **kwargs) -> MemberListObjectResponse:  # noqa: E501
+        """Create a member list  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_member_lists_get(async_req=True)
+        >>> thread = api.create_member_list(member_list_input_request, async_req=True)
         >>> result = thread.get()
 
+        :param member_list_input_request: Member list to add to system
+        :type member_list_input_request: MemberListInputRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request.
@@ -66,24 +68,26 @@ class MemberListsApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: MemberListList
+        :rtype: MemberListObjectResponse
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_member_lists_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the create_member_list_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_member_lists_get_with_http_info(**kwargs)  # noqa: E501
+        return self.create_member_list_with_http_info(member_list_input_request, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_member_lists_get_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
-        """Get all member lists  # noqa: E501
+    def create_member_list_with_http_info(self, member_list_input_request : Annotated[Optional[MemberListInputRequest], Field(description="Member list to add to system")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+        """Create a member list  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_member_lists_get_with_http_info(async_req=True)
+        >>> thread = api.create_member_list_with_http_info(member_list_input_request, async_req=True)
         >>> result = thread.get()
 
+        :param member_list_input_request: Member list to add to system
+        :type member_list_input_request: MemberListInputRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -106,12 +110,13 @@ class MemberListsApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(MemberListList, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(MemberListObjectResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
 
         _all_params = [
+            'member_list_input_request'
         ]
         _all_params.extend(
             [
@@ -130,7 +135,7 @@ class MemberListsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_member_lists_get" % _key
+                    " to method create_member_list" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -149,20 +154,31 @@ class MemberListsApi:
         _files = {}
         # process the body parameter
         _body_params = None
+        if _params['member_list_input_request'] is not None:
+            _body_params = _params['member_list_input_request']
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
+
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
         _auth_settings = ['X-Auth-Token']  # noqa: E501
 
         _response_types_map = {
-            '200': "MemberListList",
+            '201': "MemberListObjectResponse",
+            '400': "BadRequestObject",
             '401': None,
         }
 
         return self.api_client.call_api(
-            '/v1.0/member_lists', 'GET',
+            '/v1.0/member_lists', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -179,13 +195,13 @@ class MemberListsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_member_lists_member_list_id_delete(self, member_list_id : Annotated[StrictInt, Field(..., description="The id of the member list")], **kwargs) -> None:  # noqa: E501
+    def delete_member_list(self, member_list_id : Annotated[StrictInt, Field(..., description="The id of the member list")], **kwargs) -> None:  # noqa: E501
         """Delete Member List by ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_member_lists_member_list_id_delete(member_list_id, async_req=True)
+        >>> thread = api.delete_member_list(member_list_id, async_req=True)
         >>> result = thread.get()
 
         :param member_list_id: The id of the member list (required)
@@ -203,18 +219,18 @@ class MemberListsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_member_lists_member_list_id_delete_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the delete_member_list_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_member_lists_member_list_id_delete_with_http_info(member_list_id, **kwargs)  # noqa: E501
+        return self.delete_member_list_with_http_info(member_list_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_member_lists_member_list_id_delete_with_http_info(self, member_list_id : Annotated[StrictInt, Field(..., description="The id of the member list")], **kwargs) -> ApiResponse:  # noqa: E501
+    def delete_member_list_with_http_info(self, member_list_id : Annotated[StrictInt, Field(..., description="The id of the member list")], **kwargs) -> ApiResponse:  # noqa: E501
         """Delete Member List by ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_member_lists_member_list_id_delete_with_http_info(member_list_id, async_req=True)
+        >>> thread = api.delete_member_list_with_http_info(member_list_id, async_req=True)
         >>> result = thread.get()
 
         :param member_list_id: The id of the member list (required)
@@ -266,7 +282,7 @@ class MemberListsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_member_lists_member_list_id_delete" % _key
+                    " to method delete_member_list" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -311,13 +327,13 @@ class MemberListsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_member_lists_member_list_id_get(self, member_list_id : Annotated[StrictInt, Field(..., description="The id of the member list")], **kwargs) -> MemberListObjectResponse:  # noqa: E501
+    def get_member_list(self, member_list_id : Annotated[StrictInt, Field(..., description="The id of the member list")], **kwargs) -> MemberListObjectResponse:  # noqa: E501
         """Get member list by ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_member_lists_member_list_id_get(member_list_id, async_req=True)
+        >>> thread = api.get_member_list(member_list_id, async_req=True)
         >>> result = thread.get()
 
         :param member_list_id: The id of the member list (required)
@@ -335,18 +351,18 @@ class MemberListsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_member_lists_member_list_id_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_member_list_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_member_lists_member_list_id_get_with_http_info(member_list_id, **kwargs)  # noqa: E501
+        return self.get_member_list_with_http_info(member_list_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_member_lists_member_list_id_get_with_http_info(self, member_list_id : Annotated[StrictInt, Field(..., description="The id of the member list")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_member_list_with_http_info(self, member_list_id : Annotated[StrictInt, Field(..., description="The id of the member list")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get member list by ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_member_lists_member_list_id_get_with_http_info(member_list_id, async_req=True)
+        >>> thread = api.get_member_list_with_http_info(member_list_id, async_req=True)
         >>> result = thread.get()
 
         :param member_list_id: The id of the member list (required)
@@ -398,7 +414,7 @@ class MemberListsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_member_lists_member_list_id_get" % _key
+                    " to method get_member_list" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -450,13 +466,144 @@ class MemberListsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_member_lists_member_list_id_put(self, member_list_id : Annotated[StrictInt, Field(..., description="The id of the member list")], member_list_input_request : Annotated[Optional[MemberListInputRequest], Field(description="Member List to add to system")] = None, **kwargs) -> MemberListObjectResponse:  # noqa: E501
+    def get_member_lists(self, **kwargs) -> MemberListList:  # noqa: E501
+        """Get all member lists  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_member_lists(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: MemberListList
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the get_member_lists_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.get_member_lists_with_http_info(**kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_member_lists_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
+        """Get all member lists  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_member_lists_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(MemberListList, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_member_lists" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '200': "MemberListList",
+            '401': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/member_lists', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def update_member_list(self, member_list_id : Annotated[StrictInt, Field(..., description="The id of the member list")], member_list_input_request : Annotated[Optional[MemberListInputRequest], Field(description="Member List to add to system")] = None, **kwargs) -> MemberListObjectResponse:  # noqa: E501
         """Update Member List by ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_member_lists_member_list_id_put(member_list_id, member_list_input_request, async_req=True)
+        >>> thread = api.update_member_list(member_list_id, member_list_input_request, async_req=True)
         >>> result = thread.get()
 
         :param member_list_id: The id of the member list (required)
@@ -476,18 +623,18 @@ class MemberListsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_member_lists_member_list_id_put_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the update_member_list_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_member_lists_member_list_id_put_with_http_info(member_list_id, member_list_input_request, **kwargs)  # noqa: E501
+        return self.update_member_list_with_http_info(member_list_id, member_list_input_request, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_member_lists_member_list_id_put_with_http_info(self, member_list_id : Annotated[StrictInt, Field(..., description="The id of the member list")], member_list_input_request : Annotated[Optional[MemberListInputRequest], Field(description="Member List to add to system")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def update_member_list_with_http_info(self, member_list_id : Annotated[StrictInt, Field(..., description="The id of the member list")], member_list_input_request : Annotated[Optional[MemberListInputRequest], Field(description="Member List to add to system")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Update Member List by ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_member_lists_member_list_id_put_with_http_info(member_list_id, member_list_input_request, async_req=True)
+        >>> thread = api.update_member_list_with_http_info(member_list_id, member_list_input_request, async_req=True)
         >>> result = thread.get()
 
         :param member_list_id: The id of the member list (required)
@@ -542,7 +689,7 @@ class MemberListsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_member_lists_member_list_id_put" % _key
+                    " to method update_member_list" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -590,153 +737,6 @@ class MemberListsApi:
 
         return self.api_client.call_api(
             '/v1.0/member_lists/:member_list_id', 'PUT',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_member_lists_post(self, member_list_input_request : Annotated[Optional[MemberListInputRequest], Field(description="Member list to add to system")] = None, **kwargs) -> MemberListObjectResponse:  # noqa: E501
-        """Create a member list  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_member_lists_post(member_list_input_request, async_req=True)
-        >>> result = thread.get()
-
-        :param member_list_input_request: Member list to add to system
-        :type member_list_input_request: MemberListInputRequest
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: MemberListObjectResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_member_lists_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_member_lists_post_with_http_info(member_list_input_request, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_member_lists_post_with_http_info(self, member_list_input_request : Annotated[Optional[MemberListInputRequest], Field(description="Member list to add to system")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """Create a member list  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_member_lists_post_with_http_info(member_list_input_request, async_req=True)
-        >>> result = thread.get()
-
-        :param member_list_input_request: Member list to add to system
-        :type member_list_input_request: MemberListInputRequest
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(MemberListObjectResponse, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'member_list_input_request'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_member_lists_post" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        if _params['member_list_input_request'] is not None:
-            _body_params = _params['member_list_input_request']
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '201': "MemberListObjectResponse",
-            '400': "BadRequestObject",
-            '401': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/member_lists', 'POST',
             _path_params,
             _query_params,
             _header_params,

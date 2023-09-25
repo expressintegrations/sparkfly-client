@@ -47,13 +47,13 @@ class AccountApi:
         self.api_client = api_client
 
     @validate_arguments
-    def v10_account_callbacks_disable_put(self, **kwargs) -> None:  # noqa: E501
+    def disable_callbacks(self, **kwargs) -> None:  # noqa: E501
         """Disable Callbacks  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_account_callbacks_disable_put(async_req=True)
+        >>> thread = api.disable_callbacks(async_req=True)
         >>> result = thread.get()
 
         :param async_req: Whether to execute the request asynchronously.
@@ -69,18 +69,18 @@ class AccountApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_account_callbacks_disable_put_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the disable_callbacks_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_account_callbacks_disable_put_with_http_info(**kwargs)  # noqa: E501
+        return self.disable_callbacks_with_http_info(**kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_account_callbacks_disable_put_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
+    def disable_callbacks_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
         """Disable Callbacks  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_account_callbacks_disable_put_with_http_info(async_req=True)
+        >>> thread = api.disable_callbacks_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req: Whether to execute the request asynchronously.
@@ -129,7 +129,7 @@ class AccountApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_account_callbacks_disable_put" % _key
+                    " to method disable_callbacks" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -171,13 +171,13 @@ class AccountApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_account_callbacks_enable_put(self, **kwargs) -> None:  # noqa: E501
+    def enable_callbacks(self, **kwargs) -> None:  # noqa: E501
         """Enable Callbacks  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_account_callbacks_enable_put(async_req=True)
+        >>> thread = api.enable_callbacks(async_req=True)
         >>> result = thread.get()
 
         :param async_req: Whether to execute the request asynchronously.
@@ -193,18 +193,18 @@ class AccountApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_account_callbacks_enable_put_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the enable_callbacks_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_account_callbacks_enable_put_with_http_info(**kwargs)  # noqa: E501
+        return self.enable_callbacks_with_http_info(**kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_account_callbacks_enable_put_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
+    def enable_callbacks_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
         """Enable Callbacks  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_account_callbacks_enable_put_with_http_info(async_req=True)
+        >>> thread = api.enable_callbacks_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req: Whether to execute the request asynchronously.
@@ -253,7 +253,7 @@ class AccountApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_account_callbacks_enable_put" % _key
+                    " to method enable_callbacks" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -295,13 +295,13 @@ class AccountApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_account_get(self, **kwargs) -> AccountResponse:  # noqa: E501
+    def get_account(self, **kwargs) -> AccountResponse:  # noqa: E501
         """View Account  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_account_get(async_req=True)
+        >>> thread = api.get_account(async_req=True)
         >>> result = thread.get()
 
         :param async_req: Whether to execute the request asynchronously.
@@ -317,18 +317,18 @@ class AccountApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_account_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_account_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_account_get_with_http_info(**kwargs)  # noqa: E501
+        return self.get_account_with_http_info(**kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_account_get_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_account_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
         """View Account  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_account_get_with_http_info(async_req=True)
+        >>> thread = api.get_account_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req: Whether to execute the request asynchronously.
@@ -377,7 +377,7 @@ class AccountApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_account_get" % _key
+                    " to method get_account" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -426,13 +426,13 @@ class AccountApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_account_put(self, account_input_request : Annotated[Optional[AccountInputRequest], Field(description="Callback Credential URL to Set")] = None, **kwargs) -> AccountResponse:  # noqa: E501
+    def update_account(self, account_input_request : Annotated[Optional[AccountInputRequest], Field(description="Callback Credential URL to Set")] = None, **kwargs) -> AccountResponse:  # noqa: E501
         """Update Account  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_account_put(account_input_request, async_req=True)
+        >>> thread = api.update_account(account_input_request, async_req=True)
         >>> result = thread.get()
 
         :param account_input_request: Callback Credential URL to Set
@@ -450,18 +450,18 @@ class AccountApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_account_put_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the update_account_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_account_put_with_http_info(account_input_request, **kwargs)  # noqa: E501
+        return self.update_account_with_http_info(account_input_request, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_account_put_with_http_info(self, account_input_request : Annotated[Optional[AccountInputRequest], Field(description="Callback Credential URL to Set")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def update_account_with_http_info(self, account_input_request : Annotated[Optional[AccountInputRequest], Field(description="Callback Credential URL to Set")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Update Account  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_account_put_with_http_info(account_input_request, async_req=True)
+        >>> thread = api.update_account_with_http_info(account_input_request, async_req=True)
         >>> result = thread.get()
 
         :param account_input_request: Callback Credential URL to Set
@@ -513,7 +513,7 @@ class AccountApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_account_put" % _key
+                    " to method update_account" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']

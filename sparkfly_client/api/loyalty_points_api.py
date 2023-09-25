@@ -44,13 +44,13 @@ class LoyaltyPointsApi:
         self.api_client = api_client
 
     @validate_arguments
-    def v10_points_card_status_get(self, identifier : Annotated[StrictStr, Field(..., description="The identifier of the member")], channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> PointsCardStatus:  # noqa: E501
+    def get_points_card_status(self, identifier : Annotated[StrictStr, Field(..., description="The identifier of the member")], channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> PointsCardStatus:  # noqa: E501
         """Check Card Status  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_points_card_status_get(identifier, channel_id, async_req=True)
+        >>> thread = api.get_points_card_status(identifier, channel_id, async_req=True)
         >>> result = thread.get()
 
         :param identifier: The identifier of the member (required)
@@ -70,18 +70,18 @@ class LoyaltyPointsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_points_card_status_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_points_card_status_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_points_card_status_get_with_http_info(identifier, channel_id, **kwargs)  # noqa: E501
+        return self.get_points_card_status_with_http_info(identifier, channel_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_points_card_status_get_with_http_info(self, identifier : Annotated[StrictStr, Field(..., description="The identifier of the member")], channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_points_card_status_with_http_info(self, identifier : Annotated[StrictStr, Field(..., description="The identifier of the member")], channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> ApiResponse:  # noqa: E501
         """Check Card Status  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_points_card_status_get_with_http_info(identifier, channel_id, async_req=True)
+        >>> thread = api.get_points_card_status_with_http_info(identifier, channel_id, async_req=True)
         >>> result = thread.get()
 
         :param identifier: The identifier of the member (required)
@@ -136,7 +136,7 @@ class LoyaltyPointsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_points_card_status_get" % _key
+                    " to method get_points_card_status" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -191,13 +191,13 @@ class LoyaltyPointsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_points_transfer_post(self, identifier : Annotated[StrictStr, Field(..., description="The identifier of the member")], points : Annotated[StrictInt, Field(..., description="Number of points to transfer")], txid : Annotated[StrictStr, Field(..., description="Unique transaction id for the transfer for logging and to protect duplicates")], channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> PointsCardStatus:  # noqa: E501
+    def transfer_loyalty_points(self, identifier : Annotated[StrictStr, Field(..., description="The identifier of the member")], points : Annotated[StrictInt, Field(..., description="Number of points to transfer")], txid : Annotated[StrictStr, Field(..., description="Unique transaction id for the transfer for logging and to protect duplicates")], channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> PointsCardStatus:  # noqa: E501
         """Transfer Loyalty Points  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_points_transfer_post(identifier, points, txid, channel_id, async_req=True)
+        >>> thread = api.transfer_loyalty_points(identifier, points, txid, channel_id, async_req=True)
         >>> result = thread.get()
 
         :param identifier: The identifier of the member (required)
@@ -221,18 +221,18 @@ class LoyaltyPointsApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_points_transfer_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the transfer_loyalty_points_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_points_transfer_post_with_http_info(identifier, points, txid, channel_id, **kwargs)  # noqa: E501
+        return self.transfer_loyalty_points_with_http_info(identifier, points, txid, channel_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_points_transfer_post_with_http_info(self, identifier : Annotated[StrictStr, Field(..., description="The identifier of the member")], points : Annotated[StrictInt, Field(..., description="Number of points to transfer")], txid : Annotated[StrictStr, Field(..., description="Unique transaction id for the transfer for logging and to protect duplicates")], channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> ApiResponse:  # noqa: E501
+    def transfer_loyalty_points_with_http_info(self, identifier : Annotated[StrictStr, Field(..., description="The identifier of the member")], points : Annotated[StrictInt, Field(..., description="Number of points to transfer")], txid : Annotated[StrictStr, Field(..., description="Unique transaction id for the transfer for logging and to protect duplicates")], channel_id : Annotated[StrictInt, Field(..., description="The id of the channel")], **kwargs) -> ApiResponse:  # noqa: E501
         """Transfer Loyalty Points  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_points_transfer_post_with_http_info(identifier, points, txid, channel_id, async_req=True)
+        >>> thread = api.transfer_loyalty_points_with_http_info(identifier, points, txid, channel_id, async_req=True)
         >>> result = thread.get()
 
         :param identifier: The identifier of the member (required)
@@ -293,7 +293,7 @@ class LoyaltyPointsApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_points_transfer_post" % _key
+                    " to method transfer_loyalty_points" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']

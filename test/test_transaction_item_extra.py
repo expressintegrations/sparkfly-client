@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.transaction_item_extra import TransactionItemExtra  # noqa: E501
+from sparkfly_client.models.transaction_item_extra import TransactionItemExtra  # noqa: E501
 
 class TestTransactionItemExtra(unittest.TestCase):
     """TransactionItemExtra unit test stubs"""

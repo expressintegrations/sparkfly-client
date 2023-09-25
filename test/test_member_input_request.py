@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.member_input_request import MemberInputRequest  # noqa: E501
+from sparkfly_client.models.member_input_request import MemberInputRequest  # noqa: E501
 
 class TestMemberInputRequest(unittest.TestCase):
     """MemberInputRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestMemberInputRequest(unittest.TestCase):
         model = MemberInputRequest()  # noqa: E501
         if include_optional:
             return MemberInputRequest(
-                member = openapi_client.models.member_input.member_input(
+                member = sparkfly_client.models.member_input.member_input(
                     identifier = '', 
                     notification_mode = '', )
             )

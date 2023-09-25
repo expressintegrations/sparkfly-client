@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.member_export_data import MemberExportData  # noqa: E501
+from sparkfly_client.models.member_export_data import MemberExportData  # noqa: E501
 
 class TestMemberExportData(unittest.TestCase):
     """MemberExportData unit test stubs"""
@@ -36,15 +36,15 @@ class TestMemberExportData(unittest.TestCase):
         model = MemberExportData()  # noqa: E501
         if include_optional:
             return MemberExportData(
-                member = openapi_client.models.member.member(
+                member = sparkfly_client.models.member.member(
                     created_at = '', 
                     identifier = '', ),
                 credentials = [
-                    openapi_client.models.credential.credential(
+                    sparkfly_client.models.credential.credential(
                         identifier = '', )
                     ],
                 offer_activities = [
-                    openapi_client.models.offer_activity.offer_activity(
+                    sparkfly_client.models.offer_activity.offer_activity(
                         id = 56, 
                         transaction_id = 56, 
                         credential_id = 56, 
@@ -60,7 +60,7 @@ class TestMemberExportData(unittest.TestCase):
                         processed_at = '', )
                     ],
                 transactions = [
-                    openapi_client.models.transaction.transaction(
+                    sparkfly_client.models.transaction.transaction(
                         id = 56, 
                         member_id = 56, 
                         store_id = 56, 
@@ -89,7 +89,7 @@ class TestMemberExportData(unittest.TestCase):
                         translator_id = '', )
                     ],
                 impressions = [
-                    openapi_client.models.impression.impression(
+                    sparkfly_client.models.impression.impression(
                         id = 56, 
                         account_id = 56, 
                         annotations = '', 

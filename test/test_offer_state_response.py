@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.offer_state_response import OfferStateResponse  # noqa: E501
+from sparkfly_client.models.offer_state_response import OfferStateResponse  # noqa: E501
 
 class TestOfferStateResponse(unittest.TestCase):
     """OfferStateResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestOfferStateResponse(unittest.TestCase):
         model = OfferStateResponse()  # noqa: E501
         if include_optional:
             return OfferStateResponse(
-                offer_state = openapi_client.models.offer_state.offer_state(
+                offer_state = sparkfly_client.models.offer_state.offer_state(
                     offer_state_id = 56, 
                     offer_id = 56, 
                     member_id = 56, 

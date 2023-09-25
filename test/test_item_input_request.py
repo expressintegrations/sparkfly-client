@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.item_input_request import ItemInputRequest  # noqa: E501
+from sparkfly_client.models.item_input_request import ItemInputRequest  # noqa: E501
 
 class TestItemInputRequest(unittest.TestCase):
     """ItemInputRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestItemInputRequest(unittest.TestCase):
         model = ItemInputRequest()  # noqa: E501
         if include_optional:
             return ItemInputRequest(
-                item = openapi_client.models.item_input.item_input(
+                item = sparkfly_client.models.item_input.item_input(
                     name = '', 
                     code = '', )
             )

@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.offer_state_input import OfferStateInput  # noqa: E501
+from sparkfly_client.models.offer_state_input import OfferStateInput  # noqa: E501
 
 class TestOfferStateInput(unittest.TestCase):
     """OfferStateInput unit test stubs"""

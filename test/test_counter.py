@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.counter import Counter  # noqa: E501
+from sparkfly_client.models.counter import Counter  # noqa: E501
 
 class TestCounter(unittest.TestCase):
     """Counter unit test stubs"""

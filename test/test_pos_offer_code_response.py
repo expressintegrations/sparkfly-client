@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.pos_offer_code_response import PosOfferCodeResponse  # noqa: E501
+from sparkfly_client.models.pos_offer_code_response import PosOfferCodeResponse  # noqa: E501
 
 class TestPosOfferCodeResponse(unittest.TestCase):
     """PosOfferCodeResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestPosOfferCodeResponse(unittest.TestCase):
         model = PosOfferCodeResponse()  # noqa: E501
         if include_optional:
             return PosOfferCodeResponse(
-                pos_offer_code = openapi_client.models.pos_offer_code.pos_offer_code(
+                pos_offer_code = sparkfly_client.models.pos_offer_code.pos_offer_code(
                     id = 56, 
                     account_id = 56, 
                     code = '', 

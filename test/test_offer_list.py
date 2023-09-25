@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.offer_list import OfferList  # noqa: E501
+from sparkfly_client.models.offer_list import OfferList  # noqa: E501
 
 class TestOfferList(unittest.TestCase):
     """OfferList unit test stubs"""
@@ -41,8 +41,8 @@ class TestOfferList(unittest.TestCase):
                 total_entries = 56,
                 total_pages = 56,
                 offers = [
-                    openapi_client.models.offer_simplified_response.offer_simplified_response(
-                        offer = openapi_client.models.offer_simplified.offer_simplified(
+                    sparkfly_client.models.offer_simplified_response.offer_simplified_response(
+                        offer = sparkfly_client.models.offer_simplified.offer_simplified(
                             id = 56, 
                             merchant_id = '', 
                             manufacturer_id = '', 

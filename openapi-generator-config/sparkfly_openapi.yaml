@@ -583,6 +583,7 @@ security:
 paths:
   "/auth":
     get:
+      operationId: authenticate
       tags:
       - Auth
       summary: authenticate and receive auth token
@@ -623,6 +624,7 @@ paths:
       security: []
   "/v1.0/account":
     get:
+      operationId: get_account
       tags:
         - Account
       summary: View Account
@@ -672,6 +674,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_account
       tags:
         - Account
       summary: Update Account
@@ -728,6 +731,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   "/v1.0/account/callbacks/disable":
     put:
+      operationId: disable_callbacks
       tags:
         - Account
       summary: Disable Callbacks
@@ -774,6 +778,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   "/v1.0/account/callbacks/enable":
     put:
+      operationId: enable_callbacks
       tags:
         - Account
       summary: Enable Callbacks
@@ -820,6 +825,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   "/v1.0/campaigns":
     get:
+      operationId: get_campaign_by_external_id
       tags:
       - Campaigns
       summary: Get campaign by external ID
@@ -859,6 +865,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: create_campaign
       tags:
       - Campaigns
       summary: Create a new campaign
@@ -928,6 +935,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   '/v1.0/campaigns/:campaign_id':
     get:
+      operationId: get_campaign
       tags:
         - Campaigns
       summary: Retrieve Campaign
@@ -998,6 +1006,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_campaign
       tags:
         - Campaigns
       summary: Update Campaign
@@ -1099,6 +1108,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_campaign
       tags:
         - Campaigns
       summary: Delete the campaign
@@ -1170,6 +1180,7 @@ paths:
       - "$ref": "#/components/parameters/CampaignID"
   "/v1.0/campaigns/search":
     get:
+      operationId: get_active_reward_program_campaigns
       tags:
       - Campaigns
       summary: Get active reward program campaigns
@@ -1227,6 +1238,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   "/v1.0/channels":
     get:
+      operationId: get_channels
       tags:
       - Channels
       summary: Get channels
@@ -1291,6 +1303,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: create_channel
       tags:
       - Channels
       summary: Create a channel
@@ -1376,6 +1389,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   "/v1.0/channels/:channel_id":
     get:
+      operationId: get_channel
       tags:
       - Channels
       summary: Get channel by ID
@@ -1427,6 +1441,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_channel
       tags:
       - Channels
       summary: Update channel by ID
@@ -1509,6 +1524,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_channel
       tags:
       - Channels
       summary: Delete channel by ID
@@ -1580,6 +1596,7 @@ paths:
       - "$ref": "#/components/parameters/ChannelID"
   "/v1.0/counters":
     get:
+      operationId: get_counters
       tags:
       - Counters
       summary: Get counters
@@ -1644,6 +1661,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: create_counter
       tags:
       - Counters
       summary: Create a counter
@@ -1729,6 +1747,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   "/v1.0/counters/:counter_id":
     get:
+      operationId: get_counter
       tags:
       - Counters
       summary: Get counter by ID
@@ -1801,6 +1820,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_counter
       tags:
       - Counters
       summary: Update counter by ID
@@ -1904,6 +1924,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_counter
       tags:
       - Counters
       summary: Delete counter by ID
@@ -1975,6 +1996,7 @@ paths:
       - "$ref": "#/components/parameters/CounterID"
   '/v1.0/credentials':
     get:
+      operationId: get_credentials
       tags:
         - Credentials
       summary: List Credentials
@@ -2039,6 +2061,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: create_credential
       tags:
         - Credentials
       summary: Creates a credential
@@ -2124,6 +2147,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   '/v1.0/credentials/eligible':
     get:
+      operationId: get_offer_eligibility_for_member
       tags:
         - Credentials
       summary: Determine if a member is eligible for an offer
@@ -2175,6 +2199,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   '/v1.0/credentials/:credential_id':
     get:
+      operationId: get_credential
       tags:
         - Credentials
       summary: Get Credential
@@ -2243,6 +2268,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_credential
       tags:
         - Credentials
       summary: Delete Credential
@@ -2311,6 +2337,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_credential
       tags:
         - Credentials
       summary: Updates a credential
@@ -2419,6 +2446,7 @@ paths:
       - "$ref": "#/components/parameters/CredentialID"
   '/v1.0/credentials/:credential_id/redeem':
     put:
+      operationId: redeem_credential
       tags:
         - Credentials
       summary: Redeem a credential
@@ -2496,6 +2524,7 @@ paths:
       - "$ref": "#/components/parameters/CredentialID"
   '/v1.0/credentials/:credential_id/void':
     put:
+      operationId: void_credential
       tags:
         - Credentials
       summary: Void a credential
@@ -2573,6 +2602,7 @@ paths:
       - "$ref": "#/components/parameters/CredentialID"
   "/v1.0/events":
     get:
+      operationId: get_events
       tags:
         - Events
       summary: get all events
@@ -2633,6 +2663,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: create_event
       tags:
         - Events
       summary: Creates an event
@@ -2718,6 +2749,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   "/v1.0/events/:event_id":
     get:
+      operationId: get_event
       tags:
         - Events
       summary: Get event by ID
@@ -2769,6 +2801,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_event_name
       tags:
         - Events
       summary: Change the name of an event
@@ -2851,6 +2884,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_event
       tags:
         - Events
       summary: Delete the event
@@ -2922,6 +2956,7 @@ paths:
       - "$ref": "#/components/parameters/EventID"
   "/v1.0/impressions":
     get:
+      operationId: get_impressions
       tags:
         - Impressions
       summary: Get all impressions
@@ -2982,6 +3017,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: create_impression
       tags:
         - Impressions
       summary: Creates an impression
@@ -3067,6 +3103,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   "/v1.0/impressions/:impression_id":
     delete:
+      operationId: delete_impression
       tags:
         - Impressions
       summary: Delete the impression
@@ -3138,6 +3175,7 @@ paths:
       - "$ref": "#/components/parameters/ImpressionID"
   "/v1.0/items":
     get:
+      operationId: get_items
       tags:
       - Items
       summary: Get all items
@@ -3200,6 +3238,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: create_item
       tags:
       - Items
       summary: Create an item
@@ -3285,6 +3324,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   "/v1.0/items/:item_id":
     get:
+      operationId: get_item
       tags:
       - Items
       summary: Get item by ID
@@ -3336,6 +3376,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_item
       tags:
       - Items
       summary: Update item by ID
@@ -3418,6 +3459,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_item
       tags:
       - Items
       summary: Delete item by ID
@@ -3489,6 +3531,7 @@ paths:
       - "$ref": "#/components/parameters/ItemID"
   "/v1.0/item_sets":
     get:
+      operationId: get_item_sets
       tags:
         - Item Sets
       summary: Get all item sets
@@ -3553,6 +3596,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: create_item_sets
       tags:
         - Item Sets
       summary: Create an item set
@@ -3638,6 +3682,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   "/v1.0/item_sets/:item_set_id":
     get:
+      operationId: get_item_set
       tags:
         - Item Sets
       summary: Get item set by ID
@@ -3710,6 +3755,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_item_set
       tags:
         - Item Sets
       summary: Update item set by ID
@@ -3813,6 +3859,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_item_set
       tags:
         - Item Sets
       summary: Delete item set by ID
@@ -3884,6 +3931,7 @@ paths:
       - "$ref": "#/components/parameters/ItemSetID"
   "/v1.0/item_sets/:item_set_id/items":
     get:
+      operationId: get_item_set_items
       tags:
         - Item Sets
       summary: Get items for item set
@@ -3936,6 +3984,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   "/v1.0/manufacturers":
     get:
+      operationId: get_manufacturers
       tags:
         - Manufacturers
       summary: Get all manufacturers
@@ -4000,6 +4049,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: create_manufacturer
       tags:
         - Manufacturers
       summary: Create a manufacturer
@@ -4085,6 +4135,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   "/v1.0/manufacturers/:manufacturer_id":
     get:
+      operationId: get_manufacturer
       tags:
         - Manufacturers
       summary: Get manufacturer by ID
@@ -4136,6 +4187,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_manufacturer
       tags:
         - Manufacturers
       summary: Update manufacturer by ID
@@ -4239,6 +4291,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_manufacturer
       tags:
         - Manufacturers
       summary: Delete manufacturer by ID
@@ -4310,6 +4363,7 @@ paths:
       - "$ref": "#/components/parameters/ManufacturerID"
   "/v1.0/manufacturers/:manufacturer_id/items":
     get:
+      operationId: get_manufacturer_items
       tags:
         - Manufacturers/Items
       summary: Get all items for manufacturer
@@ -4372,6 +4426,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: create_manufacturer_item
       tags:
         - Manufacturers/Items
       summary: Create an item for manufacturer
@@ -4459,6 +4514,7 @@ paths:
       - "$ref": "#/components/parameters/ManufacturerID"
   "/v1.0/manufacturers/:manufacturer_id/items/:item_id":
     get:
+      operationId: get_manufacturer_item
       tags:
         - Manufacturers/Items
       summary: Get item by ID for manufacturer
@@ -4531,6 +4587,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_manufacturer_item
       tags:
         - Manufacturers/Items
       summary: Update item by ID for manufacturer
@@ -4634,6 +4691,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_manufacturer_item
       tags:
         - Manufacturers/Items
       summary: Delete item by ID for manufacturer
@@ -4706,6 +4764,7 @@ paths:
       - "$ref": "#/components/parameters/ItemID"
   "/v1.0/manufacturers/:manufacturer_id/item_sets":
     get:
+      operationId: get_manufacturer_item_sets
       tags:
         - Manufacturers/Item Sets
       summary: Get all item sets for manufacturer
@@ -4770,6 +4829,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: create_manufacturer_item_sets
       tags:
         - Manufacturers/Item Sets
       summary: Create an item set for manufacturer
@@ -4857,6 +4917,7 @@ paths:
       - "$ref": "#/components/parameters/ManufacturerID"
   "/v1.0/manufacturers/:manufacturer_id/item_sets/:item_set_id":
     get:
+      operationId: get_manufacturer_item_set
       tags:
         - Manufacturers/Item Sets
       summary: Get item set by ID for manufacturer
@@ -4929,6 +4990,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_manufacturer_item_set
       tags:
         - Manufacturers/Item Sets
       summary: Update item set by ID for manufacturer
@@ -5032,6 +5094,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_manufacturer_item_set
       tags:
         - Manufacturers/Item Sets
       summary: Delete item set by ID for manufacturer
@@ -5104,6 +5167,7 @@ paths:
       - "$ref": "#/components/parameters/ItemSetID"
   "/v1.0/manufacturers/:manufacturer_id/item_sets/:item_set_id/items":
     get:
+      operationId: get_manufacturer_item_set_items
       tags:
         - Manufacturers/Item Sets/Items
       summary: Get items for item set for manufacturer
@@ -5159,6 +5223,7 @@ paths:
       - "$ref": "#/components/parameters/ItemSetID"
   "/v1.0/manufacturers/:manufacturer_id/merchants":
     get:
+      operationId: get_manufacturer_merchants
       tags:
         - Manufacturers/Merchants
       summary: Get all merchants for manufacturer
@@ -5210,11 +5275,12 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: set_manufacturer_merchants
       tags:
         - Manufacturers/Merchants
-      summary: Add an eligible merchant for manufacturer
+      summary: Set eligible merchants for manufacturer
       requestBody:
-        description: Merchant to add to manufacturer
+        description: Merchants to set for manufacturer
         content:
           application/json:
             schema:
@@ -5294,6 +5360,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_manufacturer_merchants
       tags:
         - Manufacturers/Merchants
       summary: Add an eligible merchant for manufacturer
@@ -5378,6 +5445,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_manufacturer_merchants
       tags:
         - Manufacturers/Merchants
       summary: Remove an eligible merchant for manufacturer
@@ -5465,6 +5533,7 @@ paths:
       - "$ref": "#/components/parameters/ManufacturerID"
   "/v1.0/member_lists":
     get:
+      operationId: get_member_lists
       tags:
         - Member Lists
       summary: Get all member lists
@@ -5529,6 +5598,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: create_member_list
       tags:
         - Member Lists
       summary: Create a member list
@@ -5614,6 +5684,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   "/v1.0/member_lists/:member_list_id":
     get:
+      operationId: get_member_list
       tags:
         - Member Lists
       summary: Get member list by ID
@@ -5665,6 +5736,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_member_list
       tags:
         - Member Lists
       summary: Update Member List by ID
@@ -5768,6 +5840,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_member_list
       tags:
         - Member Lists
       summary: Delete Member List by ID
@@ -5839,6 +5912,7 @@ paths:
       - "$ref": "#/components/parameters/MemberListID"
   "/v1.0/member_lists/:member_list_id/members":
     get:
+      operationId: get_member_list_members
       tags:
         - Member Lists/Members
       summary: Get all Members for Member List
@@ -5890,6 +5964,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: set_member_list_members
       tags:
         - Member Lists/Members
       summary: Set eligible members for Member List
@@ -5974,6 +6049,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_member_list_members
       tags:
         - Member Lists/Members
       summary: Add eligible members for Member List
@@ -6058,6 +6134,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_member_list_members
       tags:
         - Member Lists/Members
       summary: Remove an eligible member for member_list
@@ -6145,6 +6222,7 @@ paths:
       - "$ref": "#/components/parameters/MemberListID"
   '/v1.0/members':
     get:
+      operationId: get_members
       tags:
         - Members
       summary: List members
@@ -6205,6 +6283,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: create_member
       tags:
         - Members
       summary: Creates a member
@@ -6290,6 +6369,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   '/v1.0/members/:member_id':
     get:
+      operationId: get_member
       tags:
         - Members
       summary: Retrieve Member
@@ -6360,6 +6440,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_member
       tags:
         - Members
       summary: Update Member
@@ -6461,6 +6542,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_member
       tags:
         - Members
       summary: Delete the member
@@ -6532,6 +6614,7 @@ paths:
       - "$ref": "#/components/parameters/MemberID"
   "/v1.0/members/search":
     get:
+      operationId: get_members_by_identifier
       tags:
         - Members
       summary: Search for Member by Identifier
@@ -6586,6 +6669,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   "/v1.0/merchants":
     get:
+      operationId: get_merchants
       tags:
       - Merchants
       summary: Get all merchants
@@ -6650,6 +6734,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: create_merchant
       tags:
       - Merchants
       summary: Create a merchant
@@ -6735,6 +6820,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   "/v1.0/merchants/:merchant_id":
     get:
+      operationId: get_merchant
       tags:
       - Merchants
       summary: Get merchant by ID
@@ -6807,6 +6893,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_merchant
       tags:
       - Merchants
       summary: Update merchant by ID
@@ -6910,6 +6997,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_merchant
       tags:
       - Merchants
       summary: Delete merchant by ID
@@ -6981,6 +7069,7 @@ paths:
       - "$ref": "#/components/parameters/MerchantID"
   "/v1.0/merchants/:merchant_id/items":
     get:
+      operationId: get_merchant_items
       tags:
         - Merchants/Items
       summary: Get all items for merchant
@@ -7043,6 +7132,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: create_merchant_item
       tags:
         - Merchants/Items
       summary: Create an item for merchant
@@ -7130,6 +7220,7 @@ paths:
       - "$ref": "#/components/parameters/MerchantID"
   "/v1.0/merchants/:merchant_id/items/:item_id":
     get:
+      operationId: get_merchant_item
       tags:
         - Merchants/Items
       summary: Get item by ID for merchant
@@ -7202,6 +7293,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_merchant_item
       tags:
         - Merchants/Items
       summary: Update item by ID for merchant
@@ -7305,6 +7397,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_merchant_item
       tags:
         - Merchants/Items
       summary: Delete item by ID for merchant
@@ -7377,6 +7470,7 @@ paths:
       - "$ref": "#/components/parameters/ItemID"
   "/v1.0/merchants/:merchant_id/item_sets":
     get:
+      operationId: get_merchant_item_sets
       tags:
         - Merchants/Item Sets
       summary: Get all item sets for merchant
@@ -7441,6 +7535,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: create_merchant_item_set
       tags:
         - Merchants/Item Sets
       summary: Create an item set for merchant
@@ -7528,6 +7623,7 @@ paths:
       - "$ref": "#/components/parameters/MerchantID"
   "/v1.0/merchants/:merchant_id/item_sets/:item_set_id":
     get:
+      operationId: get_merchant_item_set
       tags:
         - Merchants/Item Sets
       summary: Get item set by ID for merchant
@@ -7600,6 +7696,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_merchant_item_set
       tags:
         - Merchants/Item Sets
       summary: Update item set by ID for merchant
@@ -7703,6 +7800,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_merchant_item_set
       tags:
         - Merchants/Item Sets
       summary: Delete item set by ID for merchant
@@ -7775,6 +7873,7 @@ paths:
       - "$ref": "#/components/parameters/ItemSetID"
   "/v1.0/merchants/:merchant_id/item_sets/:item_set_id/items":
     get:
+      operationId: get_merchant_item_set_items
       tags:
         - Merchants/Item Sets/Items
       summary: Get items for item set for merchant
@@ -7830,6 +7929,7 @@ paths:
       - "$ref": "#/components/parameters/ItemSetID"
   "/v1.0/merchants/:merchant_id/offers":
     get:
+      operationId: get_merchant_offers
       tags:
         - Merchants/Offers
       summary: List offers for merchant
@@ -7897,6 +7997,7 @@ paths:
       - "$ref": "#/components/parameters/MerchantID"
   "/v1.0/merchants/:merchant_id/store_lists":
     get:
+      operationId: get_merchant_store_lists
       tags:
         - Merchants/Store Lists
       summary: Get all Store Lists for merchant
@@ -7961,6 +8062,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: create_merchant_store_list
       tags:
         - Merchants/Store Lists
       summary: Create an Store List for merchant
@@ -8048,6 +8150,7 @@ paths:
       - "$ref": "#/components/parameters/MerchantID"
   "/v1.0/merchants/:merchant_id/store_lists/:store_list_id":
     get:
+      operationId: get_merchant_store_list
       tags:
         - Merchants/Store Lists
       summary: Get Store List by ID for merchant
@@ -8120,6 +8223,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_merchant_store_list
       tags:
         - Merchants/Store Lists
       summary: Update Store List by ID for merchant
@@ -8223,6 +8327,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_merchant_store_list
       tags:
         - Merchants/Store Lists
       summary: Delete Store List by ID for merchant
@@ -8295,6 +8400,7 @@ paths:
       - "$ref": "#/components/parameters/StoreListID"
   "/v1.0/merchants/store_lists/:store_list_id/stores":
     get:
+      operationId: get_merchant_store_list_stores
       tags:
         - Merchants/Store Lists
       summary: Get all Stores for Store List
@@ -8348,6 +8454,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: set_merchant_store_list_stores
       tags:
         - Merchants/Store Lists
       summary: Set eligible Stores for Store List
@@ -8432,6 +8539,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_merchant_store_list_stores
       tags:
         - Merchants/Store Lists
       summary: Add eligible Stores for Store List
@@ -8516,6 +8624,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_merchant_store_list_stores
       tags:
         - Merchants/Store Lists
       summary: Remove an eligible Store for store_list
@@ -8603,6 +8712,7 @@ paths:
       - "$ref": "#/components/parameters/StoreListID"
   "/v1.0/merchants/:merchant_id/store_lists/:store_list_id/stores":
     get:
+      operationId: get_merchant_store_list_stores_detailed
       tags:
         - Merchants/Store Lists
       summary: Get all Stores for Store List (detailed)
@@ -8671,6 +8781,7 @@ paths:
       - "$ref": "#/components/parameters/StoreListID"
   "/v1.0/merchants/:merchant_id/stores":
     get:
+      operationId: get_merchant_stores
       tags:
         - Merchants/Stores
       summary: Get all Stores for merchant
@@ -8728,6 +8839,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: create_merchant_store
       tags:
         - Merchants/Stores
       summary: Create an Store for merchant
@@ -8815,6 +8927,7 @@ paths:
       - "$ref": "#/components/parameters/MerchantID"
   "/v1.0/merchants/:merchant_id/stores/:store_id":
     get:
+      operationId: get_merchant_store
       tags:
         - Merchants/Stores
       summary: Get Store by ID for merchant
@@ -8887,6 +9000,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_merchant_store
       tags:
         - Merchants/Stores
       summary: Update Store by ID for merchant
@@ -8990,6 +9104,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_merchant_store
       tags:
         - Merchants/Stores
       summary: Delete Store by ID for merchant
@@ -9062,6 +9177,7 @@ paths:
       - "$ref": "#/components/parameters/StoreID"
   "/v1.0/merchants/stores/:store_id":
     get:
+      operationId: get_merchant_store_without_merchant
       tags:
         - Merchants/Stores
       summary: Get Store by ID (without merchant)
@@ -9137,6 +9253,7 @@ paths:
       - "$ref": "#/components/parameters/StoreID"
   "/v1.0/merchants/stores/index":
     get:
+      operationId: get_filtered_merchant_stores
       tags:
         - Merchants/Stores
       summary: Get and Filter Stores WITH Active Offers (stores/index)
@@ -9194,6 +9311,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   "/v1.0/merchants/stores/nearby/:lat/:lng/index":
     get:
+      operationId: get_nearby_merchant_stores
       tags:
         - Merchants/Stores
       summary: Get and Filter Stores WITH Active Offers (stores/nearby/:lat/:lng/index)
@@ -9252,6 +9370,7 @@ paths:
       - "$ref": "#/components/parameters/Longitude"
   "/v1.0/merchants/stores/nearby/index":
     get:
+      operationId: get_nearby_filtered_merchant_stores
       tags:
         - Merchants/Stores
       summary: Get and Filter Stores WITH Active Offers (stores/nearby/index)
@@ -9309,6 +9428,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   "/v1.0/merchants/:merchant_id/stores/:store_id/offers":
     get:
+      operationId: get_merchant_store_offer_ids
       tags:
         - Merchants/Stores
       summary: List Offer IDs for Merchant and Store
@@ -9369,6 +9489,7 @@ paths:
       - "$ref": "#/components/parameters/StoreID"
   "/v1.0/members/offer_states":
     get:
+      operationId: get_members_with_offer_states
       tags:
         - Member Offers (Offer Wallet)
       summary: Retrieve Offer States
@@ -9398,6 +9519,7 @@ paths:
                       "$ref": "#/components/schemas/offer_state_response"
   '/v1.0/members/:member_id/offer_states':
     get:
+      operationId: get_member_offer_states
       tags:
         - Member Offers (Offer Wallet)
       summary: Get the entire list of Offer States for a Member
@@ -9446,6 +9568,7 @@ paths:
                     items:
                       "$ref": "#/components/schemas/offer_state_response"
     post:
+      operationId: create_member_offer_state
       summary: Create a new Member Offer State and provide optional activation and expiration dates
       description: 'This is used to create an individual offer state linking an offer to a member and set optional custom activation and expiration dates for the offer. This can be used to add an offer to a member - A few examples are when a member saves an offer to their account or reaches a particular milestone (i.e. after 10 visits).  If a token parameter is passed, the request will transfer an existing and transferable offer_state with the provided token to this member. A token would have been retrieved through some external integration process with the service interacting with the API.'
       tags:
@@ -9471,6 +9594,7 @@ paths:
       - "$ref": "#/components/parameters/MemberID"
   '/v1.0/members/:member_id/offer_states/:offer_state_id':
     get:
+      operationId: get_member_offer_state
       summary: Get an individual Offer State for a Member
       description: This is used to retrieve an individual offer state linked to a member. This can be used to display individual details for a particular offer state.
       tags:
@@ -9483,6 +9607,7 @@ paths:
               schema:
                 "$ref": "#/components/schemas/offer_state_response"
     put:
+      operationId: update_member_offer_state
       summary: Update an individual Offer State for a Member - in order to change the availability
       description: This is used to update the activation date and expiration date for an offer_state
       tags:
@@ -9505,6 +9630,7 @@ paths:
       - "$ref": "#/components/parameters/OfferStateID"
   '/v1.0/members/:member_id/offer_states/:offer_state_id/void':
     post:
+      operationId: void_member_offer_state
       summary: Voids an individual Offer State for a Member by Member ID
       description: This is used to void an individual offer state linked to a member (by ID).
       tags:
@@ -9525,6 +9651,7 @@ paths:
       - "$ref": "#/components/parameters/OfferStateID"
   '/v1.0/members/offer_states/:offer_state_id/void':
     post:
+      operationId: void_offer_state_by_member_identifier
       summary: Voids an individual Offer State for a Member by Member Identifier
       description: This is used to void an individual offer state linked to a member (by identifier).
       tags:
@@ -9543,8 +9670,9 @@ paths:
     parameters:
       - "$ref": "#/components/parameters/OfferStateID"
       - "$ref": "#/components/parameters/MemberIdentifier"
-  "/v1.0/members/:member_id/stores/:store_id/check-in?check_in[lat]=:lat&check_in[lng]=:lng":
+  "/v1.0/members/:member_id/stores/:store_id/check-in":
     post:
+      operationId: check_in_member_to_store
       tags:
         - Offer Engine
       summary: Check-In Member to Store
@@ -9594,10 +9722,11 @@ paths:
     parameters:
       - "$ref": "#/components/parameters/MemberID"
       - "$ref": "#/components/parameters/StoreID"
-      - "$ref": "#/components/parameters/Latitude"
-      - "$ref": "#/components/parameters/Longitude"
+      - "$ref": "#/components/parameters/CheckInLatitude"
+      - "$ref": "#/components/parameters/CheckInLongitude"
   "/v1.0/activities/offers":
     get:
+      operationId: get_member_offer_activities
       tags:
         - Offer Engine
       summary: Retrieve Offer Activities for Member
@@ -9665,6 +9794,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   "/v1.0/members/:member_id/activities/redemptions":
     get:
+      operationId: get_member_redemptions
       tags:
         - Offer Engine
       summary: Retrieve Redeemed Redemptions for Member
@@ -9732,6 +9862,7 @@ paths:
       - "$ref": "#/components/parameters/MemberID"
   "/v1.0/members/:member_id/stores/:store_id/activities/redemptions":
     get:
+      operationId: get_member_store_redemptions
       tags:
         - Offer Engine
       summary: Retrieve Redeemed Redemptions for Member for Store
@@ -9800,6 +9931,7 @@ paths:
       - "$ref": "#/components/parameters/StoreID"
   "/v1.0/members/:member_id/stores/:store_id":
     get:
+      operationId: get_member_store
       tags:
         - Offer Engine
       summary: Retrieve Store for Member
@@ -9878,6 +10010,7 @@ paths:
       - "$ref": "#/components/parameters/StoreID"
   "/v1.0/offers":
     get:
+      operationId: get_offers
       tags:
         - Offers
       summary: List offers
@@ -9947,6 +10080,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: create_offer
       tags:
         - Offers
       summary: Creates an offer
@@ -10032,6 +10166,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   '/v1.0/offers/:offer_id':
     get:
+      operationId: get_offer
       tags:
         - Offers
       summary: Retrieve Offer
@@ -10102,6 +10237,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_offer
       tags:
         - Offers
       summary: Update Offer
@@ -10178,6 +10314,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_offer
       tags:
         - Offers
       summary: Delete the offer
@@ -10249,6 +10386,7 @@ paths:
       - "$ref": "#/components/parameters/OfferID"
   "/v1.0/offers/:offer_id/channels/:channel_id":
     get:
+      operationId: get_offer_channel
       tags:
         - Offers/Channels
       summary: Eligible Channel Show
@@ -10300,6 +10438,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_offer_channel
       tags:
         - Offers/Channels
       summary: Eligible Channel Update
@@ -10388,6 +10527,7 @@ paths:
       - "$ref": "#/components/parameters/ChannelID"
   "/v1.0/offers/:offer_id/channels":
     get:
+      operationId: get_offer_channels
       tags:
         - Offers/Channels
       summary: Eligible Channels List
@@ -10439,6 +10579,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: set_offer_channels
       tags:
         - Offers/Channels
       summary: Set eligible Channels for offer
@@ -10523,6 +10664,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_offer_channels
       tags:
         - Offers/Channels
       summary: Add eligible Channels for offer
@@ -10607,6 +10749,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_offer_channels
       tags:
         - Offers/Channels
       summary: Remove eligible Channels from offer
@@ -10694,6 +10837,7 @@ paths:
       - "$ref": "#/components/parameters/OfferID"
   "/v1.0/offers/:offer_id/eligible_item_sets":
     get:
+      operationId: get_offer_eligible_item_sets
       tags:
         - Offers/Eligible Item Sets
       summary: Eligible Item Sets List
@@ -10758,6 +10902,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: set_offer_eligible_item_sets
       tags:
         - Offers/Item Sets
       summary: Eligible Item Set for Offer - Create
@@ -10845,6 +10990,7 @@ paths:
       - "$ref": "#/components/parameters/OfferID"
   "/v1.0/offers/:offer_id/eligible_item_sets/:eligible_item_set_id":
     get:
+      operationId: get_offer_eligible_item_set
       tags:
         - Offers/Item Sets
       summary: Retrieve eligible Item Set for offer
@@ -10923,6 +11069,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_offer_eligible_item_set
       tags:
         - Offers/Item Sets
       summary: Update eligible Item Set for offer
@@ -11028,6 +11175,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_offer_eligible_item_set
       tags:
         - Offers/Item Sets
       summary: Remove eligible Item Set from offer
@@ -11102,6 +11250,7 @@ paths:
       - "$ref": "#/components/parameters/EligibleItemSetID"
   "/v1.0/offers/:offer_id/member_lists":
     get:
+      operationId: get_offer_member_lists
       tags:
         - Offers/Member Lists
       summary: Eligible Member Lists List
@@ -11153,6 +11302,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: set_offer_member_lists
       tags:
         - Offers/Member Lists
       summary: Set eligible Member Lists for offer
@@ -11237,6 +11387,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_offer_member_lists
       tags:
         - Offers/Member Lists
       summary: Add eligible Member Lists for offer
@@ -11321,6 +11472,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_offer_member_lists
       tags:
         - Offers/Member Lists
       summary: Remove eligible Member Lists from offer
@@ -11408,6 +11560,7 @@ paths:
       - "$ref": "#/components/parameters/OfferID"
   "/v1.0/offers/:offer_id/merchants":
     get:
+      operationId: get_offer_merchants
       tags:
         - Offers/Merchants
       summary: Eligible Merchants List
@@ -11459,6 +11612,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: set_offer_merchants
       tags:
         - Offers/Merchants
       summary: Set eligible Merchants for offer
@@ -11543,6 +11697,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_offer_merchants
       tags:
         - Offers/Merchants
       summary: Add eligible Merchants for offer
@@ -11627,6 +11782,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_offer_merchants
       tags:
         - Offers/Merchants
       summary: Remove eligible Merchants from offer
@@ -11714,6 +11870,7 @@ paths:
       - "$ref": "#/components/parameters/OfferID"
   "/v1.0/offers/:offer_id/store_lists":
     get:
+      operationId: get_offer_store_lists
       tags:
         - Offers/Store Lists
       summary: Eligible Store Lists List
@@ -11765,6 +11922,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: set_offer_store_lists
       tags:
         - Offers/Store Lists
       summary: Set eligible Store Lists for offer
@@ -11849,6 +12007,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_offer_store_lists
       tags:
         - Offers/Store Lists
       summary: Add eligible Store Lists for offer
@@ -11933,6 +12092,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_offer_store_lists
       tags:
         - Offers/Store Lists
       summary: Remove eligible Store Lists from offer
@@ -12020,12 +12180,13 @@ paths:
       - "$ref": "#/components/parameters/OfferID"
   "/v1.0/offers/:offer_id/stores":
     get:
+      operationId: get_nearby_offer_stores
       tags:
         - Offers/Stores
       summary: Get nearby Stores for Offer
       parameters:
-        - "$ref": "#/components/parameters/Latitude"
-        - "$ref": "#/components/parameters/Longitude"
+        - "$ref": "#/components/parameters/LatitudeQuery"
+        - "$ref": "#/components/parameters/LongitudeQuery"
         - "$ref": "#/components/parameters/ByTagIDs"
         - "$ref": "#/components/parameters/XChannelID"
         - "$ref": "#/components/parameters/SortBy"
@@ -12080,6 +12241,7 @@ paths:
       - "$ref": "#/components/parameters/OfferID"
   "/v1.0/offers/:offer_id/passbook_configuration":
     get:
+      operationId: get_offer_passbook_configuration
       tags:
         - Offers/Passbook Configuration
       summary: Get Passbook Configuration for Offer
@@ -12131,6 +12293,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     post:
+      operationId: create_offer_passbook_configuration
       tags:
         - Offers/Passbook Configuration
       summary: Passbook Configuration Create
@@ -12215,6 +12378,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     put:
+      operationId: update_offer_passbook_configuration
       tags:
         - Offers/Passbook Configuration
       summary: Update Passbook Configuration for Offer
@@ -12299,6 +12463,7 @@ paths:
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
     delete:
+      operationId: delete_offer_passbook_configuration
       tags:
         - Offers/Passbook Configuration
       summary: Passbook Configuration Delete for Offer
@@ -12351,6 +12516,7 @@ paths:
       - "$ref": "#/components/parameters/OfferID"
   "/v1.0/points/card_status":
     get:
+      operationId: get_points_card_status
       tags:
         - Loyalty Points
       summary: Check Card Status
@@ -12402,6 +12568,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   "/v1.0/points/transfer":
     post:
+      operationId: transfer_loyalty_points
       tags:
         - Loyalty Points
       summary: Transfer Loyalty Points
@@ -12496,6 +12663,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   "/v1.0/pos_offer_codes":
     get:
+      operationId: get_pos_offer_codes
       tags:
         - POS Offer Codes
       summary: List POS Offer Codes
@@ -12561,6 +12729,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
   "/v1.0/pos_offer_codes/:pos_offer_code_id":
     get:
+      operationId: get_pos_offer_code
       tags:
         - POS Offer Codes
       summary: Get POS Offer Code
@@ -12615,6 +12784,7 @@ paths:
       - "$ref": "#/components/parameters/POSOfferCodeID"
   "/v1.0/privacy/member/delete_request":
     post:
+      operationId: create_member_deletion_request
       tags: 
       - Member Privacy
       summary: Creates a deletion request for a member
@@ -12639,6 +12809,7 @@ paths:
           description: Internal issue creating a member deletion request
   "/v1.0/privacy/member/export":
     get:
+      operationId: export_member_data
       tags: 
       - Member Privacy
       summary: Exports data associated with a member
@@ -12665,6 +12836,7 @@ paths:
           description: Internal issue exporting member data
   "/v1.0/merchants/:merchant_id/reports/full":
     get:
+      operationId: get_merchant_data
       tags:
         - Reports
       summary: Generates a report of full Merchant data in a given timeframe for a single Merchant
@@ -12703,6 +12875,7 @@ paths:
       - "$ref": "#/components/parameters/MerchantID"
   "/v1.0/reports/account_level":
     get:
+      operationId: get_all_merchant_data
       tags:
         - Reports
       summary: Generates a report of full Merchant data in a given timeframe for a all Merchants
@@ -12739,6 +12912,7 @@ paths:
           description: Internal issue connecting to the database
   "/v1.0/merchants/:merchant_id/reports/impressions":
     get:
+      operationId: get_merchant_impressions
       tags:
         - Reports
       summary: Get Unique Impressions
@@ -12777,6 +12951,7 @@ paths:
       - "$ref": "#/components/parameters/MerchantID"
   "/v1.0/reports/offer_activity":
     get:
+      operationId: get_offer_activity
       tags: 
       - Reports
       summary: Generates a report of all offer activity in a given timeframe
@@ -12901,6 +13076,7 @@ paths:
           description: Internal issue connecting to the database
   "/v1.0/reports/redemptions":
     get:
+      operationId: get_offer_redemptions
       tags: 
       - Reports
       summary: Generates a report of all offer redemptions for a given timeframe and store list
@@ -12968,6 +13144,7 @@ paths:
           description: Internal issue connecting to the database
   "/v1.0/members/:member_id/offers/:offer_id/zidentifiers":
     get:
+      operationId: create_z_identifier
       tags:
         - Zidentifiers
       summary: Create an identifier linking Offer, Member, Channel
@@ -13025,6 +13202,7 @@ paths:
       - "$ref": "#/components/parameters/OfferID"
   "/v1.0/members/zidentifiers/:zid":
     get:
+      operationId: get_z_identifier
       tags:
         - Zidentifiers
       summary: Get Zidentifier
@@ -15397,6 +15575,20 @@ components:
       required: true
       schema:
         type: integer
+    CheckInLatitude:
+      name: check_in[lat]
+      in: query
+      description: The Latitude of the Store
+      required: true
+      schema:
+        type: number
+    CheckInLongitude:
+      name: check_in[lng]
+      in: query
+      description: The Latitude of the Store
+      required: true
+      schema:
+        type: number
     CounterID:
       name: counter_id
       in: path
@@ -15476,6 +15668,20 @@ components:
     Longitude:
       name: lng
       in: path
+      description: The longitude for the location to check
+      required: true
+      schema:
+        type: string
+    LatitudeQuery:
+      name: lat
+      in: query
+      description: The latitude for the location to check
+      required: true
+      schema:
+        type: string
+    LongitudeQuery:
+      name: lng
+      in: query
       description: The longitude for the location to check
       required: true
       schema:

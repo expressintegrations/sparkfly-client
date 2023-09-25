@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.z_identifier_response import ZIdentifierResponse  # noqa: E501
+from sparkfly_client.models.z_identifier_response import ZIdentifierResponse  # noqa: E501
 
 class TestZIdentifierResponse(unittest.TestCase):
     """ZIdentifierResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestZIdentifierResponse(unittest.TestCase):
         model = ZIdentifierResponse()  # noqa: E501
         if include_optional:
             return ZIdentifierResponse(
-                manufacturer = openapi_client.models.z_identifier.z_identifier(
+                manufacturer = sparkfly_client.models.z_identifier.z_identifier(
                     id = 56, 
                     zid = '', 
                     offer_id = 56, 

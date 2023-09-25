@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.offer_formatting import OfferFormatting  # noqa: E501
+from sparkfly_client.models.offer_formatting import OfferFormatting  # noqa: E501
 
 class TestOfferFormatting(unittest.TestCase):
     """OfferFormatting unit test stubs"""

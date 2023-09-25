@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.contact import Contact  # noqa: E501
+from sparkfly_client.models.contact import Contact  # noqa: E501
 
 class TestContact(unittest.TestCase):
     """Contact unit test stubs"""

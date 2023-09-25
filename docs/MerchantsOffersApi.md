@@ -4,11 +4,11 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v10_merchants_merchant_id_offers_get**](MerchantsOffersApi.md#v10_merchants_merchant_id_offers_get) | **GET** /v1.0/merchants/:merchant_id/offers | List offers for merchant
+[**get_merchant_offers**](MerchantsOffersApi.md#get_merchant_offers) | **GET** /v1.0/merchants/:merchant_id/offers | List offers for merchant
 
 
-# **v10_merchants_merchant_id_offers_get**
-> MerchantOfferList v10_merchants_merchant_id_offers_get(merchant_id)
+# **get_merchant_offers**
+> MerchantOfferList get_merchant_offers(merchant_id)
 
 List offers for merchant
 
@@ -48,11 +48,11 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
     try:
         # List offers for merchant
-        api_response = api_instance.v10_merchants_merchant_id_offers_get(merchant_id)
-        print("The response of MerchantsOffersApi->v10_merchants_merchant_id_offers_get:\n")
+        api_response = api_instance.get_merchant_offers(merchant_id)
+        print("The response of MerchantsOffersApi->get_merchant_offers:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling MerchantsOffersApi->v10_merchants_merchant_id_offers_get: %s\n" % e)
+        print("Exception when calling MerchantsOffersApi->get_merchant_offers: %s\n" % e)
 ```
 
 

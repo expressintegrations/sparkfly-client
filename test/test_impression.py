@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.impression import Impression  # noqa: E501
+from sparkfly_client.models.impression import Impression  # noqa: E501
 
 class TestImpression(unittest.TestCase):
     """Impression unit test stubs"""

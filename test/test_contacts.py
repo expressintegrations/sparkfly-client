@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.contacts import Contacts  # noqa: E501
+from sparkfly_client.models.contacts import Contacts  # noqa: E501
 
 class TestContacts(unittest.TestCase):
     """Contacts unit test stubs"""
@@ -36,11 +36,11 @@ class TestContacts(unittest.TestCase):
         model = Contacts()  # noqa: E501
         if include_optional:
             return Contacts(
-                primary = openapi_client.models.contact.contact(
+                primary = sparkfly_client.models.contact.contact(
                     name = '', 
                     phone = '', 
                     email = '', ),
-                secondary = openapi_client.models.contact.contact(
+                secondary = sparkfly_client.models.contact.contact(
                     name = '', 
                     phone = '', 
                     email = '', )

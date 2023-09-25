@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.pos_offer_codes_api import POSOfferCodesApi  # noqa: E501
+from sparkfly_client.api.pos_offer_codes_api import POSOfferCodesApi  # noqa: E501
 
 
 class TestPOSOfferCodesApi(unittest.TestCase):
@@ -26,17 +26,17 @@ class TestPOSOfferCodesApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_pos_offer_codes_get(self) -> None:
-        """Test case for v10_pos_offer_codes_get
+    def test_pos_offer_code(self) -> None:
+        """Test case for pos_offer_code
 
-        List POS Offer Codes  # noqa: E501
+        Get POS Offer Code  # noqa: E501
         """
         pass
 
-    def test_v10_pos_offer_codes_pos_offer_code_id_get(self) -> None:
-        """Test case for v10_pos_offer_codes_pos_offer_code_id_get
+    def test_pos_offer_codes(self) -> None:
+        """Test case for pos_offer_codes
 
-        Get POS Offer Code  # noqa: E501
+        List POS Offer Codes  # noqa: E501
         """
         pass
 

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.items_api import ItemsApi  # noqa: E501
+from sparkfly_client.api.items_api import ItemsApi  # noqa: E501
 
 
 class TestItemsApi(unittest.TestCase):
@@ -26,38 +26,38 @@ class TestItemsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_v10_items_get(self) -> None:
-        """Test case for v10_items_get
+    def test_item(self) -> None:
+        """Test case for item
 
-        Get all items  # noqa: E501
+        Create an item  # noqa: E501
         """
         pass
 
-    def test_v10_items_item_id_delete(self) -> None:
-        """Test case for v10_items_item_id_delete
-
-        Delete item by ID  # noqa: E501
-        """
-        pass
-
-    def test_v10_items_item_id_get(self) -> None:
-        """Test case for v10_items_item_id_get
+    def test_item_0(self) -> None:
+        """Test case for item_0
 
         Get item by ID  # noqa: E501
         """
         pass
 
-    def test_v10_items_item_id_put(self) -> None:
-        """Test case for v10_items_item_id_put
+    def test_item_1(self) -> None:
+        """Test case for item_1
 
         Update item by ID  # noqa: E501
         """
         pass
 
-    def test_v10_items_post(self) -> None:
-        """Test case for v10_items_post
+    def test_item_2(self) -> None:
+        """Test case for item_2
 
-        Create an item  # noqa: E501
+        Delete item by ID  # noqa: E501
+        """
+        pass
+
+    def test_items(self) -> None:
+        """Test case for items
+
+        Get all items  # noqa: E501
         """
         pass
 

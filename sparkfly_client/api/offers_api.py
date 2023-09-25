@@ -48,13 +48,432 @@ class OffersApi:
         self.api_client = api_client
 
     @validate_arguments
-    def v10_offers_get(self, merchant_id : Annotated[Optional[StrictInt], Field(description="The id of the merchant")] = None, sort_by : Annotated[Optional[StrictStr], Field(description="Sort offers by 1 of their attributes ( name, start_running_at, status )")] = None, order : Annotated[Optional[StrictStr], Field(description="Order the result ( asc or desc )")] = None, name : Annotated[Optional[StrictStr], Field(description="The name by which to search")] = None, **kwargs) -> OfferList:  # noqa: E501
+    def create_offer(self, offer_input_request : Annotated[Optional[OfferInputRequest], Field(description="Offer to add to system")] = None, **kwargs) -> OfferResponse:  # noqa: E501
+        """Creates an offer  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_offer(offer_input_request, async_req=True)
+        >>> result = thread.get()
+
+        :param offer_input_request: Offer to add to system
+        :type offer_input_request: OfferInputRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: OfferResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the create_offer_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.create_offer_with_http_info(offer_input_request, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def create_offer_with_http_info(self, offer_input_request : Annotated[Optional[OfferInputRequest], Field(description="Offer to add to system")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+        """Creates an offer  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_offer_with_http_info(offer_input_request, async_req=True)
+        >>> result = thread.get()
+
+        :param offer_input_request: Offer to add to system
+        :type offer_input_request: OfferInputRequest
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(OfferResponse, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'offer_input_request'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_offer" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        if _params['offer_input_request'] is not None:
+            _body_params = _params['offer_input_request']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '201': "OfferResponse",
+            '400': "BadRequestObject",
+            '401': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/offers', 'POST',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def delete_offer(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], **kwargs) -> None:  # noqa: E501
+        """Delete the offer  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_offer(offer_id, async_req=True)
+        >>> result = thread.get()
+
+        :param offer_id: The id of the offer (required)
+        :type offer_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the delete_offer_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.delete_offer_with_http_info(offer_id, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def delete_offer_with_http_info(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], **kwargs) -> ApiResponse:  # noqa: E501
+        """Delete the offer  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_offer_with_http_info(offer_id, async_req=True)
+        >>> result = thread.get()
+
+        :param offer_id: The id of the offer (required)
+        :type offer_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'offer_id'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_offer" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['offer_id']:
+            _path_params['offer_id'] = _params['offer_id']
+
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {}
+
+        return self.api_client.call_api(
+            '/v1.0/offers/:offer_id', 'DELETE',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def get_offer(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], **kwargs) -> OfferResponse:  # noqa: E501
+        """Retrieve Offer  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_offer(offer_id, async_req=True)
+        >>> result = thread.get()
+
+        :param offer_id: The id of the offer (required)
+        :type offer_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: OfferResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the get_offer_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.get_offer_with_http_info(offer_id, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_offer_with_http_info(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], **kwargs) -> ApiResponse:  # noqa: E501
+        """Retrieve Offer  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_offer_with_http_info(offer_id, async_req=True)
+        >>> result = thread.get()
+
+        :param offer_id: The id of the offer (required)
+        :type offer_id: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(OfferResponse, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'offer_id'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_offer" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['offer_id']:
+            _path_params['offer_id'] = _params['offer_id']
+
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['X-Auth-Token']  # noqa: E501
+
+        _response_types_map = {
+            '200': "OfferResponse",
+            '401': None,
+            '404': None,
+        }
+
+        return self.api_client.call_api(
+            '/v1.0/offers/:offer_id', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def get_offers(self, merchant_id : Annotated[Optional[StrictInt], Field(description="The id of the merchant")] = None, sort_by : Annotated[Optional[StrictStr], Field(description="Sort offers by 1 of their attributes ( name, start_running_at, status )")] = None, order : Annotated[Optional[StrictStr], Field(description="Order the result ( asc or desc )")] = None, name : Annotated[Optional[StrictStr], Field(description="The name by which to search")] = None, **kwargs) -> OfferList:  # noqa: E501
         """List offers  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_offers_get(merchant_id, sort_by, order, name, async_req=True)
+        >>> thread = api.get_offers(merchant_id, sort_by, order, name, async_req=True)
         >>> result = thread.get()
 
         :param merchant_id: The id of the merchant
@@ -78,18 +497,18 @@ class OffersApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_offers_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the get_offers_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_offers_get_with_http_info(merchant_id, sort_by, order, name, **kwargs)  # noqa: E501
+        return self.get_offers_with_http_info(merchant_id, sort_by, order, name, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_offers_get_with_http_info(self, merchant_id : Annotated[Optional[StrictInt], Field(description="The id of the merchant")] = None, sort_by : Annotated[Optional[StrictStr], Field(description="Sort offers by 1 of their attributes ( name, start_running_at, status )")] = None, order : Annotated[Optional[StrictStr], Field(description="Order the result ( asc or desc )")] = None, name : Annotated[Optional[StrictStr], Field(description="The name by which to search")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_offers_with_http_info(self, merchant_id : Annotated[Optional[StrictInt], Field(description="The id of the merchant")] = None, sort_by : Annotated[Optional[StrictStr], Field(description="Sort offers by 1 of their attributes ( name, start_running_at, status )")] = None, order : Annotated[Optional[StrictStr], Field(description="Order the result ( asc or desc )")] = None, name : Annotated[Optional[StrictStr], Field(description="The name by which to search")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """List offers  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_offers_get_with_http_info(merchant_id, sort_by, order, name, async_req=True)
+        >>> thread = api.get_offers_with_http_info(merchant_id, sort_by, order, name, async_req=True)
         >>> result = thread.get()
 
         :param merchant_id: The id of the merchant
@@ -150,7 +569,7 @@ class OffersApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_offers_get" % _key
+                    " to method get_offers" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -211,285 +630,13 @@ class OffersApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def v10_offers_offer_id_delete(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], **kwargs) -> None:  # noqa: E501
-        """Delete the offer  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_offers_offer_id_delete(offer_id, async_req=True)
-        >>> result = thread.get()
-
-        :param offer_id: The id of the offer (required)
-        :type offer_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: None
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_offers_offer_id_delete_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_offers_offer_id_delete_with_http_info(offer_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_offers_offer_id_delete_with_http_info(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], **kwargs) -> ApiResponse:  # noqa: E501
-        """Delete the offer  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_offers_offer_id_delete_with_http_info(offer_id, async_req=True)
-        >>> result = thread.get()
-
-        :param offer_id: The id of the offer (required)
-        :type offer_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: None
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'offer_id'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_offers_offer_id_delete" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['offer_id']:
-            _path_params['offer_id'] = _params['offer_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {}
-
-        return self.api_client.call_api(
-            '/v1.0/offers/:offer_id', 'DELETE',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_offers_offer_id_get(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], **kwargs) -> OfferResponse:  # noqa: E501
-        """Retrieve Offer  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_offers_offer_id_get(offer_id, async_req=True)
-        >>> result = thread.get()
-
-        :param offer_id: The id of the offer (required)
-        :type offer_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: OfferResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_offers_offer_id_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_offers_offer_id_get_with_http_info(offer_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_offers_offer_id_get_with_http_info(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], **kwargs) -> ApiResponse:  # noqa: E501
-        """Retrieve Offer  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_offers_offer_id_get_with_http_info(offer_id, async_req=True)
-        >>> result = thread.get()
-
-        :param offer_id: The id of the offer (required)
-        :type offer_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(OfferResponse, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'offer_id'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_offers_offer_id_get" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['offer_id']:
-            _path_params['offer_id'] = _params['offer_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '200': "OfferResponse",
-            '401': None,
-            '404': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/offers/:offer_id', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_offers_offer_id_put(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], offer_input_request : Annotated[Optional[OfferInputRequest], Field(description="The object that passes the updated offer")] = None, **kwargs) -> OfferResponse:  # noqa: E501
+    def update_offer(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], offer_input_request : Annotated[Optional[OfferInputRequest], Field(description="The object that passes the updated offer")] = None, **kwargs) -> OfferResponse:  # noqa: E501
         """Update Offer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_offers_offer_id_put(offer_id, offer_input_request, async_req=True)
+        >>> thread = api.update_offer(offer_id, offer_input_request, async_req=True)
         >>> result = thread.get()
 
         :param offer_id: The id of the offer (required)
@@ -509,18 +656,18 @@ class OffersApi:
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_offers_offer_id_put_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the update_offer_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.v10_offers_offer_id_put_with_http_info(offer_id, offer_input_request, **kwargs)  # noqa: E501
+        return self.update_offer_with_http_info(offer_id, offer_input_request, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def v10_offers_offer_id_put_with_http_info(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], offer_input_request : Annotated[Optional[OfferInputRequest], Field(description="The object that passes the updated offer")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def update_offer_with_http_info(self, offer_id : Annotated[StrictInt, Field(..., description="The id of the offer")], offer_input_request : Annotated[Optional[OfferInputRequest], Field(description="The object that passes the updated offer")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Update Offer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.v10_offers_offer_id_put_with_http_info(offer_id, offer_input_request, async_req=True)
+        >>> thread = api.update_offer_with_http_info(offer_id, offer_input_request, async_req=True)
         >>> result = thread.get()
 
         :param offer_id: The id of the offer (required)
@@ -575,7 +722,7 @@ class OffersApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method v10_offers_offer_id_put" % _key
+                    " to method update_offer" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -622,153 +769,6 @@ class OffersApi:
 
         return self.api_client.call_api(
             '/v1.0/offers/:offer_id', 'PUT',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def v10_offers_post(self, offer_input_request : Annotated[Optional[OfferInputRequest], Field(description="Offer to add to system")] = None, **kwargs) -> OfferResponse:  # noqa: E501
-        """Creates an offer  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_offers_post(offer_input_request, async_req=True)
-        >>> result = thread.get()
-
-        :param offer_input_request: Offer to add to system
-        :type offer_input_request: OfferInputRequest
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: OfferResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the v10_offers_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.v10_offers_post_with_http_info(offer_input_request, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def v10_offers_post_with_http_info(self, offer_input_request : Annotated[Optional[OfferInputRequest], Field(description="Offer to add to system")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """Creates an offer  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.v10_offers_post_with_http_info(offer_input_request, async_req=True)
-        >>> result = thread.get()
-
-        :param offer_input_request: Offer to add to system
-        :type offer_input_request: OfferInputRequest
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(OfferResponse, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'offer_input_request'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method v10_offers_post" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        if _params['offer_input_request'] is not None:
-            _body_params = _params['offer_input_request']
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
-
-        # authentication setting
-        _auth_settings = ['X-Auth-Token']  # noqa: E501
-
-        _response_types_map = {
-            '201': "OfferResponse",
-            '400': "BadRequestObject",
-            '401': None,
-        }
-
-        return self.api_client.call_api(
-            '/v1.0/offers', 'POST',
             _path_params,
             _query_params,
             _header_params,

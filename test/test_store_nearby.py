@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.store_nearby import StoreNearby  # noqa: E501
+from sparkfly_client.models.store_nearby import StoreNearby  # noqa: E501
 
 class TestStoreNearby(unittest.TestCase):
     """StoreNearby unit test stubs"""

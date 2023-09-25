@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.offer_simplified_response import OfferSimplifiedResponse  # noqa: E501
+from sparkfly_client.models.offer_simplified_response import OfferSimplifiedResponse  # noqa: E501
 
 class TestOfferSimplifiedResponse(unittest.TestCase):
     """OfferSimplifiedResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestOfferSimplifiedResponse(unittest.TestCase):
         model = OfferSimplifiedResponse()  # noqa: E501
         if include_optional:
             return OfferSimplifiedResponse(
-                offer = openapi_client.models.offer_simplified.offer_simplified(
+                offer = sparkfly_client.models.offer_simplified.offer_simplified(
                     id = 56, 
                     merchant_id = '', 
                     manufacturer_id = '', 
