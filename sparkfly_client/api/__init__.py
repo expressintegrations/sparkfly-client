@@ -1,0 +1,45 @@
+# flake8: noqa
+
+# import apis into api package
+from sparkfly_client.api.account_api import AccountApi
+from sparkfly_client.api.auth_api import AuthApi
+from sparkfly_client.api.campaigns_api import CampaignsApi
+from sparkfly_client.api.channels_api import ChannelsApi
+from sparkfly_client.api.counters_api import CountersApi
+from sparkfly_client.api.credentials_api import CredentialsApi
+from sparkfly_client.api.events_api import EventsApi
+from sparkfly_client.api.impressions_api import ImpressionsApi
+from sparkfly_client.api.item_sets_api import ItemSetsApi
+from sparkfly_client.api.items_api import ItemsApi
+from sparkfly_client.api.loyalty_points_api import LoyaltyPointsApi
+from sparkfly_client.api.manufacturers_api import ManufacturersApi
+from sparkfly_client.api.manufacturers_item_sets_api import ManufacturersItemSetsApi
+from sparkfly_client.api.manufacturers_item_sets_items_api import ManufacturersItemSetsItemsApi
+from sparkfly_client.api.manufacturers_items_api import ManufacturersItemsApi
+from sparkfly_client.api.manufacturers_merchants_api import ManufacturersMerchantsApi
+from sparkfly_client.api.member_lists_api import MemberListsApi
+from sparkfly_client.api.member_lists_members_api import MemberListsMembersApi
+from sparkfly_client.api.member_offers_offer_wallet_api import MemberOffersOfferWalletApi
+from sparkfly_client.api.member_privacy_api import MemberPrivacyApi
+from sparkfly_client.api.members_api import MembersApi
+from sparkfly_client.api.merchants_api import MerchantsApi
+from sparkfly_client.api.merchants_item_sets_api import MerchantsItemSetsApi
+from sparkfly_client.api.merchants_item_sets_items_api import MerchantsItemSetsItemsApi
+from sparkfly_client.api.merchants_items_api import MerchantsItemsApi
+from sparkfly_client.api.merchants_offers_api import MerchantsOffersApi
+from sparkfly_client.api.merchants_store_lists_api import MerchantsStoreListsApi
+from sparkfly_client.api.merchants_stores_api import MerchantsStoresApi
+from sparkfly_client.api.offer_engine_api import OfferEngineApi
+from sparkfly_client.api.offers_api import OffersApi
+from sparkfly_client.api.offers_channels_api import OffersChannelsApi
+from sparkfly_client.api.offers_eligible_item_sets_api import OffersEligibleItemSetsApi
+from sparkfly_client.api.offers_item_sets_api import OffersItemSetsApi
+from sparkfly_client.api.offers_member_lists_api import OffersMemberListsApi
+from sparkfly_client.api.offers_merchants_api import OffersMerchantsApi
+from sparkfly_client.api.offers_passbook_configuration_api import OffersPassbookConfigurationApi
+from sparkfly_client.api.offers_store_lists_api import OffersStoreListsApi
+from sparkfly_client.api.offers_stores_api import OffersStoresApi
+from sparkfly_client.api.pos_offer_codes_api import POSOfferCodesApi
+from sparkfly_client.api.reports_api import ReportsApi
+from sparkfly_client.api.zidentifiers_api import ZidentifiersApi
+
