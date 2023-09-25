@@ -1,4 +1,4 @@
-# sparkfly-api
+# sparkfly-api-client
 # Getting Started
 ## Overview 
 The Sparkfly Platform provides a full lifecycle for promotions and rewards from creation to distribution to settlement. The platform integrates in real-time at the point-of-sale and provides item level discounting and tracking. The capabilities of the Sparkfly Platform are available through the use of the Sparkfly Platform API.
