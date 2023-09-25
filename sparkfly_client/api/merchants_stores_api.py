@@ -187,7 +187,7 @@ class MerchantsStoresApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/stores', 'POST',
+            '/v1.0/merchants/{merchant_id}/stores', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -327,7 +327,7 @@ class MerchantsStoresApi:
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/stores/:store_id', 'DELETE',
+            '/v1.0/merchants/{merchant_id}/stores/{store_id}', 'DELETE',
             _path_params,
             _query_params,
             _header_params,
@@ -455,15 +455,15 @@ class MerchantsStoresApi:
 
         # process the path parameters
         _path_params = {}
-        if _params['lat']:
-            _path_params['lat'] = _params['lat']
-
-        if _params['lng']:
-            _path_params['lng'] = _params['lng']
-
 
         # process the query parameters
         _query_params = []
+        if _params.get('lat') is not None:  # noqa: E501
+            _query_params.append(('lat', _params['lat']))
+
+        if _params.get('lng') is not None:  # noqa: E501
+            _query_params.append(('lng', _params['lng']))
+
         if _params.get('by_tag_ids') is not None:  # noqa: E501
             _query_params.append(('by_tag_ids', _params['by_tag_ids']))
 
@@ -638,7 +638,7 @@ class MerchantsStoresApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/stores/:store_id', 'GET',
+            '/v1.0/merchants/{merchant_id}/stores/{store_id}', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -785,7 +785,7 @@ class MerchantsStoresApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/stores/:store_id/offers', 'GET',
+            '/v1.0/merchants/{merchant_id}/stores/{store_id}/offers', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -925,7 +925,7 @@ class MerchantsStoresApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/stores/:store_id', 'GET',
+            '/v1.0/merchants/stores/{store_id}', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -1072,7 +1072,7 @@ class MerchantsStoresApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/stores', 'GET',
+            '/v1.0/merchants/{merchant_id}/stores', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -1200,15 +1200,15 @@ class MerchantsStoresApi:
 
         # process the path parameters
         _path_params = {}
-        if _params['lat']:
-            _path_params['lat'] = _params['lat']
-
-        if _params['lng']:
-            _path_params['lng'] = _params['lng']
-
 
         # process the query parameters
         _query_params = []
+        if _params.get('lat') is not None:  # noqa: E501
+            _query_params.append(('lat', _params['lat']))
+
+        if _params.get('lng') is not None:  # noqa: E501
+            _query_params.append(('lng', _params['lng']))
+
         if _params.get('by_tag_ids') is not None:  # noqa: E501
             _query_params.append(('by_tag_ids', _params['by_tag_ids']))
 
@@ -1253,7 +1253,7 @@ class MerchantsStoresApi:
 
     @validate_arguments
     def get_nearby_merchant_stores(self, lat : Annotated[StrictStr, Field(..., description="The latitude for the location to check")], lng : Annotated[StrictStr, Field(..., description="The longitude for the location to check")], by_tag_ids : Annotated[Optional[StrictStr], Field(description="Store Tag IDs to filter by")] = None, sort_by : Annotated[Optional[StrictStr], Field(description="Sort offers by 1 of their attributes ( name, start_running_at, status )")] = None, **kwargs) -> StoreListResponse:  # noqa: E501
-        """Get and Filter Stores WITH Active Offers (stores/nearby/:lat/:lng/index)  # noqa: E501
+        """Get and Filter Stores WITH Active Offers (stores/nearby/{lat}/{lng}/index)  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1288,7 +1288,7 @@ class MerchantsStoresApi:
 
     @validate_arguments
     def get_nearby_merchant_stores_with_http_info(self, lat : Annotated[StrictStr, Field(..., description="The latitude for the location to check")], lng : Annotated[StrictStr, Field(..., description="The longitude for the location to check")], by_tag_ids : Annotated[Optional[StrictStr], Field(description="Store Tag IDs to filter by")] = None, sort_by : Annotated[Optional[StrictStr], Field(description="Sort offers by 1 of their attributes ( name, start_running_at, status )")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """Get and Filter Stores WITH Active Offers (stores/nearby/:lat/:lng/index)  # noqa: E501
+        """Get and Filter Stores WITH Active Offers (stores/nearby/{lat}/{lng}/index)  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1398,7 +1398,7 @@ class MerchantsStoresApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/stores/nearby/:lat/:lng/index', 'GET',
+            '/v1.0/merchants/stores/nearby/{lat}/{lng}/index', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -1562,7 +1562,7 @@ class MerchantsStoresApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/stores/:store_id', 'PUT',
+            '/v1.0/merchants/{merchant_id}/stores/{store_id}', 'PUT',
             _path_params,
             _query_params,
             _header_params,

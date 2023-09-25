@@ -5,11 +5,11 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_item_sets**](ItemSetsApi.md#create_item_sets) | **POST** /v1.0/item_sets | Create an item set
-[**delete_item_set**](ItemSetsApi.md#delete_item_set) | **DELETE** /v1.0/item_sets/:item_set_id | Delete item set by ID
-[**get_item_set**](ItemSetsApi.md#get_item_set) | **GET** /v1.0/item_sets/:item_set_id | Get item set by ID
-[**get_item_set_items**](ItemSetsApi.md#get_item_set_items) | **GET** /v1.0/item_sets/:item_set_id/items | Get items for item set
+[**delete_item_set**](ItemSetsApi.md#delete_item_set) | **DELETE** /v1.0/item_sets/{item_set_id} | Delete item set by ID
+[**get_item_set**](ItemSetsApi.md#get_item_set) | **GET** /v1.0/item_sets/{item_set_id} | Get item set by ID
+[**get_item_set_items**](ItemSetsApi.md#get_item_set_items) | **GET** /v1.0/item_sets/{item_set_id}/items | Get items for item set
 [**get_item_sets**](ItemSetsApi.md#get_item_sets) | **GET** /v1.0/item_sets | Get all item sets
-[**update_item_set**](ItemSetsApi.md#update_item_set) | **PUT** /v1.0/item_sets/:item_set_id | Update item set by ID
+[**update_item_set**](ItemSetsApi.md#update_item_set) | **PUT** /v1.0/item_sets/{item_set_id} | Update item set by ID
 
 
 # **create_item_sets**
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_item_set_items**
-> ItemListResponse get_item_set_items()
+> ItemListResponse get_item_set_items(item_set_id)
 
 Get items for item set
 
@@ -281,10 +281,11 @@ configuration.api_key['X-Auth-Token'] = os.environ["API_KEY"]
 with sparkfly_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sparkfly_client.ItemSetsApi(api_client)
+    item_set_id = 56 # int | The id of the item set
 
     try:
         # Get items for item set
-        api_response = api_instance.get_item_set_items()
+        api_response = api_instance.get_item_set_items(item_set_id)
         print("The response of ItemSetsApi->get_item_set_items:\n")
         pprint(api_response)
     except Exception as e:
@@ -294,7 +295,10 @@ with sparkfly_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **item_set_id** | **int**| The id of the item set | 
 
 ### Return type
 

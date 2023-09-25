@@ -5,10 +5,10 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_manufacturer**](ManufacturersApi.md#create_manufacturer) | **POST** /v1.0/manufacturers | Create a manufacturer
-[**delete_manufacturer**](ManufacturersApi.md#delete_manufacturer) | **DELETE** /v1.0/manufacturers/:manufacturer_id | Delete manufacturer by ID
-[**get_manufacturer**](ManufacturersApi.md#get_manufacturer) | **GET** /v1.0/manufacturers/:manufacturer_id | Get manufacturer by ID
+[**delete_manufacturer**](ManufacturersApi.md#delete_manufacturer) | **DELETE** /v1.0/manufacturers/{manufacturer_id} | Delete manufacturer by ID
+[**get_manufacturer**](ManufacturersApi.md#get_manufacturer) | **GET** /v1.0/manufacturers/{manufacturer_id} | Get manufacturer by ID
 [**get_manufacturers**](ManufacturersApi.md#get_manufacturers) | **GET** /v1.0/manufacturers | Get all manufacturers
-[**update_manufacturer**](ManufacturersApi.md#update_manufacturer) | **PUT** /v1.0/manufacturers/:manufacturer_id | Update manufacturer by ID
+[**update_manufacturer**](ManufacturersApi.md#update_manufacturer) | **PUT** /v1.0/manufacturers/{manufacturer_id} | Update manufacturer by ID
 
 
 # **create_manufacturer**

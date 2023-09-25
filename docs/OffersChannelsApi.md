@@ -4,12 +4,12 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_offer_channels**](OffersChannelsApi.md#delete_offer_channels) | **DELETE** /v1.0/offers/:offer_id/channels | Remove eligible Channels from offer
-[**get_offer_channel**](OffersChannelsApi.md#get_offer_channel) | **GET** /v1.0/offers/:offer_id/channels/:channel_id | Eligible Channel Show
-[**get_offer_channels**](OffersChannelsApi.md#get_offer_channels) | **GET** /v1.0/offers/:offer_id/channels | Eligible Channels List
-[**set_offer_channels**](OffersChannelsApi.md#set_offer_channels) | **POST** /v1.0/offers/:offer_id/channels | Set eligible Channels for offer
-[**update_offer_channel**](OffersChannelsApi.md#update_offer_channel) | **PUT** /v1.0/offers/:offer_id/channels/:channel_id | Eligible Channel Update
-[**update_offer_channels**](OffersChannelsApi.md#update_offer_channels) | **PUT** /v1.0/offers/:offer_id/channels | Add eligible Channels for offer
+[**delete_offer_channels**](OffersChannelsApi.md#delete_offer_channels) | **DELETE** /v1.0/offers/{offer_id}/channels | Remove eligible Channels from offer
+[**get_offer_channel**](OffersChannelsApi.md#get_offer_channel) | **GET** /v1.0/offers/{offer_id}/channels/{channel_id} | Eligible Channel Show
+[**get_offer_channels**](OffersChannelsApi.md#get_offer_channels) | **GET** /v1.0/offers/{offer_id}/channels | Eligible Channels List
+[**set_offer_channels**](OffersChannelsApi.md#set_offer_channels) | **POST** /v1.0/offers/{offer_id}/channels | Set eligible Channels for offer
+[**update_offer_channel**](OffersChannelsApi.md#update_offer_channel) | **PUT** /v1.0/offers/{offer_id}/channels/{channel_id} | Eligible Channel Update
+[**update_offer_channels**](OffersChannelsApi.md#update_offer_channels) | **PUT** /v1.0/offers/{offer_id}/channels | Add eligible Channels for offer
 
 
 # **delete_offer_channels**

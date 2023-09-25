@@ -5,10 +5,10 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_counter**](CountersApi.md#create_counter) | **POST** /v1.0/counters | Create a counter
-[**delete_counter**](CountersApi.md#delete_counter) | **DELETE** /v1.0/counters/:counter_id | Delete counter by ID
-[**get_counter**](CountersApi.md#get_counter) | **GET** /v1.0/counters/:counter_id | Get counter by ID
+[**delete_counter**](CountersApi.md#delete_counter) | **DELETE** /v1.0/counters/{counter_id} | Delete counter by ID
+[**get_counter**](CountersApi.md#get_counter) | **GET** /v1.0/counters/{counter_id} | Get counter by ID
 [**get_counters**](CountersApi.md#get_counters) | **GET** /v1.0/counters | Get counters
-[**update_counter**](CountersApi.md#update_counter) | **PUT** /v1.0/counters/:counter_id | Update counter by ID
+[**update_counter**](CountersApi.md#update_counter) | **PUT** /v1.0/counters/{counter_id} | Update counter by ID
 
 
 # **create_counter**

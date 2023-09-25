@@ -182,7 +182,7 @@ class ZidentifiersApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/members/:member_id/offers/:offer_id/zidentifiers', 'GET',
+            '/v1.0/members/{member_id}/offers/{offer_id}/zidentifiers', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -321,7 +321,7 @@ class ZidentifiersApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/members/zidentifiers/:zid', 'GET',
+            '/v1.0/members/zidentifiers/{zid}', 'GET',
             _path_params,
             _query_params,
             _header_params,

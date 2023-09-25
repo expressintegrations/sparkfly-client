@@ -186,7 +186,7 @@ class ManufacturersItemsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/manufacturers/:manufacturer_id/items', 'POST',
+            '/v1.0/manufacturers/{manufacturer_id}/items', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -326,7 +326,7 @@ class ManufacturersItemsApi:
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/v1.0/manufacturers/:manufacturer_id/items/:item_id', 'DELETE',
+            '/v1.0/manufacturers/{manufacturer_id}/items/{item_id}', 'DELETE',
             _path_params,
             _query_params,
             _header_params,
@@ -474,7 +474,7 @@ class ManufacturersItemsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/manufacturers/:manufacturer_id/items/:item_id', 'GET',
+            '/v1.0/manufacturers/{manufacturer_id}/items/{item_id}', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -629,7 +629,7 @@ class ManufacturersItemsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/manufacturers/:manufacturer_id/items', 'GET',
+            '/v1.0/manufacturers/{manufacturer_id}/items', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -793,7 +793,7 @@ class ManufacturersItemsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/manufacturers/:manufacturer_id/items/:item_id', 'PUT',
+            '/v1.0/manufacturers/{manufacturer_id}/items/{item_id}', 'PUT',
             _path_params,
             _query_params,
             _header_params,

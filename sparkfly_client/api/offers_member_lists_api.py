@@ -185,7 +185,7 @@ class OffersMemberListsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/offers/:offer_id/member_lists', 'DELETE',
+            '/v1.0/offers/{offer_id}/member_lists', 'DELETE',
             _path_params,
             _query_params,
             _header_params,
@@ -324,7 +324,7 @@ class OffersMemberListsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/offers/:offer_id/member_lists', 'GET',
+            '/v1.0/offers/{offer_id}/member_lists', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -479,7 +479,7 @@ class OffersMemberListsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/offers/:offer_id/member_lists', 'POST',
+            '/v1.0/offers/{offer_id}/member_lists', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -634,7 +634,7 @@ class OffersMemberListsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/offers/:offer_id/member_lists', 'PUT',
+            '/v1.0/offers/{offer_id}/member_lists', 'PUT',
             _path_params,
             _query_params,
             _header_params,

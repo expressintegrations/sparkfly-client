@@ -310,7 +310,7 @@ class OffersApi:
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/v1.0/offers/:offer_id', 'DELETE',
+            '/v1.0/offers/{offer_id}', 'DELETE',
             _path_params,
             _query_params,
             _header_params,
@@ -450,7 +450,7 @@ class OffersApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/offers/:offer_id', 'GET',
+            '/v1.0/offers/{offer_id}', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -768,7 +768,7 @@ class OffersApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/offers/:offer_id', 'PUT',
+            '/v1.0/offers/{offer_id}', 'PUT',
             _path_params,
             _query_params,
             _header_params,

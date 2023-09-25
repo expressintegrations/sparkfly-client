@@ -5,10 +5,10 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_item**](ItemsApi.md#create_item) | **POST** /v1.0/items | Create an item
-[**delete_item**](ItemsApi.md#delete_item) | **DELETE** /v1.0/items/:item_id | Delete item by ID
-[**get_item**](ItemsApi.md#get_item) | **GET** /v1.0/items/:item_id | Get item by ID
+[**delete_item**](ItemsApi.md#delete_item) | **DELETE** /v1.0/items/{item_id} | Delete item by ID
+[**get_item**](ItemsApi.md#get_item) | **GET** /v1.0/items/{item_id} | Get item by ID
 [**get_items**](ItemsApi.md#get_items) | **GET** /v1.0/items | Get all items
-[**update_item**](ItemsApi.md#update_item) | **PUT** /v1.0/items/:item_id | Update item by ID
+[**update_item**](ItemsApi.md#update_item) | **PUT** /v1.0/items/{item_id} | Update item by ID
 
 
 # **create_item**

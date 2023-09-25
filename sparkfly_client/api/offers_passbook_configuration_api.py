@@ -185,7 +185,7 @@ class OffersPassbookConfigurationApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/offers/:offer_id/passbook_configuration', 'POST',
+            '/v1.0/offers/{offer_id}/passbook_configuration', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -317,7 +317,7 @@ class OffersPassbookConfigurationApi:
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/v1.0/offers/:offer_id/passbook_configuration', 'DELETE',
+            '/v1.0/offers/{offer_id}/passbook_configuration', 'DELETE',
             _path_params,
             _query_params,
             _header_params,
@@ -456,7 +456,7 @@ class OffersPassbookConfigurationApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/offers/:offer_id/passbook_configuration', 'GET',
+            '/v1.0/offers/{offer_id}/passbook_configuration', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -611,7 +611,7 @@ class OffersPassbookConfigurationApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/offers/:offer_id/passbook_configuration', 'PUT',
+            '/v1.0/offers/{offer_id}/passbook_configuration', 'PUT',
             _path_params,
             _query_params,
             _header_params,

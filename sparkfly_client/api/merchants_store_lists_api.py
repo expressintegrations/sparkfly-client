@@ -189,7 +189,7 @@ class MerchantsStoreListsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/store_lists', 'POST',
+            '/v1.0/merchants/{merchant_id}/store_lists', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -329,7 +329,7 @@ class MerchantsStoreListsApi:
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/store_lists/:store_list_id', 'DELETE',
+            '/v1.0/merchants/{merchant_id}/store_lists/{store_list_id}', 'DELETE',
             _path_params,
             _query_params,
             _header_params,
@@ -484,7 +484,7 @@ class MerchantsStoreListsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/store_lists/:store_list_id/stores', 'DELETE',
+            '/v1.0/merchants/store_lists/{store_list_id}/stores', 'DELETE',
             _path_params,
             _query_params,
             _header_params,
@@ -632,7 +632,7 @@ class MerchantsStoreListsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/store_lists/:store_list_id', 'GET',
+            '/v1.0/merchants/{merchant_id}/store_lists/{store_list_id}', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -779,7 +779,7 @@ class MerchantsStoreListsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/store_lists/:store_list_id/stores', 'GET',
+            '/v1.0/merchants/store_lists/{store_list_id}/stores', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -926,7 +926,7 @@ class MerchantsStoreListsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/store_lists/:store_list_id/stores', 'GET',
+            '/v1.0/merchants/{merchant_id}/store_lists/{store_list_id}/stores', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -1065,7 +1065,7 @@ class MerchantsStoreListsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/store_lists', 'GET',
+            '/v1.0/merchants/{merchant_id}/store_lists', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -1220,7 +1220,7 @@ class MerchantsStoreListsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/store_lists/:store_list_id/stores', 'POST',
+            '/v1.0/merchants/store_lists/{store_list_id}/stores', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -1384,7 +1384,7 @@ class MerchantsStoreListsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/store_lists/:store_list_id', 'PUT',
+            '/v1.0/merchants/{merchant_id}/store_lists/{store_list_id}', 'PUT',
             _path_params,
             _query_params,
             _header_params,
@@ -1539,7 +1539,7 @@ class MerchantsStoreListsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/store_lists/:store_list_id/stores', 'PUT',
+            '/v1.0/merchants/store_lists/{store_list_id}/stores', 'PUT',
             _path_params,
             _query_params,
             _header_params,

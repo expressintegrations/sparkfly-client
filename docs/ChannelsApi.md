@@ -5,10 +5,10 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_channel**](ChannelsApi.md#create_channel) | **POST** /v1.0/channels | Create a channel
-[**delete_channel**](ChannelsApi.md#delete_channel) | **DELETE** /v1.0/channels/:channel_id | Delete channel by ID
-[**get_channel**](ChannelsApi.md#get_channel) | **GET** /v1.0/channels/:channel_id | Get channel by ID
+[**delete_channel**](ChannelsApi.md#delete_channel) | **DELETE** /v1.0/channels/{channel_id} | Delete channel by ID
+[**get_channel**](ChannelsApi.md#get_channel) | **GET** /v1.0/channels/{channel_id} | Get channel by ID
 [**get_channels**](ChannelsApi.md#get_channels) | **GET** /v1.0/channels | Get channels
-[**update_channel**](ChannelsApi.md#update_channel) | **PUT** /v1.0/channels/:channel_id | Update channel by ID
+[**update_channel**](ChannelsApi.md#update_channel) | **PUT** /v1.0/channels/{channel_id} | Update channel by ID
 
 
 # **create_channel**

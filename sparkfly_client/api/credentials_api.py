@@ -319,7 +319,7 @@ class CredentialsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/credentials/:credential_id', 'DELETE',
+            '/v1.0/credentials/{credential_id}', 'DELETE',
             _path_params,
             _query_params,
             _header_params,
@@ -459,7 +459,7 @@ class CredentialsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/credentials/:credential_id', 'GET',
+            '/v1.0/credentials/{credential_id}', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -901,7 +901,7 @@ class CredentialsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/credentials/:credential_id/redeem', 'PUT',
+            '/v1.0/credentials/{credential_id}/redeem', 'PUT',
             _path_params,
             _query_params,
             _header_params,
@@ -1057,7 +1057,7 @@ class CredentialsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/credentials/:credential_id', 'PUT',
+            '/v1.0/credentials/{credential_id}', 'PUT',
             _path_params,
             _query_params,
             _header_params,
@@ -1197,7 +1197,7 @@ class CredentialsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/credentials/:credential_id/void', 'PUT',
+            '/v1.0/credentials/{credential_id}/void', 'PUT',
             _path_params,
             _query_params,
             _header_params,

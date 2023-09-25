@@ -187,7 +187,7 @@ class OffersChannelsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/offers/:offer_id/channels', 'DELETE',
+            '/v1.0/offers/{offer_id}/channels', 'DELETE',
             _path_params,
             _query_params,
             _header_params,
@@ -334,7 +334,7 @@ class OffersChannelsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/offers/:offer_id/channels/:channel_id', 'GET',
+            '/v1.0/offers/{offer_id}/channels/{channel_id}', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -473,7 +473,7 @@ class OffersChannelsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/offers/:offer_id/channels', 'GET',
+            '/v1.0/offers/{offer_id}/channels', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -628,7 +628,7 @@ class OffersChannelsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/offers/:offer_id/channels', 'POST',
+            '/v1.0/offers/{offer_id}/channels', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -791,7 +791,7 @@ class OffersChannelsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/offers/:offer_id/channels/:channel_id', 'PUT',
+            '/v1.0/offers/{offer_id}/channels/{channel_id}', 'PUT',
             _path_params,
             _query_params,
             _header_params,
@@ -946,7 +946,7 @@ class OffersChannelsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/offers/:offer_id/channels', 'PUT',
+            '/v1.0/offers/{offer_id}/channels', 'PUT',
             _path_params,
             _query_params,
             _header_params,

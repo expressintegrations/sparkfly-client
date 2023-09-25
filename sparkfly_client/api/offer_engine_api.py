@@ -187,7 +187,7 @@ class OfferEngineApi:
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/v1.0/members/:member_id/stores/:store_id/check-in', 'POST',
+            '/v1.0/members/{member_id}/stores/{store_id}/check-in', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -465,7 +465,7 @@ class OfferEngineApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/members/:member_id/activities/redemptions', 'GET',
+            '/v1.0/members/{member_id}/activities/redemptions', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -621,7 +621,7 @@ class OfferEngineApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/members/:member_id/stores/:store_id', 'GET',
+            '/v1.0/members/{member_id}/stores/{store_id}', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -768,7 +768,7 @@ class OfferEngineApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/members/:member_id/stores/:store_id/activities/redemptions', 'GET',
+            '/v1.0/members/{member_id}/stores/{store_id}/activities/redemptions', 'GET',
             _path_params,
             _query_params,
             _header_params,

@@ -185,7 +185,7 @@ class MemberListsMembersApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/member_lists/:member_list_id/members', 'DELETE',
+            '/v1.0/member_lists/{member_list_id}/members', 'DELETE',
             _path_params,
             _query_params,
             _header_params,
@@ -324,7 +324,7 @@ class MemberListsMembersApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/member_lists/:member_list_id/members', 'GET',
+            '/v1.0/member_lists/{member_list_id}/members', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -479,7 +479,7 @@ class MemberListsMembersApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/member_lists/:member_list_id/members', 'POST',
+            '/v1.0/member_lists/{member_list_id}/members', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -634,7 +634,7 @@ class MemberListsMembersApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/member_lists/:member_list_id/members', 'PUT',
+            '/v1.0/member_lists/{member_list_id}/members', 'PUT',
             _path_params,
             _query_params,
             _header_params,

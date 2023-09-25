@@ -4,11 +4,11 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_merchant_item**](MerchantsItemsApi.md#create_merchant_item) | **POST** /v1.0/merchants/:merchant_id/items | Create an item for merchant
-[**delete_merchant_item**](MerchantsItemsApi.md#delete_merchant_item) | **DELETE** /v1.0/merchants/:merchant_id/items/:item_id | Delete item by ID for merchant
-[**get_merchant_item**](MerchantsItemsApi.md#get_merchant_item) | **GET** /v1.0/merchants/:merchant_id/items/:item_id | Get item by ID for merchant
-[**get_merchant_items**](MerchantsItemsApi.md#get_merchant_items) | **GET** /v1.0/merchants/:merchant_id/items | Get all items for merchant
-[**update_merchant_item**](MerchantsItemsApi.md#update_merchant_item) | **PUT** /v1.0/merchants/:merchant_id/items/:item_id | Update item by ID for merchant
+[**create_merchant_item**](MerchantsItemsApi.md#create_merchant_item) | **POST** /v1.0/merchants/{merchant_id}/items | Create an item for merchant
+[**delete_merchant_item**](MerchantsItemsApi.md#delete_merchant_item) | **DELETE** /v1.0/merchants/{merchant_id}/items/{item_id} | Delete item by ID for merchant
+[**get_merchant_item**](MerchantsItemsApi.md#get_merchant_item) | **GET** /v1.0/merchants/{merchant_id}/items/{item_id} | Get item by ID for merchant
+[**get_merchant_items**](MerchantsItemsApi.md#get_merchant_items) | **GET** /v1.0/merchants/{merchant_id}/items | Get all items for merchant
+[**update_merchant_item**](MerchantsItemsApi.md#update_merchant_item) | **PUT** /v1.0/merchants/{merchant_id}/items/{item_id} | Update item by ID for merchant
 
 
 # **create_merchant_item**

@@ -5,10 +5,10 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_event**](EventsApi.md#create_event) | **POST** /v1.0/events | Creates an event
-[**delete_event**](EventsApi.md#delete_event) | **DELETE** /v1.0/events/:event_id | Delete the event
-[**get_event**](EventsApi.md#get_event) | **GET** /v1.0/events/:event_id | Get event by ID
+[**delete_event**](EventsApi.md#delete_event) | **DELETE** /v1.0/events/{event_id} | Delete the event
+[**get_event**](EventsApi.md#get_event) | **GET** /v1.0/events/{event_id} | Get event by ID
 [**get_events**](EventsApi.md#get_events) | **GET** /v1.0/events | get all events
-[**update_event_name**](EventsApi.md#update_event_name) | **PUT** /v1.0/events/:event_id | Change the name of an event
+[**update_event_name**](EventsApi.md#update_event_name) | **PUT** /v1.0/events/{event_id} | Change the name of an event
 
 
 # **create_event**

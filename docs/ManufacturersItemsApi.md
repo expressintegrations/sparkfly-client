@@ -4,11 +4,11 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_manufacturer_item**](ManufacturersItemsApi.md#create_manufacturer_item) | **POST** /v1.0/manufacturers/:manufacturer_id/items | Create an item for manufacturer
-[**delete_manufacturer_item**](ManufacturersItemsApi.md#delete_manufacturer_item) | **DELETE** /v1.0/manufacturers/:manufacturer_id/items/:item_id | Delete item by ID for manufacturer
-[**get_manufacturer_item**](ManufacturersItemsApi.md#get_manufacturer_item) | **GET** /v1.0/manufacturers/:manufacturer_id/items/:item_id | Get item by ID for manufacturer
-[**get_manufacturer_items**](ManufacturersItemsApi.md#get_manufacturer_items) | **GET** /v1.0/manufacturers/:manufacturer_id/items | Get all items for manufacturer
-[**update_manufacturer_item**](ManufacturersItemsApi.md#update_manufacturer_item) | **PUT** /v1.0/manufacturers/:manufacturer_id/items/:item_id | Update item by ID for manufacturer
+[**create_manufacturer_item**](ManufacturersItemsApi.md#create_manufacturer_item) | **POST** /v1.0/manufacturers/{manufacturer_id}/items | Create an item for manufacturer
+[**delete_manufacturer_item**](ManufacturersItemsApi.md#delete_manufacturer_item) | **DELETE** /v1.0/manufacturers/{manufacturer_id}/items/{item_id} | Delete item by ID for manufacturer
+[**get_manufacturer_item**](ManufacturersItemsApi.md#get_manufacturer_item) | **GET** /v1.0/manufacturers/{manufacturer_id}/items/{item_id} | Get item by ID for manufacturer
+[**get_manufacturer_items**](ManufacturersItemsApi.md#get_manufacturer_items) | **GET** /v1.0/manufacturers/{manufacturer_id}/items | Get all items for manufacturer
+[**update_manufacturer_item**](ManufacturersItemsApi.md#update_manufacturer_item) | **PUT** /v1.0/manufacturers/{manufacturer_id}/items/{item_id} | Update item by ID for manufacturer
 
 
 # **create_manufacturer_item**

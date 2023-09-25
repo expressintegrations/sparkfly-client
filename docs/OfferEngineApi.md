@@ -4,11 +4,11 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**check_in_member_to_store**](OfferEngineApi.md#check_in_member_to_store) | **POST** /v1.0/members/:member_id/stores/:store_id/check-in | Check-In Member to Store
+[**check_in_member_to_store**](OfferEngineApi.md#check_in_member_to_store) | **POST** /v1.0/members/{member_id}/stores/{store_id}/check-in | Check-In Member to Store
 [**get_member_offer_activities**](OfferEngineApi.md#get_member_offer_activities) | **GET** /v1.0/activities/offers | Retrieve Offer Activities for Member
-[**get_member_redemptions**](OfferEngineApi.md#get_member_redemptions) | **GET** /v1.0/members/:member_id/activities/redemptions | Retrieve Redeemed Redemptions for Member
-[**get_member_store**](OfferEngineApi.md#get_member_store) | **GET** /v1.0/members/:member_id/stores/:store_id | Retrieve Store for Member
-[**get_member_store_redemptions**](OfferEngineApi.md#get_member_store_redemptions) | **GET** /v1.0/members/:member_id/stores/:store_id/activities/redemptions | Retrieve Redeemed Redemptions for Member for Store
+[**get_member_redemptions**](OfferEngineApi.md#get_member_redemptions) | **GET** /v1.0/members/{member_id}/activities/redemptions | Retrieve Redeemed Redemptions for Member
+[**get_member_store**](OfferEngineApi.md#get_member_store) | **GET** /v1.0/members/{member_id}/stores/{store_id} | Retrieve Store for Member
+[**get_member_store_redemptions**](OfferEngineApi.md#get_member_store_redemptions) | **GET** /v1.0/members/{member_id}/stores/{store_id}/activities/redemptions | Retrieve Redeemed Redemptions for Member for Store
 
 
 # **check_in_member_to_store**

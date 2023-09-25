@@ -4,7 +4,7 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_pos_offer_code**](POSOfferCodesApi.md#get_pos_offer_code) | **GET** /v1.0/pos_offer_codes/:pos_offer_code_id | Get POS Offer Code
+[**get_pos_offer_code**](POSOfferCodesApi.md#get_pos_offer_code) | **GET** /v1.0/pos_offer_codes/{pos_offer_code_id} | Get POS Offer Code
 [**get_pos_offer_codes**](POSOfferCodesApi.md#get_pos_offer_codes) | **GET** /v1.0/pos_offer_codes | List POS Offer Codes
 
 

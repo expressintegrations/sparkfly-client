@@ -97,7 +97,6 @@ from sparkfly_client.models.member_export_data import MemberExportData
 from sparkfly_client.models.member_info import MemberInfo
 from sparkfly_client.models.member_input import MemberInput
 from sparkfly_client.models.member_input_request import MemberInputRequest
-from sparkfly_client.models.member_list import MemberList
 from sparkfly_client.models.member_list_input import MemberListInput
 from sparkfly_client.models.member_list_input_request import MemberListInputRequest
 from sparkfly_client.models.member_list_list import MemberListList
@@ -107,6 +106,7 @@ from sparkfly_client.models.member_list_members import MemberListMembers
 from sparkfly_client.models.member_list_members_response import MemberListMembersResponse
 from sparkfly_client.models.member_list_object import MemberListObject
 from sparkfly_client.models.member_list_object_response import MemberListObjectResponse
+from sparkfly_client.models.member_list_response import MemberListResponse
 from sparkfly_client.models.member_response import MemberResponse
 from sparkfly_client.models.member_store import MemberStore
 from sparkfly_client.models.member_store_response import MemberStoreResponse

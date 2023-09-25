@@ -4,16 +4,16 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_merchant_store_list**](MerchantsStoreListsApi.md#create_merchant_store_list) | **POST** /v1.0/merchants/:merchant_id/store_lists | Create an Store List for merchant
-[**delete_merchant_store_list**](MerchantsStoreListsApi.md#delete_merchant_store_list) | **DELETE** /v1.0/merchants/:merchant_id/store_lists/:store_list_id | Delete Store List by ID for merchant
-[**delete_merchant_store_list_stores**](MerchantsStoreListsApi.md#delete_merchant_store_list_stores) | **DELETE** /v1.0/merchants/store_lists/:store_list_id/stores | Remove an eligible Store for store_list
-[**get_merchant_store_list**](MerchantsStoreListsApi.md#get_merchant_store_list) | **GET** /v1.0/merchants/:merchant_id/store_lists/:store_list_id | Get Store List by ID for merchant
-[**get_merchant_store_list_stores**](MerchantsStoreListsApi.md#get_merchant_store_list_stores) | **GET** /v1.0/merchants/store_lists/:store_list_id/stores | Get all Stores for Store List
-[**get_merchant_store_list_stores_detailed**](MerchantsStoreListsApi.md#get_merchant_store_list_stores_detailed) | **GET** /v1.0/merchants/:merchant_id/store_lists/:store_list_id/stores | Get all Stores for Store List (detailed)
-[**get_merchant_store_lists**](MerchantsStoreListsApi.md#get_merchant_store_lists) | **GET** /v1.0/merchants/:merchant_id/store_lists | Get all Store Lists for merchant
-[**set_merchant_store_list_stores**](MerchantsStoreListsApi.md#set_merchant_store_list_stores) | **POST** /v1.0/merchants/store_lists/:store_list_id/stores | Set eligible Stores for Store List
-[**update_merchant_store_list**](MerchantsStoreListsApi.md#update_merchant_store_list) | **PUT** /v1.0/merchants/:merchant_id/store_lists/:store_list_id | Update Store List by ID for merchant
-[**update_merchant_store_list_stores**](MerchantsStoreListsApi.md#update_merchant_store_list_stores) | **PUT** /v1.0/merchants/store_lists/:store_list_id/stores | Add eligible Stores for Store List
+[**create_merchant_store_list**](MerchantsStoreListsApi.md#create_merchant_store_list) | **POST** /v1.0/merchants/{merchant_id}/store_lists | Create an Store List for merchant
+[**delete_merchant_store_list**](MerchantsStoreListsApi.md#delete_merchant_store_list) | **DELETE** /v1.0/merchants/{merchant_id}/store_lists/{store_list_id} | Delete Store List by ID for merchant
+[**delete_merchant_store_list_stores**](MerchantsStoreListsApi.md#delete_merchant_store_list_stores) | **DELETE** /v1.0/merchants/store_lists/{store_list_id}/stores | Remove an eligible Store for store_list
+[**get_merchant_store_list**](MerchantsStoreListsApi.md#get_merchant_store_list) | **GET** /v1.0/merchants/{merchant_id}/store_lists/{store_list_id} | Get Store List by ID for merchant
+[**get_merchant_store_list_stores**](MerchantsStoreListsApi.md#get_merchant_store_list_stores) | **GET** /v1.0/merchants/store_lists/{store_list_id}/stores | Get all Stores for Store List
+[**get_merchant_store_list_stores_detailed**](MerchantsStoreListsApi.md#get_merchant_store_list_stores_detailed) | **GET** /v1.0/merchants/{merchant_id}/store_lists/{store_list_id}/stores | Get all Stores for Store List (detailed)
+[**get_merchant_store_lists**](MerchantsStoreListsApi.md#get_merchant_store_lists) | **GET** /v1.0/merchants/{merchant_id}/store_lists | Get all Store Lists for merchant
+[**set_merchant_store_list_stores**](MerchantsStoreListsApi.md#set_merchant_store_list_stores) | **POST** /v1.0/merchants/store_lists/{store_list_id}/stores | Set eligible Stores for Store List
+[**update_merchant_store_list**](MerchantsStoreListsApi.md#update_merchant_store_list) | **PUT** /v1.0/merchants/{merchant_id}/store_lists/{store_list_id} | Update Store List by ID for merchant
+[**update_merchant_store_list_stores**](MerchantsStoreListsApi.md#update_merchant_store_list_stores) | **PUT** /v1.0/merchants/store_lists/{store_list_id}/stores | Add eligible Stores for Store List
 
 
 # **create_merchant_store_list**

@@ -4,7 +4,7 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_offer_eligible_item_sets**](OffersEligibleItemSetsApi.md#get_offer_eligible_item_sets) | **GET** /v1.0/offers/:offer_id/eligible_item_sets | Eligible Item Sets List
+[**get_offer_eligible_item_sets**](OffersEligibleItemSetsApi.md#get_offer_eligible_item_sets) | **GET** /v1.0/offers/{offer_id}/eligible_item_sets | Eligible Item Sets List
 
 
 # **get_offer_eligible_item_sets**

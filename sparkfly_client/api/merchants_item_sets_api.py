@@ -186,7 +186,7 @@ class MerchantsItemSetsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/item_sets', 'POST',
+            '/v1.0/merchants/{merchant_id}/item_sets', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -326,7 +326,7 @@ class MerchantsItemSetsApi:
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/item_sets/:item_set_id', 'DELETE',
+            '/v1.0/merchants/{merchant_id}/item_sets/{item_set_id}', 'DELETE',
             _path_params,
             _query_params,
             _header_params,
@@ -474,7 +474,7 @@ class MerchantsItemSetsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/item_sets/:item_set_id', 'GET',
+            '/v1.0/merchants/{merchant_id}/item_sets/{item_set_id}', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -613,7 +613,7 @@ class MerchantsItemSetsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/item_sets', 'GET',
+            '/v1.0/merchants/{merchant_id}/item_sets', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -777,7 +777,7 @@ class MerchantsItemSetsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/item_sets/:item_set_id', 'PUT',
+            '/v1.0/merchants/{merchant_id}/item_sets/{item_set_id}', 'PUT',
             _path_params,
             _query_params,
             _header_params,

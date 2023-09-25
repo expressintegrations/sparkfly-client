@@ -4,7 +4,7 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_merchant_item_set_items**](MerchantsItemSetsItemsApi.md#get_merchant_item_set_items) | **GET** /v1.0/merchants/:merchant_id/item_sets/:item_set_id/items | Get items for item set for merchant
+[**get_merchant_item_set_items**](MerchantsItemSetsItemsApi.md#get_merchant_item_set_items) | **GET** /v1.0/merchants/{merchant_id}/item_sets/{item_set_id}/items | Get items for item set for merchant
 
 
 # **get_merchant_item_set_items**

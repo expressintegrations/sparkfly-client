@@ -339,7 +339,7 @@ class ReportsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/reports/full', 'GET',
+            '/v1.0/merchants/{merchant_id}/reports/full', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -495,7 +495,7 @@ class ReportsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/reports/impressions', 'GET',
+            '/v1.0/merchants/{merchant_id}/reports/impressions', 'GET',
             _path_params,
             _query_params,
             _header_params,

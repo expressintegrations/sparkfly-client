@@ -5,11 +5,11 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_campaign**](CampaignsApi.md#create_campaign) | **POST** /v1.0/campaigns | Create a new campaign
-[**delete_campaign**](CampaignsApi.md#delete_campaign) | **DELETE** /v1.0/campaigns/:campaign_id | Delete the campaign
+[**delete_campaign**](CampaignsApi.md#delete_campaign) | **DELETE** /v1.0/campaigns/{campaign_id} | Delete the campaign
 [**get_active_reward_program_campaigns**](CampaignsApi.md#get_active_reward_program_campaigns) | **GET** /v1.0/campaigns/search | Get active reward program campaigns
-[**get_campaign**](CampaignsApi.md#get_campaign) | **GET** /v1.0/campaigns/:campaign_id | Retrieve Campaign
+[**get_campaign**](CampaignsApi.md#get_campaign) | **GET** /v1.0/campaigns/{campaign_id} | Retrieve Campaign
 [**get_campaign_by_external_id**](CampaignsApi.md#get_campaign_by_external_id) | **GET** /v1.0/campaigns | Get campaign by external ID
-[**update_campaign**](CampaignsApi.md#update_campaign) | **PUT** /v1.0/campaigns/:campaign_id | Update Campaign
+[**update_campaign**](CampaignsApi.md#update_campaign) | **PUT** /v1.0/campaigns/{campaign_id} | Update Campaign
 
 
 # **create_campaign**

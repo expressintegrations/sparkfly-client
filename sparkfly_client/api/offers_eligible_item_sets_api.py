@@ -166,7 +166,7 @@ class OffersEligibleItemSetsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/offers/:offer_id/eligible_item_sets', 'GET',
+            '/v1.0/offers/{offer_id}/eligible_item_sets', 'GET',
             _path_params,
             _query_params,
             _header_params,

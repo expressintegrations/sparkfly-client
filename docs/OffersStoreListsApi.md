@@ -4,10 +4,10 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_offer_store_lists**](OffersStoreListsApi.md#delete_offer_store_lists) | **DELETE** /v1.0/offers/:offer_id/store_lists | Remove eligible Store Lists from offer
-[**get_offer_store_lists**](OffersStoreListsApi.md#get_offer_store_lists) | **GET** /v1.0/offers/:offer_id/store_lists | Eligible Store Lists List
-[**set_offer_store_lists**](OffersStoreListsApi.md#set_offer_store_lists) | **POST** /v1.0/offers/:offer_id/store_lists | Set eligible Store Lists for offer
-[**update_offer_store_lists**](OffersStoreListsApi.md#update_offer_store_lists) | **PUT** /v1.0/offers/:offer_id/store_lists | Add eligible Store Lists for offer
+[**delete_offer_store_lists**](OffersStoreListsApi.md#delete_offer_store_lists) | **DELETE** /v1.0/offers/{offer_id}/store_lists | Remove eligible Store Lists from offer
+[**get_offer_store_lists**](OffersStoreListsApi.md#get_offer_store_lists) | **GET** /v1.0/offers/{offer_id}/store_lists | Eligible Store Lists List
+[**set_offer_store_lists**](OffersStoreListsApi.md#set_offer_store_lists) | **POST** /v1.0/offers/{offer_id}/store_lists | Set eligible Store Lists for offer
+[**update_offer_store_lists**](OffersStoreListsApi.md#update_offer_store_lists) | **PUT** /v1.0/offers/{offer_id}/store_lists | Add eligible Store Lists for offer
 
 
 # **delete_offer_store_lists**

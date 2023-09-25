@@ -5,13 +5,13 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_credential**](CredentialsApi.md#create_credential) | **POST** /v1.0/credentials | Creates a credential
-[**delete_credential**](CredentialsApi.md#delete_credential) | **DELETE** /v1.0/credentials/:credential_id | Delete Credential
-[**get_credential**](CredentialsApi.md#get_credential) | **GET** /v1.0/credentials/:credential_id | Get Credential
+[**delete_credential**](CredentialsApi.md#delete_credential) | **DELETE** /v1.0/credentials/{credential_id} | Delete Credential
+[**get_credential**](CredentialsApi.md#get_credential) | **GET** /v1.0/credentials/{credential_id} | Get Credential
 [**get_credentials**](CredentialsApi.md#get_credentials) | **GET** /v1.0/credentials | List Credentials
 [**get_offer_eligibility_for_member**](CredentialsApi.md#get_offer_eligibility_for_member) | **GET** /v1.0/credentials/eligible | Determine if a member is eligible for an offer
-[**redeem_credential**](CredentialsApi.md#redeem_credential) | **PUT** /v1.0/credentials/:credential_id/redeem | Redeem a credential
-[**update_credential**](CredentialsApi.md#update_credential) | **PUT** /v1.0/credentials/:credential_id | Updates a credential
-[**void_credential**](CredentialsApi.md#void_credential) | **PUT** /v1.0/credentials/:credential_id/void | Void a credential
+[**redeem_credential**](CredentialsApi.md#redeem_credential) | **PUT** /v1.0/credentials/{credential_id}/redeem | Redeem a credential
+[**update_credential**](CredentialsApi.md#update_credential) | **PUT** /v1.0/credentials/{credential_id} | Updates a credential
+[**void_credential**](CredentialsApi.md#void_credential) | **PUT** /v1.0/credentials/{credential_id}/void | Void a credential
 
 
 # **create_credential**

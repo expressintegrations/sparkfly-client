@@ -5,10 +5,10 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_merchant**](MerchantsApi.md#create_merchant) | **POST** /v1.0/merchants | Create a merchant
-[**delete_merchant**](MerchantsApi.md#delete_merchant) | **DELETE** /v1.0/merchants/:merchant_id | Delete merchant by ID
-[**get_merchant**](MerchantsApi.md#get_merchant) | **GET** /v1.0/merchants/:merchant_id | Get merchant by ID
+[**delete_merchant**](MerchantsApi.md#delete_merchant) | **DELETE** /v1.0/merchants/{merchant_id} | Delete merchant by ID
+[**get_merchant**](MerchantsApi.md#get_merchant) | **GET** /v1.0/merchants/{merchant_id} | Get merchant by ID
 [**get_merchants**](MerchantsApi.md#get_merchants) | **GET** /v1.0/merchants | Get all merchants
-[**update_merchant**](MerchantsApi.md#update_merchant) | **PUT** /v1.0/merchants/:merchant_id | Update merchant by ID
+[**update_merchant**](MerchantsApi.md#update_merchant) | **PUT** /v1.0/merchants/{merchant_id} | Update merchant by ID
 
 
 # **create_merchant**

@@ -24,7 +24,7 @@ from pydantic import Field, StrictInt, StrictStr
 from typing import Optional
 
 from sparkfly_client.models.member_input_request import MemberInputRequest
-from sparkfly_client.models.member_list import MemberList
+from sparkfly_client.models.member_list_response import MemberListResponse
 from sparkfly_client.models.member_response import MemberResponse
 
 from sparkfly_client.api_client import ApiClient
@@ -310,7 +310,7 @@ class MembersApi:
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/v1.0/members/:member_id', 'DELETE',
+            '/v1.0/members/{member_id}', 'DELETE',
             _path_params,
             _query_params,
             _header_params,
@@ -450,7 +450,7 @@ class MembersApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/members/:member_id', 'GET',
+            '/v1.0/members/{member_id}', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -467,7 +467,7 @@ class MembersApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_members(self, **kwargs) -> MemberList:  # noqa: E501
+    def get_members(self, **kwargs) -> MemberListResponse:  # noqa: E501
         """List members  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -485,7 +485,7 @@ class MembersApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: MemberList
+        :rtype: MemberListResponse
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -525,7 +525,7 @@ class MembersApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(MemberList, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(MemberListResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -576,7 +576,7 @@ class MembersApi:
         _auth_settings = ['X-Auth-Token']  # noqa: E501
 
         _response_types_map = {
-            '200': "MemberList",
+            '200': "MemberListResponse",
             '401': None,
         }
 
@@ -876,7 +876,7 @@ class MembersApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/members/:member_id', 'PUT',
+            '/v1.0/members/{member_id}', 'PUT',
             _path_params,
             _query_params,
             _header_params,

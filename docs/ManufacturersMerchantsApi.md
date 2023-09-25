@@ -4,10 +4,10 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_manufacturer_merchants**](ManufacturersMerchantsApi.md#delete_manufacturer_merchants) | **DELETE** /v1.0/manufacturers/:manufacturer_id/merchants | Remove an eligible merchant for manufacturer
-[**get_manufacturer_merchants**](ManufacturersMerchantsApi.md#get_manufacturer_merchants) | **GET** /v1.0/manufacturers/:manufacturer_id/merchants | Get all merchants for manufacturer
-[**set_manufacturer_merchants**](ManufacturersMerchantsApi.md#set_manufacturer_merchants) | **POST** /v1.0/manufacturers/:manufacturer_id/merchants | Set eligible merchants for manufacturer
-[**update_manufacturer_merchants**](ManufacturersMerchantsApi.md#update_manufacturer_merchants) | **PUT** /v1.0/manufacturers/:manufacturer_id/merchants | Add an eligible merchant for manufacturer
+[**delete_manufacturer_merchants**](ManufacturersMerchantsApi.md#delete_manufacturer_merchants) | **DELETE** /v1.0/manufacturers/{manufacturer_id}/merchants | Remove an eligible merchant for manufacturer
+[**get_manufacturer_merchants**](ManufacturersMerchantsApi.md#get_manufacturer_merchants) | **GET** /v1.0/manufacturers/{manufacturer_id}/merchants | Get all merchants for manufacturer
+[**set_manufacturer_merchants**](ManufacturersMerchantsApi.md#set_manufacturer_merchants) | **POST** /v1.0/manufacturers/{manufacturer_id}/merchants | Set eligible merchants for manufacturer
+[**update_manufacturer_merchants**](ManufacturersMerchantsApi.md#update_manufacturer_merchants) | **PUT** /v1.0/manufacturers/{manufacturer_id}/merchants | Add an eligible merchant for manufacturer
 
 
 # **delete_manufacturer_merchants**

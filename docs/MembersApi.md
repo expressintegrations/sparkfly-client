@@ -5,11 +5,11 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_member**](MembersApi.md#create_member) | **POST** /v1.0/members | Creates a member
-[**delete_member**](MembersApi.md#delete_member) | **DELETE** /v1.0/members/:member_id | Delete the member
-[**get_member**](MembersApi.md#get_member) | **GET** /v1.0/members/:member_id | Retrieve Member
+[**delete_member**](MembersApi.md#delete_member) | **DELETE** /v1.0/members/{member_id} | Delete the member
+[**get_member**](MembersApi.md#get_member) | **GET** /v1.0/members/{member_id} | Retrieve Member
 [**get_members**](MembersApi.md#get_members) | **GET** /v1.0/members | List members
 [**get_members_by_identifier**](MembersApi.md#get_members_by_identifier) | **GET** /v1.0/members/search | Search for Member by Identifier
-[**update_member**](MembersApi.md#update_member) | **PUT** /v1.0/members/:member_id | Update Member
+[**update_member**](MembersApi.md#update_member) | **PUT** /v1.0/members/{member_id} | Update Member
 
 
 # **create_member**
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_members**
-> MemberList get_members()
+> MemberListResponse get_members()
 
 List members
 
@@ -256,7 +256,7 @@ List members
 import time
 import os
 import sparkfly_client
-from sparkfly_client.models.member_list import MemberList
+from sparkfly_client.models.member_list_response import MemberListResponse
 from sparkfly_client.rest import ApiException
 from pprint import pprint
 
@@ -298,7 +298,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MemberList**](MemberList.md)
+[**MemberListResponse**](MemberListResponse.md)
 
 ### Authorization
 

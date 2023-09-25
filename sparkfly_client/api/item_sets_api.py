@@ -311,7 +311,7 @@ class ItemSetsApi:
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/v1.0/item_sets/:item_set_id', 'DELETE',
+            '/v1.0/item_sets/{item_set_id}', 'DELETE',
             _path_params,
             _query_params,
             _header_params,
@@ -451,7 +451,7 @@ class ItemSetsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/item_sets/:item_set_id', 'GET',
+            '/v1.0/item_sets/{item_set_id}', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -468,15 +468,17 @@ class ItemSetsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_item_set_items(self, **kwargs) -> ItemListResponse:  # noqa: E501
+    def get_item_set_items(self, item_set_id : Annotated[StrictInt, Field(..., description="The id of the item set")], **kwargs) -> ItemListResponse:  # noqa: E501
         """Get items for item set  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_item_set_items(async_req=True)
+        >>> thread = api.get_item_set_items(item_set_id, async_req=True)
         >>> result = thread.get()
 
+        :param item_set_id: The id of the item set (required)
+        :type item_set_id: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request.
@@ -492,18 +494,20 @@ class ItemSetsApi:
         if '_preload_content' in kwargs:
             message = "Error! Please call the get_item_set_items_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.get_item_set_items_with_http_info(**kwargs)  # noqa: E501
+        return self.get_item_set_items_with_http_info(item_set_id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_item_set_items_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_item_set_items_with_http_info(self, item_set_id : Annotated[StrictInt, Field(..., description="The id of the item set")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get items for item set  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_item_set_items_with_http_info(async_req=True)
+        >>> thread = api.get_item_set_items_with_http_info(item_set_id, async_req=True)
         >>> result = thread.get()
 
+        :param item_set_id: The id of the item set (required)
+        :type item_set_id: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -532,6 +536,7 @@ class ItemSetsApi:
         _params = locals()
 
         _all_params = [
+            'item_set_id'
         ]
         _all_params.extend(
             [
@@ -559,6 +564,9 @@ class ItemSetsApi:
 
         # process the path parameters
         _path_params = {}
+        if _params['item_set_id']:
+            _path_params['item_set_id'] = _params['item_set_id']
+
 
         # process the query parameters
         _query_params = []
@@ -582,7 +590,7 @@ class ItemSetsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/item_sets/:item_set_id/items', 'GET',
+            '/v1.0/item_sets/{item_set_id}/items', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -869,7 +877,7 @@ class ItemSetsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/item_sets/:item_set_id', 'PUT',
+            '/v1.0/item_sets/{item_set_id}', 'PUT',
             _path_params,
             _query_params,
             _header_params,

@@ -4,10 +4,10 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_member_list_members**](MemberListsMembersApi.md#delete_member_list_members) | **DELETE** /v1.0/member_lists/:member_list_id/members | Remove an eligible member for member_list
-[**get_member_list_members**](MemberListsMembersApi.md#get_member_list_members) | **GET** /v1.0/member_lists/:member_list_id/members | Get all Members for Member List
-[**set_member_list_members**](MemberListsMembersApi.md#set_member_list_members) | **POST** /v1.0/member_lists/:member_list_id/members | Set eligible members for Member List
-[**update_member_list_members**](MemberListsMembersApi.md#update_member_list_members) | **PUT** /v1.0/member_lists/:member_list_id/members | Add eligible members for Member List
+[**delete_member_list_members**](MemberListsMembersApi.md#delete_member_list_members) | **DELETE** /v1.0/member_lists/{member_list_id}/members | Remove an eligible member for member_list
+[**get_member_list_members**](MemberListsMembersApi.md#get_member_list_members) | **GET** /v1.0/member_lists/{member_list_id}/members | Get all Members for Member List
+[**set_member_list_members**](MemberListsMembersApi.md#set_member_list_members) | **POST** /v1.0/member_lists/{member_list_id}/members | Set eligible members for Member List
+[**update_member_list_members**](MemberListsMembersApi.md#update_member_list_members) | **PUT** /v1.0/member_lists/{member_list_id}/members | Add eligible members for Member List
 
 
 # **delete_member_list_members**

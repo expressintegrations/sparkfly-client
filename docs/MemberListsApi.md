@@ -5,10 +5,10 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_member_list**](MemberListsApi.md#create_member_list) | **POST** /v1.0/member_lists | Create a member list
-[**delete_member_list**](MemberListsApi.md#delete_member_list) | **DELETE** /v1.0/member_lists/:member_list_id | Delete Member List by ID
-[**get_member_list**](MemberListsApi.md#get_member_list) | **GET** /v1.0/member_lists/:member_list_id | Get member list by ID
+[**delete_member_list**](MemberListsApi.md#delete_member_list) | **DELETE** /v1.0/member_lists/{member_list_id} | Delete Member List by ID
+[**get_member_list**](MemberListsApi.md#get_member_list) | **GET** /v1.0/member_lists/{member_list_id} | Get member list by ID
 [**get_member_lists**](MemberListsApi.md#get_member_lists) | **GET** /v1.0/member_lists | Get all member lists
-[**update_member_list**](MemberListsApi.md#update_member_list) | **PUT** /v1.0/member_lists/:member_list_id | Update Member List by ID
+[**update_member_list**](MemberListsApi.md#update_member_list) | **PUT** /v1.0/member_lists/{member_list_id} | Update Member List by ID
 
 
 # **create_member_list**

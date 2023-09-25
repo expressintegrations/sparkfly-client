@@ -174,7 +174,7 @@ class ManufacturersItemSetsItemsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/manufacturers/:manufacturer_id/item_sets/:item_set_id/items', 'GET',
+            '/v1.0/manufacturers/{manufacturer_id}/item_sets/{item_set_id}/items', 'GET',
             _path_params,
             _query_params,
             _header_params,

@@ -4,10 +4,10 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_offer_member_lists**](OffersMemberListsApi.md#delete_offer_member_lists) | **DELETE** /v1.0/offers/:offer_id/member_lists | Remove eligible Member Lists from offer
-[**get_offer_member_lists**](OffersMemberListsApi.md#get_offer_member_lists) | **GET** /v1.0/offers/:offer_id/member_lists | Eligible Member Lists List
-[**set_offer_member_lists**](OffersMemberListsApi.md#set_offer_member_lists) | **POST** /v1.0/offers/:offer_id/member_lists | Set eligible Member Lists for offer
-[**update_offer_member_lists**](OffersMemberListsApi.md#update_offer_member_lists) | **PUT** /v1.0/offers/:offer_id/member_lists | Add eligible Member Lists for offer
+[**delete_offer_member_lists**](OffersMemberListsApi.md#delete_offer_member_lists) | **DELETE** /v1.0/offers/{offer_id}/member_lists | Remove eligible Member Lists from offer
+[**get_offer_member_lists**](OffersMemberListsApi.md#get_offer_member_lists) | **GET** /v1.0/offers/{offer_id}/member_lists | Eligible Member Lists List
+[**set_offer_member_lists**](OffersMemberListsApi.md#set_offer_member_lists) | **POST** /v1.0/offers/{offer_id}/member_lists | Set eligible Member Lists for offer
+[**update_offer_member_lists**](OffersMemberListsApi.md#update_offer_member_lists) | **PUT** /v1.0/offers/{offer_id}/member_lists | Add eligible Member Lists for offer
 
 
 # **delete_offer_member_lists**

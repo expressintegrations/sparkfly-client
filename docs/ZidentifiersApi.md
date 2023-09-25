@@ -4,8 +4,8 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_z_identifier**](ZidentifiersApi.md#create_z_identifier) | **GET** /v1.0/members/:member_id/offers/:offer_id/zidentifiers | Create an identifier linking Offer, Member, Channel
-[**get_z_identifier**](ZidentifiersApi.md#get_z_identifier) | **GET** /v1.0/members/zidentifiers/:zid | Get Zidentifier
+[**create_z_identifier**](ZidentifiersApi.md#create_z_identifier) | **GET** /v1.0/members/{member_id}/offers/{offer_id}/zidentifiers | Create an identifier linking Offer, Member, Channel
+[**get_z_identifier**](ZidentifiersApi.md#get_z_identifier) | **GET** /v1.0/members/zidentifiers/{zid} | Get Zidentifier
 
 
 # **create_z_identifier**

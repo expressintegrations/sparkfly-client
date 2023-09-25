@@ -5,10 +5,10 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_offer**](OffersApi.md#create_offer) | **POST** /v1.0/offers | Creates an offer
-[**delete_offer**](OffersApi.md#delete_offer) | **DELETE** /v1.0/offers/:offer_id | Delete the offer
-[**get_offer**](OffersApi.md#get_offer) | **GET** /v1.0/offers/:offer_id | Retrieve Offer
+[**delete_offer**](OffersApi.md#delete_offer) | **DELETE** /v1.0/offers/{offer_id} | Delete the offer
+[**get_offer**](OffersApi.md#get_offer) | **GET** /v1.0/offers/{offer_id} | Retrieve Offer
 [**get_offers**](OffersApi.md#get_offers) | **GET** /v1.0/offers | List offers
-[**update_offer**](OffersApi.md#update_offer) | **PUT** /v1.0/offers/:offer_id | Update Offer
+[**update_offer**](OffersApi.md#update_offer) | **PUT** /v1.0/offers/{offer_id} | Update Offer
 
 
 # **create_offer**

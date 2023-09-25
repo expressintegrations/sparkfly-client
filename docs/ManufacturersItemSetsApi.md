@@ -4,11 +4,11 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_manufacturer_item_sets**](ManufacturersItemSetsApi.md#create_manufacturer_item_sets) | **POST** /v1.0/manufacturers/:manufacturer_id/item_sets | Create an item set for manufacturer
-[**delete_manufacturer_item_set**](ManufacturersItemSetsApi.md#delete_manufacturer_item_set) | **DELETE** /v1.0/manufacturers/:manufacturer_id/item_sets/:item_set_id | Delete item set by ID for manufacturer
-[**get_manufacturer_item_set**](ManufacturersItemSetsApi.md#get_manufacturer_item_set) | **GET** /v1.0/manufacturers/:manufacturer_id/item_sets/:item_set_id | Get item set by ID for manufacturer
-[**get_manufacturer_item_sets**](ManufacturersItemSetsApi.md#get_manufacturer_item_sets) | **GET** /v1.0/manufacturers/:manufacturer_id/item_sets | Get all item sets for manufacturer
-[**update_manufacturer_item_set**](ManufacturersItemSetsApi.md#update_manufacturer_item_set) | **PUT** /v1.0/manufacturers/:manufacturer_id/item_sets/:item_set_id | Update item set by ID for manufacturer
+[**create_manufacturer_item_sets**](ManufacturersItemSetsApi.md#create_manufacturer_item_sets) | **POST** /v1.0/manufacturers/{manufacturer_id}/item_sets | Create an item set for manufacturer
+[**delete_manufacturer_item_set**](ManufacturersItemSetsApi.md#delete_manufacturer_item_set) | **DELETE** /v1.0/manufacturers/{manufacturer_id}/item_sets/{item_set_id} | Delete item set by ID for manufacturer
+[**get_manufacturer_item_set**](ManufacturersItemSetsApi.md#get_manufacturer_item_set) | **GET** /v1.0/manufacturers/{manufacturer_id}/item_sets/{item_set_id} | Get item set by ID for manufacturer
+[**get_manufacturer_item_sets**](ManufacturersItemSetsApi.md#get_manufacturer_item_sets) | **GET** /v1.0/manufacturers/{manufacturer_id}/item_sets | Get all item sets for manufacturer
+[**update_manufacturer_item_set**](ManufacturersItemSetsApi.md#update_manufacturer_item_set) | **PUT** /v1.0/manufacturers/{manufacturer_id}/item_sets/{item_set_id} | Update item set by ID for manufacturer
 
 
 # **create_manufacturer_item_sets**

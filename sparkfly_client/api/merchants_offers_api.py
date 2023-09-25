@@ -166,7 +166,7 @@ class MerchantsOffersApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/offers', 'GET',
+            '/v1.0/merchants/{merchant_id}/offers', 'GET',
             _path_params,
             _query_params,
             _header_params,

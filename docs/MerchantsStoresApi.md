@@ -4,16 +4,16 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_merchant_store**](MerchantsStoresApi.md#create_merchant_store) | **POST** /v1.0/merchants/:merchant_id/stores | Create an Store for merchant
-[**delete_merchant_store**](MerchantsStoresApi.md#delete_merchant_store) | **DELETE** /v1.0/merchants/:merchant_id/stores/:store_id | Delete Store by ID for merchant
+[**create_merchant_store**](MerchantsStoresApi.md#create_merchant_store) | **POST** /v1.0/merchants/{merchant_id}/stores | Create an Store for merchant
+[**delete_merchant_store**](MerchantsStoresApi.md#delete_merchant_store) | **DELETE** /v1.0/merchants/{merchant_id}/stores/{store_id} | Delete Store by ID for merchant
 [**get_filtered_merchant_stores**](MerchantsStoresApi.md#get_filtered_merchant_stores) | **GET** /v1.0/merchants/stores/index | Get and Filter Stores WITH Active Offers (stores/index)
-[**get_merchant_store**](MerchantsStoresApi.md#get_merchant_store) | **GET** /v1.0/merchants/:merchant_id/stores/:store_id | Get Store by ID for merchant
-[**get_merchant_store_offer_ids**](MerchantsStoresApi.md#get_merchant_store_offer_ids) | **GET** /v1.0/merchants/:merchant_id/stores/:store_id/offers | List Offer IDs for Merchant and Store
-[**get_merchant_store_without_merchant**](MerchantsStoresApi.md#get_merchant_store_without_merchant) | **GET** /v1.0/merchants/stores/:store_id | Get Store by ID (without merchant)
-[**get_merchant_stores**](MerchantsStoresApi.md#get_merchant_stores) | **GET** /v1.0/merchants/:merchant_id/stores | Get all Stores for merchant
+[**get_merchant_store**](MerchantsStoresApi.md#get_merchant_store) | **GET** /v1.0/merchants/{merchant_id}/stores/{store_id} | Get Store by ID for merchant
+[**get_merchant_store_offer_ids**](MerchantsStoresApi.md#get_merchant_store_offer_ids) | **GET** /v1.0/merchants/{merchant_id}/stores/{store_id}/offers | List Offer IDs for Merchant and Store
+[**get_merchant_store_without_merchant**](MerchantsStoresApi.md#get_merchant_store_without_merchant) | **GET** /v1.0/merchants/stores/{store_id} | Get Store by ID (without merchant)
+[**get_merchant_stores**](MerchantsStoresApi.md#get_merchant_stores) | **GET** /v1.0/merchants/{merchant_id}/stores | Get all Stores for merchant
 [**get_nearby_filtered_merchant_stores**](MerchantsStoresApi.md#get_nearby_filtered_merchant_stores) | **GET** /v1.0/merchants/stores/nearby/index | Get and Filter Stores WITH Active Offers (stores/nearby/index)
-[**get_nearby_merchant_stores**](MerchantsStoresApi.md#get_nearby_merchant_stores) | **GET** /v1.0/merchants/stores/nearby/:lat/:lng/index | Get and Filter Stores WITH Active Offers (stores/nearby/:lat/:lng/index)
-[**update_merchant_store**](MerchantsStoresApi.md#update_merchant_store) | **PUT** /v1.0/merchants/:merchant_id/stores/:store_id | Update Store by ID for merchant
+[**get_nearby_merchant_stores**](MerchantsStoresApi.md#get_nearby_merchant_stores) | **GET** /v1.0/merchants/stores/nearby/{lat}/{lng}/index | Get and Filter Stores WITH Active Offers (stores/nearby/{lat}/{lng}/index)
+[**update_merchant_store**](MerchantsStoresApi.md#update_merchant_store) | **PUT** /v1.0/merchants/{merchant_id}/stores/{store_id} | Update Store by ID for merchant
 
 
 # **create_merchant_store**
@@ -659,7 +659,7 @@ Name | Type | Description  | Notes
 # **get_nearby_merchant_stores**
 > StoreListResponse get_nearby_merchant_stores(lat, lng, by_tag_ids=by_tag_ids, sort_by=sort_by)
 
-Get and Filter Stores WITH Active Offers (stores/nearby/:lat/:lng/index)
+Get and Filter Stores WITH Active Offers (stores/nearby/{lat}/{lng}/index)
 
 ### Example
 
@@ -699,7 +699,7 @@ with sparkfly_client.ApiClient(configuration) as api_client:
     sort_by = 'sort_by_example' # str | Sort offers by 1 of their attributes ( name, start_running_at, status ) (optional)
 
     try:
-        # Get and Filter Stores WITH Active Offers (stores/nearby/:lat/:lng/index)
+        # Get and Filter Stores WITH Active Offers (stores/nearby/{lat}/{lng}/index)
         api_response = api_instance.get_nearby_merchant_stores(lat, lng, by_tag_ids=by_tag_ids, sort_by=sort_by)
         print("The response of MerchantsStoresApi->get_nearby_merchant_stores:\n")
         pprint(api_response)

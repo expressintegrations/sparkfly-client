@@ -4,10 +4,10 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_offer_passbook_configuration**](OffersPassbookConfigurationApi.md#create_offer_passbook_configuration) | **POST** /v1.0/offers/:offer_id/passbook_configuration | Passbook Configuration Create
-[**delete_offer_passbook_configuration**](OffersPassbookConfigurationApi.md#delete_offer_passbook_configuration) | **DELETE** /v1.0/offers/:offer_id/passbook_configuration | Passbook Configuration Delete for Offer
-[**get_offer_passbook_configuration**](OffersPassbookConfigurationApi.md#get_offer_passbook_configuration) | **GET** /v1.0/offers/:offer_id/passbook_configuration | Get Passbook Configuration for Offer
-[**update_offer_passbook_configuration**](OffersPassbookConfigurationApi.md#update_offer_passbook_configuration) | **PUT** /v1.0/offers/:offer_id/passbook_configuration | Update Passbook Configuration for Offer
+[**create_offer_passbook_configuration**](OffersPassbookConfigurationApi.md#create_offer_passbook_configuration) | **POST** /v1.0/offers/{offer_id}/passbook_configuration | Passbook Configuration Create
+[**delete_offer_passbook_configuration**](OffersPassbookConfigurationApi.md#delete_offer_passbook_configuration) | **DELETE** /v1.0/offers/{offer_id}/passbook_configuration | Passbook Configuration Delete for Offer
+[**get_offer_passbook_configuration**](OffersPassbookConfigurationApi.md#get_offer_passbook_configuration) | **GET** /v1.0/offers/{offer_id}/passbook_configuration | Get Passbook Configuration for Offer
+[**update_offer_passbook_configuration**](OffersPassbookConfigurationApi.md#update_offer_passbook_configuration) | **PUT** /v1.0/offers/{offer_id}/passbook_configuration | Update Passbook Configuration for Offer
 
 
 # **create_offer_passbook_configuration**

@@ -208,7 +208,7 @@ class OffersStoresApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/offers/:offer_id/stores', 'GET',
+            '/v1.0/offers/{offer_id}/stores', 'GET',
             _path_params,
             _query_params,
             _header_params,

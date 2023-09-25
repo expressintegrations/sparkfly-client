@@ -4,7 +4,7 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_nearby_offer_stores**](OffersStoresApi.md#get_nearby_offer_stores) | **GET** /v1.0/offers/:offer_id/stores | Get nearby Stores for Offer
+[**get_nearby_offer_stores**](OffersStoresApi.md#get_nearby_offer_stores) | **GET** /v1.0/offers/{offer_id}/stores | Get nearby Stores for Offer
 
 
 # **get_nearby_offer_stores**

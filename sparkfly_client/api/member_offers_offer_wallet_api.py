@@ -210,7 +210,7 @@ class MemberOffersOfferWalletApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/members/:member_id/offer_states', 'POST',
+            '/v1.0/members/{member_id}/offer_states', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -358,7 +358,7 @@ class MemberOffersOfferWalletApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/members/:member_id/offer_states/:offer_state_id', 'GET',
+            '/v1.0/members/{member_id}/offer_states/{offer_state_id}', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -506,7 +506,7 @@ class MemberOffersOfferWalletApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/members/:member_id/offer_states', 'GET',
+            '/v1.0/members/{member_id}/offer_states', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -817,7 +817,7 @@ class MemberOffersOfferWalletApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/members/:member_id/offer_states/:offer_state_id', 'PUT',
+            '/v1.0/members/{member_id}/offer_states/{offer_state_id}', 'PUT',
             _path_params,
             _query_params,
             _header_params,
@@ -959,7 +959,7 @@ class MemberOffersOfferWalletApi:
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/v1.0/members/:member_id/offer_states/:offer_state_id/void', 'POST',
+            '/v1.0/members/{member_id}/offer_states/{offer_state_id}/void', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -1101,7 +1101,7 @@ class MemberOffersOfferWalletApi:
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/v1.0/members/offer_states/:offer_state_id/void', 'POST',
+            '/v1.0/members/offer_states/{offer_state_id}/void', 'POST',
             _path_params,
             _query_params,
             _header_params,

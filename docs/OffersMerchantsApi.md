@@ -4,10 +4,10 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_offer_merchants**](OffersMerchantsApi.md#delete_offer_merchants) | **DELETE** /v1.0/offers/:offer_id/merchants | Remove eligible Merchants from offer
-[**get_offer_merchants**](OffersMerchantsApi.md#get_offer_merchants) | **GET** /v1.0/offers/:offer_id/merchants | Eligible Merchants List
-[**set_offer_merchants**](OffersMerchantsApi.md#set_offer_merchants) | **POST** /v1.0/offers/:offer_id/merchants | Set eligible Merchants for offer
-[**update_offer_merchants**](OffersMerchantsApi.md#update_offer_merchants) | **PUT** /v1.0/offers/:offer_id/merchants | Add eligible Merchants for offer
+[**delete_offer_merchants**](OffersMerchantsApi.md#delete_offer_merchants) | **DELETE** /v1.0/offers/{offer_id}/merchants | Remove eligible Merchants from offer
+[**get_offer_merchants**](OffersMerchantsApi.md#get_offer_merchants) | **GET** /v1.0/offers/{offer_id}/merchants | Eligible Merchants List
+[**set_offer_merchants**](OffersMerchantsApi.md#set_offer_merchants) | **POST** /v1.0/offers/{offer_id}/merchants | Set eligible Merchants for offer
+[**update_offer_merchants**](OffersMerchantsApi.md#update_offer_merchants) | **PUT** /v1.0/offers/{offer_id}/merchants | Add eligible Merchants for offer
 
 
 # **delete_offer_merchants**

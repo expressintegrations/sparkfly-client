@@ -4,13 +4,13 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_member_offer_state**](MemberOffersOfferWalletApi.md#create_member_offer_state) | **POST** /v1.0/members/:member_id/offer_states | Create a new Member Offer State and provide optional activation and expiration dates
-[**get_member_offer_state**](MemberOffersOfferWalletApi.md#get_member_offer_state) | **GET** /v1.0/members/:member_id/offer_states/:offer_state_id | Get an individual Offer State for a Member
-[**get_member_offer_states**](MemberOffersOfferWalletApi.md#get_member_offer_states) | **GET** /v1.0/members/:member_id/offer_states | Get the entire list of Offer States for a Member
+[**create_member_offer_state**](MemberOffersOfferWalletApi.md#create_member_offer_state) | **POST** /v1.0/members/{member_id}/offer_states | Create a new Member Offer State and provide optional activation and expiration dates
+[**get_member_offer_state**](MemberOffersOfferWalletApi.md#get_member_offer_state) | **GET** /v1.0/members/{member_id}/offer_states/{offer_state_id} | Get an individual Offer State for a Member
+[**get_member_offer_states**](MemberOffersOfferWalletApi.md#get_member_offer_states) | **GET** /v1.0/members/{member_id}/offer_states | Get the entire list of Offer States for a Member
 [**get_members_with_offer_states**](MemberOffersOfferWalletApi.md#get_members_with_offer_states) | **GET** /v1.0/members/offer_states | Retrieve Offer States
-[**update_member_offer_state**](MemberOffersOfferWalletApi.md#update_member_offer_state) | **PUT** /v1.0/members/:member_id/offer_states/:offer_state_id | Update an individual Offer State for a Member - in order to change the availability
-[**void_member_offer_state**](MemberOffersOfferWalletApi.md#void_member_offer_state) | **POST** /v1.0/members/:member_id/offer_states/:offer_state_id/void | Voids an individual Offer State for a Member by Member ID
-[**void_offer_state_by_member_identifier**](MemberOffersOfferWalletApi.md#void_offer_state_by_member_identifier) | **POST** /v1.0/members/offer_states/:offer_state_id/void | Voids an individual Offer State for a Member by Member Identifier
+[**update_member_offer_state**](MemberOffersOfferWalletApi.md#update_member_offer_state) | **PUT** /v1.0/members/{member_id}/offer_states/{offer_state_id} | Update an individual Offer State for a Member - in order to change the availability
+[**void_member_offer_state**](MemberOffersOfferWalletApi.md#void_member_offer_state) | **POST** /v1.0/members/{member_id}/offer_states/{offer_state_id}/void | Voids an individual Offer State for a Member by Member ID
+[**void_offer_state_by_member_identifier**](MemberOffersOfferWalletApi.md#void_offer_state_by_member_identifier) | **POST** /v1.0/members/offer_states/{offer_state_id}/void | Voids an individual Offer State for a Member by Member Identifier
 
 
 # **create_member_offer_state**

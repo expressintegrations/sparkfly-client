@@ -5,8 +5,8 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_all_merchant_data**](ReportsApi.md#get_all_merchant_data) | **GET** /v1.0/reports/account_level | Generates a report of full Merchant data in a given timeframe for a all Merchants
-[**get_merchant_data**](ReportsApi.md#get_merchant_data) | **GET** /v1.0/merchants/:merchant_id/reports/full | Generates a report of full Merchant data in a given timeframe for a single Merchant
-[**get_merchant_impressions**](ReportsApi.md#get_merchant_impressions) | **GET** /v1.0/merchants/:merchant_id/reports/impressions | Get Unique Impressions
+[**get_merchant_data**](ReportsApi.md#get_merchant_data) | **GET** /v1.0/merchants/{merchant_id}/reports/full | Generates a report of full Merchant data in a given timeframe for a single Merchant
+[**get_merchant_impressions**](ReportsApi.md#get_merchant_impressions) | **GET** /v1.0/merchants/{merchant_id}/reports/impressions | Get Unique Impressions
 [**get_offer_activity**](ReportsApi.md#get_offer_activity) | **GET** /v1.0/reports/offer_activity | Generates a report of all offer activity in a given timeframe
 [**get_offer_redemptions**](ReportsApi.md#get_offer_redemptions) | **GET** /v1.0/reports/redemptions | Generates a report of all offer redemptions for a given timeframe and store list
 

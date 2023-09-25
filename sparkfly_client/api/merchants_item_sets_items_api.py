@@ -174,7 +174,7 @@ class MerchantsItemSetsItemsApi:
         }
 
         return self.api_client.call_api(
-            '/v1.0/merchants/:merchant_id/item_sets/:item_set_id/items', 'GET',
+            '/v1.0/merchants/{merchant_id}/item_sets/{item_set_id}/items', 'GET',
             _path_params,
             _query_params,
             _header_params,

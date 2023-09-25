@@ -310,7 +310,7 @@ class ImpressionsApi:
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/v1.0/impressions/:impression_id', 'DELETE',
+            '/v1.0/impressions/{impression_id}', 'DELETE',
             _path_params,
             _query_params,
             _header_params,

@@ -4,10 +4,10 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_offer_eligible_item_set**](OffersItemSetsApi.md#delete_offer_eligible_item_set) | **DELETE** /v1.0/offers/:offer_id/eligible_item_sets/:eligible_item_set_id | Remove eligible Item Set from offer
-[**get_offer_eligible_item_set**](OffersItemSetsApi.md#get_offer_eligible_item_set) | **GET** /v1.0/offers/:offer_id/eligible_item_sets/:eligible_item_set_id | Retrieve eligible Item Set for offer
-[**set_offer_eligible_item_sets**](OffersItemSetsApi.md#set_offer_eligible_item_sets) | **POST** /v1.0/offers/:offer_id/eligible_item_sets | Eligible Item Set for Offer - Create
-[**update_offer_eligible_item_set**](OffersItemSetsApi.md#update_offer_eligible_item_set) | **PUT** /v1.0/offers/:offer_id/eligible_item_sets/:eligible_item_set_id | Update eligible Item Set for offer
+[**delete_offer_eligible_item_set**](OffersItemSetsApi.md#delete_offer_eligible_item_set) | **DELETE** /v1.0/offers/{offer_id}/eligible_item_sets/{eligible_item_set_id} | Remove eligible Item Set from offer
+[**get_offer_eligible_item_set**](OffersItemSetsApi.md#get_offer_eligible_item_set) | **GET** /v1.0/offers/{offer_id}/eligible_item_sets/{eligible_item_set_id} | Retrieve eligible Item Set for offer
+[**set_offer_eligible_item_sets**](OffersItemSetsApi.md#set_offer_eligible_item_sets) | **POST** /v1.0/offers/{offer_id}/eligible_item_sets | Eligible Item Set for Offer - Create
+[**update_offer_eligible_item_set**](OffersItemSetsApi.md#update_offer_eligible_item_set) | **PUT** /v1.0/offers/{offer_id}/eligible_item_sets/{eligible_item_set_id} | Update eligible Item Set for offer
 
 
 # **delete_offer_eligible_item_set**

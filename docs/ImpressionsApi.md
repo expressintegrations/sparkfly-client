@@ -5,7 +5,7 @@ All URIs are relative to *https://api-staging.sparkfly.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_impression**](ImpressionsApi.md#create_impression) | **POST** /v1.0/impressions | Creates an impression
-[**delete_impression**](ImpressionsApi.md#delete_impression) | **DELETE** /v1.0/impressions/:impression_id | Delete the impression
+[**delete_impression**](ImpressionsApi.md#delete_impression) | **DELETE** /v1.0/impressions/{impression_id} | Delete the impression
 [**get_impressions**](ImpressionsApi.md#get_impressions) | **GET** /v1.0/impressions | Get all impressions
 
 

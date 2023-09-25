@@ -102,7 +102,6 @@ docs/MemberExportData.md
 docs/MemberInfo.md
 docs/MemberInput.md
 docs/MemberInputRequest.md
-docs/MemberList.md
 docs/MemberListInput.md
 docs/MemberListInputRequest.md
 docs/MemberListList.md
@@ -112,6 +111,7 @@ docs/MemberListMembers.md
 docs/MemberListMembersResponse.md
 docs/MemberListObject.md
 docs/MemberListObjectResponse.md
+docs/MemberListResponse.md
 docs/MemberListsApi.md
 docs/MemberListsMembersApi.md
 docs/MemberOffersOfferWalletApi.md
@@ -355,7 +355,6 @@ sparkfly_client/models/member_export_data.py
 sparkfly_client/models/member_info.py
 sparkfly_client/models/member_input.py
 sparkfly_client/models/member_input_request.py
-sparkfly_client/models/member_list.py
 sparkfly_client/models/member_list_input.py
 sparkfly_client/models/member_list_input_request.py
 sparkfly_client/models/member_list_list.py
@@ -365,6 +364,7 @@ sparkfly_client/models/member_list_members.py
 sparkfly_client/models/member_list_members_response.py
 sparkfly_client/models/member_list_object.py
 sparkfly_client/models/member_list_object_response.py
+sparkfly_client/models/member_list_response.py
 sparkfly_client/models/member_response.py
 sparkfly_client/models/member_store.py
 sparkfly_client/models/member_store_response.py
@@ -451,4 +451,5 @@ sparkfly_client/py.typed
 sparkfly_client/rest.py
 test-requirements.txt
 test/__init__.py
+test/test_member_list_response.py
 tox.ini
