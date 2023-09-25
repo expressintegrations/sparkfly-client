@@ -933,7 +933,7 @@ paths:
               "$ref": "#/components/headers/X-Runtime"
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
-  '/v1.0/campaigns/:campaign_id':
+  '/v1.0/campaigns/{campaign_id}':
     get:
       operationId: get_campaign
       tags:
@@ -1387,7 +1387,7 @@ paths:
               "$ref": "#/components/headers/X-Runtime"
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
-  "/v1.0/channels/:channel_id":
+  "/v1.0/channels/{channel_id}":
     get:
       operationId: get_channel
       tags:
@@ -1745,7 +1745,7 @@ paths:
               "$ref": "#/components/headers/X-Runtime"
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
-  "/v1.0/counters/:counter_id":
+  "/v1.0/counters/{counter_id}":
     get:
       operationId: get_counter
       tags:
@@ -2197,7 +2197,7 @@ paths:
               "$ref": "#/components/headers/X-Runtime"
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
-  '/v1.0/credentials/:credential_id':
+  '/v1.0/credentials/{credential_id}':
     get:
       operationId: get_credential
       tags:
@@ -2444,7 +2444,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
     parameters:
       - "$ref": "#/components/parameters/CredentialID"
-  '/v1.0/credentials/:credential_id/redeem':
+  '/v1.0/credentials/{credential_id}/redeem':
     put:
       operationId: redeem_credential
       tags:
@@ -2522,7 +2522,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
     parameters:
       - "$ref": "#/components/parameters/CredentialID"
-  '/v1.0/credentials/:credential_id/void':
+  '/v1.0/credentials/{credential_id}/void':
     put:
       operationId: void_credential
       tags:
@@ -2747,7 +2747,7 @@ paths:
               "$ref": "#/components/headers/X-Runtime"
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
-  "/v1.0/events/:event_id":
+  "/v1.0/events/{event_id}":
     get:
       operationId: get_event
       tags:
@@ -3101,7 +3101,7 @@ paths:
               "$ref": "#/components/headers/X-Runtime"
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
-  "/v1.0/impressions/:impression_id":
+  "/v1.0/impressions/{impression_id}":
     delete:
       operationId: delete_impression
       tags:
@@ -3322,7 +3322,7 @@ paths:
               "$ref": "#/components/headers/X-Runtime"
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
-  "/v1.0/items/:item_id":
+  "/v1.0/items/{item_id}":
     get:
       operationId: get_item
       tags:
@@ -3680,7 +3680,7 @@ paths:
               "$ref": "#/components/headers/X-Runtime"
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
-  "/v1.0/item_sets/:item_set_id":
+  "/v1.0/item_sets/{item_set_id}":
     get:
       operationId: get_item_set
       tags:
@@ -3929,12 +3929,14 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
     parameters:
       - "$ref": "#/components/parameters/ItemSetID"
-  "/v1.0/item_sets/:item_set_id/items":
+  "/v1.0/item_sets/{item_set_id}/items":
     get:
       operationId: get_item_set_items
       tags:
         - Item Sets
       summary: Get items for item set
+      parameters:
+        - "$ref": "#/components/parameters/ItemSetID"
       responses:
         '200':
           description: successful retrieval of items
@@ -4133,7 +4135,7 @@ paths:
               "$ref": "#/components/headers/X-Runtime"
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
-  "/v1.0/manufacturers/:manufacturer_id":
+  "/v1.0/manufacturers/{manufacturer_id}":
     get:
       operationId: get_manufacturer
       tags:
@@ -4361,7 +4363,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
     parameters:
       - "$ref": "#/components/parameters/ManufacturerID"
-  "/v1.0/manufacturers/:manufacturer_id/items":
+  "/v1.0/manufacturers/{manufacturer_id}/items":
     get:
       operationId: get_manufacturer_items
       tags:
@@ -4512,7 +4514,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
     parameters:
       - "$ref": "#/components/parameters/ManufacturerID"
-  "/v1.0/manufacturers/:manufacturer_id/items/:item_id":
+  "/v1.0/manufacturers/{manufacturer_id}/items/{item_id}":
     get:
       operationId: get_manufacturer_item
       tags:
@@ -4762,7 +4764,7 @@ paths:
     parameters:
       - "$ref": "#/components/parameters/ManufacturerID"
       - "$ref": "#/components/parameters/ItemID"
-  "/v1.0/manufacturers/:manufacturer_id/item_sets":
+  "/v1.0/manufacturers/{manufacturer_id}/item_sets":
     get:
       operationId: get_manufacturer_item_sets
       tags:
@@ -4915,7 +4917,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
     parameters:
       - "$ref": "#/components/parameters/ManufacturerID"
-  "/v1.0/manufacturers/:manufacturer_id/item_sets/:item_set_id":
+  "/v1.0/manufacturers/{manufacturer_id}/item_sets/{item_set_id}":
     get:
       operationId: get_manufacturer_item_set
       tags:
@@ -5165,12 +5167,15 @@ paths:
     parameters:
       - "$ref": "#/components/parameters/ManufacturerID"
       - "$ref": "#/components/parameters/ItemSetID"
-  "/v1.0/manufacturers/:manufacturer_id/item_sets/:item_set_id/items":
+  "/v1.0/manufacturers/{manufacturer_id}/item_sets/{item_set_id}/items":
     get:
       operationId: get_manufacturer_item_set_items
       tags:
         - Manufacturers/Item Sets/Items
       summary: Get items for item set for manufacturer
+      parameters:
+        - "$ref": "#/components/parameters/ManufacturerID"
+        - "$ref": "#/components/parameters/ItemSetID"
       responses:
         '200':
           description: successful retrieval of items
@@ -5218,10 +5223,7 @@ paths:
               "$ref": "#/components/headers/X-Runtime"
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
-    parameters:
-      - "$ref": "#/components/parameters/ManufacturerID"
-      - "$ref": "#/components/parameters/ItemSetID"
-  "/v1.0/manufacturers/:manufacturer_id/merchants":
+  "/v1.0/manufacturers/{manufacturer_id}/merchants":
     get:
       operationId: get_manufacturer_merchants
       tags:
@@ -5682,7 +5684,7 @@ paths:
               "$ref": "#/components/headers/X-Runtime"
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
-  "/v1.0/member_lists/:member_list_id":
+  "/v1.0/member_lists/{member_list_id}":
     get:
       operationId: get_member_list
       tags:
@@ -5910,7 +5912,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
     parameters:
       - "$ref": "#/components/parameters/MemberListID"
-  "/v1.0/member_lists/:member_list_id/members":
+  "/v1.0/member_lists/{member_list_id}/members":
     get:
       operationId: get_member_list_members
       tags:
@@ -6249,20 +6251,7 @@ paths:
           content:
             application/json:
               schema:
-                title: member_list
-                properties:
-                  page:
-                    type: integer
-                  per_page:
-                    type: integer
-                  total_entries:
-                    type: integer
-                  total_pages:
-                    type: integer
-                  members:
-                    type: array
-                    items:
-                      "$ref": "#/components/schemas/member_response"
+                "$ref": "#/components/schemas/member_list_response"
         '401':
           description: Unauthorized
           headers:
@@ -6367,7 +6356,7 @@ paths:
               "$ref": "#/components/headers/X-Runtime"
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
-  '/v1.0/members/:member_id':
+  '/v1.0/members/{member_id}':
     get:
       operationId: get_member
       tags:
@@ -6818,7 +6807,7 @@ paths:
               "$ref": "#/components/headers/X-Runtime"
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
-  "/v1.0/merchants/:merchant_id":
+  "/v1.0/merchants/{merchant_id}":
     get:
       operationId: get_merchant
       tags:
@@ -7067,7 +7056,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
     parameters:
       - "$ref": "#/components/parameters/MerchantID"
-  "/v1.0/merchants/:merchant_id/items":
+  "/v1.0/merchants/{merchant_id}/items":
     get:
       operationId: get_merchant_items
       tags:
@@ -7218,7 +7207,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
     parameters:
       - "$ref": "#/components/parameters/MerchantID"
-  "/v1.0/merchants/:merchant_id/items/:item_id":
+  "/v1.0/merchants/{merchant_id}/items/{item_id}":
     get:
       operationId: get_merchant_item
       tags:
@@ -7468,7 +7457,7 @@ paths:
     parameters:
       - "$ref": "#/components/parameters/MerchantID"
       - "$ref": "#/components/parameters/ItemID"
-  "/v1.0/merchants/:merchant_id/item_sets":
+  "/v1.0/merchants/{merchant_id}/item_sets":
     get:
       operationId: get_merchant_item_sets
       tags:
@@ -7621,7 +7610,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
     parameters:
       - "$ref": "#/components/parameters/MerchantID"
-  "/v1.0/merchants/:merchant_id/item_sets/:item_set_id":
+  "/v1.0/merchants/{merchant_id}/item_sets/{item_set_id}":
     get:
       operationId: get_merchant_item_set
       tags:
@@ -7871,7 +7860,7 @@ paths:
     parameters:
       - "$ref": "#/components/parameters/MerchantID"
       - "$ref": "#/components/parameters/ItemSetID"
-  "/v1.0/merchants/:merchant_id/item_sets/:item_set_id/items":
+  "/v1.0/merchants/{merchant_id}/item_sets/{item_set_id}/items":
     get:
       operationId: get_merchant_item_set_items
       tags:
@@ -7927,7 +7916,7 @@ paths:
     parameters:
       - "$ref": "#/components/parameters/MerchantID"
       - "$ref": "#/components/parameters/ItemSetID"
-  "/v1.0/merchants/:merchant_id/offers":
+  "/v1.0/merchants/{merchant_id}/offers":
     get:
       operationId: get_merchant_offers
       tags:
@@ -7995,7 +7984,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
     parameters:
       - "$ref": "#/components/parameters/MerchantID"
-  "/v1.0/merchants/:merchant_id/store_lists":
+  "/v1.0/merchants/{merchant_id}/store_lists":
     get:
       operationId: get_merchant_store_lists
       tags:
@@ -8148,7 +8137,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
     parameters:
       - "$ref": "#/components/parameters/MerchantID"
-  "/v1.0/merchants/:merchant_id/store_lists/:store_list_id":
+  "/v1.0/merchants/{merchant_id}/store_lists/{store_list_id}":
     get:
       operationId: get_merchant_store_list
       tags:
@@ -8398,7 +8387,7 @@ paths:
     parameters:
       - "$ref": "#/components/parameters/MerchantID"
       - "$ref": "#/components/parameters/StoreListID"
-  "/v1.0/merchants/store_lists/:store_list_id/stores":
+  "/v1.0/merchants/store_lists/{store_list_id}/stores":
     get:
       operationId: get_merchant_store_list_stores
       tags:
@@ -8710,7 +8699,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
     parameters:
       - "$ref": "#/components/parameters/StoreListID"
-  "/v1.0/merchants/:merchant_id/store_lists/:store_list_id/stores":
+  "/v1.0/merchants/{merchant_id}/store_lists/{store_list_id}/stores":
     get:
       operationId: get_merchant_store_list_stores_detailed
       tags:
@@ -8779,7 +8768,7 @@ paths:
     parameters:
       - "$ref": "#/components/parameters/MerchantID"
       - "$ref": "#/components/parameters/StoreListID"
-  "/v1.0/merchants/:merchant_id/stores":
+  "/v1.0/merchants/{merchant_id}/stores":
     get:
       operationId: get_merchant_stores
       tags:
@@ -8925,7 +8914,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
     parameters:
       - "$ref": "#/components/parameters/MerchantID"
-  "/v1.0/merchants/:merchant_id/stores/:store_id":
+  "/v1.0/merchants/{merchant_id}/stores/{store_id}":
     get:
       operationId: get_merchant_store
       tags:
@@ -9175,7 +9164,7 @@ paths:
     parameters:
       - "$ref": "#/components/parameters/MerchantID"
       - "$ref": "#/components/parameters/StoreID"
-  "/v1.0/merchants/stores/:store_id":
+  "/v1.0/merchants/stores/{store_id}":
     get:
       operationId: get_merchant_store_without_merchant
       tags:
@@ -9258,8 +9247,8 @@ paths:
         - Merchants/Stores
       summary: Get and Filter Stores WITH Active Offers (stores/index)
       parameters:
-        - "$ref": "#/components/parameters/Latitude"
-        - "$ref": "#/components/parameters/Longitude"
+        - "$ref": "#/components/parameters/LatitudeQuery"
+        - "$ref": "#/components/parameters/LongitudeQuery"
         - "$ref": "#/components/parameters/ByTagIDs"
         - "$ref": "#/components/parameters/SortBy"
       responses:
@@ -9309,15 +9298,17 @@ paths:
               "$ref": "#/components/headers/X-Runtime"
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
-  "/v1.0/merchants/stores/nearby/:lat/:lng/index":
+  "/v1.0/merchants/stores/nearby/{lat}/{lng}/index":
     get:
       operationId: get_nearby_merchant_stores
       tags:
         - Merchants/Stores
-      summary: Get and Filter Stores WITH Active Offers (stores/nearby/:lat/:lng/index)
+      summary: Get and Filter Stores WITH Active Offers (stores/nearby/{lat}/{lng}/index)
       parameters:
         - "$ref": "#/components/parameters/ByTagIDs"
         - "$ref": "#/components/parameters/SortBy"
+        - "$ref": "#/components/parameters/Latitude"
+        - "$ref": "#/components/parameters/Longitude"
       responses:
         '200':
           description: successful retrieval of Stores
@@ -9365,9 +9356,6 @@ paths:
               "$ref": "#/components/headers/X-Runtime"
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
-    parameters:
-      - "$ref": "#/components/parameters/Latitude"
-      - "$ref": "#/components/parameters/Longitude"
   "/v1.0/merchants/stores/nearby/index":
     get:
       operationId: get_nearby_filtered_merchant_stores
@@ -9375,8 +9363,8 @@ paths:
         - Merchants/Stores
       summary: Get and Filter Stores WITH Active Offers (stores/nearby/index)
       parameters:
-        - "$ref": "#/components/parameters/Latitude"
-        - "$ref": "#/components/parameters/Longitude"
+        - "$ref": "#/components/parameters/LatitudeQuery"
+        - "$ref": "#/components/parameters/LongitudeQuery"
         - "$ref": "#/components/parameters/ByTagIDs"
         - "$ref": "#/components/parameters/SortBy"
       responses:
@@ -9426,7 +9414,7 @@ paths:
               "$ref": "#/components/headers/X-Runtime"
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
-  "/v1.0/merchants/:merchant_id/stores/:store_id/offers":
+  "/v1.0/merchants/{merchant_id}/stores/{store_id}/offers":
     get:
       operationId: get_merchant_store_offer_ids
       tags:
@@ -9517,7 +9505,7 @@ paths:
                     type: array
                     items:
                       "$ref": "#/components/schemas/offer_state_response"
-  '/v1.0/members/:member_id/offer_states':
+  '/v1.0/members/{member_id}/offer_states':
     get:
       operationId: get_member_offer_states
       tags:
@@ -9592,7 +9580,7 @@ paths:
                 "$ref": "#/components/schemas/offer_state_response"
     parameters:
       - "$ref": "#/components/parameters/MemberID"
-  '/v1.0/members/:member_id/offer_states/:offer_state_id':
+  '/v1.0/members/{member_id}/offer_states/{offer_state_id}':
     get:
       operationId: get_member_offer_state
       summary: Get an individual Offer State for a Member
@@ -9628,7 +9616,7 @@ paths:
     parameters:
       - "$ref": "#/components/parameters/MemberID"
       - "$ref": "#/components/parameters/OfferStateID"
-  '/v1.0/members/:member_id/offer_states/:offer_state_id/void':
+  '/v1.0/members/{member_id}/offer_states/{offer_state_id}/void':
     post:
       operationId: void_member_offer_state
       summary: Voids an individual Offer State for a Member by Member ID
@@ -9649,7 +9637,7 @@ paths:
     parameters:
       - "$ref": "#/components/parameters/MemberID"
       - "$ref": "#/components/parameters/OfferStateID"
-  '/v1.0/members/offer_states/:offer_state_id/void':
+  '/v1.0/members/offer_states/{offer_state_id}/void':
     post:
       operationId: void_offer_state_by_member_identifier
       summary: Voids an individual Offer State for a Member by Member Identifier
@@ -9670,7 +9658,7 @@ paths:
     parameters:
       - "$ref": "#/components/parameters/OfferStateID"
       - "$ref": "#/components/parameters/MemberIdentifier"
-  "/v1.0/members/:member_id/stores/:store_id/check-in":
+  "/v1.0/members/{member_id}/stores/{store_id}/check-in":
     post:
       operationId: check_in_member_to_store
       tags:
@@ -9792,7 +9780,7 @@ paths:
               "$ref": "#/components/headers/X-Runtime"
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
-  "/v1.0/members/:member_id/activities/redemptions":
+  "/v1.0/members/{member_id}/activities/redemptions":
     get:
       operationId: get_member_redemptions
       tags:
@@ -9860,7 +9848,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
     parameters:
       - "$ref": "#/components/parameters/MemberID"
-  "/v1.0/members/:member_id/stores/:store_id/activities/redemptions":
+  "/v1.0/members/{member_id}/stores/{store_id}/activities/redemptions":
     get:
       operationId: get_member_store_redemptions
       tags:
@@ -9929,7 +9917,7 @@ paths:
     parameters:
       - "$ref": "#/components/parameters/MemberID"
       - "$ref": "#/components/parameters/StoreID"
-  "/v1.0/members/:member_id/stores/:store_id":
+  "/v1.0/members/{member_id}/stores/{store_id}":
     get:
       operationId: get_member_store
       tags:
@@ -10164,7 +10152,7 @@ paths:
               "$ref": "#/components/headers/X-Runtime"
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
-  '/v1.0/offers/:offer_id':
+  '/v1.0/offers/{offer_id}':
     get:
       operationId: get_offer
       tags:
@@ -10384,7 +10372,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
     parameters:
       - "$ref": "#/components/parameters/OfferID"
-  "/v1.0/offers/:offer_id/channels/:channel_id":
+  "/v1.0/offers/{offer_id}/channels/{channel_id}":
     get:
       operationId: get_offer_channel
       tags:
@@ -10525,7 +10513,7 @@ paths:
     parameters:
       - "$ref": "#/components/parameters/OfferID"
       - "$ref": "#/components/parameters/ChannelID"
-  "/v1.0/offers/:offer_id/channels":
+  "/v1.0/offers/{offer_id}/channels":
     get:
       operationId: get_offer_channels
       tags:
@@ -10835,7 +10823,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
     parameters:
       - "$ref": "#/components/parameters/OfferID"
-  "/v1.0/offers/:offer_id/eligible_item_sets":
+  "/v1.0/offers/{offer_id}/eligible_item_sets":
     get:
       operationId: get_offer_eligible_item_sets
       tags:
@@ -10988,7 +10976,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
     parameters:
       - "$ref": "#/components/parameters/OfferID"
-  "/v1.0/offers/:offer_id/eligible_item_sets/:eligible_item_set_id":
+  "/v1.0/offers/{offer_id}/eligible_item_sets/{eligible_item_set_id}":
     get:
       operationId: get_offer_eligible_item_set
       tags:
@@ -11248,7 +11236,7 @@ paths:
     parameters:
       - "$ref": "#/components/parameters/OfferID"
       - "$ref": "#/components/parameters/EligibleItemSetID"
-  "/v1.0/offers/:offer_id/member_lists":
+  "/v1.0/offers/{offer_id}/member_lists":
     get:
       operationId: get_offer_member_lists
       tags:
@@ -11558,7 +11546,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
     parameters:
       - "$ref": "#/components/parameters/OfferID"
-  "/v1.0/offers/:offer_id/merchants":
+  "/v1.0/offers/{offer_id}/merchants":
     get:
       operationId: get_offer_merchants
       tags:
@@ -11868,7 +11856,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
     parameters:
       - "$ref": "#/components/parameters/OfferID"
-  "/v1.0/offers/:offer_id/store_lists":
+  "/v1.0/offers/{offer_id}/store_lists":
     get:
       operationId: get_offer_store_lists
       tags:
@@ -12178,7 +12166,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
     parameters:
       - "$ref": "#/components/parameters/OfferID"
-  "/v1.0/offers/:offer_id/stores":
+  "/v1.0/offers/{offer_id}/stores":
     get:
       operationId: get_nearby_offer_stores
       tags:
@@ -12239,7 +12227,7 @@ paths:
               "$ref": "#/components/headers/X-Ua-Compatible"
     parameters:
       - "$ref": "#/components/parameters/OfferID"
-  "/v1.0/offers/:offer_id/passbook_configuration":
+  "/v1.0/offers/{offer_id}/passbook_configuration":
     get:
       operationId: get_offer_passbook_configuration
       tags:
@@ -12727,7 +12715,7 @@ paths:
               "$ref": "#/components/headers/X-Runtime"
             X-Ua-Compatible:
               "$ref": "#/components/headers/X-Ua-Compatible"
-  "/v1.0/pos_offer_codes/:pos_offer_code_id":
+  "/v1.0/pos_offer_codes/{pos_offer_code_id}":
     get:
       operationId: get_pos_offer_code
       tags:
@@ -12834,7 +12822,7 @@ paths:
           description: Member could not be located from the member or credential identifiers
         '500':
           description: Internal issue exporting member data
-  "/v1.0/merchants/:merchant_id/reports/full":
+  "/v1.0/merchants/{merchant_id}/reports/full":
     get:
       operationId: get_merchant_data
       tags:
@@ -12910,7 +12898,7 @@ paths:
           description: Bad request
         '500':
           description: Internal issue connecting to the database
-  "/v1.0/merchants/:merchant_id/reports/impressions":
+  "/v1.0/merchants/{merchant_id}/reports/impressions":
     get:
       operationId: get_merchant_impressions
       tags:
@@ -13142,7 +13130,7 @@ paths:
           description: The request was unable to be followed due to semantic errors.
         '500':
           description: Internal issue connecting to the database
-  "/v1.0/members/:member_id/offers/:offer_id/zidentifiers":
+  "/v1.0/members/{member_id}/offers/{offer_id}/zidentifiers":
     get:
       operationId: create_z_identifier
       tags:
@@ -13200,7 +13188,7 @@ paths:
     parameters:
       - "$ref": "#/components/parameters/MemberID"
       - "$ref": "#/components/parameters/OfferID"
-  "/v1.0/members/zidentifiers/:zid":
+  "/v1.0/members/zidentifiers/{zid}":
     get:
       operationId: get_z_identifier
       tags:
@@ -13796,12 +13784,12 @@ components:
         errors:
           "$ref": "#/components/schemas/errors"
     export_credential:
-      title: credential
+      title: export_credential
       properties:
         identifier:
           type: string
     export_member:
-      title: member
+      title: export_member
       properties:
         created_at:
           type: string
@@ -14145,11 +14133,28 @@ components:
               type: string
     member_response:
       title: member_response
+      type: object
       properties:
         member:
           "$ref": "#/components/schemas/member"
         errors:
           "$ref": "#/components/schemas/errors"
+    member_list_response:
+      title: member_list_response
+      type: object
+      properties:
+        page:
+          type: integer
+        per_page:
+          type: integer
+        total_entries:
+          type: integer
+        total_pages:
+          type: integer
+        members:
+          type: array
+          items:
+            "$ref": "#/components/schemas/member_response"
     member_export_data:
       title: member_export_data
       properties:
