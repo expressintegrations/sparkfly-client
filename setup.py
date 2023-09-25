@@ -36,7 +36,7 @@ setup(
     description="Sparkfly Platform API",
     author="OpenAPI Generator community",
     author_email="team@openapitools.org",
-    url="",
+    url="https://github.com/expressintegrations/sparkfly-client",
     keywords=["OpenAPI", "OpenAPI-Generator", "Sparkfly Platform API"],
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
