@@ -2,7 +2,7 @@
 openapi: 3.0.0
 info:
   version: 1.0.23
-  title: Sparkfly Platform API
+  title: Sparkfly API
   description: |
     # Getting Started
     ## Overview 
@@ -14788,7 +14788,7 @@ components:
           type: string
           format: nullable
         criteria:
-          type: string
+          type: object
         points_earning_value:
           type: string
           format: nullable
@@ -14799,8 +14799,7 @@ components:
           type: string
           format: nullable
         reward_item_value:
-          type: string
-          format: nullable
+          type: integer
         terms_and_conditions:
           type: string
         quest_only:
