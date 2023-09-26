@@ -33,7 +33,7 @@ class Offer(BaseModel):
     manufacturer_id: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
     description: Optional[StrictStr] = None
-    description_template_id: Optional[StrictStr] = None
+    description_template_id: Optional[StrictInt] = None
     offer_type: Optional[StrictInt] = None
     category: Optional[StrictStr] = None
     offer_code: Optional[StrictStr] = None
@@ -44,12 +44,12 @@ class Offer(BaseModel):
     reward_item_description: Optional[StrictStr] = None
     reward_item_value: Optional[StrictInt] = None
     terms_and_conditions: Optional[StrictStr] = None
-    terms_and_conditions_template_id: Optional[StrictStr] = None
+    terms_and_conditions_template_id: Optional[StrictInt] = None
     quest_only: Optional[StrictStr] = None
     merchant_name: Optional[StrictStr] = None
     external_reward: Optional[StrictStr] = None
     is_reward: Optional[StrictBool] = None
-    locked: Optional[StrictStr] = None
+    locked: Optional[StrictBool] = None
     activates_at: Optional[datetime] = None
     expires_at: Optional[datetime] = None
     stop_offering_at: Optional[datetime] = None

@@ -14373,8 +14373,7 @@ components:
         description:
           type: string
         description_template_id:
-          type: string
-          format: nullable
+          type: integer
         offer_type:
           type: integer
           format: int32
@@ -14401,8 +14400,7 @@ components:
         terms_and_conditions:
           type: string
         terms_and_conditions_template_id:
-          type: string
-          format: nullable
+          type: integer
         quest_only:
           type: string
           format: nullable
@@ -14413,7 +14411,7 @@ components:
         is_reward:
           type: boolean
         locked:
-          type: string
+          type: boolean
           format: nullable
         activates_at:
           type: string
@@ -14790,16 +14788,17 @@ components:
         criteria:
           type: object
         points_earning_value:
-          type: string
-          format: nullable
+          type: integer
+          format: int32
         points_required_value:
-          type: string
-          format: nullable
+          type: integer
+          format: int32
         reward_item_description:
           type: string
           format: nullable
         reward_item_value:
           type: integer
+          format: int32
         terms_and_conditions:
           type: string
         quest_only:
@@ -14824,20 +14823,20 @@ components:
           type: string
           format: date-time
         max_amount:
-          type: string
-          format: nullable
+          type: integer
+          format: int32
         min_spend_amount:
-          type: string
-          format: nullable
+          type: integer
+          format: int32
         max_redemptions:
-          type: string
-          format: nullable
+          type: integer
+          format: int32
         max_redemptions_per_member:
-          type: string
-          format: nullable
+          type: integer
+          format: int32
         max_redemptions_per_member_per_day:
-          type: string
-          format: nullable
+          type: integer
+          format: int32
         status:
           type: string
         created_at:

@@ -35,8 +35,8 @@ class OfferSimplified(BaseModel):
     offer_code: Optional[StrictStr] = None
     pos_offer_code: Optional[StrictStr] = None
     criteria: Optional[Dict[str, Any]] = None
-    points_earning_value: Optional[StrictStr] = None
-    points_required_value: Optional[StrictStr] = None
+    points_earning_value: Optional[StrictInt] = None
+    points_required_value: Optional[StrictInt] = None
     reward_item_description: Optional[StrictStr] = None
     reward_item_value: Optional[StrictInt] = None
     terms_and_conditions: Optional[StrictStr] = None
@@ -48,11 +48,11 @@ class OfferSimplified(BaseModel):
     activates_at: Optional[datetime] = None
     expires_at: Optional[datetime] = None
     stop_offering_at: Optional[datetime] = None
-    max_amount: Optional[StrictStr] = None
-    min_spend_amount: Optional[StrictStr] = None
-    max_redemptions: Optional[StrictStr] = None
-    max_redemptions_per_member: Optional[StrictStr] = None
-    max_redemptions_per_member_per_day: Optional[StrictStr] = None
+    max_amount: Optional[StrictInt] = None
+    min_spend_amount: Optional[StrictInt] = None
+    max_redemptions: Optional[StrictInt] = None
+    max_redemptions_per_member: Optional[StrictInt] = None
+    max_redemptions_per_member_per_day: Optional[StrictInt] = None
     status: Optional[StrictStr] = None
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
