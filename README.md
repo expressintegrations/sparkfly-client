@@ -586,23 +586,9 @@ Python 3.7+
 If the python package is hosted on a repository, you can install directly using:
 
 ```sh
-pip install git+https://github.com/expressintegrations/sparkfly-client.git
+pip install sparkfly-api-client
 ```
-(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/expressintegrations/sparkfly-client.git`)
-
-Then import the package:
-```python
-import sparkfly_client
-```
-
-### Setuptools
-
-Install via [Setuptools](http://pypi.python.org/pypi/setuptools).
-
-```sh
-python setup.py install --user
-```
-(or `sudo python setup.py install` to install the package for all users)
+(you may need to run `pip` with root permission: `sudo pip install sparkfly-api-client`)
 
 Then import the package:
 ```python
@@ -615,47 +601,38 @@ Execute `pytest` to run the tests.
 
 ## Getting Started
 
-Please follow the [installation procedure](#installation--usage) and then run the following:
+Using Auth Identity and Auth Key headers, the Client takes care of generating the Auth Token on your behalf
 
 ```python
+from sparkfly_client.sparkfly import Sparkfly
+sparkfly_client = Sparkfly(auth_identity="{your_auth_identity_value}", auth_key="{your_auth_key_value}")
+print(sparkfly_client.account.get_account())
+```
 
-import time
-import sparkfly_client
-from sparkfly_client.rest import ApiException
-from pprint import pprint
+Auth Tokens expire after 24 hours, so you may need to re-authenticate:
 
-# Defining the host is optional and defaults to https://api.sparkfly.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = sparkfly_client.Configuration(
-    host = "https://api.sparkfly.com"
+```python
+from sparkfly_client.sparkfly import Sparkfly
+sparkfly_client = Sparkfly(auth_identity="{your_auth_identity_value}", auth_key="{your_auth_key_value}")
+sparkfly_client.authenticate()
+```
+
+You can specify the staging host if desired, though it defaults to the production URL (https://api.sparkfly.com):
+
+```python
+from sparkfly_client.sparkfly import Sparkfly
+sparkfly_client = Sparkfly(
+    auth_identity="{your_auth_identity_value}",
+    auth_key="{your_auth_key_value}",
+    host="https://api-staging.sparkfly.com"
 )
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: X-Auth-Token
-configuration.api_key['X-Auth-Token'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Auth-Token'] = 'Bearer'
-
-
-# Enter a context with an instance of the API client
-with sparkfly_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = sparkfly_client.AccountApi(api_client)
-
-    try:
-        # Disable Callbacks
-        api_instance.disable_callbacks()
-    except ApiException as e:
-        print("Exception when calling AccountApi->disable_callbacks: %s\n" % e)
-
 ```
 
 ## Documentation for API Endpoints
+
+Sparkfly has 2 versions of their API docs which this client was generated from:
+- https://sparkfly.github.io/ignite_documentation/
+- https://api.sparkfly.com/docs
 
 All URIs are relative to *https://api.sparkfly.com*
 
