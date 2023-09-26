@@ -43,7 +43,7 @@ sparkfly_client = Sparkfly(auth_identity="{your_auth_identity_value}", auth_key=
 print(sparkfly_client.account.get_account())
 ```
 
-Auth Tokens expire after 24 hours, so you may need to re-authenticate:
+Auth Tokens expire after 24 hours, but the Sparkfly client takes care of re-authorization. You can use the manual method if desired:
 
 ```python
 from sparkfly_client.sparkfly import Sparkfly
