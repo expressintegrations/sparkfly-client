@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **category** | **str** |  | [optional] 
 **offer_code** | **str** |  | [optional] 
 **pos_offer_code** | **str** |  | [optional] 
-**criteria** | **str** |  | [optional] 
+**criteria** | **object** |  | [optional] 
 **points_earning_value** | **int** |  | [optional] 
 **points_required_value** | **int** |  | [optional] 
 **reward_item_description** | **str** |  | [optional] 

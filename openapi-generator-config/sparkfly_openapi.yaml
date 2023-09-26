@@ -14386,7 +14386,7 @@ components:
           type: string
           format: nullable
         criteria:
-          type: string
+          type: object
         points_earning_value:
           type: integer
           format: int32
