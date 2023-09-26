@@ -2,4 +2,4 @@ packageName: sparkfly_client
 projectName: sparkfly-api-client
 disallowAdditionalPropertiesIfNotPresent: false
 packageUrl: https://github.com/expressintegrations/sparkfly-client
-packageVersion: 1.0.2
+packageVersion: 1.0.3
