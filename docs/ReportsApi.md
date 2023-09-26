@@ -1,6 +1,6 @@
 # sparkfly_client.ReportsApi
 
-All URIs are relative to *https://api-staging.sparkfly.com*
+All URIs are relative to *https://api.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,10 +27,10 @@ from sparkfly_client.models.account_level_merchant_report import AccountLevelMer
 from sparkfly_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api-staging.sparkfly.com
+# Defining the host is optional and defaults to https://api.sparkfly.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sparkfly_client.Configuration(
-    host = "https://api-staging.sparkfly.com"
+    host = "https://api.sparkfly.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -107,10 +107,10 @@ from sparkfly_client.models.merchant_report_data import MerchantReportData
 from sparkfly_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api-staging.sparkfly.com
+# Defining the host is optional and defaults to https://api.sparkfly.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sparkfly_client.Configuration(
-    host = "https://api-staging.sparkfly.com"
+    host = "https://api.sparkfly.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -189,10 +189,10 @@ from sparkfly_client.models.impressions_report_data import ImpressionsReportData
 from sparkfly_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api-staging.sparkfly.com
+# Defining the host is optional and defaults to https://api.sparkfly.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sparkfly_client.Configuration(
-    host = "https://api-staging.sparkfly.com"
+    host = "https://api.sparkfly.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -273,10 +273,10 @@ from sparkfly_client.models.offer_activity_report import OfferActivityReport
 from sparkfly_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api-staging.sparkfly.com
+# Defining the host is optional and defaults to https://api.sparkfly.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sparkfly_client.Configuration(
-    host = "https://api-staging.sparkfly.com"
+    host = "https://api.sparkfly.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -375,10 +375,10 @@ from sparkfly_client.models.redemption_list1 import RedemptionList1
 from sparkfly_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api-staging.sparkfly.com
+# Defining the host is optional and defaults to https://api.sparkfly.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sparkfly_client.Configuration(
-    host = "https://api-staging.sparkfly.com"
+    host = "https://api.sparkfly.com"
 )
 
 # The client must configure the authentication and authorization parameters

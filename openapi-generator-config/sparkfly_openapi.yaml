@@ -574,10 +574,10 @@ info:
     
     In addition the the parameters named above, any attributes under the "conv_ids" key of the credential's annotations will also be available for selection. See the credential creation documentation for examples of how to set the credential's annotations. Any keys that cannot be resolved will result in blank parameters in the final URL.
 servers:
-- url: https://api-staging.sparkfly.com
-  description: Staging Server
-- url: https://api.sparkfly.com
-  description: Production Server
+  - url: https://api.sparkfly.com
+    description: Production Server
+  - url: https://api-staging.sparkfly.com
+    description: Staging Server
 security:
   - X-Auth-Token: []
 paths:

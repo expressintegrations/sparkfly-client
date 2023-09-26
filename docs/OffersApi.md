@@ -1,6 +1,6 @@
 # sparkfly_client.OffersApi
 
-All URIs are relative to *https://api-staging.sparkfly.com*
+All URIs are relative to *https://api.sparkfly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,10 +28,10 @@ from sparkfly_client.models.offer_response import OfferResponse
 from sparkfly_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api-staging.sparkfly.com
+# Defining the host is optional and defaults to https://api.sparkfly.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sparkfly_client.Configuration(
-    host = "https://api-staging.sparkfly.com"
+    host = "https://api.sparkfly.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -105,10 +105,10 @@ import sparkfly_client
 from sparkfly_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api-staging.sparkfly.com
+# Defining the host is optional and defaults to https://api.sparkfly.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sparkfly_client.Configuration(
-    host = "https://api-staging.sparkfly.com"
+    host = "https://api.sparkfly.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -181,10 +181,10 @@ from sparkfly_client.models.offer_response import OfferResponse
 from sparkfly_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api-staging.sparkfly.com
+# Defining the host is optional and defaults to https://api.sparkfly.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sparkfly_client.Configuration(
-    host = "https://api-staging.sparkfly.com"
+    host = "https://api.sparkfly.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -259,10 +259,10 @@ from sparkfly_client.models.offer_list import OfferList
 from sparkfly_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api-staging.sparkfly.com
+# Defining the host is optional and defaults to https://api.sparkfly.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sparkfly_client.Configuration(
-    host = "https://api-staging.sparkfly.com"
+    host = "https://api.sparkfly.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -343,10 +343,10 @@ from sparkfly_client.models.offer_response import OfferResponse
 from sparkfly_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api-staging.sparkfly.com
+# Defining the host is optional and defaults to https://api.sparkfly.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sparkfly_client.Configuration(
-    host = "https://api-staging.sparkfly.com"
+    host = "https://api.sparkfly.com"
 )
 
 # The client must configure the authentication and authorization parameters
